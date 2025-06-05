@@ -132,18 +132,57 @@ body {
     font-family: 'Roboto';
 }
 
-.SidebarNav{
+.App{
+    display: flex;
+}
+
+.Sidebar{
     width: 210px;
     height: 100vh;
     background-color: #182537;
-    padding : 10px;
+}
+
+.SidebarNavHeader{
+    background-color: #101824;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    height: 40px;
+}
+
+.SidebarNavTitle{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.SidebarNavToggleMenu{
+    width: 24px;
+    height: 24px;
+    stroke-width: 3;
+}
+
+.SidebarNav{
+    padding: 15px 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 .SidebarNavLink{
     color: rgba(255, 255, 255, 0.616);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 12px;
+}
+
+.Topbar{
+    height: 40px;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    justify-content: space-between;
 }
