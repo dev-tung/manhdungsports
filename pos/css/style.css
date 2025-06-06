@@ -132,57 +132,98 @@ body {
     font-family: 'Roboto';
 }
 
-.App{
-    display: flex;
-}
-
-.Sidebar{
-    width: 210px;
-    height: 100vh;
-    background-color: #182537;
-}
-
-.SidebarNavHeader{
-    background-color: #101824;
-    color: rgb(255, 255, 255);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
-    height: 40px;
-}
-
-.SidebarNavTitle{
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.SidebarNavToggleMenu{
-    width: 24px;
-    height: 24px;
-    stroke-width: 3;
-}
-
-.SidebarNav{
-    padding: 15px 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.SidebarNavLink{
-    color: rgba(255, 255, 255, 0.616);
-    text-decoration: none;
-    font-size: 12px;
-}
-
 .Topbar{
     height: 40px;
     width: 100%;
     background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 250px auto;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.TopbarBrand{
+    background-color: #101824;
+    color: rgba(255, 255, 255, 0.87);
     display: flex;
     align-items: center;
-    padding: 0 15px;
+    justify-content: space-between;
+    height: 40px;
+    padding: 0 10px;
+}
+
+.TopbarBrand:hover{
+    color : white;
+}
+
+.TopbarNav{
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.TopbarUser{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.TopbarUsername{
+    text-transform: uppercase;
+}
+
+.TopbarDropdownIcon{
+    width: 13px;
+    height: 13px;
+}
+
+.TopbarSoftwareName{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.TopbarToggleSidebar{
+    width: 20px;
+    height: 20px;
+    stroke-width: 3;
+    cursor: pointer;
+}
+
+.Sidebar.Hide{
+    display: none;
+}
+
+.Sidebar{
+    width: 250px;
+    height: 100vh;
+    background-color: #182537;
+}
+
+.SidebarNav{
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.SidebarNavLink{
+    color: rgba(255, 255, 255, 0.616);
+    text-decoration: none;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
 }
+
+.SidebarNavLink:hover{
+    color : white;
+}
+
+.SidebarNavIcon{
+    width: 18px;
+    height: 14px;
+}
+

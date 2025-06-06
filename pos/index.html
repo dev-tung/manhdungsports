@@ -9,22 +9,58 @@
 </head>
 <body>
     <div class="App">
-        <div class="Sidebar">
-            <div class="SidebarNavHeader">
-                <p class="SidebarNavTitle">MANH DUNG POS</p>
-                <svg class="SidebarNavToggleMenu" id="SidebarNavToggleMenu" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <div class="Topbar">
+            <div class="TopbarBrand">
+                <p class="TopbarSoftwareName">MANH DUNG POS</p>
+                <svg class="TopbarToggleSidebar" id="TopbarToggleSidebar" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
                     <path stroke="currentColor" stroke-linecap="round" d="M12 6h.01M12 12h.01M12 18h.01"/>
                 </svg>
             </div>
+            <div class="TopbarNav">
+                <h1 class="TopbarPageTitle">Danh sách sản phẩm</h1>
+                <div class="TopbarUser">
+                    <span class="TopbarUsername">Admin</span> 
+                    <svg class="TopbarDropdownIcon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m19 9-7 7-7-7"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!-- End Topbar -->
+         
+        <div class="Sidebar" id="Sidebar">
             <nav class="SidebarNav">
-                <a class="SidebarNavLink" href="#">Danh sách sản phẩm</a>
-                <a class="SidebarNavLink" href="#">Thêm sản phẩm</a>
+                <a class="SidebarNavLink" href="#">
+                    <span class="SidebarNavText">Danh sách sản phẩm</span> 
+                    <svg class="SidebarNavIcon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
+                    </svg>
+                </a>
+                <a class="SidebarNavLink" href="#">
+                    <span class="SidebarNavText">Đơn hàng</span> 
+                    <svg class="SidebarNavIcon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
+                    </svg>
+                </a>
+                <a class="SidebarNavLink" href="#">
+                    <span class="SidebarNavText">Sản phẩm</span> 
+                    <svg class="SidebarNavIcon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
+                    </svg>
+                </a>
             </nav>
         </div>
-        <div class="Topbar">
-            <h1 class="PageTitle">Danh sách sản phẩm</h1>
-            <p>Admin</p>
-        </div>
+        <!-- End Sidebar -->
+
     </div>
+    <!-- End App -->
+
+    <script>
+        document.getElementById('TopbarToggleSidebar').addEventListener("click", function (e) {
+            let sidebarClass = document.getElementById('Sidebar').classList;
+            if( sidebarClass.contains('Hide') ) sidebarClass.remove('Hide');
+            else sidebarClass.add('Hide');
+        });
+    </script>
 </body>
 </html>
