@@ -46,6 +46,10 @@ table {
     box-sizing: border-box;
 }
 
+:root {
+    
+}
+
 /* cyrillic-ext */
 @font-face {
   font-family: 'Roboto';
@@ -133,36 +137,40 @@ body {
 }
 
 .Topbar{
-    height: 40px;
+    height: 50px;
     width: 100%;
     background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
     display: grid;
     align-items: center;
-    grid-template-columns: 250px auto;
     font-size: 13px;
     text-transform: uppercase;
 }
 
-.TopbarBrand{
+@media only screen and (min-width: 768px) {
+    .Topbar{
+        grid-template-columns: 250px auto;
+    }
+}
+
+.TopbarPage{
     background-color: #101824;
     color: rgba(255, 255, 255, 0.87);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 40px;
+    height: 50px;
     padding: 0 10px;
 }
 
-.TopbarBrand:hover{
+@media only screen and (min-width: 768px) {
+    .TopbarPage{
+        padding: 0 15px;
+    }
+}
+
+.TopbarPage:hover{
     color : white;
-}
-
-.TopbarNav{
-    display: flex;
-    align-items: center; 
-    justify-content: space-between;
-    padding: 0 10px;
 }
 
 .TopbarUser{
@@ -176,37 +184,67 @@ body {
 }
 
 .TopbarDropdownIcon{
-    width: 13px;
-    height: 13px;
 }
 
-.TopbarSoftwareName{
-    font-size: 12px;
-    font-weight: bold;
+.TopbarPageTitle{
+    font-size: 14px;
 }
 
-.TopbarToggleSidebar{
-    width: 20px;
-    height: 20px;
-    stroke-width: 3;
+.TopbarToggleIcon:hover{
     cursor: pointer;
+    background-color: #222833;
 }
 
-.Sidebar.Hide{
-    display: none;
+.Icon_Background{
+    background-color: #222833;
+}
+
+.Icon_Border{
+    border: 1px solid #2d3a52;
+}
+
+@keyframes sidebarFromLeft {
+    from {
+       left: -100%;
+    }
+    to {
+       left: 0px;
+    }
 }
 
 .Sidebar{
-    width: 250px;
+    width: 100%;
     height: 100vh;
+    position: absolute;
+    animation: sidebarFromLeft 0.5s;
     background-color: #182537;
 }
 
+@media only screen and (min-width: 768px) {
+    .Sidebar{
+        width: 250px;
+    }
+}
+
+@keyframes sidebarHide {
+    from {
+       left: 0;
+    }
+    to {
+       left: -100%;
+    }
+}
+
+.App.Sidebar_Hide .Sidebar{
+    overflow: hidden;
+    animation: sidebarHide 0.5s ease 0s forwards;
+}
+
 .SidebarNav{
-    padding: 20px 10px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 15px 10px;
 }
 
 .SidebarNavLink{
@@ -222,8 +260,91 @@ body {
     color : white;
 }
 
-.SidebarNavIcon{
-    width: 18px;
-    height: 14px;
+@keyframes mainToRight {
+    from {
+       left: 0px;
+    }
+    to {
+       left: 250px;
+    }
+}
+
+.Main{
+    padding : 10px;
+    width: calc(100% - 250px);
+    left: 250px;
+}
+
+@media only screen and (min-width: 768px) {
+    .Main{
+        position: absolute;
+        animation: mainToRight 0.5s ease 0s forwards;
+    }
+}
+
+@keyframes mainToLeft {
+    from {
+       left: 250px;
+    }
+    to {
+       left: 0px;
+    }
+}
+
+.App.Sidebar_Hide .Main{
+    width: 100%;
+    left: 0;
+    animation: mainToLeft 0.5s ease 0s forwards;
+}
+
+.Form{
+    box-shadow : rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    padding : 10px;
+    display: grid;
+    gap: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+    .Form{
+        grid-template-columns: 1fr 1fr;
+        padding : 15px;
+        gap: 15px;
+    }
+}
+
+.FormGrid{
+    display: grid;
+    gap: 15px;
+}
+
+.FormGrid_Two{
+    grid-template-columns: 1fr 1fr;
+}
+
+.FormGrid_Three{
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.FormGrid_Four{
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.FormGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.FormLabel{
+    font-size: 12px;
+}
+
+.RequiredSymbol{
+    color: red;
+}
+
+.FormInput{
+    height: 30px;
+    border: 1px solid #dadada;
 }
 
