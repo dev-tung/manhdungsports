@@ -369,15 +369,18 @@ body {
 .FormInput{
     height: 30px;
     border: 1px solid #dadada;
+    border-radius: 5px;
 }
 
 .FormSelect{
     height: 30px;
     border: 1px solid #dadada;
+    border-radius: 5px;
 }
 
 .FormTexarea{
     border: 1px solid #dadada;
+    border-radius: 5px;
 }
 
 .FormSaveBtn{
@@ -385,15 +388,13 @@ body {
     background-color: var(--color-primary);
     color: white;
     border: none;
+    border-radius: 5px;
 }
 
-.FormProductThumnail{
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-}
-
-.FormAddImageIcon{
+.FormAddImageBtn{
     background-color: white;
     border: 1px solid #dadada;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 5px;
 }

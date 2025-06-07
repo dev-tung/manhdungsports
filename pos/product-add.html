@@ -38,38 +38,43 @@
 
         <main class="Main">
             <form action="" class="Form">
-                <div class="FormGrid FormGridDesktop_Two">
-                    <div>
-                        <button class="FormAddImageIcon">
-                            <svg width="48" height="48" viewBox="-9 -4 49 50" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Khung hình ảnh -->
-                            <rect x="0" y="8" width="30" height="28" rx="2" ry="2" fill="#e0e0e0" stroke="#555" stroke-width="1"/>
-
-                            <!-- Mặt trời -->
-                            <circle cx="10" cy="18" r="2.5" fill="#777" />
-
-                            <!-- Núi -->
-                            <polyline points="5,34 12,25 18,31 24,26 30,34" fill="none" stroke="#555" stroke-width="1" />
-
-                            <!-- Dấu cộng (thêm mới) với nền trắng và nét mỏng -->
-                            <circle cx="32" cy="36" r="6" fill="white" stroke="#555" stroke-width="1"/>
-                            <line x1="32" y1="33" x2="32" y2="39" stroke="#555" stroke-width="1"/>
-                            <line x1="29" y1="36" x2="35" y2="36" stroke="#555" stroke-width="1"/>
-                            </svg>
-                        </button>
-                    </div>
+                <div class="FormGrid">
                     <div class="FormGroup">
-                        <label class="FormLabel" for="ProductName" >Tên sản phẩm <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="ProductName" type="text" name="ProductName">
-                    </div>
-                    <div class="FormGrid FormGridDesktop_Two FormGridMobile_Two">
-                        <div class="FormGroup">
-                            <label class="FormLabel" for="ProductPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
-                            <input class="FormInput" id="ProductPriceInput" type="text" name="ProductPriceInput">
+                        <div class="FormProductThumnail">
+                            <button class="FormAddImageBtn" id="FormAddImageBtn">
+                                <svg width="48" height="48" viewBox="-9 -4 49 50" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Khung hình ảnh -->
+                                    <rect x="0" y="8" width="30" height="28" rx="2" ry="2" fill="#e0e0e0" stroke="#555" stroke-width="1"/>
+
+                                    <!-- Mặt trời -->
+                                    <circle cx="10" cy="18" r="2.5" fill="#777" />
+
+                                    <!-- Núi -->
+                                    <polyline points="5,34 12,25 18,31 24,26 30,34" fill="none" stroke="#555" stroke-width="1" />
+
+                                    <!-- Dấu cộng (thêm mới) với nền trắng và nét mỏng -->
+                                    <circle cx="32" cy="36" r="6" fill="white" stroke="#555" stroke-width="1"/>
+                                    <line x1="32" y1="33" x2="32" y2="39" stroke="#555" stroke-width="1"/>
+                                    <line x1="29" y1="36" x2="35" y2="36" stroke="#555" stroke-width="1"/>
+                                </svg>
+                            </button>
+                            <input type="file" name="ProductThumnail" id="ProductThumnail" hidden>
                         </div>
+                    </div>
+                    <div class="FormGrid FormGridDesktop_Two ">
                         <div class="FormGroup">
-                            <label class="FormLabel" for="ProductPriceOutput" >Giá bán <span class="RequiredSymbol">*</span></label>
-                            <input class="FormInput" id="ProductPriceOutput" type="text" name="ProductPriceOutput">
+                            <label class="FormLabel" for="ProductName" >Tên sản phẩm <span class="RequiredSymbol">*</span></label>
+                            <input class="FormInput" id="ProductName" type="text" name="ProductName">
+                        </div>
+                        <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
+                            <div class="FormGroup">
+                                <label class="FormLabel" for="ProductPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
+                                <input class="FormInput" id="ProductPriceInput" type="text" name="ProductPriceInput">
+                            </div>
+                            <div class="FormGroup">
+                                <label class="FormLabel" for="ProductPriceOutput" >Giá bán <span class="RequiredSymbol">*</span></label>
+                                <input class="FormInput" id="ProductPriceOutput" type="text" name="ProductPriceOutput">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -114,7 +119,7 @@
     <!-- End App -->
 
     <script>
-        // *** Sidebar
+        // SIDEBAR
         document.getElementById('TopbarToggleIcon').addEventListener("click", function (e) {
             let sidebarClass = document.getElementById('App').classList;
             if( sidebarClass.contains('Sidebar_Hide') ) sidebarClass.remove('Sidebar_Hide');
@@ -125,10 +130,15 @@
         if(window.innerWidth < 768){
             document.getElementById('App').classList.add('Sidebar_Hide');
         }
+        // END SIDEBAR
 
-        // *** End Sidebar
 
-
+        // PRODUCT
+        document.getElementById("FormAddImageBtn").addEventListener("click", function(event){
+            event.preventDefault();
+            document.getElementById("ProductThumnail").click();
+        });
+        // END PRODUCT
     </script>
 </body>
 </html>
