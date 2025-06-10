@@ -13,7 +13,7 @@ function Validator( options ) {
     formElement.onsubmit = function(e){
         e.preventDefault();
         var flagSubmit = true;
-        var viewInvalidElement = [];
+        var viewFormInvalidElement = [];
         
         options.rules.forEach( rule => {
            var elements = formElement.querySelectorAll(rule.selector);
@@ -24,9 +24,9 @@ function Validator( options ) {
                         flagSubmit = false;
                         var scrollPosition = rule.error 
                                                 ? document.querySelector(rule.error) 
-                                                : element.closest('.validate').querySelector('.error-message');
+                                                : element.closest('.validate').querySelector('.FormErrorMessage');
 
-                        viewInvalidElement.push(scrollPosition);
+                        viewFormInvalidElement.push(scrollPosition);
                     }
                 }
             });
@@ -41,7 +41,7 @@ function Validator( options ) {
             });
             options.onSubmit(responses);
         }else{
-            viewInvalidElement[0].scrollIntoView({
+            viewFormInvalidElement[0].scrollIntoView({
                 behavior: 'smooth',
                 block: 'center',
                 inline: 'center'
@@ -58,15 +58,15 @@ function Validator( options ) {
         }
 
         var validateElement = element.closest('.validate');
-        var errorMsgElement = error ? document.querySelector(error) : validateElement.querySelector('.error-message');
+        var errorMsgElement = error ? document.querySelector(error) : validateElement.querySelector('.FormErrorMessage');
 
         if( errMsg){
-            validateElement.classList.add('invalid');
-            validateElement.classList.remove('valid');
+            validateElement.classList.add('FormInvalid');
+            validateElement.classList.remove('FormValid');
             errorMsgElement.innerText = errMsg;
         }else{
-            validateElement.classList.add('valid');
-            validateElement.classList.remove('invalid');
+            validateElement.classList.add('FormValid');
+            validateElement.classList.remove('FormInvalid');
             errorMsgElement.innerText = '';
         }
 
@@ -421,9 +421,9 @@ var Functions = {
         if( error ){
             document.querySelector(error).innerText = '';
         }else{
-            element.closest('.validate').querySelector('.error-message').innerText = '';
+            element.closest('.validate').querySelector('.FormErrorMessage').innerText = '';
         }
-        element.closest('.validate').classList.remove('invalid', 'valid');
+        element.closest('.validate').classList.remove('FormInvalid', 'FormValid');
         if( fileElement.value ){
             fileElement.value = '';
         }

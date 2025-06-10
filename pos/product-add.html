@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MANH DUNG POS | Product</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link href="font/font-roboto.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
     <div class="App" id="App">
@@ -24,10 +25,10 @@
                     <span class="SidebarNavText">Tổng quan</span> 
                 </a>
                 <a class="SidebarNavLink" href="product-add.html">
-                    <span class="SidebarNavText">Thêm sản phẩm</span> 
+                    <span class="SidebarNavText">Sản phẩm thêm mới</span> 
                 </a>
                 <a class="SidebarNavLink" href="product-list.html">
-                    <span class="SidebarNavText">Danh sách sản phẩm</span> 
+                    <span class="SidebarNavText">Sản phẩm danh sách</span> 
                 </a>
             </nav>
         </div>
@@ -65,18 +66,18 @@
                         <div class="FormGroup validate">
                             <label class="FormLabel" for="ProductName" >Tên sản phẩm <span class="RequiredSymbol">*</span></label>
                             <input class="FormInput" id="ProductName" type="text" name="ProductName">
-                            <small class="error-message"></small>
+                            <small class="FormErrorMessage"></small>
                         </div>
                         <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                             <div class="FormGroup validate">
                                 <label class="FormLabel" for="ProductPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
                                 <input class="FormInput" id="ProductPriceInput" type="number" name="ProductPriceInput">
-                                <small class="error-message"></small>
+                                <small class="FormErrorMessage"></small>
                             </div>
                             <div class="FormGroup validate">
                                 <label class="FormLabel" for="ProductPriceOutput" >Giá bán <span class="RequiredSymbol">*</span></label>
                                 <input class="FormInput" id="ProductPriceOutput" type="number" name="ProductPriceOutput">
-                                <small class="error-message"></small>
+                                <small class="FormErrorMessage"></small>
                             </div>
                         </div>
                     </div>
@@ -86,12 +87,12 @@
                         <div class="FormGroup validate">
                             <label class="FormLabel" for="ProductQuantity" >Số lượng <span class="RequiredSymbol">*</span></label>
                             <input class="FormInput" id="ProductQuantity" type="number" name="ProductQuantity">
-                            <small class="error-message"></small>
+                            <small class="FormErrorMessage"></small>
                         </div>
                         <div class="FormGroup validate">
                             <label class="FormLabel" for="ProductUnit" >Đơn vị tính <span class="RequiredSymbol">*</span></label>
                             <input class="FormInput" id="ProductUnit" type="text" name="ProductUnit">
-                            <small class="error-message"></small>
+                            <small class="FormErrorMessage"></small>
                         </div>
                     </div>
 
@@ -110,12 +111,12 @@
                                 <option value="8">Cầu</option>
                                 <option value="9">Phụ kiện</option>
                             </select>
-                            <small class="error-message"></small>
+                            <small class="FormErrorMessage"></small>
                         </div>
                         <div class="FormGroup validate">
                             <label class="FormLabel" for="ProductSource" >Nhà cung cấp </label>
                             <input class="FormInput" id="ProductSource" type="text" name="ProductSource">
-                            <small class="error-message"></small>
+                            <small class="FormErrorMessage"></small>
                         </div>
                     </div>
 
