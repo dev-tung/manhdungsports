@@ -49,6 +49,8 @@ table {
 :root {
     --color-primary : rgb(0, 153, 255);
     --color-primary-hover : rgb(3, 122, 201);
+    --color-danger : rgb(255, 51, 0);
+    --color-danger-hover : rgb(201, 3, 3);
 }
 
 body {
@@ -270,6 +272,7 @@ body {
     width: max-content;
     padding-right: 20px;
     padding-left: 20px;
+    font-size: 12px;
 }
 
 .FormSaveBtn:hover{
@@ -377,4 +380,26 @@ body {
 .ListSearchFormInput:focus{
     outline: none;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.FormBtn{
+    display: flex;
+    justify-content: space-between;
+}
+
+.FormDeleteBtn{
+    background-color: var(--color-danger);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: max-content;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 12px;
+}
+
+.FormDeleteBtn:hover{
+    background-color: var(--color-danger-hover);
 }
