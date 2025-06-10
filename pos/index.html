@@ -10,10 +10,10 @@
     <div class="App" id="App">
         <div class="Topbar">
             <div class="TopbarPage">
-                <p class="TopbarPageTitle">MANH DUNG POS</p>
                 <svg id="TopbarToggleIcon" class="Icon_Border TopbarToggleIcon w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-width="3" d="M12 6h.01M12 12h.01M12 18h.01"/>
                 </svg>
+                <p class="TopbarPageTitle">MANH DUNG POS</p>
             </div>
         </div>
         <!-- End Topbar -->
@@ -26,46 +26,24 @@
                 <a class="SidebarNavLink" href="product-add.html">
                     <span class="SidebarNavText">Thêm sản phẩm</span> 
                 </a>
-                <a class="SidebarNavLink" href="#">
-                    <span class="SidebarNavText">Đơn hàng</span> 
-                </a>
-                <a class="SidebarNavLink" href="#">
-                    <span class="SidebarNavText">Sản phẩm</span> 
+                <a class="SidebarNavLink" href="product-list.html">
+                    <span class="SidebarNavText">Danh sách sản phẩm</span> 
                 </a>
             </nav>
         </div>
         <!-- End Sidebar -->
 
         <main class="Main">
-            <form action="" class="Form">
-                <div class="FormGroup">
-                    <label class="FormLabel" for="ProductName" >Tên sản phẩm <span class="RequiredSymbol">*</span></label>
-                    <input class="FormInput" id="ProductName" type="text" name="ProductName">
-                </div>
-                <div class="FormGrid FormGrid_Two">
-                    <div class="FormGroup">
-                        <label class="FormLabel" for="ProductPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="ProductPriceInput" type="text" name="ProductPriceInput">
-                    </div>
-                    <div class="FormGroup">
-                        <label class="FormLabel" for="ProductPriceOutput" >Giá bán <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="ProductPriceOutput" type="text" name="ProductPriceOutput">
-                    </div>
-                </div>
-                <div class="FormGroup">
-                    <label class="FormLabel" for="ProductPriceNote" >Ghi chú</label>
-                    <input class="FormInput" id="ProductPriceNote" type="text" name="ProductPriceNote">
-                </div>
 
-            </form>
         </main>
         <!-- End Main -->
 
     </div>
     <!-- End App -->
 
+    <script src="js/function.js"></script>
     <script>
-        // #### Sidebar
+        // SIDEBAR
         document.getElementById('TopbarToggleIcon').addEventListener("click", function (e) {
             let sidebarClass = document.getElementById('App').classList;
             if( sidebarClass.contains('Sidebar_Hide') ) sidebarClass.remove('Sidebar_Hide');
@@ -76,10 +54,62 @@
         if(window.innerWidth < 768){
             document.getElementById('App').classList.add('Sidebar_Hide');
         }
+        // END SIDEBAR
 
-        // #### End Sidebar
 
-
+        // PRODUCT
+        document.getElementById("FormAddImageBtn").addEventListener("click", function(event){
+            event.preventDefault();
+            document.getElementById("ProductThumnail").click();
+        });
+        // END PRODUCT
+        
+        // VALIDATOR
+        Validator({
+            form: '#FormProductAdd',
+            rules: [
+                Validator.tbRequired({
+                    selector: '#ProductName',
+                    submit: true
+                }),
+                Validator.tbRequired({
+                    selector: '#ProductPriceInput',
+                    submit: true
+                }),
+                Validator.isPInt({
+                    selector: '#ProductPriceInput',
+                    submit: true
+                }),
+                Validator.tbRequired({
+                    selector: '#ProductPriceOutput',
+                    submit: true
+                }),
+                Validator.isPInt({
+                    selector: '#ProductPriceOutput',
+                    submit: true
+                }),
+                Validator.slbRequired({
+                    selector: '#ProductCategory',
+                    submit: true
+                }),
+                Validator.tbRequired({
+                    selector: '#ProductQuantity',
+                    submit: true
+                }),
+                Validator.isPInt({
+                    selector: '#ProductQuantity',
+                    submit: true
+                }),
+                Validator.tbRequired({
+                    selector: '#ProductUnit',
+                    submit: true
+                })
+            ],
+            onSubmit: (data) => {
+                alert('Submit Form Success');
+            }
+        });
+        // END VALIDATOR
     </script>
 </body>
 </html>
