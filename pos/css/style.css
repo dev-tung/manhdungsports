@@ -50,6 +50,8 @@ table {
     --color-border : #dadada;
     --color-primary : rgb(0, 153, 255);
     --color-primary-hover : rgb(3, 122, 201);
+    --color-success : rgb(38, 184, 69);
+    --color-success-hover : rgb(9, 141, 38);
     --color-danger : rgb(255, 51, 0);
     --color-danger-hover : rgb(201, 3, 3);
     --color-default : rgb(255, 255, 255);
@@ -69,6 +71,8 @@ body {
     align-items: center;
     font-size: 13px;
     text-transform: uppercase;
+    position: fixed;
+    z-index: 2;
 }
 
 @media only screen and (min-width: 768px) {
@@ -85,6 +89,7 @@ body {
     align-items: center;
     height: 50px;
     padding: 0 10px;
+    
 }
 
 @media only screen and (min-width: 768px) {
@@ -127,10 +132,11 @@ body {
 
 .Sidebar{
     width: 100%;
-    height: 100vh;
-    position: absolute;
+    height: 100%;
+    position: fixed;
     background-color: #182537;
     z-index: 2;
+    top:50px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -164,16 +170,18 @@ body {
 }
 
 .Main{
+    position: absolute;
+    top:50px;
     padding : 10px;
     width: calc(100% - 250px);
     left: 250px;
 }
 
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
     .Main{
         position: absolute;
     }
-}
+} */
 
 .App.Sidebar_Hide .Main{
     width: 100%;
@@ -416,9 +424,18 @@ body {
     color: white;
 }
 
+.Btn_Success{
+    background-color: var(--color-success);
+    color: white;
+}
+
 .Btn_Danger{
     background-color: var(--color-danger);
     color: white;
+}
+
+.Btn_Round{
+    border-radius: 50%;
 }
 
 .FormBtn{
@@ -430,4 +447,13 @@ body {
 .FormBtnGroup{
     display: flex;
     gap: 10px;
+}
+
+.Float{
+    position: fixed;
+}
+
+.Float_BottomRight{
+    right: 20px;
+    bottom: 30px;
 }
