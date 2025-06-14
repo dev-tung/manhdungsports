@@ -5,7 +5,7 @@ namespace App\Http\Controllers\POS;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
-class ProductController 
+class ProductController extends Controller
 {
     public function index(){
         return view('pos.product.index');
@@ -22,7 +22,5 @@ class ProductController
 
     public function edit(){
         return view('pos.product.edit');
-
-
     }
 }

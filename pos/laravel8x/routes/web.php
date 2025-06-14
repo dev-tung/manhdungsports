@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 // POS
 Route::prefix('pos')->group(function () {
-    Route::get('/', ['as' => 'dashboard.index', 'uses' => 'DashboardController@index']);
+    Route::get('dashboard', ['as' => 'dashboard.index', 'uses' => 'POS\DashboardController@index']);
     Route::prefix('product')->group(function () {
         Route::get('index', ['as' => 'product.index', 'uses' => 'POS\ProductController@index']);
         Route::get('add', ['as' => 'product.add', 'uses' => 'POS\ProductController@add']);
