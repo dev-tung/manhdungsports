@@ -28,13 +28,5 @@ Route::prefix('pos')->group(function () {
 
 
 // Website
-// Route::get('/', ['as' => 'dashboard.index', 'uses' => 'DashboardController@index']);
-// Route::prefix('product')->group(function () {
-//     Route::get('index', ['as' => 'product.index', 'uses' => 'Website/ProductController@index']);
-//     Route::get('add', ['as' => 'product.add', 'uses' => 'Website/ProductController@add']);
-//     Route::post('insert', ['as' => 'product.insert', 'uses' => 'Website/ProductController@insert']);
-//     Route::get('edit', ['as' => 'product.edit', 'uses' => 'Website/ProductController@edit']);
-//     Route::post('update', ['as' => 'product.update', 'uses' => 'Website/ProductController@update']);
-// });
 
 
