@@ -13,12 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', ['as' => 'dashboard.index', 'uses' => 'DashboardController@index']);
 
-Route::prefix('product')->group(function () {
-    Route::get('index', ['as' => 'product.index', 'uses' => 'ProductController@index']);
-    Route::get('add', ['as' => 'product.add', 'uses' => 'ProductController@add']);
-    Route::post('insert', ['as' => 'product.insert', 'uses' => 'ProductController@insert']);
-    Route::get('edit', ['as' => 'product.edit', 'uses' => 'ProductController@edit']);
-    Route::post('update', ['as' => 'product.update', 'uses' => 'ProductController@update']);
+// POS
+Route::prefix('pos')->group(function () {
+    Route::get('/', ['as' => 'dashboard.index', 'uses' => 'DashboardController@index']);
+    Route::prefix('product')->group(function () {
+        Route::get('index', ['as' => 'product.index', 'uses' => 'POS\ProductController@index']);
+        Route::get('add', ['as' => 'product.add', 'uses' => 'POS\ProductController@add']);
+        Route::post('insert', ['as' => 'product.insert', 'uses' => 'POS\ProductController@insert']);
+        Route::get('edit', ['as' => 'product.edit', 'uses' => 'POS\ProductController@edit']);
+        Route::post('update', ['as' => 'product.update', 'uses' => 'POS\ProductController@update']);
+    });
 });
+
+
+// Website
+// Route::get('/', ['as' => 'dashboard.index', 'uses' => 'DashboardController@index']);
+// Route::prefix('product')->group(function () {
+//     Route::get('index', ['as' => 'product.index', 'uses' => 'Website/ProductController@index']);
+//     Route::get('add', ['as' => 'product.add', 'uses' => 'Website/ProductController@add']);
+//     Route::post('insert', ['as' => 'product.insert', 'uses' => 'Website/ProductController@insert']);
+//     Route::get('edit', ['as' => 'product.edit', 'uses' => 'Website/ProductController@edit']);
+//     Route::post('update', ['as' => 'product.update', 'uses' => 'Website/ProductController@update']);
+// });
+
+

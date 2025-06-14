@@ -1,10 +1,9 @@
-@extends('layouts.cover')
-@section('title', 'THÊM SẢN PHẨM')
-@section('pagejs', asset('js/product/add.js'))
+@extends('pos.layouts.cover')
+@section('title', 'SỬA SẢN PHẨM')
+@section('pagejs', asset('js/product/edit.js'))
 @section('main')
     <main class="Main">
-        <form action="{{route('product.insert')}}" method="POST" class="Form" id="FormProductAdd">
-            @csrf
+        <form action="" class="Form" id="FormProductAdd">
             <div class="FormGrid">
                 <div class="FormGroupThumnail">
                     <div class="FormFrame">
@@ -101,7 +100,11 @@
                     <button class="Btn Btn_Default" type="button" onclick="history.back()">Quay lại</button>
                     <button class="Btn Btn_Primary">Lưu</button>
                 </div>
+                <div class="FormBtnGroup">
+                    <a class="Btn Btn_Danger" href="#" >Xóa sản phẩm</a>
+                </div>
             </div>
+            
         </form>
     </main>
     <!-- End Main -->

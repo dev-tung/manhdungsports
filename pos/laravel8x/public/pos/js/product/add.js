@@ -4,7 +4,6 @@ document.getElementById("FormAddImageBtn").addEventListener("click", function(ev
     document.getElementById("ProductThumnail").click();
 });
 
-
 // VALIDATOR
 Validator({
     form: '#FormProductAdd',
@@ -48,20 +47,7 @@ Validator({
     ],
     onSubmit: (data) => {
         document.getElementById("ModalLoading").style.display = "block";
-
-        const formData = new FormData(data.form);
-
-        fetch(data.form.action, {
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        data.form.submit();
     }
 });
 // END VALIDATOR

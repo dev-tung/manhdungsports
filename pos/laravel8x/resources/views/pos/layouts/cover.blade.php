@@ -6,8 +6,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" id="CsrfToken"/>
 
     <title>MANH DUNG POS | Product</title>
-    <link rel="stylesheet" href="{{asset('font/font-roboto.css')}}" >
-    <link rel="stylesheet" href="{{asset('css/style.css')}}" >
+    <link rel="stylesheet" href="{{asset('pos/font/font-roboto.css')}}" >
+    <link rel="stylesheet" href="{{asset('pos/css/style.css')}}" >
 </head>
 <body>
     <div class="App" id="App">
@@ -21,7 +21,7 @@
         </div>
         <!-- End Topbar -->
          
-        @include('layouts.sidebar')
+        @include('pos.layouts.sidebar')
         <!-- End Sidebar -->
 
         @yield('main')
@@ -39,8 +39,8 @@
         </div>
     </div>
 
-    <script src="{{asset('js/function.js')}}"></script>
-    <script src="{{asset('js/cover.js')}}"></script>
+    <script src="{{asset('pos/js/function.js')}}"></script>
+    <script src="{{asset('pos/js/cover.js')}}"></script>
     <script src="@yield('pagejs')"></script>
 </body>
 </html>
