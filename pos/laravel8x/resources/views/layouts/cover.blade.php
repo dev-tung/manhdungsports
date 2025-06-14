@@ -28,6 +28,17 @@
     </div>
     <!-- End App -->
 
+    <!-- Modal loading page -->
+    <div class="Modal" id="ModalLoading">
+        <div class="ModalOverlay"></div>
+        <div class="ModalContent">
+            <div class="ModalLoading">
+                <div class="ModalLoadingIcon"></div>
+                <div class="ModalLoadingText">Đang xử lý ...</div>
+            </div>
+        </div>
+    </div>
+
     <script src="{{asset('js/function.js')}}"></script>
     <script src="{{asset('js/cover.js')}}"></script>
     <script src="@yield('pagejs')"></script>

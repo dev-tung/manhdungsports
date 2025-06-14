@@ -14,6 +14,10 @@ class ProductController extends Controller
         return view('product.add');
     }
 
+    public function insert(Request $request){
+        dd($request);
+    }
+
     public function edit(){
         return view('product.edit');
     }

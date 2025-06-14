@@ -30,13 +30,13 @@
                         <img class="FormProductThumnail" src="sapo/table.png">
                     </a> -->
                 </div>
-                <div class="FormGrid FormGridDesktop_Two ">
+                <div class="FormGrid FormGrid_DesktopTwo ">
                     <div class="FormGroup validate">
                         <label class="FormLabel" for="ProductName" >Tên sản phẩm <span class="RequiredSymbol">*</span></label>
                         <input class="FormInput" id="ProductName" type="text" name="ProductName">
                         <small class="FormErrorMessage"></small>
                     </div>
-                    <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
+                    <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                         <div class="FormGroup validate">
                             <label class="FormLabel" for="ProductPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
                             <input class="FormInput" id="ProductPriceInput" type="number" name="ProductPriceInput">
@@ -50,8 +50,8 @@
                     </div>
                 </div>
             </div>
-            <div class="FormGrid FormGridDesktop_Two">
-                <div class="FormGrid FormGridDesktop_Two FormGridMobile_Two">
+            <div class="FormGrid FormGrid_DesktopTwo">
+                <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
                     <div class="FormGroup validate">
                         <label class="FormLabel" for="ProductQuantity" >Số lượng <span class="RequiredSymbol">*</span></label>
                         <input class="FormInput" id="ProductQuantity" type="number" name="ProductQuantity">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
 
-                <div class="FormGrid FormGridDesktop_Two FormGridMobile_Two">
+                <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
                     <div class="FormGroup validate">
                         <label class="FormLabel" for="ProductCategory" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="ProductCategory" id="ProductCategory">
