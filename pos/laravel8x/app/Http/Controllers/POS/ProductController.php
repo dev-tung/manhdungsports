@@ -7,6 +7,12 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+    private $_productModel;
+
+    function __construct() {
+        $this->_productModel = new Product;
+    }
+
     public function index(){
         return view('pos.product.index');
     }
@@ -16,8 +22,7 @@ class ProductController extends Controller
     }
 
     public function create(Request $request){
-        $product = new Product;
-        $product->create($request);
+        $this->_productModel->create($request);
     }
 
     public function edit(){
