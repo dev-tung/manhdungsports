@@ -20,7 +20,7 @@ Route::prefix('pos')->group(function () {
     Route::prefix('product')->group(function () {
         Route::get('index', ['as' => 'product.index', 'uses' => 'POS\ProductController@index']);
         Route::get('add', ['as' => 'product.add', 'uses' => 'POS\ProductController@add']);
-        Route::post('insert', ['as' => 'product.insert', 'uses' => 'POS\ProductController@insert']);
+        Route::post('create', ['as' => 'product.create', 'uses' => 'POS\ProductController@create']);
         Route::get('edit', ['as' => 'product.edit', 'uses' => 'POS\ProductController@edit']);
         Route::post('update', ['as' => 'product.update', 'uses' => 'POS\ProductController@update']);
     });

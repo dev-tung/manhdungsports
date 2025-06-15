@@ -3,7 +3,7 @@
 @section('pagejs', asset('pos/js/product/add.js'))
 @section('main')
     <main class="Main">
-        <form action="{{route('product.insert')}}" method="POST" class="Form" id="FormProductAdd">
+        <form action="{{route('product.create')}}" method="POST" class="Form" id="FormProductAdd">
             @csrf
             <div class="FormGrid">
                 <div class="FormGroupThumnail">
@@ -34,18 +34,18 @@
                 <div class="FormGrid FormGrid_DesktopTwo ">
                     <div class="FormGroup validate">
                         <label class="FormLabel" for="ProductName" >Tên sản phẩm <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="ProductName" type="text" name="ProductName">
+                        <input class="FormInput" id="ProductName" type="text" name="product_name">
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                         <div class="FormGroup validate">
                             <label class="FormLabel" for="ProductPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
-                            <input class="FormInput" id="ProductPriceInput" type="number" name="ProductPriceInput">
+                            <input class="FormInput" id="ProductPriceInput" type="number" name="product_price_input">
                             <small class="FormErrorMessage"></small>
                         </div>
                         <div class="FormGroup validate">
                             <label class="FormLabel" for="ProductPriceOutput" >Giá bán <span class="RequiredSymbol">*</span></label>
-                            <input class="FormInput" id="ProductPriceOutput" type="number" name="ProductPriceOutput">
+                            <input class="FormInput" id="ProductPriceOutput" type="number" name="product_price_output">
                             <small class="FormErrorMessage"></small>
                         </div>
                     </div>
@@ -55,12 +55,12 @@
                 <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
                     <div class="FormGroup validate">
                         <label class="FormLabel" for="ProductQuantity" >Số lượng <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="ProductQuantity" type="number" name="ProductQuantity">
+                        <input class="FormInput" id="ProductQuantity" type="number" name="product_quantity">
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup validate">
                         <label class="FormLabel" for="ProductUnit" >Đơn vị tính <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="ProductUnit" type="text" name="ProductUnit">
+                        <input class="FormInput" id="ProductUnit" type="text" name="product_unit">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                 <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
                     <div class="FormGroup validate">
                         <label class="FormLabel" for="ProductCategory" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="ProductCategory" id="ProductCategory">
+                        <select class="FormSelect" name="product_category" id="ProductCategory">
                             <option value="">-- Chọn --</option>
                             <option value="1">Vợt cầu lông</option>
                             <option value="2">Giày cầu lông</option>
@@ -93,7 +93,7 @@
             </div>
             <div class="FormGroup">
                 <label class="FormLabel" for="ProductDescription" >Ghi chú</label>
-                <textarea class="FormTexarea" rows="3" name="ProductDescription" id="ProductDescription"></textarea>
+                <textarea class="FormTexarea" rows="3" name="product_description" id="ProductDescription"></textarea>
             </div>
 
             <div class="FormBtn">

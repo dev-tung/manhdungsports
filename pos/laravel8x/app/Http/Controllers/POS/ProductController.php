@@ -7,14 +7,10 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    private $_productModel;
-
-    function __construct() {
-        $this->_productModel = new Product;
-    }
 
     public function index(){
-        return view('pos.product.index');
+        $products = Product::get();
+        return view('pos.product.index', ['products' => $products]);
     }
 
     public function add(){
@@ -22,7 +18,8 @@ class ProductController extends Controller
     }
 
     public function create(Request $request){
-        $this->_productModel->create($request);
+        Product::add($request);
+        return redirect()->back();
     }
 
     public function edit(){
