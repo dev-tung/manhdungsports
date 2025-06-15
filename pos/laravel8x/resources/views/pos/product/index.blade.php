@@ -9,9 +9,9 @@
                 </form>
             </div>
             <div class="ListSearchTotal">
-                <span class="ListSearchTotalItem">195 sản phẩm</span>
+                <span class="ListSearchTotalItem">{{ $products->count() }} sản phẩm</span>
                 <span>-</span>
-                <span class="ListSearchTotalItem">2.000.000 đ</span>
+                <span class="ListSearchTotalItem">Giá nhập {{ $products->sum('product_price_input') }} đ</span>
             </div>
             <div class="List">
                 @foreach( $products as $product )
@@ -22,11 +22,11 @@
                         <div class="ListItemInfo">
                             <h4 class="ListItemName">{{ $product->product_name }}</h4>
                             <div class="ListSpanGroup">
-                                <span class="ListItemSpan">Giá nhập : {{ $product->product_price_input }} đ</span>
+                                <span class="ListItemSpan">Giá nhập {{ $product->product_price_input }} đ</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">Giá bán : {{ $product->product_price_output }} đ</span>
+                                <span class="ListItemSpan">Giá bán {{ $product->product_price_output }} đ</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">Tồn kho : {{ $product->product_quantity }}</span>
+                                <span class="ListItemSpan">Tồn kho {{ $product->product_quantity }}</span>
                             </div>
                         </div>
                     </a>
