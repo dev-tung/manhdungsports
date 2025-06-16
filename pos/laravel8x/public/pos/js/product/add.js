@@ -1,5 +1,5 @@
 // THUMNAIL
-document.getElementById("FormAddImageBtn").addEventListener("click", function(event){
+document.getElementById("FormThumnailAddBtn").addEventListener("click", function(event){
     event.preventDefault();
     document.getElementById("ProductThumnail").click();
 });
@@ -7,42 +7,12 @@ document.getElementById("FormAddImageBtn").addEventListener("click", function(ev
 // VALIDATOR
 Validator({
     form: '#FormProductAdd',
-    rules: [
+    items: [
         Validator.tbRequired({
-            selector: '#ProductName',
-            submit: true
-        }),
-        Validator.tbRequired({
-            selector: '#ProductPriceInput',
-            submit: true
-        }),
-        Validator.isPInt({
-            selector: '#ProductPriceInput',
-            submit: true
+            selector: '#ProductName'
         }),
         Validator.tbRequired({
-            selector: '#ProductPriceOutput',
-            submit: true
-        }),
-        Validator.isPInt({
-            selector: '#ProductPriceOutput',
-            submit: true
-        }),
-        Validator.slbRequired({
-            selector: '#ProductCategory',
-            submit: true
-        }),
-        Validator.tbRequired({
-            selector: '#ProductQuantity',
-            submit: true
-        }),
-        Validator.isPInt({
-            selector: '#ProductQuantity',
-            submit: true
-        }),
-        Validator.tbRequired({
-            selector: '#ProductUnit',
-            submit: true
+            selector: '#ProductPriceInput'
         })
     ],
     onSubmit: (data) => {

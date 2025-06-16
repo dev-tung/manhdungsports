@@ -40,6 +40,7 @@
     </div>
 
     <script src="{{asset('pos/js/function.js')}}"></script>
+    <script src="{{asset('pos/js/validator.js')}}"></script>
     <script src="{{asset('pos/js/cover.js')}}"></script>
     <script src="@yield('pagejs')"></script>
 </body>
