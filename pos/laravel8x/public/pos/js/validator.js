@@ -37,11 +37,11 @@ function invalidClassify(element, checkFunction){
         validateElement.classList.remove("FormValid");
         validateElement.querySelector(".FormErrorMessage").innerText = errorMessage;
         return element;
-    } else {
-        validateElement.classList.add("FormValid");
-        validateElement.classList.remove("FormInvalid");
-        validateElement.querySelector(".FormErrorMessage").innerText = "";
-    }
+    } 
+
+    validateElement.classList.add("FormValid");
+    validateElement.classList.remove("FormInvalid");
+    validateElement.querySelector(".FormErrorMessage").innerText = "";
 }
 
  Validator.tbRequired = function(param){
