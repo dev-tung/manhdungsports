@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\POS;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -11,11 +12,11 @@ class ProductController extends Controller
     public function index(){
 
         $products = Product::get();
-        return view('pos.product.index', ['products' => $products]);
+        return view('POS.product.index', ['products' => $products]);
     }
 
     public function add(){
-        return view('pos.product.add');
+        return view('POS.product.add');
     }
 
     public function create(Request $request){
@@ -24,6 +25,6 @@ class ProductController extends Controller
     }
 
     public function edit(){
-        return view('pos.product.edit');
+        return view('POS.product.edit');
     }
 }

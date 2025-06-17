@@ -13,11 +13,23 @@ Validator({
         }),
         Validator.tbRequired({
             selector: '#ProductPriceInput'
+        }),
+        Validator.tbRequired({
+            selector: '#ProductPriceOutput'
+        }),
+        Validator.tbRequired({
+            selector: '#ProductQuantity'
+        }),
+        Validator.tbRequired({
+            selector: '#ProductUnit'
+        }),
+        Validator.sbRequired({
+            selector: '#ProductCategory'
         })
     ],
-    onSubmit: (data) => {
+    onSubmit: (form) => {
         document.getElementById("ModalLoading").style.display = "block";
-        data.form.submit();
+        form.submit();
     }
 });
 // END VALIDATOR

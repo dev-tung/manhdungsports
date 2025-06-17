@@ -27,6 +27,6 @@ Route::prefix('pos')->group(function () {
 });
 
 
-// Website
+
 
 
