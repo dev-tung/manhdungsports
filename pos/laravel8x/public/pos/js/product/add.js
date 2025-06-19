@@ -1,8 +1,8 @@
 // thumbnail
-let productthumbnail = document.getElementById("Productthumbnail");
+let ProductThumbnail = document.getElementById("ProductThumbnail");
 document.getElementById("FormthumbnailAddBtn").addEventListener("click", function(event){
     event.preventDefault();
-    productthumbnail.click();
+    ProductThumbnail.click();
 });
 
 // VALIDATOR
@@ -10,7 +10,7 @@ Validator({
     form: '#FormProductAdd',
     items: [
         Validator.file({
-            selector : '#Productthumbnail',
+            selector : '#ProductThumbnail',
             extension: ['jpg', 'jpeg', 'png'],
             size : 1,
             valid : (element) => {
@@ -22,7 +22,7 @@ Validator({
                         document.getElementById("FormthumbnailDisplayImg").setAttribute('src', response.uploadURL);
                         document.getElementById("FormthumbnailDisplayLink").setAttribute('href', response.uploadURL);
                         document.getElementById("FormthumbnailDisplayLink").style.display = "block";
-                        document.getElementById("ProductthumbnailValue").value = response.uploadURL;
+                        document.getElementById("ProductThumbnailValue").value = response.uploadURL;
                     }
                 });
             }

@@ -24,10 +24,10 @@
                                 <line x1="29" y1="36" x2="35" y2="36" stroke="#555" stroke-width="1"/>
                             </svg>
                         </button>
-                        <input type="file" name="Productthumbnail" id="Productthumbnail" hidden>
+                        <input type="file" name="ProductThumbnail" id="ProductThumbnail" hidden>
                     </div>
                     <!-- <a class="FormFrame" href="sapo/dashboard.png">
-                        <img class="FormProductthumbnail" src="sapo/table.png">
+                        <img class="FormProductThumbnail" src="sapo/table.png">
                     </a> -->
                 </div>
                 <div class="FormGrid FormGrid_DesktopTwo ">

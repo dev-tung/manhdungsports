@@ -80,29 +80,31 @@ Validator.file = function (param) {
         param : param,
         check: function (element, param) {
             function fileValidation(element, param){
-                
-                if (!element.value.trim()) {
+
+                if ( !( param.required == undefined || !param.required ) && !element.value.trim()) {
                     return Validator.message.required;
                 }
 
-                function getFileExtension (element) {
-                    var fileName = element.files[0].name;
-                    return fileName.split(".").pop().toLowerCase();
-                }
+                if( element.value.trim() ){
+                    function getFileExtension (element) {
+                        var fileName = element.files[0].name;
+                        return fileName.split(".").pop().toLowerCase();
+                    }
 
-                // Check file extension
-                if (param.extension) {
-                    var fileExtension = getFileExtension(element);
-                    if (!param.extension.includes(fileExtension))
-                        return "Đuôi mở rộng cho phép" + " (" + param.extension.join(" | ") + ")";
-                }
+                    // Check file extension
+                    if (param.extension) {
+                        var fileExtension = getFileExtension(element);
+                        if (!param.extension.includes(fileExtension))
+                            return "Đuôi mở rộng cho phép" + " (" + param.extension.join(" | ") + ")";
+                    }
 
-                // Check file size
-                if (param.size) {
-                    var fileSize = element.files[0].size;
-                    var allowFileSize = param.size * 1100000;
-                    if (fileSize >= allowFileSize)
-                        return "File không được vượt quá " + param.size + "MB";
+                    // Check file size
+                    if (param.size) {
+                        var fileSize = element.files[0].size;
+                        var allowFileSize = param.size * 1100000;
+                        if (fileSize >= allowFileSize)
+                            return "File không được vượt quá " + param.size + "MB";
+                    }
                 }
 
                 return undefined;

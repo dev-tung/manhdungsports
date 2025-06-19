@@ -9,7 +9,7 @@
                 <div class="FormValidate">
                     <div class="FormthumbnailGroup">
                         <button class="FormthumbnailItem FormthumbnailItem_AddBtn" id="FormthumbnailAddBtn">
-                            <svg class="FormthumbnailAddIcon" viewBox="-9 -4 49 50" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="FormThumbnailIcon" viewBox="-9 -4 49 50" xmlns="http://www.w3.org/2000/svg">
                                 <!-- Khung hình ảnh -->
                                 <rect x="0" y="8" width="30" height="28" rx="2" ry="2" fill="#e0e0e0" stroke="#555" stroke-width="1"/>
 
@@ -18,15 +18,13 @@
 
                                 <!-- Núi -->
                                 <polyline points="5,34 12,25 18,31 24,26 30,34" fill="none" stroke="#555" stroke-width="1" />
-
-                                
                             </svg>
                         </button>
                         <a class="FormthumbnailItem FormthumbnailItem_DisplayImg" id="FormthumbnailDisplayLink" href="{{asset('pos/img/77.png')}}">
                             <img class="FormthumbnailDisplayImg" id="FormthumbnailDisplayImg" src="{{asset('pos/img/77.png')}}">
                         </a>
-                        <input type="file" id="Productthumbnail" hidden>
-                        <input type="hidden" id="ProductthumbnailValue" name="product_thumbnail">
+                        <input type="file" id="ProductThumbnail" hidden>
+                        <input type="hidden" id="ProductThumbnailValue" name="product_thumbnail">
                     </div>
                     <small class="FormErrorMessage"></small>
                 </div>

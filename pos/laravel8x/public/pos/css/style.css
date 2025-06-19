@@ -327,12 +327,12 @@ body {
 .FormthumbnailItem{
     border: none;
     height: 50px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     border-radius: 5px;
     background-color: white;
 }
 
-.FormthumbnailAddIcon,
+.FormThumbnailIcon,
 .FormthumbnailDisplayImg{
     height: 100%;
     border-radius: 5px;
@@ -386,6 +386,11 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 5px;
+    
+}
+
+.ListItemthumbnail_default{
+    border: 1px solid #dadada;
 }
 
 .ListItemName{
@@ -400,13 +405,17 @@ body {
     margin-top: 10px;
 }
 
+.ListSearchForm{
+    display: flex;
+    gap: 15px;
+}
+
 .ListSearchFormInput{
     height: 35px;
     border-radius: 5px;
     border: 1px solid #dadada;
     width: 100%;
     padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 .ListSearchFormInput:hover{
@@ -416,6 +425,42 @@ body {
 .ListSearchFormInput:focus{
     outline: none;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ListSearchFormSelect{
+    height: 35px;
+    border: 1px solid #dadada;
+    color: #3f3f3f;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.ListSearchFormSelect:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ListSearchFormSelect:focus{
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ListSearchFormSubmit{
+    height: 35px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #dadada;
+    width: 80px;
+}
+
+.ListSearchFormSubmitIcon{
+    width: 20px;
+    height: 20px;
+}
+
+.ListSearchFormSubmit:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
 }
 
 .Btn{
