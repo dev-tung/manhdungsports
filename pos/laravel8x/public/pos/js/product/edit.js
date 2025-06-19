@@ -2,7 +2,7 @@
     // PRODUCT
     document.getElementById("FormAddImageBtn").addEventListener("click", function(event){
         event.preventDefault();
-        document.getElementById("ProductThumnail").click();
+        document.getElementById("Productthumbnail").click();
     });
     // END PRODUCT
     

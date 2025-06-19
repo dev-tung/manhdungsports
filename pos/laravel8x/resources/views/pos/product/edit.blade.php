@@ -5,7 +5,7 @@
     <main class="Main">
         <form action="" class="Form" id="FormProductAdd">
             <div class="FormGrid">
-                <div class="FormGroupThumnail">
+                <div class="FormGroupthumbnail">
                     <div class="FormFrame">
                         <button class="FormAddImageBtn" id="FormAddImageBtn">
                             <svg width="48" height="48" viewBox="-9 -4 49 50" xmlns="http://www.w3.org/2000/svg">
@@ -24,10 +24,10 @@
                                 <line x1="29" y1="36" x2="35" y2="36" stroke="#555" stroke-width="1"/>
                             </svg>
                         </button>
-                        <input type="file" name="ProductThumnail" id="ProductThumnail" hidden>
+                        <input type="file" name="Productthumbnail" id="Productthumbnail" hidden>
                     </div>
                     <!-- <a class="FormFrame" href="sapo/dashboard.png">
-                        <img class="FormProductThumnail" src="sapo/table.png">
+                        <img class="FormProductthumbnail" src="sapo/table.png">
                     </a> -->
                 </div>
                 <div class="FormGrid FormGrid_DesktopTwo ">

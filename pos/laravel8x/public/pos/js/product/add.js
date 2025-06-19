@@ -1,13 +1,32 @@
-// THUMNAIL
-document.getElementById("FormThumnailAddBtn").addEventListener("click", function(event){
+// thumbnail
+let productthumbnail = document.getElementById("Productthumbnail");
+document.getElementById("FormthumbnailAddBtn").addEventListener("click", function(event){
     event.preventDefault();
-    document.getElementById("ProductThumnail").click();
+    productthumbnail.click();
 });
 
 // VALIDATOR
 Validator({
     form: '#FormProductAdd',
     items: [
+        Validator.file({
+            selector : '#Productthumbnail',
+            extension: ['jpg', 'jpeg', 'png'],
+            size : 1,
+            valid : (element) => {
+                // Upload image function
+                document.getElementById("ModalLoading").style.display = "block";
+                Functions.uploadfile(element, "upload/product/tmp", response => {
+                    if( response.success ){
+                        document.getElementById("ModalLoading").style.display = "none";
+                        document.getElementById("FormthumbnailDisplayImg").setAttribute('src', response.uploadURL);
+                        document.getElementById("FormthumbnailDisplayLink").setAttribute('href', response.uploadURL);
+                        document.getElementById("FormthumbnailDisplayLink").style.display = "block";
+                        document.getElementById("ProductthumbnailValue").value = response.uploadURL;
+                    }
+                });
+            }
+        }),
         Validator.tbRequired({
             selector: '#ProductName'
         }),

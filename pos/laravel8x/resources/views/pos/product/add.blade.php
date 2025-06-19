@@ -3,13 +3,13 @@
 @section('pagejs', asset('pos/js/product/add.js'))
 @section('main')
     <main class="Main">
-        <form action="{{route('product.create')}}" method="POST" class="Form" id="FormProductAdd">
+        <form action="{{route('product.create')}}" method="POST" class="Form" id="FormProductAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
-                <div class="FormThumnailGroup">
-                    <div class="FormFrame">
-                        <button class="FormThumnailAddBtn" id="FormThumnailAddBtn">
-                            <svg width="48" height="48" viewBox="-9 -4 49 50" xmlns="http://www.w3.org/2000/svg">
+                <div class="FormValidate">
+                    <div class="FormthumbnailGroup">
+                        <button class="FormthumbnailItem FormthumbnailItem_AddBtn" id="FormthumbnailAddBtn">
+                            <svg class="FormthumbnailAddIcon" viewBox="-9 -4 49 50" xmlns="http://www.w3.org/2000/svg">
                                 <!-- Khung hình ảnh -->
                                 <rect x="0" y="8" width="30" height="28" rx="2" ry="2" fill="#e0e0e0" stroke="#555" stroke-width="1"/>
 
@@ -19,17 +19,16 @@
                                 <!-- Núi -->
                                 <polyline points="5,34 12,25 18,31 24,26 30,34" fill="none" stroke="#555" stroke-width="1" />
 
-                                <!-- Dấu cộng (thêm mới) với nền trắng và nét mỏng -->
-                                <circle cx="32" cy="36" r="6" fill="white" stroke="#555" stroke-width="1"/>
-                                <line x1="32" y1="33" x2="32" y2="39" stroke="#555" stroke-width="1"/>
-                                <line x1="29" y1="36" x2="35" y2="36" stroke="#555" stroke-width="1"/>
+                                
                             </svg>
                         </button>
-                        <input type="file" name="product_thumnail" id="ProductThumnail" hidden>
+                        <a class="FormthumbnailItem FormthumbnailItem_DisplayImg" id="FormthumbnailDisplayLink" href="{{asset('pos/img/77.png')}}">
+                            <img class="FormthumbnailDisplayImg" id="FormthumbnailDisplayImg" src="{{asset('pos/img/77.png')}}">
+                        </a>
+                        <input type="file" id="Productthumbnail" hidden>
+                        <input type="hidden" id="ProductthumbnailValue" name="product_thumbnail">
                     </div>
-                    <a class="FormThumnailDisplayLink" id="FormThumnailDisplayLink" href="{{asset('pos/img/77.png')}}">
-                        <img class="FormThumnailDisplayImg" src="{{asset('pos/img/77.png')}}">
-                    </a>
+                    <small class="FormErrorMessage"></small>
                 </div>
                 <div class="FormGrid FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">

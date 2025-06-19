@@ -20,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::prefix('file')->group(function () {
-    Route::get('upload', ['as' => 'upload', 'uses' => 'API\FileController@upload']);
+    Route::post('upload', ['as' => 'api.file.upload', 'uses' => 'API\FileController@upload']);
 });

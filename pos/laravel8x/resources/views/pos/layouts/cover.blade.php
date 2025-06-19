@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}" id="CsrfToken"/>
+    <meta name="csrf-token" content="{{ route('api.file.upload') }}" id="apiUploadFile"/>
 
     <title>MANH DUNG POS | Product</title>
     <link rel="stylesheet" href="{{asset('pos/font/font-roboto.css')}}" >
@@ -39,8 +40,8 @@
         </div>
     </div>
 
-    <script src="{{asset('pos/js/function.js')}}"></script>
-    <script src="{{asset('pos/js/validator.js')}}"></script>
+    <script src="{{asset('js/function.js')}}"></script>
+    <script src="{{asset('js/validator.js')}}"></script>
     <script src="{{asset('pos/js/cover.js')}}"></script>
     <script src="@yield('pagejs')"></script>
 </body>

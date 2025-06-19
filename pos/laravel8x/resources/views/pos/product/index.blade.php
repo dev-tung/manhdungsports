@@ -16,8 +16,8 @@
             <div class="List">
                 @foreach( $products as $product )
                     <a class="ListItem" href="{{route('product.edit')}}">
-                        <div class="ListItemThumnail">
-                            <img class="ListItemThumnail" src="{{asset('pos/img/77.png')}}">
+                        <div class="ListItemthumbnail">
+                            <img class="ListItemthumbnail" src="{{ $product->product_thumbnail }}">
                         </div>
                         <div class="ListItemInfo">
                             <h4 class="ListItemName">{{ $product->product_name }}</h4>
