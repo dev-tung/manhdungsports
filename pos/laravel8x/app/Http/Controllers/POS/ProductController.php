@@ -9,9 +9,12 @@ use App\Models\Product;
 class ProductController extends Controller
 {
 
-    public function index(){
-
-        $products = Product::get();
+    public function index(Request $request){
+        $products = Product::where([
+            ['product_name', 'like', '%' . $request->product_name . '%'], 
+            ['product_category', 'like', '%' . $request->product_category . '%']
+        ])->get();
+        
         return view('POS.product.index', ['products' => $products]);
     }
 

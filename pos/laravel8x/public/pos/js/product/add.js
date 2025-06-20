@@ -18,11 +18,11 @@ Validator({
                 document.getElementById("ModalLoading").style.display = "block";
                 Functions.uploadfile(element, "upload/product/tmp", response => {
                     if( response.success ){
-                        document.getElementById("ModalLoading").style.display = "none";
                         document.getElementById("FormthumbnailDisplayImg").setAttribute('src', response.uploadURL);
                         document.getElementById("FormthumbnailDisplayLink").setAttribute('href', response.uploadURL);
-                        document.getElementById("FormthumbnailDisplayLink").style.display = "block";
                         document.getElementById("ProductThumbnailValue").value = response.uploadURL;
+                        document.getElementById("FormthumbnailDisplayLink").style.display = "block";
+                        document.getElementById("ModalLoading").style.display = "none";
                     }
                 });
             }
@@ -48,6 +48,7 @@ Validator({
     ],
     onSubmit: (form) => {
         document.getElementById("ModalLoading").style.display = "block";
+
         form.submit();
     }
 });

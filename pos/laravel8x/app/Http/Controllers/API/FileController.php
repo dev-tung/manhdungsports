@@ -24,4 +24,17 @@ class FileController extends Controller
             'uploadURL' => asset($request->folder.'/'.$fileName)
         ], Response::HTTP_OK);
     }
+
+    public function move(Request $request){
+        File::move($request->oldPath, $request->newPath);
+        return response()->json([
+            'success' => true
+        ], Response::HTTP_OK);
+    }
+
+    public function delete(Request $request){
+        return response()->json([
+            'success' => File::delete($request->filePath)
+        ], Response::HTTP_OK);
+    }
 }

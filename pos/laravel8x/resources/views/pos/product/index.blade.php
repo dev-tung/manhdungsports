@@ -4,20 +4,20 @@
     <main class="Main">
         <div class="MainContent">
             <div class="ListSearch">
-                <form action="" class="ListSearchForm">
-                    <input class="ListSearchFormInput" type="text" name="product_search" placeholder="Tìm kiếm sản phẩm ...">
+                <form action="{{route('product.index')}}" class="ListSearchForm">
+                    <input class="ListSearchFormInput" type="text" name="product_name" placeholder="Tìm kiếm sản phẩm ..." value="{{ request()->product_name }}">
                     <div class="Filter">
                         <select class="ListSearchFormSelect" name="product_category" id="ProductCategory">
                             <option value="">-- Chọn danh mục --</option>
-                            <option value="1">Vợt cầu lông</option>
-                            <option value="2">Giày cầu lông</option>
-                            <option value="3">Quần cầu lông</option>
-                            <option value="4">Áo cầu lông</option>
-                            <option value="5">Túi ngang</option>
-                            <option value="6">Balo</option>
-                            <option value="7">Túi hở cán</option>
-                            <option value="8">Cầu</option>
-                            <option value="9">Phụ kiện</option>
+                            <option value="Vợt cầu lông">Vợt cầu lông</option>
+                            <option value="Giày cầu lông">Giày cầu lông</option>
+                            <option value="Quần cầu lông">Quần cầu lông</option>
+                            <option value="Áo cầu lông">Áo cầu lông</option>
+                            <option value="Túi ngang">Túi ngang</option>
+                            <option value="Balo">Balo</option>
+                            <option value="Túi hở cán">Túi hở cán</option>
+                            <option value="Cầu">Cầu</option>
+                            <option value="Phụ kiện">Phụ kiện</option>
                         </select>
                     </div>
                     <button class="ListSearchFormSubmit">
@@ -27,6 +27,7 @@
                     </button>
                 </form>
             </div>
+            
             <div class="ListSearchTotal">
                 <span class="ListSearchTotalItem">{{ $products->count() }} sản phẩm</span>
                 <span>-</span>
