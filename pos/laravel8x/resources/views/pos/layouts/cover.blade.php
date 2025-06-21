@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}" id="CsrfToken"/>
-    <meta name="csrf-token" content="{{ route('api.file.upload') }}" id="apiUploadFile"/>
+    <meta name="csrf-token" content="{{ route('api.file.upload') }}" id="apiFileUpload"/>
+    <meta name="csrf-token" content="{{ route('api.file.move') }}" id="apiFileMove"/>
 
     <title>MANH DUNG POS | Product</title>
     <link rel="stylesheet" href="{{asset('pos/font/font-roboto.css')}}" >

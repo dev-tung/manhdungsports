@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Product;
 use File;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -21,20 +23,31 @@ class FileController extends Controller
 
         return response()->json([
             'success' => true, 
-            'uploadURL' => asset($request->folder.'/'.$fileName)
+            'url' => asset($request->folder.'/'.$fileName),
+            'fileName' => $fileName
         ], Response::HTTP_OK);
     }
 
     public function move(Request $request){
-        File::move($request->oldPath, $request->newPath);
+        rename(public_path($request->oldPath), public_path($request->newPath));
+
         return response()->json([
-            'success' => true
+            'success' => true,
+            'filePath' => public_path($request->newPath)
         ], Response::HTTP_OK);
     }
 
     public function delete(Request $request){
         return response()->json([
             'success' => File::delete($request->filePath)
+        ], Response::HTTP_OK);
+    }
+
+    public function deleteDirectory(Request $request){
+        $file = new Filesystem;
+        $file->cleanDirectory($request->directory);
+        return response()->json([
+            'success' => true
         ], Response::HTTP_OK);
     }
 }

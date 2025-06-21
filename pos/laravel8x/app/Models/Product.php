@@ -14,7 +14,7 @@ class Product extends Model{
             'product_price_output'  => $params['product_price_output'],
             'product_description'   => $params['product_description'],
             'product_quantity'      => $params['product_quantity'],
-            'product_thumbnail'     => $params['product_thumbnail'],
+            'product_thumbnail'     => asset($params->newPath),
             'product_category'      => $params['product_category'],
             'product_unit'          => $params['product_unit']
         ]);

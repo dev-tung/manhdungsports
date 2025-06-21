@@ -1,26 +1,26 @@
 // thumbnail
-let ProductThumbnail = document.getElementById("ProductThumbnail");
+let CategoryThumbnail = document.getElementById("CategoryThumbnail");
 document.getElementById("FormthumbnailAddBtn").addEventListener("click", function(event){
     event.preventDefault();
-    ProductThumbnail.click();
+    CategoryThumbnail.click();
 });
 
 // VALIDATOR
 Validator({
-    form: '#FormProductAdd',
+    form: '#FormCategoryAdd',
     items: [
         Validator.file({
-            selector : '#ProductThumbnail',
+            selector : '#CategoryThumbnail',
             extension: ['jpg', 'jpeg', 'png'],
             size : 1,
             valid : (element) => {
                 // Upload image function
                 document.getElementById("ModalLoading").style.display = "block";
-                Functions.fileUpload(element, "upload/product/tmp", response => {
+                Functions.uploadfile(element, "upload/category/tmp", response => {
                     if( response.success ){
-                        document.getElementById("FormthumbnailDisplayImg").setAttribute('src', response.url);
-                        document.getElementById("FormthumbnailDisplayLink").setAttribute('href', response.url);
-                        document.getElementById("ProductThumbnailValue").value = response.fileName;
+                        document.getElementById("FormthumbnailDisplayImg").setAttribute('src', response.uploadURL);
+                        document.getElementById("FormthumbnailDisplayLink").setAttribute('href', response.uploadURL);
+                        document.getElementById("CategoryThumbnailValue").value = response.fileName;
                         document.getElementById("FormthumbnailDisplayLink").style.display = "block";
                         document.getElementById("ModalLoading").style.display = "none";
                     }
@@ -28,26 +28,27 @@ Validator({
             }
         }),
         Validator.tbRequired({
-            selector: '#ProductName'
+            selector: '#CategoryName'
         }),
         Validator.tbRequired({
-            selector: '#ProductPriceInput'
+            selector: '#CategoryPriceInput'
         }),
         Validator.tbRequired({
-            selector: '#ProductPriceOutput'
+            selector: '#CategoryPriceOutput'
         }),
         Validator.tbRequired({
-            selector: '#ProductQuantity'
+            selector: '#CategoryQuantity'
         }),
         Validator.tbRequired({
-            selector: '#ProductUnit'
+            selector: '#CategoryUnit'
         }),
         Validator.sbRequired({
-            selector: '#ProductCategory'
+            selector: '#CategoryCategory'
         })
     ],
     onSubmit: (form) => {
         document.getElementById("ModalLoading").style.display = "block";
+
         form.submit();
     }
 });
