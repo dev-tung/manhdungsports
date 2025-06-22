@@ -1,14 +1,32 @@
 <?php
 
-namespace App\Models;
+namespace App\Dbaccess;
+use DB;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+class Product extends Dbaccess{
 
-class Product extends Model{
+    private $table = 'products';
 
-    public function add($params){
-        return self::insert([
+    public function get( $searchParams ){
+        $query = DB::table($this->table);
+
+        if( !empty( $searchParams ) ){
+            $query->where($searchParams);
+        }
+        return $query->get();
+    }
+
+    public function getFirst( $searchParams ){
+        $query = DB::table($this->table);
+
+        if( !empty( $searchParams ) ){
+            $query->where($searchParams);
+        }
+        return $query->first();
+    }
+
+    public function insert($params){
+        DB::table($this->table)->insert([
             'product_name'          => $params['product_name'],
             'product_price_input'   => $params['product_price_input'],
             'product_price_output'  => $params['product_price_output'],
@@ -20,8 +38,8 @@ class Product extends Model{
         ]);
     }
 
-    public function edit($params){
-        return self::where('product_id', $params->product_id)->update([
+    public function update($params){
+        DB::table($this->table)->where('product_id', $params->product_id)->update([
             'product_name'          => $params['product_name'],
             'product_price_input'   => $params['product_price_input'],
             'product_price_output'  => $params['product_price_output'],
@@ -33,7 +51,8 @@ class Product extends Model{
         ]);
     }
 
-    // public function delete($params){
-    //     dd($params);
-    // }
+    public function delete( $searchParams ){
+        return DB::table($this->table)->where($searchParams)->delete();
+    }
+
 }

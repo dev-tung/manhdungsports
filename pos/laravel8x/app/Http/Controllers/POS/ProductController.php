@@ -4,17 +4,23 @@ namespace App\Http\Controllers\POS;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Http\Controllers\API\FileController;
+use App\Dbaccess\Product;
 
 class ProductController extends Controller
 {
 
+    private $_db_product;
+
+    function __construct() {
+        $this->_dbProduct = new Product();
+    }
+
     public function index(Request $request){
-        $products = Product::where([
+        $products = $this->_dbProduct->get([
             ['product_name', 'like', '%' . $request->product_name . '%'], 
             ['product_category', 'like', '%' . $request->product_category . '%']
-        ])->get();
+        ]);
         
         return view('POS.product.index', ['products' => $products]);
     }
@@ -24,7 +30,6 @@ class ProductController extends Controller
     }
 
     public function create(Request $request){
-
         $fileController = new FileController();
 
         if( !empty( $request->product_thumbnail ) ){
@@ -36,17 +41,16 @@ class ProductController extends Controller
         $request->directory = 'upload/product/tmp';
         $fileController->deleteDirectory($request);
 
-        Product::add($request);
+        $this->_dbProduct->insert($request);
         return redirect()->back();
     }
 
     public function edit(Request $request){
-        $product = Product::where('product_id', $request->product_id)->first();
+        $product = $this->_dbProduct->getFirst(['product_id' => $request->product_id]);
         return view('POS.product.edit', ['product' => $product]);
     }
 
     public function update(Request $request){
-
         $fileController = new FileController();
 
         if( !empty( $request->product_thumbnail ) ){
@@ -58,12 +62,12 @@ class ProductController extends Controller
         $request->directory = 'upload/product/tmp';
         $fileController->deleteDirectory($request);
 
-        Product::edit($request);
+        $this->_dbProduct->update($request);
         return redirect()->back();
     }
 
     public function delete(Request $request){
-        Product::where('product_id', $request->product_id)->delete();
+        $this->_dbProduct->delete(['product_id' => $request->product_id]);
         return redirect()->route('product.index');
     }
 }
