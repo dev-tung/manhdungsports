@@ -21,8 +21,9 @@ Route::prefix('pos')->group(function () {
         Route::get('index', ['as' => 'product.index', 'uses' => 'POS\ProductController@index']);
         Route::get('add', ['as' => 'product.add', 'uses' => 'POS\ProductController@add']);
         Route::post('create', ['as' => 'product.create', 'uses' => 'POS\ProductController@create']);
-        Route::get('edit', ['as' => 'product.edit', 'uses' => 'POS\ProductController@edit']);
-        Route::post('update', ['as' => 'product.update', 'uses' => 'POS\ProductController@update']);
+        Route::get('edit/{product_id}', ['as' => 'product.edit', 'uses' => 'POS\ProductController@edit']);
+        Route::post('update/{product_id}', ['as' => 'product.update', 'uses' => 'POS\ProductController@update']);
+        Route::get('delete/{product_id}', ['as' => 'product.delete', 'uses' => 'POS\ProductController@delete']);
     });
     Route::prefix('category')->group(function () {
         Route::get('index', ['as' => 'category.index', 'uses' => 'POS\CategoryController@index']);

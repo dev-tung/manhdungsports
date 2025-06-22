@@ -40,7 +40,30 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    public function edit(){
-        return view('POS.product.edit');
+    public function edit(Request $request){
+        $product = Product::where('product_id', $request->product_id)->first();
+        return view('POS.product.edit', ['product' => $product]);
+    }
+
+    public function update(Request $request){
+
+        $fileController = new FileController();
+
+        if( !empty( $request->product_thumbnail ) ){
+            $request->oldPath = 'upload/product/tmp/'.$request->product_thumbnail;
+            $request->newPath = 'upload/product/'.$request->product_thumbnail;
+            $fileController->move($request);
+        }
+
+        $request->directory = 'upload/product/tmp';
+        $fileController->deleteDirectory($request);
+
+        Product::edit($request);
+        return redirect()->back();
+    }
+
+    public function delete(Request $request){
+        Product::where('product_id', $request->product_id)->delete();
+        return redirect()->route('product.index');
     }
 }

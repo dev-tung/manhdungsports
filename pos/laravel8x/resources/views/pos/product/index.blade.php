@@ -36,7 +36,7 @@
 
             <div class="List">
                 @foreach( $products as $product )
-                    <a class="ListItem" href="{{route('product.edit')}}">
+                    <a class="ListItem" href="{{route('product.edit', $product->product_id)}}">
                         <div class="ListItemthumbnail">
                             @if( !empty( $product->product_thumbnail ) )
                                 <img class="ListItemthumbnail" src="{{ $product->product_thumbnail }}">

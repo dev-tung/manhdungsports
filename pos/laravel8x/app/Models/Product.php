@@ -20,9 +20,18 @@ class Product extends Model{
         ]);
     }
 
-    // public function update($params){
-    //     dd($params);
-    // }
+    public function edit($params){
+        return self::where('product_id', $params->product_id)->update([
+            'product_name'          => $params['product_name'],
+            'product_price_input'   => $params['product_price_input'],
+            'product_price_output'  => $params['product_price_output'],
+            'product_description'   => $params['product_description'],
+            'product_quantity'      => $params['product_quantity'],
+            'product_thumbnail'     => asset($params->newPath),
+            'product_category'      => $params['product_category'],
+            'product_unit'          => $params['product_unit']
+        ]);
+    }
 
     // public function delete($params){
     //     dd($params);

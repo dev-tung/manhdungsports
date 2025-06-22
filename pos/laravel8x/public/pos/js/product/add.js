@@ -17,7 +17,7 @@ Validator({
                 // Upload image function
                 document.getElementById("ModalLoading").style.display = "block";
                 Functions.fileUpload(element, "upload/product/tmp", response => {
-                    if( response.success ){
+                    if( response.success && response.url != '' ){
                         document.getElementById("FormthumbnailDisplayImg").setAttribute('src', response.url);
                         document.getElementById("FormthumbnailDisplayLink").setAttribute('href', response.url);
                         document.getElementById("ProductThumbnailValue").value = response.fileName;

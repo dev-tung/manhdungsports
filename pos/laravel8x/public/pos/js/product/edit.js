@@ -16,11 +16,11 @@ Validator({
             valid : (element) => {
                 // Upload image function
                 document.getElementById("ModalLoading").style.display = "block";
-                Functions.uploadfile(element, "upload/product/tmp", response => {
+                Functions.fileUpload(element, "upload/product/tmp", response => {
                     if( response.success ){
-                        document.getElementById("FormthumbnailDisplayImg").setAttribute('src', response.uploadURL);
-                        document.getElementById("FormthumbnailDisplayLink").setAttribute('href', response.uploadURL);
-                        document.getElementById("ProductThumbnailValue").value = response.uploadURL;
+                        document.getElementById("FormthumbnailDisplayImg").setAttribute('src', response.url);
+                        document.getElementById("FormthumbnailDisplayLink").setAttribute('href', response.url);
+                        document.getElementById("ProductThumbnailValue").value = response.fileName;
                         document.getElementById("FormthumbnailDisplayLink").style.display = "block";
                         document.getElementById("ModalLoading").style.display = "none";
                     }
