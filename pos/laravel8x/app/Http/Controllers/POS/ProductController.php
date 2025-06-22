@@ -29,7 +29,7 @@ class ProductController extends Controller
         return view('POS.product.add');
     }
 
-    public function create(Request $request){
+    public function insert(Request $request){
         $fileController = new FileController();
 
         if( !empty( $request->product_thumbnail ) ){

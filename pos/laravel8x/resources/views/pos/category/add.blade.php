@@ -3,7 +3,7 @@
 @section('pagejs', asset('pos/js/category/add.js'))
 @section('main')
     <main class="Main">
-        <form action="{{route('category.create')}}" method="POST" class="Form" id="FormCategoryAdd" enctype="multipart/form-data">
+        <form action="{{route('category.insert')}}" method="POST" class="Form" id="FormCategoryAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
                 <div class="FormValidate">
