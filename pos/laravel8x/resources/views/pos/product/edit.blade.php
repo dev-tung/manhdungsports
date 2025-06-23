@@ -69,17 +69,11 @@
                 <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="ProductCategory" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="product_category" id="ProductCategory">
+                        <select class="FormSelect" name="category_id" id="ProductCategory">
                             <option value="">-- Chọn danh mục --</option>
-                            <option value="Vợt cầu lông">Vợt cầu lông</option>
-                            <option value="Giày cầu lông">Giày cầu lông</option>
-                            <option value="Quần cầu lông">Quần cầu lông</option>
-                            <option value="Áo cầu lông">Áo cầu lông</option>
-                            <option value="Túi ngang">Túi ngang</option>
-                            <option value="Balo">Balo</option>
-                            <option value="Túi hở cán">Túi hở cán</option>
-                            <option value="Cầu">Cầu</option>
-                            <option value="Phụ kiện">Phụ kiện</option>
+                            @foreach($categories as $item)
+                                <option value="{{$item->category_id}}" {{ ($product->category_id == $item->category_id) ? 'selected' : ''; }}>{{$item->category_name}}</option>
+                            @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>

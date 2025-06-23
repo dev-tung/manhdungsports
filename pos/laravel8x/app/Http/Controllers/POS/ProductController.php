@@ -6,16 +6,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\FileController;
 use App\Dbaccess\Product;
+use App\Dbaccess\Category;
 
 class ProductController extends Controller
 {
 
     private $_db_product;
     private $_fileController;
+    private $_db_category;
 
     function __construct() {
         $this->_dbProduct = new Product();
         $this->_fileController = new FileController();
+        $this->_dbCategory = new Category();
     }
 
     public function index(Request $request){
@@ -28,7 +31,8 @@ class ProductController extends Controller
     }
 
     public function add(Request $request){
-        return view('POS.product.add');
+        $categories = $this->_dbCategory->get();
+        return view('POS.product.add', ['categories' => $categories]);
     }
 
     public function insert(Request $request){
@@ -47,7 +51,8 @@ class ProductController extends Controller
 
     public function edit(Request $request){
         $product = $this->_dbProduct->getFirst(['product_id' => $request->product_id]);
-        return view('POS.product.edit', ['product' => $product]);
+        $categories = $this->_dbCategory->get();
+        return view('POS.product.edit', ['product' => $product, 'categories' => $categories]);
     }
 
     public function update(Request $request){

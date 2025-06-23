@@ -1,12 +1,11 @@
 @extends('pos.layouts.cover')
-@section('title', 'THÊM DANH MỤC')
+@section('title', 'THÊM SẢN PHẨM')
 @section('pagejs', asset('pos/js/category/add.js'))
 @section('main')
     <main class="Main">
         <form action="{{route('category.insert')}}" method="POST" class="Form" id="FormCategoryAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
-                <div class="FormValidate">
                 <div class="FormGrid FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="CategoryName" >Tên danh mục <span class="RequiredSymbol">*</span></label>
@@ -14,18 +13,12 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="CategoryCategory" >Danh mục cha <span class="RequiredSymbol">*</span></label>
+                        <label class="FormLabel" for="CategoryCategory" >Danh mục cha</label>
                         <select class="FormSelect" name="category_category" id="CategoryCategory">
                             <option value="">-- Chọn danh mục --</option>
-                            <option value="Vợt cầu lông">Vợt cầu lông</option>
-                            <option value="Giày cầu lông">Giày cầu lông</option>
-                            <option value="Quần cầu lông">Quần cầu lông</option>
-                            <option value="Áo cầu lông">Áo cầu lông</option>
-                            <option value="Túi ngang">Túi ngang</option>
-                            <option value="Balo">Balo</option>
-                            <option value="Túi hở cán">Túi hở cán</option>
-                            <option value="Cầu">Cầu</option>
-                            <option value="Phụ kiện">Phụ kiện</option>
+                            @foreach($categories as $item)
+                                <option value="{{$item->category_id}}">{{$item->category_name}}</option>
+                            @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
@@ -40,6 +33,12 @@
                 </div>
             </div>
         </form>
+        
     </main>
     <!-- End Main -->
+     
+
+
 @endsection
+
+

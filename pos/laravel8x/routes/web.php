@@ -29,8 +29,9 @@ Route::prefix('pos')->group(function () {
         Route::get('index', ['as' => 'category.index', 'uses' => 'POS\CategoryController@index']);
         Route::get('add', ['as' => 'category.add', 'uses' => 'POS\CategoryController@add']);
         Route::post('insert', ['as' => 'category.insert', 'uses' => 'POS\CategoryController@insert']);
-        Route::get('edit', ['as' => 'category.edit', 'uses' => 'POS\CategoryController@edit']);
-        Route::post('update', ['as' => 'category.update', 'uses' => 'POS\CategoryController@update']);
+        Route::get('edit/{category_id}', ['as' => 'category.edit', 'uses' => 'POS\CategoryController@edit']);
+        Route::post('update/{category_id}', ['as' => 'category.update', 'uses' => 'POS\CategoryController@update']);
+        Route::get('delete/{category_id}', ['as' => 'category.delete', 'uses' => 'POS\CategoryController@delete']);
     });
 });
 
