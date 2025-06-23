@@ -39,7 +39,7 @@
                     <a class="ListItem" href="{{route('product.edit', $product->product_id)}}">
                         <div class="ListItemthumbnail">
                             @if( !empty( $product->product_thumbnail ) )
-                                <img class="ListItemthumbnail" src="{{ $product->product_thumbnail }}">
+                                <img class="ListItemthumbnail" src="{{ asset($product->product_thumbnail) }}">
                             @else
                                 <svg class="ListItemthumbnail ListItemthumbnail_default" viewBox="-9 -4 49 50" xmlns="http://www.w3.org/2000/svg">
                                     <!-- Khung hình ảnh -->
@@ -69,4 +69,12 @@
         </div>
     </main>
     <!-- End Main -->
+
+    <div class="Float Float_BottomRight">
+        <a class="Btn Btn_Success" href="{{route('product.add')}}">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
+            </svg>
+        </a>
+    </div>
 @endsection

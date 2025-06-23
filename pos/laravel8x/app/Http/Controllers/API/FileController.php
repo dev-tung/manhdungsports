@@ -38,8 +38,10 @@ class FileController extends Controller
     }
 
     public function delete(Request $request){
+
+        File::delete($request->filePath);
         return response()->json([
-            'success' => File::delete($request->filePath)
+            'success' => true
         ], Response::HTTP_OK);
     }
 

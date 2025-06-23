@@ -11,9 +11,11 @@ class ProductController extends Controller
 {
 
     private $_db_product;
+    private $_fileController;
 
     function __construct() {
         $this->_dbProduct = new Product();
+        $this->_fileController = new FileController();
     }
 
     public function index(Request $request){
@@ -30,16 +32,14 @@ class ProductController extends Controller
     }
 
     public function insert(Request $request){
-        $fileController = new FileController();
-
         if( !empty( $request->product_thumbnail ) ){
             $request->oldPath = 'upload/product/tmp/'.$request->product_thumbnail;
             $request->newPath = 'upload/product/'.$request->product_thumbnail;
-            $fileController->move($request);
+            $this->_fileController->move($request);
         }
 
         $request->directory = 'upload/product/tmp';
-        $fileController->deleteDirectory($request);
+        $this->_fileController->deleteDirectory($request);
 
         $this->_dbProduct->insert($request);
         return redirect()->back();
@@ -51,22 +51,29 @@ class ProductController extends Controller
     }
 
     public function update(Request $request){
-        $fileController = new FileController();
-
         if( !empty( $request->product_thumbnail ) ){
             $request->oldPath = 'upload/product/tmp/'.$request->product_thumbnail;
-            $request->newPath = 'upload/product/'.$request->product_thumbnail;
-            $fileController->move($request);
+            if( file_exists($request->oldPath) ){
+                $request->newPath = 'upload/product/'.$request->product_thumbnail;
+                $this->_fileController->move($request);
+                $request->directory = 'upload/product/tmp';
+                $this->_fileController->deleteDirectory($request);
+            }
         }
-
-        $request->directory = 'upload/product/tmp';
-        $fileController->deleteDirectory($request);
 
         $this->_dbProduct->update($request);
         return redirect()->back();
     }
 
     public function delete(Request $request){
+        
+        $product = $this->_dbProduct->getFirst(['product_id' => $request->product_id]);
+        
+        if( $product->product_thumbnail ){
+            $request->filePath = $product->product_thumbnail;
+            $this->_fileController->delete($request);
+        }
+
         $this->_dbProduct->delete(['product_id' => $request->product_id]);
         return redirect()->route('product.index');
     }

@@ -22,13 +22,13 @@
                         </button>
 
                         @if( !empty($product->product_thumbnail) )
-                            <a class="FormthumbnailItem" id="FormthumbnailDisplayLink" href="{{$product->product_thumbnail}}">
-                                <img class="FormthumbnailDisplayImg" id="FormthumbnailDisplayImg" src="{{$product->product_thumbnail}}">
+                            <a class="FormthumbnailItem" id="FormthumbnailDisplayLink" href="{{asset($product->product_thumbnail)}}">
+                                <img class="FormthumbnailDisplayImg" id="FormthumbnailDisplayImg" src="{{asset($product->product_thumbnail)}}">
                             </a>
                         @endif
 
                         <input type="file" id="ProductThumbnail" hidden>
-                        <input type="hidden" id="ProductThumbnailValue" name="product_thumbnail">
+                        <input type="hidden" id="ProductThumbnailValue" name="product_thumbnail" value="{{$product->product_thumbnail}}">
                     </div>
                     <small class="FormErrorMessage"></small>
                 </div>
@@ -103,7 +103,7 @@
                     <button class="Btn Btn_Primary">Lưu</button>
                 </div>
                 <div class="FormBtnGroup">
-                    <a class="Btn Btn_Danger" href="{{route('product.delete', $product->product_id)}}" >Xóa sản phẩm</a>
+                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('product.delete', $product->product_id)}}" >Xóa sản phẩm</a>
                 </div>
             </div>
         </form>

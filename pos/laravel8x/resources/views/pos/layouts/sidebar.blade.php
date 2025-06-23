@@ -3,17 +3,11 @@
         <a class="SidebarNavLink" href="{{route('dashboard.index')}}">
             <span class="SidebarNavText">Tổng quan</span> 
         </a>
-        <a class="SidebarNavLink" href="{{route('product.add')}}">
-            <span class="SidebarNavText">Thêm sản phẩm</span> 
-        </a>
         <a class="SidebarNavLink" href="{{route('product.index')}}">
-            <span class="SidebarNavText">Sản phẩm</span> 
-        </a>
-        <a class="SidebarNavLink" href="{{route('category.add')}}">
-            <span class="SidebarNavText">Thêm danh mục</span> 
+            <span class="SidebarNavText">Danh sách sản phẩm</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('category.index')}}">
-            <span class="SidebarNavText">Danh mục</span> 
+            <span class="SidebarNavText">Danh mục sản phẩm</span> 
         </a>
     </nav>
 </div>

@@ -32,23 +32,29 @@ class Product extends Dbaccess{
             'product_price_output'  => $params['product_price_output'],
             'product_description'   => $params['product_description'],
             'product_quantity'      => $params['product_quantity'],
-            'product_thumbnail'     => asset($params->newPath),
+            'product_thumbnail'     => $params->newPath,
             'product_category'      => $params['product_category'],
             'product_unit'          => $params['product_unit']
         ]);
     }
 
     public function update($params){
-        DB::table($this->table)->where('product_id', $params->product_id)->update([
-            'product_name'          => $params['product_name'],
-            'product_price_input'   => $params['product_price_input'],
-            'product_price_output'  => $params['product_price_output'],
-            'product_description'   => $params['product_description'],
-            'product_quantity'      => $params['product_quantity'],
-            'product_thumbnail'     => asset($params->newPath),
-            'product_category'      => $params['product_category'],
-            'product_unit'          => $params['product_unit']
-        ]);
+
+        $update['product_name'] = $params['product_name'];
+        $update['product_price_input'] = $params['product_price_input'];
+        $update['product_price_output'] = $params['product_price_output'];
+        $update['product_description'] = $params['product_description'];
+        $update['product_quantity'] = $params['product_quantity'];
+        $update['product_category'] = $params['product_category'];
+        $update['product_unit'] = $params['product_unit'];
+
+        if( !empty( $params->newPath ) ){
+            $update['product_thumbnail'] = $params->newPath;
+        }
+
+        DB::table($this->table)
+            ->where('product_id', $params->product_id)
+            ->update($update);
     }
 
     public function delete( $searchParams ){
