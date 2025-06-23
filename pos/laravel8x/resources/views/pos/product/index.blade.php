@@ -29,7 +29,7 @@
             </div>
             
             <div class="ListSearchTotal">
-                <span class="ListSearchTotalItem">{{ $products->count() }} sản phẩm</span>
+                <span class="ListSearchTotalItem">{{ $products->sum('product_quantity') }} sản phẩm</span>
                 <span>-</span>
                 <span class="ListSearchTotalItem">Tổng giá nhập {{ number_format( $totalprice ) }} đ</span>
             </div>

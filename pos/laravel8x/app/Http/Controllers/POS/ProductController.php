@@ -55,7 +55,7 @@ class ProductController extends Controller
         $this->_fileController->deleteDirectory($request);
 
         $this->_dbProduct->insert($request);
-        return redirect()->route('product.index');
+        return redirect()->route('product.add');
     }
 
     public function edit(Request $request){
