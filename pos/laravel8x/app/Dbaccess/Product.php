@@ -16,6 +16,11 @@ class Product extends Dbaccess{
         return $query->get();
     }
 
+    public function getPriceTotalInput(){
+        $price = DB::select('SELECT SUM(product_price_input * product_quantity) as product_price_input_total FROM products ');
+        return !empty( $price[0]->product_price_input_total ) ? $price[0]->product_price_input_total : 0;
+    }
+
     public function getFirst( $searchParams ){
         $query = DB::table($this->table);
 
@@ -23,6 +28,8 @@ class Product extends Dbaccess{
             $query->where($searchParams);
         }
         return $query->first();
+
+        
     }
 
     public function insert($params){

@@ -14,7 +14,7 @@
                     </div>
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="CategoryCategory" >Danh mục cha</label>
-                        <select class="FormSelect" name="category_category" id="CategoryCategory">
+                        <select class="FormSelect" name="category_parent_id" id="CategoryCategory">
                             <option value="">-- Chọn danh mục --</option>
                             @foreach($categories as $item)
                                 <option value="{{$item->category_id}}">{{$item->category_name}}</option>

@@ -22,12 +22,21 @@ class ProductController extends Controller
     }
 
     public function index(Request $request){
-        $products = $this->_dbProduct->get([
-            ['product_name', 'like', '%' . $request->product_name . '%'], 
-            ['product_category', 'like', '%' . $request->product_category . '%']
-        ]);
+        $searchParams = [];
+
+        if( !empty($request->product_name) ){
+            $searchParams[] = ['product_name', 'like', '%' . $request->product_name . '%'];
+        }
+
+        if( !empty($request->product_category) ){
+            $searchParams[] = ['product_category', 'like', '%' . $request->product_category . '%'];
+        }
+
+        $products = $this->_dbProduct->get($searchParams);
+
+        $totalprice = $this->_dbProduct->getPriceTotalInput();
         
-        return view('POS.product.index', ['products' => $products]);
+        return view('POS.product.index', ['products' => $products, 'totalprice' => $totalprice]);
     }
 
     public function add(Request $request){
@@ -46,7 +55,7 @@ class ProductController extends Controller
         $this->_fileController->deleteDirectory($request);
 
         $this->_dbProduct->insert($request);
-        return redirect()->back();
+        return redirect()->route('product.index');
     }
 
     public function edit(Request $request){
@@ -67,7 +76,7 @@ class ProductController extends Controller
         }
 
         $this->_dbProduct->update($request);
-        return redirect()->back();
+        return redirect()->route('product.index');
     }
 
     public function delete(Request $request){

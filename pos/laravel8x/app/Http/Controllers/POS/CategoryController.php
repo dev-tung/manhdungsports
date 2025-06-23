@@ -30,7 +30,7 @@ class CategoryController extends Controller
 
     public function insert(Request $request){
         $this->_dbCategory->insert($request);
-        return redirect()->back();
+        return redirect()->route('category.index');
     }
 
     public function edit(Request $request){
@@ -41,7 +41,7 @@ class CategoryController extends Controller
 
     public function update(Request $request){
         $this->_dbCategory->update($request);
-        return redirect()->back();
+        return redirect()->route('category.index');
     }
 
     public function delete(Request $request){
