@@ -1,9 +1,9 @@
 @extends('pos.layouts.cover')
 @section('title', 'THÊM SẢN PHẨM')
-@section('pagejs', asset('pos/js/product/add.js'))
+@section('pagejs', asset('pos/js/string/add.js'))
 @section('main')
     <main class="Main">
-        <form action="{{route('product.insert')}}" method="POST" class="Form" id="FormProductAdd" enctype="multipart/form-data">
+        <form action="{{route('string.insert')}}" method="POST" class="Form" id="FormStringAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
                 <div class="FormValidate">
@@ -23,26 +23,26 @@
                         <a class="FormthumbnailItem FormthumbnailItem_DisplayImg" id="FormthumbnailDisplayLink" href="{{asset('pos/img/77.png')}}">
                             <img class="FormthumbnailDisplayImg" id="FormthumbnailDisplayImg" src="{{asset('pos/img/77.png')}}">
                         </a>
-                        <input type="file" id="ProductThumbnail" hidden>
-                        <input type="hidden" id="ProductThumbnailValue" name="product_thumbnail">
+                        <input type="file" id="StringThumbnail" hidden>
+                        <input type="hidden" id="StringThumbnailValue" name="string_thumbnail">
                     </div>
                     <small class="FormErrorMessage"></small>
                 </div>
                 <div class="FormGrid FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductName" >Tên sản phẩm <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="ProductName" type="text" name="product_name">
+                        <label class="FormLabel" for="StringName" >Tên sản phẩm <span class="RequiredSymbol">*</span></label>
+                        <input class="FormInput" id="StringName" type="text" name="string_name">
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                         <div class="FormGroup FormValidate">
-                            <label class="FormLabel" for="ProductPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
-                            <input class="FormInput" id="ProductPriceInput" type="number" name="product_price_input">
+                            <label class="FormLabel" for="StringPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
+                            <input class="FormInput" id="StringPriceInput" type="number" name="string_price_input">
                             <small class="FormErrorMessage"></small>
                         </div>
                         <div class="FormGroup FormValidate">
-                            <label class="FormLabel" for="ProductPriceOutput" >Giá bán <span class="RequiredSymbol">*</span></label>
-                            <input class="FormInput" id="ProductPriceOutput" type="number" name="product_price_output">
+                            <label class="FormLabel" for="StringPriceOutput" >Giá bán <span class="RequiredSymbol">*</span></label>
+                            <input class="FormInput" id="StringPriceOutput" type="number" name="string_price_output">
                             <small class="FormErrorMessage"></small>
                         </div>
                     </div>
@@ -51,31 +51,31 @@
             <div class="FormGrid FormGrid_DesktopTwo">
                 <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductQuantity" >Số lượng <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="ProductQuantity" type="number" name="product_quantity">
+                        <label class="FormLabel" for="StringQuantity" >Số lượng <span class="RequiredSymbol">*</span></label>
+                        <input class="FormInput" id="StringQuantity" type="number" name="string_quantity">
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductUnit" >Đơn vị tính <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="ProductUnit" type="text" name="product_unit">
+                        <label class="FormLabel" for="StringUnit" >Đơn vị tính <span class="RequiredSymbol">*</span></label>
+                        <input class="FormInput" id="StringUnit" type="text" name="string_unit">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
 
                 <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="Productproductype" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="productype_id" id="Productproductype">
+                        <label class="FormLabel" for="Stringstringype" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="stringype_id" id="Stringstringype">
                             <option value="">-- Chọn danh mục --</option>
-                            @foreach($productype as $item)
-                                <option value="{{$item->productype_id}}">{{$item->productype_name}}</option>
+                            @foreach($stringype as $item)
+                                <option value="{{$item->stringype_id}}">{{$item->stringype_name}}</option>
                             @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="Productource" >Nhà cung cấp </label>
-                        <input class="FormInput" id="Productource" type="text" name="Productource">
+                        <label class="FormLabel" for="Stringource" >Nhà cung cấp </label>
+                        <input class="FormInput" id="Stringource" type="text" name="Stringource">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
@@ -83,8 +83,8 @@
 
             </div>
             <div class="FormGroup">
-                <label class="FormLabel" for="ProductDescription" >Ghi chú</label>
-                <textarea class="FormTexarea" rows="3" name="product_description" id="ProductDescription"></textarea>
+                <label class="FormLabel" for="StringDescription" >Ghi chú</label>
+                <textarea class="FormTexarea" rows="3" name="string_description" id="StringDescription"></textarea>
             </div>
 
             <div class="FormBtn">

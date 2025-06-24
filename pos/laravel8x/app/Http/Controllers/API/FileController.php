@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Models\Product;
 use File;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;

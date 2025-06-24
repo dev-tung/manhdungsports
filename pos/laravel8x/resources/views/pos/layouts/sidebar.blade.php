@@ -4,10 +4,22 @@
             <span class="SidebarNavText">Tổng quan</span> 
         </a> -->
         <a class="SidebarNavLink" href="{{route('product.index')}}">
-            <span class="SidebarNavText">Danh sách sản phẩm</span> 
+            <span class="SidebarNavText">Sản phẩm</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('productype.index')}}">
-            <span class="SidebarNavText">Danh mục sản phẩm</span> 
+            <span class="SidebarNavText">Loại sản phẩm</span> 
+        </a>
+        <a class="SidebarNavLink" href="{{route('string.index')}}">
+            <span class="SidebarNavText">Căng cước</span> 
+        </a>
+        <a class="SidebarNavLink" href="{{route('stringtype.index')}}">
+            <span class="SidebarNavText">Loại cước</span> 
+        </a>
+        <a class="SidebarNavLink" href="{{route('customer.index')}}">
+            <span class="SidebarNavText">Khách hàng</span> 
+        </a>
+        <a class="SidebarNavLink" href="{{route('customertype.index')}}">
+            <span class="SidebarNavText">Nhóm khách hàng</span> 
         </a>
     </nav>
 </div>

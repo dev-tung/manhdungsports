@@ -3,9 +3,9 @@
 namespace App\Access;
 use DB;
 
-class ProductypeAccess extends Access{
+class StringtypeAccess extends Access{
 
-    private $table = 'productype';
+    private $table = 'stringtype';
 
     public function get( $searchParams = null ){
         $query = DB::table($this->table);
@@ -27,17 +27,17 @@ class ProductypeAccess extends Access{
 
     public function insert($params){
         DB::table($this->table)->insert([
-            'productype_name' => $params['productype_name'],
-            'productype_parent_id'   => $params['productype_parent_id']
+            'stringtype_name' => $params['stringtype_name'],
+            'stringtype_parent_id'   => $params['stringtype_parent_id']
         ]);
     }
 
     public function update($params){
-        $update['productype_name'] = $params['productype_name'];
-        $update['productype_parent_id'] = $params['productype_parent_id'];
+        $update['stringtype_name'] = $params['stringtype_name'];
+        $update['stringtype_parent_id'] = $params['stringtype_parent_id'];
 
         DB::table($this->table)
-            ->where('productype_id', $params->productype_id)
+            ->where('stringtype_id', $params->stringtype_id)
             ->update($update);
     }
 

@@ -5,19 +5,19 @@ namespace App\Http\Controllers\POS;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Access\ProductAccess;
-use App\Access\productypeAccess;
-use App\Services\Productservice;
+use App\Access\ProductypeAccess;
+use App\Services\ProductService;
 
 class ProductController extends Controller
 {
     function __construct() {
         $this->_productAccess = new ProductAccess();
-        $this->_productypeAccess = new productypeAccess();
-        $this->_productevice = new Productservice();
+        $this->_productypeAccess = new ProductypeAccess();
+        $this->_productsevice = new ProductService();
     }
 
     public function index(Request $request){
-        $searchParams = $this->_productevice->searchParam($request);
+        $searchParams = $this->_productsevice->searchParam($request);
         $product = $this->_productAccess->get($searchParams);
         $priceTotalInput = $this->_productAccess->priceTotalInput();
         $productype = $this->_productypeAccess->get();
@@ -30,7 +30,7 @@ class ProductController extends Controller
     }
 
     public function insert(Request $request){
-        $this->_productevice->moveThumbnail($request);
+        $this->_productsevice->moveThumbnail($request);
         $this->_productAccess->insert($request);
         return redirect()->route('product.add');
     }
@@ -42,14 +42,14 @@ class ProductController extends Controller
     }
 
     public function update(Request $request){
-        $this->_productevice->moveThumbnail($request);
+        $this->_productsevice->moveThumbnail($request);
         $this->_productAccess->update($request);
         return redirect()->route('product.index');
     }
 
     public function delete(Request $request){
         $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
-        $this->_productevice->deleteThumbnail($product);
+        $this->_productsevice->deleteThumbnail($product);
         $this->_productAccess->delete(['product_id' => $request->product_id]);
         return redirect()->route('product.index');
     }

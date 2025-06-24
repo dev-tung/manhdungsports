@@ -26,12 +26,44 @@ Route::prefix('pos')->group(function () {
         Route::get('delete/{product_id}', ['as' => 'product.delete', 'uses' => 'POS\ProductController@delete']);
     });
     Route::prefix('productype')->group(function () {
-        Route::get('index', ['as' => 'productype.index', 'uses' => 'POS\productypeController@index']);
-        Route::get('add', ['as' => 'productype.add', 'uses' => 'POS\productypeController@add']);
-        Route::post('insert', ['as' => 'productype.insert', 'uses' => 'POS\productypeController@insert']);
-        Route::get('edit/{productype_id}', ['as' => 'productype.edit', 'uses' => 'POS\productypeController@edit']);
-        Route::post('update/{productype_id}', ['as' => 'productype.update', 'uses' => 'POS\productypeController@update']);
-        Route::get('delete/{productype_id}', ['as' => 'productype.delete', 'uses' => 'POS\productypeController@delete']);
+        Route::get('index', ['as' => 'productype.index', 'uses' => 'POS\ProductypeController@index']);
+        Route::get('add', ['as' => 'productype.add', 'uses' => 'POS\ProductypeController@add']);
+        Route::post('insert', ['as' => 'productype.insert', 'uses' => 'POS\ProductypeController@insert']);
+        Route::get('edit/{productype_id}', ['as' => 'productype.edit', 'uses' => 'POS\ProductypeController@edit']);
+        Route::post('update/{productype_id}', ['as' => 'productype.update', 'uses' => 'POS\ProductypeController@update']);
+        Route::get('delete/{productype_id}', ['as' => 'productype.delete', 'uses' => 'POS\ProductypeController@delete']);
+    });
+    Route::prefix('string')->group(function () {
+        Route::get('index', ['as' => 'string.index', 'uses' => 'POS\StringController@index']);
+        Route::get('add', ['as' => 'string.add', 'uses' => 'POS\StringController@add']);
+        Route::post('insert', ['as' => 'string.insert', 'uses' => 'POS\StringController@insert']);
+        Route::get('edit/{string_id}', ['as' => 'string.edit', 'uses' => 'POS\StringController@edit']);
+        Route::post('update/{string_id}', ['as' => 'string.update', 'uses' => 'POS\StringController@update']);
+        Route::get('delete/{string_id}', ['as' => 'string.delete', 'uses' => 'POS\StringController@delete']);
+    });
+    Route::prefix('stringtype')->group(function () {
+        Route::get('index', ['as' => 'stringtype.index', 'uses' => 'POS\StringtypeController@index']);
+        Route::get('add', ['as' => 'stringtype.add', 'uses' => 'POS\StringtypeController@add']);
+        Route::post('insert', ['as' => 'stringtype.insert', 'uses' => 'POS\StringtypeController@insert']);
+        Route::get('edit/{stringtype_id}', ['as' => 'stringtype.edit', 'uses' => 'POS\StringtypeController@edit']);
+        Route::post('update/{stringtype_id}', ['as' => 'stringtype.update', 'uses' => 'POS\StringtypeController@update']);
+        Route::get('delete/{stringtype_id}', ['as' => 'stringtype.delete', 'uses' => 'POS\StringtypeController@delete']);
+    });
+    Route::prefix('customer')->group(function () {
+        Route::get('index', ['as' => 'customer.index', 'uses' => 'POS\CustomerController@index']);
+        Route::get('add', ['as' => 'customer.add', 'uses' => 'POS\CustomerController@add']);
+        Route::post('insert', ['as' => 'customer.insert', 'uses' => 'POS\CustomerController@insert']);
+        Route::get('edit/{customer_id}', ['as' => 'customer.edit', 'uses' => 'POS\CustomerController@edit']);
+        Route::post('update/{customer_id}', ['as' => 'customer.update', 'uses' => 'POS\CustomerController@update']);
+        Route::get('delete/{customer_id}', ['as' => 'customer.delete', 'uses' => 'POS\CustomerController@delete']);
+    });
+    Route::prefix('customertype')->group(function () {
+        Route::get('index', ['as' => 'customertype.index', 'uses' => 'POS\CustomertypeController@index']);
+        Route::get('add', ['as' => 'customertype.add', 'uses' => 'POS\CustomertypeController@add']);
+        Route::post('insert', ['as' => 'customertype.insert', 'uses' => 'POS\CustomertypeController@insert']);
+        Route::get('edit/{customertype_id}', ['as' => 'customertype.edit', 'uses' => 'POS\CustomertypeController@edit']);
+        Route::post('update/{customertype_id}', ['as' => 'customertype.update', 'uses' => 'POS\CustomertypeController@update']);
+        Route::get('delete/{customertype_id}', ['as' => 'customertype.delete', 'uses' => 'POS\CustomertypeController@delete']);
     });
 });
 
