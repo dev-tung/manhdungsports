@@ -5,27 +5,27 @@ namespace App\Http\Controllers\POS;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Access\CustomerAccess;
-use App\Access\CustomertypeAccess;
+use App\Access\CustomergroupAccess;
 use App\Services\CustomerService;
 
 class CustomerController extends Controller
 {
     function __construct() {
         $this->_customerAccess = new CustomerAccess();
-        $this->_customertypeAccess = new CustomertypeAccess();
+        $this->_customergroupAccess = new CustomergroupAccess();
         $this->_customersevice = new CustomerService();
     }
 
     public function index(Request $request){
         $searchParams = $this->_customersevice->searchParam($request);
         $customer = $this->_customerAccess->get($searchParams);
-        $customertype = $this->_customertypeAccess->get();
-        return view('POS.customer.index', ['customer' => $customer, 'customertype' => $customertype]);
+        $customergroup = $this->_customergroupAccess->get();
+        return view('POS.customer.index', ['customer' => $customer, 'customergroup' => $customergroup]);
     }
 
     public function add(Request $request){
-        $customertype = $this->_customertypeAccess->get();
-        return view('POS.customer.add', ['customertype' => $customertype]);
+        $customergroup = $this->_customergroupAccess->get();
+        return view('POS.customer.add', ['customergroup' => $customergroup]);
     }
 
     public function insert(Request $request){
@@ -36,8 +36,8 @@ class CustomerController extends Controller
 
     public function edit(Request $request){
         $customer = $this->_customerAccess->getFirst(['customer_id' => $request->customer_id]);
-        $customertype = $this->_customertypeAccess->get();
-        return view('POS.customer.edit', ['customer' => $customer, 'customertype' => $customertype]);
+        $customergroup = $this->_customergroupAccess->get();
+        return view('POS.customer.edit', ['customer' => $customer, 'customergroup' => $customergroup]);
     }
 
     public function update(Request $request){

@@ -12,13 +12,13 @@
         <a class="SidebarNavLink" href="{{route('string.index')}}">
             <span class="SidebarNavText">Căng cước</span> 
         </a>
-        <a class="SidebarNavLink" href="{{route('stringtype.index')}}">
+        <a class="SidebarNavLink" href="{{route('string.index')}}">
             <span class="SidebarNavText">Loại cước</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('customer.index')}}">
             <span class="SidebarNavText">Khách hàng</span> 
         </a>
-        <a class="SidebarNavLink" href="{{route('customertype.index')}}">
+        <a class="SidebarNavLink" href="{{route('customergroup.index')}}">
             <span class="SidebarNavText">Nhóm khách hàng</span> 
         </a>
     </nav>

@@ -3,9 +3,9 @@
 namespace App\Access;
 use DB;
 
-class CustomertypeAccess extends Access{
+class StringorderAccess extends Access{
 
-    private $table = 'customertype';
+    private $table = 'string';
 
     public function get( $searchParams = null ){
         $query = DB::table($this->table);
@@ -27,17 +27,17 @@ class CustomertypeAccess extends Access{
 
     public function insert($params){
         DB::table($this->table)->insert([
-            'customertype_name' => $params['customertype_name'],
-            'customertype_parent_id'   => $params['customertype_parent_id']
+            'string_name' => $params['string_name'],
+            'string_parent_id' => $params['string_parent_id']
         ]);
     }
 
     public function update($params){
-        $update['customertype_name'] = $params['customertype_name'];
-        $update['customertype_parent_id'] = $params['customertype_parent_id'];
+        $update['string_name'] = $params['string_name'];
+        $update['string_parent_id'] = $params['string_parent_id'];
 
         DB::table($this->table)
-            ->where('customertype_id', $params->customertype_id)
+            ->where('string_id', $params->string_id)
             ->update($update);
     }
 

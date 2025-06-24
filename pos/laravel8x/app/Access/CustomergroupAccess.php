@@ -3,9 +3,9 @@
 namespace App\Access;
 use DB;
 
-class StringtypeAccess extends Access{
+class CustomergroupAccess extends Access{
 
-    private $table = 'stringtype';
+    private $table = 'customergroup';
 
     public function get( $searchParams = null ){
         $query = DB::table($this->table);
@@ -27,17 +27,17 @@ class StringtypeAccess extends Access{
 
     public function insert($params){
         DB::table($this->table)->insert([
-            'stringtype_name' => $params['stringtype_name'],
-            'stringtype_parent_id'   => $params['stringtype_parent_id']
+            'customergroup_name' => $params['customergroup_name'],
+            'customergroup_parent_id'   => $params['customergroup_parent_id']
         ]);
     }
 
     public function update($params){
-        $update['stringtype_name'] = $params['stringtype_name'];
-        $update['stringtype_parent_id'] = $params['stringtype_parent_id'];
+        $update['customergroup_name'] = $params['customergroup_name'];
+        $update['customergroup_parent_id'] = $params['customergroup_parent_id'];
 
         DB::table($this->table)
-            ->where('stringtype_id', $params->stringtype_id)
+            ->where('customergroup_id', $params->customergroup_id)
             ->update($update);
     }
 

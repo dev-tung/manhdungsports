@@ -1,9 +1,9 @@
 @extends('pos.layouts.cover')
 @section('title', 'SỬA SẢN PHẨM')
-@section('pagejs', asset('pos/js/string/edit.js'))
+@section('pagejs', asset('pos/js/product/edit.js'))
 @section('main')
     <main class="Main">
-        <form action="{{route('string.update', $string->string_id)}}" method="POST" class="Form" id="FormStringEdit" enctype="multipart/form-data">
+        <form action="{{route('product.update', $product->product_id)}}" method="POST" class="Form" id="FormProductEdit" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
                 <div class="FormValidate">
@@ -21,32 +21,32 @@
                             </svg>
                         </button>
 
-                        @if( !empty($string->string_thumbnail) )
-                            <a class="FormthumbnailItem" id="FormthumbnailDisplayLink" href="{{asset($string->string_thumbnail)}}">
-                                <img class="FormthumbnailDisplayImg" id="FormthumbnailDisplayImg" src="{{asset($string->string_thumbnail)}}">
+                        @if( !empty($product->product_thumbnail) )
+                            <a class="FormthumbnailItem" id="FormthumbnailDisplayLink" href="{{asset($product->product_thumbnail)}}">
+                                <img class="FormthumbnailDisplayImg" id="FormthumbnailDisplayImg" src="{{asset($product->product_thumbnail)}}">
                             </a>
                         @endif
 
-                        <input type="file" id="StringThumbnail" hidden>
-                        <input type="hidden" id="StringThumbnailValue" name="string_thumbnail" value="{{$string->string_thumbnail}}">
+                        <input type="file" id="ProductThumbnail" hidden>
+                        <input type="hidden" id="ProductThumbnailValue" name="product_thumbnail" value="{{$product->product_thumbnail}}">
                     </div>
                     <small class="FormErrorMessage"></small>
                 </div>
                 <div class="FormGrid FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="StringName" >Tên sản phẩm <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="StringName" type="text" name="string_name" value="{{$string->string_name}}">
+                        <label class="FormLabel" for="ProductName" >Tên sản phẩm <span class="RequiredSymbol">*</span></label>
+                        <input class="FormInput" id="ProductName" type="text" name="product_name" value="{{$product->product_name}}">
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                         <div class="FormGroup FormValidate">
-                            <label class="FormLabel" for="StringPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
-                            <input class="FormInput" id="StringPriceInput" type="number" name="string_price_input" value="{{$string->string_price_input}}">
+                            <label class="FormLabel" for="ProductPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
+                            <input class="FormInput" id="ProductPriceInput" type="number" name="product_price_input" value="{{$product->product_price_input}}">
                             <small class="FormErrorMessage"></small>
                         </div>
                         <div class="FormGroup FormValidate">
-                            <label class="FormLabel" for="StringPriceOutput" >Giá bán <span class="RequiredSymbol">*</span></label>
-                            <input class="FormInput" id="StringPriceOutput" type="number" name="string_price_output" value="{{$string->string_price_output}}">
+                            <label class="FormLabel" for="ProductPriceOutput" >Giá bán <span class="RequiredSymbol">*</span></label>
+                            <input class="FormInput" id="ProductPriceOutput" type="number" name="product_price_output" value="{{$product->product_price_output}}">
                             <small class="FormErrorMessage"></small>
                         </div>
                     </div>
@@ -55,31 +55,31 @@
             <div class="FormGrid FormGrid_DesktopTwo">
                 <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="StringQuantity" >Số lượng <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="StringQuantity" type="number" name="string_quantity" value="{{$string->string_quantity}}">
+                        <label class="FormLabel" for="ProductQuantity" >Số lượng <span class="RequiredSymbol">*</span></label>
+                        <input class="FormInput" id="ProductQuantity" type="number" name="product_quantity" value="{{$product->product_quantity}}">
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="StringUnit" >Đơn vị tính <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="StringUnit" type="text" name="string_unit" value="{{$string->string_unit}}">
+                        <label class="FormLabel" for="ProductUnit" >Đơn vị tính <span class="RequiredSymbol">*</span></label>
+                        <input class="FormInput" id="ProductUnit" type="text" name="product_unit" value="{{$product->product_unit}}">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
 
                 <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="Stringstringype" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="stringype_id" id="Stringstringype">
+                        <label class="FormLabel" for="Productproductype" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="productype_id" id="Productproductype">
                             <option value="">-- Chọn danh mục --</option>
-                            @foreach($stringype as $item)
-                                <option value="{{$item->stringype_id}}" {{ ($string->stringype_id == $item->stringype_id) ? 'selected' : ''; }}>{{$item->stringype_name}}</option>
+                            @foreach($productype as $item)
+                                <option value="{{$item->productype_id}}" {{ ($product->productype_id == $item->productype_id) ? 'selected' : ''; }}>{{$item->productype_name}}</option>
                             @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="Stringource" >Nhà cung cấp </label>
-                        <input class="FormInput" id="Stringource" type="text" name="Stringource" value="{{$string->string_source}}">
+                        <label class="FormLabel" for="Productource" >Nhà cung cấp </label>
+                        <input class="FormInput" id="Productource" type="text" name="Productource" value="{{$product->product_source}}">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
@@ -87,8 +87,8 @@
 
             </div>
             <div class="FormGroup">
-                <label class="FormLabel" for="StringDescription" >Ghi chú</label>
-                <textarea class="FormTexarea" rows="3" name="string_description" id="StringDescription">{{$string->string_description}}</textarea>
+                <label class="FormLabel" for="ProductDescription" >Ghi chú</label>
+                <textarea class="FormTexarea" rows="3" name="product_description" id="ProductDescription">{{$product->product_description}}</textarea>
             </div>
 
             <div class="FormBtn">
@@ -97,7 +97,7 @@
                     <button class="Btn Btn_Primary">Lưu</button>
                 </div>
                 <div class="FormBtnGroup">
-                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('string.delete', $string->string_id)}}" >Xóa sản phẩm</a>
+                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('product.delete', $product->product_id)}}" >Xóa sản phẩm</a>
                 </div>
             </div>
         </form>

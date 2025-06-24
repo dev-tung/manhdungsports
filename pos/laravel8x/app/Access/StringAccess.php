@@ -3,9 +3,9 @@
 namespace App\Access;
 use DB;
 
-class ProductAccess extends Access{
+class StringAccess extends Access{
 
-    private $table = 'product';
+    private $table = 'string';
 
     public function get( $searchParams = null ){
         $query = DB::table($this->table);
@@ -17,8 +17,8 @@ class ProductAccess extends Access{
     }
 
     public function priceTotalInput(){
-        $price = DB::select('SELECT SUM(product_price_input * product_quantity) as product_price_input_total FROM product ');
-        return !empty( $price[0]->product_price_input_total ) ? $price[0]->product_price_input_total : 0;
+        $price = DB::select('SELECT SUM(string_price_input * string_quantity) as string_price_input_total FROM string ');
+        return !empty( $price[0]->string_price_input_total ) ? $price[0]->string_price_input_total : 0;
     }
 
     public function getFirst( $searchParams ){
@@ -32,34 +32,34 @@ class ProductAccess extends Access{
 
     public function insert($params){
         DB::table($this->table)->insert([
-            'product_name' => $params['product_name'],
-            'product_price_input' => $params['product_price_input'],
-            'product_price_output' => $params['product_price_output'],
-            'product_description' => $params['product_description'],
-            'product_quantity' => $params['product_quantity'],
-            'product_thumbnail' => $params->newPath,
-            'product_productype' => $params['product_productype'],
-            'product_unit' => $params['product_unit'],
-            'productype_id' => $params['productype_id']
+            'string_name' => $params['string_name'],
+            'string_price_input' => $params['string_price_input'],
+            'string_price_output' => $params['string_price_output'],
+            'string_description' => $params['string_description'],
+            'string_quantity' => $params['string_quantity'],
+            'string_thumbnail' => $params->newPath,
+            'string_stringype' => $params['string_stringype'],
+            'string_unit' => $params['string_unit'],
+            'stringype_id' => $params['stringype_id']
         ]);
     }
 
     public function update($params){
-        $update['product_name'] = $params['product_name'];
-        $update['product_price_input'] = $params['product_price_input'];
-        $update['product_price_output'] = $params['product_price_output'];
-        $update['product_description'] = $params['product_description'];
-        $update['product_quantity'] = $params['product_quantity'];
-        $update['product_productype'] = $params['product_productype'];
-        $update['product_unit'] = $params['product_unit'];
-        $update['productype_id'] = $params['productype_id'];
+        $update['string_name'] = $params['string_name'];
+        $update['string_price_input'] = $params['string_price_input'];
+        $update['string_price_output'] = $params['string_price_output'];
+        $update['string_description'] = $params['string_description'];
+        $update['string_quantity'] = $params['string_quantity'];
+        $update['string_stringype'] = $params['string_stringype'];
+        $update['string_unit'] = $params['string_unit'];
+        $update['stringype_id'] = $params['stringype_id'];
 
         if( !empty( $params->newPath ) ){
-            $update['product_thumbnail'] = $params->newPath;
+            $update['string_thumbnail'] = $params->newPath;
         }
 
         DB::table($this->table)
-            ->where('product_id', $params->product_id)
+            ->where('string_id', $params->string_id)
             ->update($update);
     }
 
