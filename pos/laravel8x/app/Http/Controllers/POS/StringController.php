@@ -23,7 +23,7 @@ class StringController extends Controller
 
     public function add(Request $request){
         $string = $this->_stringAccess->get();
-        return view('POS.string.add', ['string' => $string, 'color' => commomGetColorList()]);
+        return view('POS.string.add', ['string' => $string, 'colors' => commomGetColorList(), 'stringtypes' => commomGetStringTypeList()]);
     }
 
     public function insert(Request $request){
@@ -33,8 +33,7 @@ class StringController extends Controller
 
     public function edit(Request $request){
         $string = $this->_stringAccess->getFirst(['string_id' => $request->string_id]);
-        $strings = $this->_stringAccess->get();
-        return view('POS.string.edit', ['strings' => $strings, 'string' => $string]);
+        return view('POS.string.edit', ['string' => $string, 'colors' => commomGetColorList(), 'stringtypes' => commomGetStringTypeList()]);
     }
 
     public function update(Request $request){

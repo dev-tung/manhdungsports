@@ -1,8 +1,8 @@
 <div class="Sidebar" id="Sidebar">
     <nav class="SidebarNav">
-        <!-- <a class="SidebarNavLink" href="{{route('dashboard.index')}}">
+        <a class="SidebarNavLink" href="{{route('dashboard.index')}}">
             <span class="SidebarNavText">Tổng quan</span> 
-        </a> -->
+        </a>
         <a class="SidebarNavLink" href="{{route('product.index')}}">
             <span class="SidebarNavText">Sản phẩm</span> 
         </a>
@@ -10,10 +10,10 @@
             <span class="SidebarNavText">Loại sản phẩm</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('string.index')}}">
-            <span class="SidebarNavText">Căng cước</span> 
+            <span class="SidebarNavText">Loại cước</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('string.index')}}">
-            <span class="SidebarNavText">Loại cước</span> 
+            <span class="SidebarNavText">Căng cước</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('customer.index')}}">
             <span class="SidebarNavText">Khách hàng</span> 

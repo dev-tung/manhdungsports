@@ -36,11 +36,8 @@ class StringAccess extends Access{
             'string_price_input' => $params['string_price_input'],
             'string_price_output' => $params['string_price_output'],
             'string_description' => $params['string_description'],
-            'string_quantity' => $params['string_quantity'],
-            'string_thumbnail' => $params->newPath,
-            'string_stringype' => $params['string_stringype'],
-            'string_unit' => $params['string_unit'],
-            'stringype_id' => $params['stringype_id']
+            'string_type' => $params['string_type'],
+            'string_color' => $params['string_color']
         ]);
     }
 
@@ -49,14 +46,8 @@ class StringAccess extends Access{
         $update['string_price_input'] = $params['string_price_input'];
         $update['string_price_output'] = $params['string_price_output'];
         $update['string_description'] = $params['string_description'];
-        $update['string_quantity'] = $params['string_quantity'];
-        $update['string_stringype'] = $params['string_stringype'];
-        $update['string_unit'] = $params['string_unit'];
-        $update['stringype_id'] = $params['stringype_id'];
-
-        if( !empty( $params->newPath ) ){
-            $update['string_thumbnail'] = $params->newPath;
-        }
+        $update['string_type'] = $params['string_type'];
+        $update['string_color'] = $params['string_color'];
 
         DB::table($this->table)
             ->where('string_id', $params->string_id)
