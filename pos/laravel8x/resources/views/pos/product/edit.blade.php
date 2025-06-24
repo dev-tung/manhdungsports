@@ -68,18 +68,18 @@
 
                 <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductCategory" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="category_id" id="ProductCategory">
+                        <label class="FormLabel" for="Productproductype" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="productype_id" id="Productproductype">
                             <option value="">-- Chọn danh mục --</option>
-                            @foreach($categories as $item)
-                                <option value="{{$item->category_id}}" {{ ($product->category_id == $item->category_id) ? 'selected' : ''; }}>{{$item->category_name}}</option>
+                            @foreach($productype as $item)
+                                <option value="{{$item->productype_id}}" {{ ($product->productype_id == $item->productype_id) ? 'selected' : ''; }}>{{$item->productype_name}}</option>
                             @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductSource" >Nhà cung cấp </label>
-                        <input class="FormInput" id="ProductSource" type="text" name="ProductSource" value="{{$product->product_source}}">
+                        <label class="FormLabel" for="Productource" >Nhà cung cấp </label>
+                        <input class="FormInput" id="Productource" type="text" name="Productource" value="{{$product->product_source}}">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>

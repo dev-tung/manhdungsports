@@ -7,17 +7,11 @@
                 <form action="{{route('product.index')}}" class="ListSearchForm">
                     <input class="ListSearchFormInput" type="text" name="product_name" placeholder="Tìm kiếm sản phẩm ..." value="{{ request()->product_name }}">
                     <div class="Filter">
-                        <select class="ListSearchFormSelect" name="product_category" id="ProductCategory">
+                        <select class="ListSearchFormSelect" name="product_productype" id="Productproductype">
                             <option value="">-- Chọn danh mục --</option>
-                            <option value="Vợt cầu lông">Vợt cầu lông</option>
-                            <option value="Giày cầu lông">Giày cầu lông</option>
-                            <option value="Quần cầu lông">Quần cầu lông</option>
-                            <option value="Áo cầu lông">Áo cầu lông</option>
-                            <option value="Túi ngang">Túi ngang</option>
-                            <option value="Balo">Balo</option>
-                            <option value="Túi hở cán">Túi hở cán</option>
-                            <option value="Cầu">Cầu</option>
-                            <option value="Phụ kiện">Phụ kiện</option>
+                            @foreach($productype as $item)
+                                <option value="{{$item->productype_id}}">{{$item->productype_name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <button class="ListSearchFormSubmit">
@@ -29,13 +23,13 @@
             </div>
             
             <div class="ListSearchTotal">
-                <span class="ListSearchTotalItem">{{ $products->sum('product_quantity') }} sản phẩm</span>
+                <span class="ListSearchTotalItem">{{ $product->sum('product_quantity') }} sản phẩm</span>
                 <span>-</span>
-                <span class="ListSearchTotalItem">Tổng giá nhập {{ number_format( $totalprice ) }} đ</span>
+                <span class="ListSearchTotalItem">Tổng giá nhập {{ number_format( $priceTotalInput ) }} đ</span>
             </div>
 
             <div class="List">
-                @foreach( $products as $product )
+                @foreach( $product as $product )
                     <a class="ListItem" href="{{route('product.edit', $product->product_id)}}">
                         <div class="ListItemthumbnail">
                             @if( !empty( $product->product_thumbnail ) )

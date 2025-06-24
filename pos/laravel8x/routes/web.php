@@ -25,13 +25,13 @@ Route::prefix('pos')->group(function () {
         Route::post('update/{product_id}', ['as' => 'product.update', 'uses' => 'POS\ProductController@update']);
         Route::get('delete/{product_id}', ['as' => 'product.delete', 'uses' => 'POS\ProductController@delete']);
     });
-    Route::prefix('category')->group(function () {
-        Route::get('index', ['as' => 'category.index', 'uses' => 'POS\CategoryController@index']);
-        Route::get('add', ['as' => 'category.add', 'uses' => 'POS\CategoryController@add']);
-        Route::post('insert', ['as' => 'category.insert', 'uses' => 'POS\CategoryController@insert']);
-        Route::get('edit/{category_id}', ['as' => 'category.edit', 'uses' => 'POS\CategoryController@edit']);
-        Route::post('update/{category_id}', ['as' => 'category.update', 'uses' => 'POS\CategoryController@update']);
-        Route::get('delete/{category_id}', ['as' => 'category.delete', 'uses' => 'POS\CategoryController@delete']);
+    Route::prefix('productype')->group(function () {
+        Route::get('index', ['as' => 'productype.index', 'uses' => 'POS\productypeController@index']);
+        Route::get('add', ['as' => 'productype.add', 'uses' => 'POS\productypeController@add']);
+        Route::post('insert', ['as' => 'productype.insert', 'uses' => 'POS\productypeController@insert']);
+        Route::get('edit/{productype_id}', ['as' => 'productype.edit', 'uses' => 'POS\productypeController@edit']);
+        Route::post('update/{productype_id}', ['as' => 'productype.update', 'uses' => 'POS\productypeController@update']);
+        Route::get('delete/{productype_id}', ['as' => 'productype.delete', 'uses' => 'POS\productypeController@delete']);
     });
 });
 

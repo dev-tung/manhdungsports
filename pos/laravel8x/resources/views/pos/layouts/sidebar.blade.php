@@ -6,7 +6,7 @@
         <a class="SidebarNavLink" href="{{route('product.index')}}">
             <span class="SidebarNavText">Danh sách sản phẩm</span> 
         </a>
-        <a class="SidebarNavLink" href="{{route('category.index')}}">
+        <a class="SidebarNavLink" href="{{route('productype.index')}}">
             <span class="SidebarNavText">Danh mục sản phẩm</span> 
         </a>
     </nav>

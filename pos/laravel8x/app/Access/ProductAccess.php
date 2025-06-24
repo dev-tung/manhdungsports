@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Dbaccess;
+namespace App\Access;
 use DB;
 
-class Product extends Dbaccess{
+class ProductAccess extends Access{
 
-    private $table = 'products';
+    private $table = 'product';
 
     public function get( $searchParams = null ){
         $query = DB::table($this->table);
@@ -16,8 +16,8 @@ class Product extends Dbaccess{
         return $query->get();
     }
 
-    public function getPriceTotalInput(){
-        $price = DB::select('SELECT SUM(product_price_input * product_quantity) as product_price_input_total FROM products ');
+    public function priceTotalInput(){
+        $price = DB::select('SELECT SUM(product_price_input * product_quantity) as product_price_input_total FROM product ');
         return !empty( $price[0]->product_price_input_total ) ? $price[0]->product_price_input_total : 0;
     }
 
@@ -40,9 +40,9 @@ class Product extends Dbaccess{
             'product_description'   => $params['product_description'],
             'product_quantity'      => $params['product_quantity'],
             'product_thumbnail'     => $params->newPath,
-            'product_category'      => $params['product_category'],
+            'product_productype'      => $params['product_productype'],
             'product_unit'          => $params['product_unit'],
-            'category_id'          => $params['category_id']
+            'productype_id'          => $params['productype_id']
         ]);
     }
 
@@ -53,9 +53,9 @@ class Product extends Dbaccess{
         $update['product_price_output'] = $params['product_price_output'];
         $update['product_description'] = $params['product_description'];
         $update['product_quantity'] = $params['product_quantity'];
-        $update['product_category'] = $params['product_category'];
+        $update['product_productype'] = $params['product_productype'];
         $update['product_unit'] = $params['product_unit'];
-        $update['category_id'] = $params['category_id'];
+        $update['productype_id'] = $params['productype_id'];
 
         if( !empty( $params->newPath ) ){
             $update['product_thumbnail'] = $params->newPath;

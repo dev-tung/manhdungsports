@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Dbaccess;
+namespace App\Access;
 use DB;
 
-class Category extends Dbaccess{
+class productypeAccess extends Access{
 
-    private $table = 'categories';
+    private $table = 'productype';
 
     public function get( $searchParams = null ){
         $query = DB::table($this->table);
@@ -27,17 +27,17 @@ class Category extends Dbaccess{
 
     public function insert($params){
         DB::table($this->table)->insert([
-            'category_name' => $params['category_name'],
-            'category_parent_id'   => $params['category_parent_id']
+            'productype_name' => $params['productype_name'],
+            'productype_parent_id'   => $params['productype_parent_id']
         ]);
     }
 
     public function update($params){
-        $update['category_name'] = $params['category_name'];
-        $update['category_parent_id'] = $params['category_parent_id'];
+        $update['productype_name'] = $params['productype_name'];
+        $update['productype_parent_id'] = $params['productype_parent_id'];
 
         DB::table($this->table)
-            ->where('category_id', $params->category_id)
+            ->where('productype_id', $params->productype_id)
             ->update($update);
     }
 

@@ -43,7 +43,7 @@ Validator({
             selector: '#ProductUnit'
         }),
         Validator.sbRequired({
-            selector: '#ProductCategory'
+            selector: '#Productproductype'
         })
     ],
     onSubmit: (form) => {

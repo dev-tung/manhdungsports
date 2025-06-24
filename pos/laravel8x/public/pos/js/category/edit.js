@@ -1,10 +1,10 @@
 
 // VALIDATOR
 Validator({
-    form: '#FormCategoryEdit',
+    form: '#FormproductypeEdit',
     items: [
         Validator.tbRequired({
-            selector: '#CategoryName'
+            selector: '#productypeName'
         })
     ],
     onSubmit: (form) => {
