@@ -22,32 +22,33 @@ class StringorderController extends Controller
     }
 
     public function add(Request $request){
-        $string = $this->_stringAccess->get();
-        return view('POS.string.add', ['string' => $string]);
+        $customers = $this->_stringorderAccess->getCustomers();
+        $strings = $this->_stringAccess->get();
+        return view('POS.stringorder.add', ['customers' => $customers, 'strings' => $strings]);
     }
 
     public function insert(Request $request){
-        $this->_stringorderService->moveThumbnail($request);
         $this->_stringorderAccess->insert($request);
-        return redirect()->route('string.add');
+        return redirect()->route('stringorder.add');
     }
 
     public function edit(Request $request){
-        $string = $this->_stringorderAccess->getFirst(['string_id' => $request->string_id]);
-        $string = $this->_stringAccess->get();
-        return view('POS.string.edit', ['string' => $string, 'string' => $string]);
+        $customers = $this->_stringorderAccess->getCustomers();
+        $strings = $this->_stringAccess->get();
+        $stringorder = $this->_stringorderAccess->getFirst(['stringorder_id' => $request->stringorder_id]);
+        return view('POS.stringorder.edit', ['stringorder' => $stringorder, 'customers' => $customers, 'strings' => $strings]);
     }
 
     public function update(Request $request){
         $this->_stringorderService->moveThumbnail($request);
         $this->_stringorderAccess->update($request);
-        return redirect()->route('string.index');
+        return redirect()->route('stringorder.index');
     }
 
     public function delete(Request $request){
         $string = $this->_stringorderAccess->getFirst(['string_id' => $request->string_id]);
         $this->_stringorderService->deleteThumbnail($string);
         $this->_stringorderAccess->delete(['string_id' => $request->string_id]);
-        return redirect()->route('string.index');
+        return redirect()->route('stringorder.index');
     }
 }

@@ -15,14 +15,21 @@
             </div>
             
             <div class="ListSearchTotal">
-                <span class="ListSearchTotalItem">{{ $stringorders->count() }} lượt căng cước</span>
+                <span class="ListSearchTotalItem">{{ count($stringorders) }} lượt căng cước</span>
             </div>
 
             <div class="List">
                 @foreach( $stringorders as $stringorder )
                     <a class="ListItem" href="{{route('stringorder.edit', $stringorder->stringorder_id)}}">
                         <div class="ListItemInfo">
-                            <h4 class="ListItemName">{{ $stringorder->stringorder_name }}</h4>
+                            <h4 class="ListItemName">{{ $stringorder->customer_name }}</h4>
+                            <div class="ListSpanGroup">
+                                <span class="ListItemSpan">[{{ commomGetStringTypeName($stringorder->string_type) }}] {{ $stringorder->string_name }} - {{ commomGetColorName($stringorder->string_color) }}</span>
+                                <span>-</span>
+                                <span class="ListItemSpan">{{ commomGetOrderstringStatus($stringorder->stringorder_status) }}</span>
+                                <span>-</span>
+                                <span class="ListItemSpan">{{ commomGetOrderstringIspayment($stringorder->stringorder_ispayment) }}</span>
+                            </div>
                         </div>
                     </a>
                 @endforeach

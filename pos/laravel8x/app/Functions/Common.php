@@ -20,7 +20,7 @@ if( !function_exists('commomGetColorList') ){
 if( !function_exists('commomColor') ){
   function commomGetColorName($key){
     $colorList = commomGetColorList();
-    return $colorList[$key];
+    if(array_key_exists($key, $colorList)) return $colorList[$key];
   }
 }
 
@@ -36,7 +36,7 @@ if( !function_exists('commomGetStringTypeList') ){
 if( !function_exists('commomGetStringTypeName') ){
   function commomGetStringTypeName($key){
     $colorTypes = commomGetStringTypeList();
-    return $colorTypes[$key];
+    if(array_key_exists($key, $colorTypes)) return $colorTypes[$key];
   }
 }
 
@@ -45,5 +45,28 @@ if( !function_exists('commomGetStringProfit') ){
   function commomGetStringProfit($string_price_input, $string_price_out, $string_type = 1){
      $oneStringPriceInput =  $string_type != 1 ? $string_price_input : $string_price_input/22;
      return number_format($string_price_out - $oneStringPriceInput);
+  }
+}
+
+if( !function_exists('commomGetOrderstringStatus') ){
+  function commomGetOrderstringStatus($key = null){
+    $orderstringStatus = [
+        0 => 'Đã nhận vợt',
+        1 => 'Đã căng cước',
+        2 => 'Đã trả khách'
+    ];
+
+    return $key !== null ? $orderstringStatus[$key] : $orderstringStatus;
+  }
+}
+
+if( !function_exists('commomGetOrderstringIspayment') ){
+  function commomGetOrderstringIspayment($key = null){
+    $orderstringIspayment = [
+        0 => 'Chưa thanh toán',
+        1 => 'Đã thanh toán'
+    ];
+
+    return $key !== null ? $orderstringIspayment[$key] : $orderstringIspayment;
   }
 }

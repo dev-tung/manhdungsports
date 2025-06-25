@@ -27,7 +27,7 @@ class CustomerAccess extends Access{
         
         $query = "
             SELECT * FROM `customer` customer 
-            LEFT JOIN customergroup customergroup 
+            JOIN customergroup customergroup 
             ON customer.customergroup_id = customergroup.customergroup_id
             $WHERE
             ORDER BY customergroup.customergroup_name

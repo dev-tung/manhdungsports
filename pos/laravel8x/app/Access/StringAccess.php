@@ -13,7 +13,7 @@ class StringAccess extends Access{
         if( !empty( $searchParams ) ){
             $query->where($searchParams);
         }
-        return $query->get();
+        return $query->orderBy('string_type')->orderBy('string_name')->get();
     }
 
     public function priceTotalInput(){
