@@ -56,12 +56,19 @@ class StringorderAccess extends Access{
     }
 
     public function update($params){
-        $update['string_name'] = $params['string_name'];
-        $update['string_parent_id'] = $params['string_parent_id'];
+        $param['customer_id'] = $request['customer_id'];
+        $param['stringorder_description'] = $request['stringorder_description'];
+        $param['string_id'] = $request['string_id'];
+        $param['stringorder_kg'] = $request['stringorder_kg'];
+        $param['stringorder_revenue'] = $request['stringorder_revenue'] - $request['stringorder_discount'];
+        $param['stringorder_status'] = $request['stringorder_status'];
+        $param['stringorder_timereturn'] = $request['stringorder_timereturn'];
+        $param['stringorder_ispayment'] = $request['stringorder_ispayment'];
+        $param['stringorder_discount'] = $request['stringorder_discount'];
 
         DB::table($this->table)
         ->where('string_id', $params->string_id)
-        ->update($update);
+        ->update($param);
     }
 
     public function delete( $searchParams ){

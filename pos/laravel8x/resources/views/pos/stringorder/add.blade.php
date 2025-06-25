@@ -9,7 +9,7 @@
 
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="CustomerId" >Khách hàng</label>
+                        <label class="FormLabel" for="CustomerId" >Khách hàng <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="customer_id" id="CustomerId">
                             <option value="">-- Chọn khách hàng --</option>
                             @foreach( $customers as $customer )
@@ -19,7 +19,7 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="StringType" >Loại cước</label>
+                        <label class="FormLabel" for="StringType" >Loại cước <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="string_id" id="StringType">
                             <option value="">-- Chọn loại cước --</option>
                             @foreach( $strings as $string )
@@ -38,19 +38,6 @@
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringOrderRevenue" >Doanh thu <span class="RequiredSymbol">*</span></label>
                         <input class="FormInput" id="StringOrderRevenue" type="number" name="stringorder_revenue">
-                        <small class="FormErrorMessage"></small>
-                    </div>
-                </div>
-
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
-                    <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="StringorderDiscount">Triết khấu (VNĐ)</label>
-                        <input class="FormInput" id="StringorderDiscount" type="number" name="stringorder_discount">
-                        <small class="FormErrorMessage"></small>
-                    </div>
-                    <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="StringorderTimereturn" >Thời gian trả vợt</label>
-                        <input class="FormInput" id="StringorderTimereturn" type="text" name="stringorder_timereturn">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
@@ -74,6 +61,19 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
+                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="StringorderDiscount">Chiết khấu (VNĐ)</label>
+                        <input class="FormInput" id="StringorderDiscount" type="number" name="stringorder_discount">
+                        <small class="FormErrorMessage"></small>
+                    </div>
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="StringorderTimereturn" >Thời gian trả vợt</label>
+                        <input class="FormInput" id="StringorderTimereturn" type="text" name="stringorder_timereturn">
+                        <small class="FormErrorMessage"></small>
+                    </div>
+                </div>
+
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="StringorderDescription" >Ghi chú</label>
                     <input class="FormInput" id="StringorderDescription" type="text" name="stringorder_description">
