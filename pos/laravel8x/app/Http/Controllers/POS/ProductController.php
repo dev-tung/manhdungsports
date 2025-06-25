@@ -21,7 +21,11 @@ class ProductController extends Controller
         $product = $this->_productAccess->get($searchParams);
         $priceTotalInput = $this->_productAccess->priceTotalInput();
         $productype = $this->_productypeAccess->get();
-        return view('POS.product.index', ['product' => $product, 'priceTotalInput' => $priceTotalInput, 'productype' => $productype]);
+        return view('POS.product.index', [
+            'product' => $product, 
+            'priceTotalInput' => $priceTotalInput, 
+            'productype' => $productype
+        ]);
     }
 
     public function add(Request $request){

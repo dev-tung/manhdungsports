@@ -1,13 +1,10 @@
 
 // VALIDATOR
 Validator({
-    form: '#FormCustomerAdd',
+    form: '#FormCustomergroupAdd',
     items: [
         Validator.tbRequired({
-            selector: '#CustomerName'
-        }),
-        Validator.sbRequired({
-            selector: '#Customergroup'
+            selector: '#CustomergroupName'
         })
     ],
     onSubmit: (form) => {

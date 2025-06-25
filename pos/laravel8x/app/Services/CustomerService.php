@@ -9,20 +9,6 @@ class Customerservice extends Service{
         $this->_fileController = new FileController();
     }
 
-    public function searchParam($request){
-        $searchParams = [];
-
-        if( !empty($request->customer_name) ){
-            $searchParams[] = ['customer_name', 'like', '%' . $request->customer_name . '%'];
-        }
-
-        if( !empty($request->customer_customerype) ){
-            $searchParams[] = ['customer_customerype', 'like', '%' . $request->customer_customerype . '%'];
-        }
-
-        return $searchParams;
-    }
-
     public function moveThumbnail($request){
         if( !empty( $request->customer_thumbnail ) ){
             $request->oldPath = 'upload/customer/tmp/'.$request->customer_thumbnail;

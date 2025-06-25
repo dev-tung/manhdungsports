@@ -5,7 +5,7 @@
         <div class="MainContent">
             <div class="ListSearch">
                 <form action="{{route('string.index')}}" class="ListSearchForm">
-                    <input class="ListSearchFormInput" type="text" name="string_name" placeholder="Tìm kiếm loại cước ..." value="{{ request()->string_name }}">
+                    <input class="ListSearchFormInput" type="text" name="string_name" placeholder="Tìm kiếm ..." value="{{ request()->string_name }}">
 
                     <button class="ListSearchFormSubmit">
                         <svg class="ListSearchFormSubmitIcon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -17,14 +17,18 @@
             
             <div class="ListSearchTotal">
                 <span class="ListSearchTotalItem">{{ $string->count('string_id') }} loại cước</span>
+                <span>-</span>
+                <span class="ListSearchTotalItem">Tổng giá nhập {{ number_format( $priceTotalInput ) }} đ</span>
             </div>
 
             <div class="List">
                 @foreach( $string as $string )
                     <a class="ListItem" href="{{route('string.edit', $string->string_id)}}">
                         <div class="ListItemInfo">
-                            <h4 class="ListItemName">{{ $string->string_name }} - {{ commomGetStringTypeName($string->string_type) }} - {{ commomGetColorName($string->string_color) }}</h4>
+                            <h4 class="ListItemName">[{{ commomGetStringTypeName($string->string_type) }}] {{ $string->string_name }} - {{ commomGetColorName($string->string_color) }}</h4>
                             <div class="ListSpanGroup">
+                                <span class="ListItemSpan">Số lượng {{ number_format($string->string_quantity) }}</span>
+                                <span>-</span>
                                 <span class="ListItemSpan">Giá nhập {{ number_format($string->string_price_input) }} đ</span>
                                 <span>-</span>
                                 <span class="ListItemSpan">Giá căng {{ number_format($string->string_price_output) }} đ</span>

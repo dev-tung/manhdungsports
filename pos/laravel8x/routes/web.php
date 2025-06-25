@@ -34,12 +34,12 @@ Route::prefix('pos')->group(function () {
         Route::get('delete/{productype_id}', ['as' => 'productype.delete', 'uses' => 'POS\ProductypeController@delete']);
     });
     Route::prefix('stringorder')->group(function () {
-        Route::get('index', ['as' => 'string.index', 'uses' => 'POS\StringorderController@index']);
-        Route::get('add', ['as' => 'string.add', 'uses' => 'POS\StringorderController@add']);
-        Route::post('insert', ['as' => 'string.insert', 'uses' => 'POS\StringorderController@insert']);
-        Route::get('edit/{string_id}', ['as' => 'string.edit', 'uses' => 'POS\StringorderController@edit']);
-        Route::post('update/{string_id}', ['as' => 'string.update', 'uses' => 'POS\StringorderController@update']);
-        Route::get('delete/{string_id}', ['as' => 'string.delete', 'uses' => 'POS\StringorderController@delete']);
+        Route::get('index', ['as' => 'stringorder.index', 'uses' => 'POS\StringorderController@index']);
+        Route::get('add', ['as' => 'stringorder.add', 'uses' => 'POS\StringorderController@add']);
+        Route::post('insert', ['as' => 'stringorder.insert', 'uses' => 'POS\StringorderController@insert']);
+        Route::get('edit/{string_id}', ['as' => 'stringorder.edit', 'uses' => 'POS\StringorderController@edit']);
+        Route::post('update/{string_id}', ['as' => 'stringorder.update', 'uses' => 'POS\StringorderController@update']);
+        Route::get('delete/{string_id}', ['as' => 'stringorder.delete', 'uses' => 'POS\StringorderController@delete']);
     });
     Route::prefix('string')->group(function () {
         Route::get('index', ['as' => 'string.index', 'uses' => 'POS\StringController@index']);

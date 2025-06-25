@@ -13,7 +13,7 @@ class CustomergroupAccess extends Access{
         if( !empty( $searchParams ) ){
             $query->where($searchParams);
         }
-        return $query->get();
+        return $query->orderBy('customergroup_name')->get();
     }
 
     public function getFirst( $searchParams ){
@@ -28,13 +28,13 @@ class CustomergroupAccess extends Access{
     public function insert($params){
         DB::table($this->table)->insert([
             'customergroup_name' => $params['customergroup_name'],
-            'customergroup_parent_id'   => $params['customergroup_parent_id']
+            'customergroup_description'   => $params['customergroup_description']
         ]);
     }
 
     public function update($params){
         $update['customergroup_name'] = $params['customergroup_name'];
-        $update['customergroup_parent_id'] = $params['customergroup_parent_id'];
+        $update['customergroup_description'] = $params['customergroup_description'];
 
         DB::table($this->table)
             ->where('customergroup_id', $params->customergroup_id)

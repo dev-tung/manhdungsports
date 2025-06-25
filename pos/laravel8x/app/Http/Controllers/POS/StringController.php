@@ -18,12 +18,17 @@ class StringController extends Controller
         $string = $this->_stringAccess->get([
             ['string_name', 'like', '%' . $request->string_name . '%']
         ]);
-        return view('POS.string.index', ['string' => $string]);
+        $priceTotalInput = $this->_stringAccess->priceTotalInput();
+        return view('POS.string.index', ['string' => $string, 'priceTotalInput' => $priceTotalInput]);
     }
 
     public function add(Request $request){
         $string = $this->_stringAccess->get();
-        return view('POS.string.add', ['string' => $string, 'colors' => commomGetColorList(), 'stringtypes' => commomGetStringTypeList()]);
+        
+        return view('POS.string.add', [
+            'string' => $string, 'colors' => commomGetColorList(), 
+            'stringtypes' => commomGetStringTypeList()
+        ]);
     }
 
     public function insert(Request $request){

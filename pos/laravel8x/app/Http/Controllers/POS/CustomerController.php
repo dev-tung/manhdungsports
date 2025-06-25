@@ -17,8 +17,7 @@ class CustomerController extends Controller
     }
 
     public function index(Request $request){
-        $searchParams = $this->_customersevice->searchParam($request);
-        $customer = $this->_customerAccess->get($searchParams);
+        $customer = $this->_customerAccess->get($request);
         $customergroup = $this->_customergroupAccess->get();
         return view('POS.customer.index', ['customer' => $customer, 'customergroup' => $customergroup]);
     }
@@ -29,9 +28,8 @@ class CustomerController extends Controller
     }
 
     public function insert(Request $request){
-        $this->_customersevice->moveThumbnail($request);
         $this->_customerAccess->insert($request);
-        return redirect()->route('customer.add');
+        return redirect()->route('customer.index');
     }
 
     public function edit(Request $request){
@@ -47,8 +45,6 @@ class CustomerController extends Controller
     }
 
     public function delete(Request $request){
-        $customer = $this->_customerAccess->getFirst(['customer_id' => $request->customer_id]);
-        $this->_customersevice->deleteThumbnail($customer);
         $this->_customerAccess->delete(['customer_id' => $request->customer_id]);
         return redirect()->route('customer.index');
     }

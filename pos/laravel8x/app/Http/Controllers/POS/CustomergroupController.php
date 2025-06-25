@@ -22,8 +22,7 @@ class CustomergroupController extends Controller
     }
 
     public function add(Request $request){
-        $customergroup = $this->_customergroupAccess->get();
-        return view('POS.customergroup.add', ['customergroup' => $customergroup]);
+        return view('POS.customergroup.add');
     }
 
     public function insert(Request $request){
@@ -33,8 +32,7 @@ class CustomergroupController extends Controller
 
     public function edit(Request $request){
         $customergroup = $this->_customergroupAccess->getFirst(['customergroup_id' => $request->customergroup_id]);
-        $customergroups = $this->_customergroupAccess->get();
-        return view('POS.customergroup.edit', ['customergroups' => $customergroups, 'customergroup' => $customergroup]);
+        return view('POS.customergroup.edit', ['customergroup' => $customergroup]);
     }
 
     public function update(Request $request){

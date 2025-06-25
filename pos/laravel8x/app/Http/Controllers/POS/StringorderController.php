@@ -17,11 +17,8 @@ class StringorderController extends Controller
     }
 
     public function index(Request $request){
-        $searchParams = $this->_stringorderService->searchParam($request);
-        $string = $this->_stringorderAccess->get($searchParams);
-        $priceTotalInput = $this->_stringorderAccess->priceTotalInput();
-        $string = $this->_stringAccess->get();
-        return view('POS.string.index', ['string' => $string, 'priceTotalInput' => $priceTotalInput, 'string' => $string]);
+        $stringorders = $this->_stringorderAccess->get($request);
+        return view('POS.stringorder.index', ['stringorders' => $stringorders]);
     }
 
     public function add(Request $request){

@@ -5,10 +5,17 @@ use DB;
 
 class StringorderAccess extends Access{
 
-    private $table = 'string';
+    private $table = 'stringorder';
 
-    public function get( $searchParams = null ){
+    public function searchParam($request){
+       if( empty($request->stringorder_name) ) return '';
+        $searchParams[] = ['stringorder_name', 'like', '%' . $request->stringorder_name . '%'];
+        return $searchParams;
+    }
+
+    public function get( $request){
         $query = DB::table($this->table);
+        $searchParams = $this->searchParam($request);
 
         if( !empty( $searchParams ) ){
             $query->where($searchParams);

@@ -3,6 +3,7 @@
 if( !function_exists('commomGetColorList') ){
   function commomGetColorList(){
     return [
+      0 => 'Trộn',
       1 => 'Trắng',
       2 => 'Đen',
       3 => 'Đỏ',
