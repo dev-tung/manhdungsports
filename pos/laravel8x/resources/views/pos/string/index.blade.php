@@ -27,7 +27,7 @@
                         <div class="ListItemInfo">
                             <h4 class="ListItemName">[{{ commomGetStringTypeName($string->string_type) }}] {{ $string->string_name }} - {{ commomGetColorName($string->string_color) }}</h4>
                             <div class="ListSpanGroup">
-                                <span class="ListItemSpan">Số lượng {{ number_format($string->string_quantity) }}</span>
+                                <span class="ListItemSpan">Tồn kho {{ number_format($string->string_quantity) }}</span>
                                 <span>-</span>
                                 <span class="ListItemSpan">Giá nhập {{ number_format($string->string_price_input) }} đ</span>
                                 <span>-</span>
