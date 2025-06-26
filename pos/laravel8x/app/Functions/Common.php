@@ -63,8 +63,8 @@ if( !function_exists('commomGetOrderstringStatus') ){
 if( !function_exists('commomGetOrderstringIspayment') ){
   function commomGetOrderstringIspayment($key = null){
     $orderstringIspayment = [
-        0 => 'Chưa thanh toán',
-        1 => 'Đã thanh toán'
+        0 => '<span class="Text_Danger">Chưa thanh toán<span>',
+        1 => '<span class="Text_Success">Đã thanh toán<span>'
     ];
 
     return $key !== null ? $orderstringIspayment[$key] : $orderstringIspayment;

@@ -19,7 +19,7 @@ class CustomergroupAccess extends Access{
 
     public function get( $request ){
         $query = DB::table($this->table);
-        $searchParams = $this->searchParam();
+        $searchParams = $this->searchParam($request);
 
         if( !empty( $searchParams ) ){
             $query->where($searchParams);

@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index(Request $request){
         $product = $this->_productAccess->get($request);
         $priceTotalInput = $this->_productAccess->priceTotalInput();
-        $productype = $this->_productypeAccess->get();
+        $productype = $this->_productypeAccess->get($request);
         return view('POS.product.index', [
             'product' => $product, 
             'priceTotalInput' => $priceTotalInput, 

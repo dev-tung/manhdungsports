@@ -503,6 +503,7 @@ body {
     color: white;
 }
 
+
 .Btn_Round{
     border-radius: 50%;
 }
@@ -525,6 +526,14 @@ body {
 .Float_BottomRight{
     right: 20px;
     bottom: 30px;
+}
+
+.Text_Danger{
+    color: var(--color-danger);
+}
+
+.Text_Success{
+    color: var(--color-success);
 }
 
 /* Modal */

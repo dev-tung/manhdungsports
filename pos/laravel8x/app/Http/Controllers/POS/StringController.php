@@ -21,7 +21,7 @@ class StringController extends Controller
     }
 
     public function add(Request $request){
-        $string = $this->_stringAccess->get();
+        $string = $this->_stringAccess->get($request);
         
         return view('POS.string.add', [
             'string' => $string, 'colors' => commomGetColorList(), 

@@ -5,6 +5,4 @@ use DB;
 
 class StringorderService extends Service{
 
-
-
 }

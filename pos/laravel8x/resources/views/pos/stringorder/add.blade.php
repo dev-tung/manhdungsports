@@ -5,52 +5,30 @@
     <main class="Main">
         <form action="{{route('stringorder.insert')}}" method="POST" class="Form" id="FormStringAdd" enctype="multipart/form-data">
             @csrf
-            <div class="FormGrid FormGrid_DesktopTwo">
+            <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                <div class="FormGroup FormValidate">
+                    <label class="FormLabel" for="CustomerId" >Khách hàng <span class="RequiredSymbol">*</span></label>
+                    <select class="FormSelect" name="customer_id" id="CustomerId">
+                        @foreach( $customers as $customer )
+                            <option value="{{$customer->customer_id}}">{{$customer->customer_name}} - {{$customer->customergroup_name}}</option>
+                        @endforeach
+                    </select>
+                    <small class="FormErrorMessage"></small>
+                </div>
+                <div class="FormGroup FormValidate">
+                    <label class="FormLabel" for="StringType" >Loại cước <span class="RequiredSymbol">*</span></label>
+                    <select class="FormSelect" name="string_id" id="StringType">
+                        <option value="">-- Chọn loại cước --</option>
+                        @foreach( $strings as $string )
+                            <option value="{{$string->string_id}}">[{{ commomGetStringTypeName($string->string_type) }}] {{ $string->string_name }} - {{ commomGetColorName($string->string_color) }}</option>
+                        @endforeach
+                    </select>
+                    <small class="FormErrorMessage"></small>
+                </div>
+            </div>
 
+            <div class="FormGrid FormGrid_DesktopTwo">
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
-                    <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="CustomerId" >Khách hàng <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="customer_id" id="CustomerId">
-                            <option value="">-- Chọn khách hàng --</option>
-                            @foreach( $customers as $customer )
-                                <option value="{{$customer->customer_id}}">{{$customer->customer_name}}</option>
-                            @endforeach
-                        </select>
-                        <small class="FormErrorMessage"></small>
-                    </div>
-                    <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="StringType" >Loại cước <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="string_id" id="StringType">
-                            <option value="">-- Chọn loại cước --</option>
-                            @foreach( $strings as $string )
-                                <option value="{{$string->string_id}}">[{{ commomGetStringTypeName($string->string_type) }}] {{ $string->string_name }} - {{ commomGetColorName($string->string_color) }}</option>
-                            @endforeach
-                        </select>
-                        <small class="FormErrorMessage"></small>
-                    </div>
-                </div>
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
-                    <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="StringorderKG" >KG <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="StringorderKG" type="number" name="stringorder_kg">
-                        <small class="FormErrorMessage"></small>
-                    </div>
-                    <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="StringOrderRevenue" >Doanh thu <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="StringOrderRevenue" type="number" name="stringorder_revenue">
-                        <small class="FormErrorMessage"></small>
-                    </div>
-                </div>
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
-                    <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="StringorderIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="stringorder_ispayment" id="StringorderIspayment">
-                            @foreach( commomGetOrderstringIspayment() as $key => $item )
-                                <option value="{{$key}}">{{$item}}</option>
-                            @endforeach
-                        </select>
-                        <small class="FormErrorMessage"></small>
-                    </div>
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderStatus" >Trạng thái <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="stringorder_status" id="StringorderStatus">
@@ -60,7 +38,13 @@
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="StringorderKG" >KG <span class="RequiredSymbol">*</span></label>
+                        <input class="FormInput" id="StringorderKG" type="number" name="stringorder_kg">
+                        <small class="FormErrorMessage"></small>
+                    </div>
                 </div>
+
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderDiscount">Chiết khấu (VNĐ)</label>
@@ -74,12 +58,22 @@
                     </div>
                 </div>
 
-                <div class="FormGroup FormValidate">
-                    <label class="FormLabel" for="StringorderDescription" >Ghi chú</label>
-                    <input class="FormInput" id="StringorderDescription" type="text" name="stringorder_description">
-                    <small class="FormErrorMessage"></small>
+                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="StringorderIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="stringorder_ispayment" id="StringorderIspayment">
+                            @foreach( commomGetOrderstringIspayment() as $key => $item )
+                                <option value="{{$key}}">{!!$item!!}</option>
+                            @endforeach
+                        </select>
+                        <small class="FormErrorMessage"></small>
+                    </div>
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="StringorderDescription" >Ghi chú</label>
+                        <input class="FormInput" id="StringorderDescription" type="text" name="stringorder_description">
+                        <small class="FormErrorMessage"></small>
+                    </div>
                 </div>
-                
             </div>
 
             <div class="FormBtn">

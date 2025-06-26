@@ -22,13 +22,13 @@
                 @foreach( $stringorders as $stringorder )
                     <a class="ListItem" href="{{route('stringorder.edit', $stringorder->stringorder_id)}}">
                         <div class="ListItemInfo">
-                            <h4 class="ListItemName">{{ $stringorder->customer_name }}</h4>
+                            <h4 class="ListItemName">{{ $stringorder->customer_name }} - [{{ commomGetStringTypeName($stringorder->string_type) }}] {{ $stringorder->string_name }} - {{ commomGetColorName($stringorder->string_color) }}</h4>
                             <div class="ListSpanGroup">
-                                <span class="ListItemSpan">[{{ commomGetStringTypeName($stringorder->string_type) }}] {{ $stringorder->string_name }} - {{ commomGetColorName($stringorder->string_color) }}</span>
+                                <span class="ListItemSpan">Hẹn lấy {{ $stringorder->stringorder_timereturn }}</span>
                                 <span>-</span>
                                 <span class="ListItemSpan">{{ commomGetOrderstringStatus($stringorder->stringorder_status) }}</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">{{ commomGetOrderstringIspayment($stringorder->stringorder_ispayment) }}</span>
+                                <span class="ListItemSpan">{!! commomGetOrderstringIspayment($stringorder->stringorder_ispayment) !!}</span>
                             </div>
                         </div>
                     </a>

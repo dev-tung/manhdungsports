@@ -30,7 +30,7 @@ class CustomerAccess extends Access{
             JOIN customergroup customergroup 
             ON customer.customergroup_id = customergroup.customergroup_id
             $WHERE
-            ORDER BY customergroup.customergroup_name
+            ORDER BY customergroup.customergroup_id
         ";
 
         return DB::select($query);

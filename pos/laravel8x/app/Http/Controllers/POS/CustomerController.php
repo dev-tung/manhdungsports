@@ -18,12 +18,12 @@ class CustomerController extends Controller
 
     public function index(Request $request){
         $customer = $this->_customerAccess->get($request);
-        $customergroup = $this->_customergroupAccess->get();
+        $customergroup = $this->_customergroupAccess->get($request);
         return view('POS.customer.index', ['customer' => $customer, 'customergroup' => $customergroup]);
     }
 
     public function add(Request $request){
-        $customergroup = $this->_customergroupAccess->get();
+        $customergroup = $this->_customergroupAccess->get($request);
         return view('POS.customer.add', ['customergroup' => $customergroup]);
     }
 

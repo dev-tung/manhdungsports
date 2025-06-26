@@ -22,17 +22,6 @@ class StringorderAccess extends Access{
         return DB::select($query);
     }
 
-    public function getCustomers(){
-        $query = "
-            SELECT customer_id, CONCAT(customer_name, ' - ' ,customergroup_name) as customer_name FROM `customer` customer 
-            JOIN customergroup customergroup 
-            ON customer.customergroup_id = customergroup.customergroup_id
-            ORDER BY customergroup.customergroup_name
-        ";
-
-        return DB::select($query);
-    }
-
 
     public function getFirst( $searchParams ){
         $query = DB::table($this->table);
@@ -47,7 +36,6 @@ class StringorderAccess extends Access{
         $param['stringorder_description'] = $request['stringorder_description'];
         $param['string_id'] = $request['string_id'];
         $param['stringorder_kg'] = $request['stringorder_kg'];
-        $param['stringorder_revenue'] = $request['stringorder_revenue'] - $request['stringorder_discount'];
         $param['stringorder_status'] = $request['stringorder_status'];
         $param['stringorder_timereturn'] = $request['stringorder_timereturn'];
         $param['stringorder_ispayment'] = $request['stringorder_ispayment'];
@@ -55,19 +43,18 @@ class StringorderAccess extends Access{
         DB::table($this->table)->insert( $param );
     }
 
-    public function update($params){
+    public function update($request){
         $param['customer_id'] = $request['customer_id'];
         $param['stringorder_description'] = $request['stringorder_description'];
         $param['string_id'] = $request['string_id'];
         $param['stringorder_kg'] = $request['stringorder_kg'];
-        $param['stringorder_revenue'] = $request['stringorder_revenue'] - $request['stringorder_discount'];
         $param['stringorder_status'] = $request['stringorder_status'];
         $param['stringorder_timereturn'] = $request['stringorder_timereturn'];
         $param['stringorder_ispayment'] = $request['stringorder_ispayment'];
         $param['stringorder_discount'] = $request['stringorder_discount'];
 
         DB::table($this->table)
-        ->where('string_id', $params->string_id)
+        ->where('stringorder_id', $request->stringorder_id)
         ->update($param);
     }
 

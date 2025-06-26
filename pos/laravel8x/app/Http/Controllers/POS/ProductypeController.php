@@ -20,7 +20,7 @@ class ProductypeController extends Controller
     }
 
     public function add(Request $request){
-        $productype = $this->productypeAccess->get();
+        $productype = $this->productypeAccess->get($request);
         return view('POS.productype.add', ['productype' => $productype]);
     }
 
