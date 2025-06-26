@@ -24,7 +24,7 @@
                         <div class="ListItemInfo">
                             <h4 class="ListItemName">{{ $stringorder->customer_name }} - [{{ commomGetStringTypeName($stringorder->string_type) }}] {{ $stringorder->string_name }} - {{ commomGetColorName($stringorder->string_color) }}</h4>
                             <div class="ListSpanGroup">
-                                <span class="ListItemSpan">Giá {{ number_format($stringorder->string_price_output) }} đ</span>    
+                                <span class="ListItemSpan">Doanh Thu {{ commomGetProductRevenue($stringorder->string_price_output, 1, $stringorder->stringorder_discount)}} đ</span> 
                                 <span>-</span>
                                 <span class="ListItemSpan">Hẹn lấy {{ $stringorder->stringorder_timereturn }}</span>
                                 <span>-</span>

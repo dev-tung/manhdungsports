@@ -54,6 +54,8 @@ table {
     --color-success-hover : rgb(9, 141, 38);
     --color-danger : rgb(255, 51, 0);
     --color-danger-hover : rgb(201, 3, 3);
+    --color-warning : rgb(255, 174, 0);
+    --color-warning-hover : rgb(201, 115, 3);
     --color-default : rgb(255, 255, 255);
     --color-default-hover : rgb(172, 172, 172);
 }
@@ -534,6 +536,10 @@ body {
 
 .Text_Success{
     color: var(--color-success);
+}
+
+.Text_Warning{
+    color: var(--color-warning);
 }
 
 /* Modal */

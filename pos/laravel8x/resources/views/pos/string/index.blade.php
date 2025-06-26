@@ -29,11 +29,11 @@
                             <div class="ListSpanGroup">
                                 <span class="ListItemSpan">Tồn kho {{ number_format($string->string_quantity) }}</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">Giá nhập {{ number_format($string->string_price_input) }} đ</span>
+                                <span class="ListItemSpan">Giá nhập {{ commomGetEachStringPriceInput($string->string_price_input, $string->string_type) }} đ</span>
                                 <span>-</span>
                                 <span class="ListItemSpan">Giá căng {{ number_format($string->string_price_output) }} đ</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">Lợi nhuận {{ commomGetStringProfit($string->string_price_input, $string->string_price_output, $string->string_type) }} đ</span>
+                                <span class="ListItemSpan">Lãi {{ commomGetStringProfit($string->string_price_input, $string->string_price_output, $string->string_type) }} đ</span>
                             </div>
                         </div>
                     </a>

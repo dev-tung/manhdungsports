@@ -16,7 +16,7 @@
             <span class="SidebarNavText">Loại cước</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('stringorder.index')}}">
-            <span class="SidebarNavText">Khách căng cước</span> 
+            <span class="SidebarNavText">Đơn căng cước</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('customergroup.index')}}">
             <span class="SidebarNavText">Nhóm khách hàng</span> 

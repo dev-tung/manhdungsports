@@ -28,7 +28,7 @@ class ProductAccess extends Access{
         if( !empty( $searchParams ) ){
             $query->where($searchParams);
         }
-        return $query->get();
+        return $query->orderBy('product_name')->get();
     }
 
     public function priceTotalInput(){

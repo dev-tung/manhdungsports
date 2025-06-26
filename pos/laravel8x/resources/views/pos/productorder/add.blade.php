@@ -3,7 +3,7 @@
 @section('pagejs', asset('pos/js/productorder/add.js'))
 @section('main')
     <main class="Main">
-        <form action="{{route('productorder.insert')}}" method="POST" class="Form" id="FormProductAdd" enctype="multipart/form-data">
+        <form action="{{route('productorder.insert')}}" method="POST" class="Form" id="FormProductorderAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                 <div class="FormGroup FormValidate">
@@ -15,15 +15,23 @@
                     </select>
                     <small class="FormErrorMessage"></small>
                 </div>
-                <div class="FormGroup FormValidate">
-                    <label class="FormLabel" for="ProductType" >Mặt hàng <span class="RequiredSymbol">*</span></label>
-                    <select class="FormSelect" name="product_id" id="ProductType">
-                        <option value="">-- Chọn mặt hàng --</option>
-                        @foreach( $products as $product )
-                            <option value="{{$product->product_id}}">{{ $product->product_name }}</option>
-                        @endforeach
-                    </select>
-                    <small class="FormErrorMessage"></small>
+
+                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="ProductType" >Mặt hàng <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="product_id" id="ProductType">
+                            <option value="">-- Chọn mặt hàng --</option>
+                            @foreach( $products as $product )
+                                <option value="{{$product->product_id}}">{{ $product->product_name }}</option>
+                            @endforeach
+                        </select>
+                        <small class="FormErrorMessage"></small>
+                    </div>
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="ProductorderQuantity">Số lượng <span class="RequiredSymbol">*</span></label>
+                        <input class="FormInput" id="ProductorderQuantity" type="number" name="productorder_quantity">
+                        <small class="FormErrorMessage"></small>
+                    </div>
                 </div>
             </div>
 

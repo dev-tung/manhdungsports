@@ -40,6 +40,12 @@ if( !function_exists('commomGetStringTypeName') ){
   }
 }
 
+if( !function_exists('commomGetEachStringPriceInput') ){
+  function commomGetEachStringPriceInput($string_price_input, $string_type = 1){
+     $eachStringPrice = $string_type != 1 ? $string_price_input : $string_price_input/22;
+     return number_format($eachStringPrice);
+  }
+}
 
 if( !function_exists('commomGetStringProfit') ){
   function commomGetStringProfit($string_price_input, $string_price_out, $string_type = 1){
@@ -52,8 +58,9 @@ if( !function_exists('commomGetOrderstringStatus') ){
   function commomGetOrderstringStatus($key = null){
     $orderstringStatus = [
         0 => '<span class="Text_Danger">Đã nhận vợt</span>',
-        1 => '<span class="Text_Danger">Đã căng cước</span>',
-        2 => '<span>Đã trả khách</span>'
+        1 => '<span class="Text_Warning">Đang căng cước</span>',
+        2 => '<span class="Text_Danger">Đã căng cước</span>',
+        3 => '<span>Đã trả khách</span>'
     ];
 
     return $key !== null ? $orderstringStatus[$key] : $orderstringStatus;
@@ -68,5 +75,20 @@ if( !function_exists('commomGetOrderIspayment') ){
     ];
 
     return $key !== null ? $orderstringIspayment[$key] : $orderstringIspayment;
+  }
+}
+
+if( !function_exists('commomGetProductRevenue') ){
+  function commomGetProductRevenue($output_price, $quantity, $discount){
+     $revenue =  ($output_price * $quantity);
+     return number_format($revenue);
+  }
+}
+
+if( !function_exists('commomGetProductProfit') ){
+  function commomGetProductProfit($input_price, $output_price, $quantity, $discount){
+     $revenue =  ($output_price * $quantity) - $discount;
+     $profit  =  $revenue - ($input_price * $quantity);
+     return number_format($profit);
   }
 }

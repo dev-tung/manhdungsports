@@ -3,7 +3,7 @@
 @section('pagejs', asset('pos/js/productorder/edit.js'))
 @section('main')
     <main class="Main">
-        <form action="{{route('productorder.update', $productorder->productorder_id)}}" method="POST" class="Form" id="FormProductEdit" enctype="multipart/form-data">
+        <form action="{{route('productorder.update', $productorder->productorder_id)}}" method="POST" class="Form" id="FormProductorderEdit" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                 <div class="FormGroup FormValidate">
@@ -15,15 +15,22 @@
                     </select>
                     <small class="FormErrorMessage"></small>
                 </div>
-                <div class="FormGroup FormValidate">
-                    <label class="FormLabel" for="ProductType" >Mặt hàng <span class="RequiredSymbol">*</span></label>
-                    <select class="FormSelect" name="product_id" id="ProductType">
-                        <option value="">-- Chọn mặt hàng --</option>
-                        @foreach( $products as $product )
-                            <option value="{{$product->product_id}}" {{ ($product->product_id == $productorder->product_id) ? 'selected' : ''; }}>{{ $product->product_name }}</option>
-                        @endforeach
-                    </select>
-                    <small class="FormErrorMessage"></small>
+                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="ProductType" >Mặt hàng <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="product_id" id="ProductType">
+                            <option value="">-- Chọn mặt hàng --</option>
+                            @foreach( $products as $product )
+                                <option value="{{$product->product_id}}" {{ ($product->product_id == $productorder->product_id) ? 'selected' : ''; }}>{{ $product->product_name }}</option>
+                            @endforeach
+                        </select>
+                        <small class="FormErrorMessage"></small>
+                    </div>
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="ProductorderQuantity">Số lượng</label>
+                        <input class="FormInput" id="ProductorderQuantity" type="number" name="productorder_quantity" value="{{$productorder->productorder_quantity}}">
+                        <small class="FormErrorMessage"></small>
+                    </div>
                 </div>
             </div>
             <div class="FormGrid FormGrid_DesktopTwo">

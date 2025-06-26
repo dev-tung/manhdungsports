@@ -16,10 +16,10 @@ class ProductorderAccess extends Access{
 
     public function get( $request){
         $query = "
-            SELECT * FROM productorder
+            SELECT *, productorder.created_at as ordertime FROM productorder
             JOIN customer ON productorder.customer_id = customer.customer_id
             JOIN product ON productorder.product_id = product.product_id
-            ORDER BY productorder_status, productorder_timereturn
+            ORDER BY ordertime DESC
         ";
         return DB::select($query);
     }
@@ -41,6 +41,7 @@ class ProductorderAccess extends Access{
         $param['productorder_timereturn'] = $request['productorder_timereturn'];
         $param['productorder_ispayment'] = $request['productorder_ispayment'];
         $param['productorder_discount'] = $request['productorder_discount'];
+        $param['productorder_quantity'] = $request['productorder_quantity'];
         $param['created_at'] = Carbon::now();
         DB::table($this->table)->insert( $param );
     }
@@ -53,6 +54,7 @@ class ProductorderAccess extends Access{
         $param['productorder_timereturn'] = $request['productorder_timereturn'];
         $param['productorder_ispayment'] = $request['productorder_ispayment'];
         $param['productorder_discount'] = $request['productorder_discount'];
+        $param['productorder_quantity'] = $request['productorder_quantity'];
         $param['updated_at'] = Carbon::now();
 
         DB::table($this->table)

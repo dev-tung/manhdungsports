@@ -22,11 +22,11 @@
                 @foreach( $productorders as $productorder )
                     <a class="ListItem" href="{{route('productorder.edit', $productorder->productorder_id)}}">
                         <div class="ListItemInfo">
-                            <h4 class="ListItemName">{{ $productorder->customer_name }} - {{ $productorder->product_name }}</h4>
+                            <h4 class="ListItemName">{{ $productorder->customer_name }} - {{ $productorder->productorder_quantity }} {{ $productorder->product_name }}</h4>
                             <div class="ListSpanGroup">
-                                <span class="ListItemSpan">Giá {{ number_format($productorder->product_price_output) }} đ</span>    
+                                <span class="ListItemSpan">Thanh toán {{ commomGetProductRevenue($productorder->product_price_output, $productorder->productorder_quantity, $productorder->productorder_discount) }} đ</span>    
                                 <span>-</span>
-                                <span class="ListItemSpan">Hẹn lấy {{ $productorder->productorder_timereturn }}</span>
+                                <span class="ListItemSpan">Lãi {{ commomGetProductProfit($productorder->product_price_input, $productorder->product_price_output, $productorder->productorder_quantity, $productorder->productorder_discount) }}</span>
                                 <span>-</span>
                                 <span class="ListItemSpan">{!! commomGetOrderIspayment($productorder->productorder_ispayment) !!} </span>
                             </div>
