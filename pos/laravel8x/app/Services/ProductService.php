@@ -9,20 +9,6 @@ class Productservice extends Service{
         $this->_fileController = new FileController();
     }
 
-    public function searchParam($request){
-        $searchParams = [];
-
-        if( !empty($request->product_name) ){
-            $searchParams[] = ['product_name', 'like', '%' . $request->product_name . '%'];
-        }
-
-        if( !empty($request->product_productype) ){
-            $searchParams[] = ['product_productype', 'like', '%' . $request->product_productype . '%'];
-        }
-
-        return $searchParams;
-    }
-
     public function moveThumbnail($request){
         if( !empty( $request->product_thumbnail ) ){
             $request->oldPath = 'upload/product/tmp/'.$request->product_thumbnail;

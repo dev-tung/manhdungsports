@@ -7,8 +7,23 @@ class ProductAccess extends Access{
 
     private $table = 'product';
 
-    public function get( $searchParams = null ){
+    public function searchParam($request){
+        $searchParams = [];
+
+        if( !empty($request->product_name) ){
+            $searchParams[] = ['product_name', 'like', '%' . $request->product_name . '%'];
+        }
+
+        if( !empty($request->product_productype) ){
+            $searchParams[] = ['product_productype', 'like', '%' . $request->product_productype . '%'];
+        }
+
+        return $searchParams;
+    }
+
+    public function get( $request ){
         $query = DB::table($this->table);
+        $searchParams = $this->searchParam();
 
         if( !empty( $searchParams ) ){
             $query->where($searchParams);

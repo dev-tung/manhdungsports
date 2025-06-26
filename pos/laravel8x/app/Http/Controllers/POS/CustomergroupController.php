@@ -15,9 +15,7 @@ class CustomergroupController extends Controller
     }
 
     public function index(Request $request){
-        $customergroup = $this->_customergroupAccess->get([
-            ['customergroup_name', 'like', '%' . $request->customergroup_name . '%']
-        ]);
+        $customergroup = $this->_customergroupAccess->get($request);
         return view('POS.customergroup.index', ['customergroup' => $customergroup]);
     }
 

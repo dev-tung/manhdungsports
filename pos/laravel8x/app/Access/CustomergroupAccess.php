@@ -7,13 +7,24 @@ class CustomergroupAccess extends Access{
 
     private $table = 'customergroup';
 
-    public function get( $searchParams = null ){
+    public function searchParam($request){
+        $searchParams = [];
+
+        if( !empty($request->customergroup_name) ){
+            $searchParams[] = ['customergroup_name', 'like', '%' . $request->customergroup_name . '%'];
+        }
+
+        return $searchParams;
+    }
+
+    public function get( $request ){
         $query = DB::table($this->table);
+        $searchParams = $this->searchParam();
 
         if( !empty( $searchParams ) ){
             $query->where($searchParams);
         }
-        return $query->orderBy('customergroup_name')->get();
+        return $query->get();
     }
 
     public function getFirst( $searchParams ){

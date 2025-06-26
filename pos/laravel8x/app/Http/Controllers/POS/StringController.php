@@ -15,9 +15,7 @@ class StringController extends Controller
     }
 
     public function index(Request $request){
-        $string = $this->_stringAccess->get([
-            ['string_name', 'like', '%' . $request->string_name . '%']
-        ]);
+        $string = $this->_stringAccess->get($request);
         $priceTotalInput = $this->_stringAccess->priceTotalInput();
         return view('POS.string.index', ['string' => $string, 'priceTotalInput' => $priceTotalInput]);
     }

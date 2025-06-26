@@ -15,9 +15,7 @@ class ProductypeController extends Controller
     }
 
     public function index(Request $request){
-        $productype = $this->productypeAccess->get([
-            ['productype_name', 'like', '%' . $request->productype_name . '%']
-        ]);
+        $productype = $this->productypeAccess->get($request);
         return view('POS.productype.index', ['productype' => $productype]);
     }
 

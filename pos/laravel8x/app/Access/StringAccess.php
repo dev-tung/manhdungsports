@@ -7,8 +7,19 @@ class StringAccess extends Access{
 
     private $table = 'string';
 
-    public function get( $searchParams = null ){
+    public function searchParam($request){
+        $searchParams = [];
+
+        if( !empty($request->string_name) ){
+            $searchParams[] = ['string_name', 'like', '%' . $request->string_name . '%'];
+        }
+
+        return $searchParams;
+    }
+
+    public function get( $request ){
         $query = DB::table($this->table);
+        $searchParams = $this->searchParam();
 
         if( !empty( $searchParams ) ){
             $query->where($searchParams);
