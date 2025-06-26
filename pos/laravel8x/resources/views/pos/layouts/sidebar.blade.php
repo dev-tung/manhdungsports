@@ -9,6 +9,9 @@
         <a class="SidebarNavLink" href="{{route('product.index')}}">
             <span class="SidebarNavText">Sản phẩm</span> 
         </a>
+        <a class="SidebarNavLink" href="{{route('productorder.index')}}">
+            <span class="SidebarNavText">Đơn hàng</span> 
+        </a>
         <a class="SidebarNavLink" href="{{route('string.index')}}">
             <span class="SidebarNavText">Loại cước</span> 
         </a>

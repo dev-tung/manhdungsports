@@ -28,7 +28,7 @@ class ProductController extends Controller
     }
 
     public function add(Request $request){
-        $productype = $this->_productypeAccess->get();
+        $productype = $this->_productypeAccess->get($request);
         return view('POS.product.add', ['productype' => $productype]);
     }
 
@@ -40,7 +40,7 @@ class ProductController extends Controller
 
     public function edit(Request $request){
         $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
-        $productype = $this->_productypeAccess->get();
+        $productype = $this->_productypeAccess->get($request);
         return view('POS.product.edit', ['product' => $product, 'productype' => $productype]);
     }
 

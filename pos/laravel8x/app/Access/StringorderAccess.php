@@ -2,6 +2,7 @@
 
 namespace App\Access;
 use DB;
+use Carbon\Carbon;
 
 class StringorderAccess extends Access{
 
@@ -18,6 +19,7 @@ class StringorderAccess extends Access{
             SELECT * FROM stringorder
             JOIN customer ON stringorder.customer_id = customer.customer_id
             JOIN string ON stringorder.string_id = string.string_id
+            ORDER BY stringorder_status, stringorder_timereturn
         ";
         return DB::select($query);
     }
@@ -40,6 +42,7 @@ class StringorderAccess extends Access{
         $param['stringorder_timereturn'] = $request['stringorder_timereturn'];
         $param['stringorder_ispayment'] = $request['stringorder_ispayment'];
         $param['stringorder_discount'] = $request['stringorder_discount'];
+        $param['created_at'] = Carbon::now();
         DB::table($this->table)->insert( $param );
     }
 
@@ -52,6 +55,7 @@ class StringorderAccess extends Access{
         $param['stringorder_timereturn'] = $request['stringorder_timereturn'];
         $param['stringorder_ispayment'] = $request['stringorder_ispayment'];
         $param['stringorder_discount'] = $request['stringorder_discount'];
+        $param['updated_at'] = Carbon::now();
 
         DB::table($this->table)
         ->where('stringorder_id', $request->stringorder_id)

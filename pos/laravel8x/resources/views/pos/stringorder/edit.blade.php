@@ -10,7 +10,7 @@
                     <label class="FormLabel" for="CustomerId" >Khách hàng <span class="RequiredSymbol">*</span></label>
                     <select class="FormSelect" name="customer_id" id="CustomerId">
                         @foreach( $customers as $customer )
-                            <option value="{{$customer->customer_id}}" {{ ($customer->customer_id == $stringorder->customer_id) ? 'selected' : ''; }}>{{$customer->customer_name}}</option>
+                            <option value="{{$customer->customer_id}}" {{ ($customer->customer_id == $stringorder->customer_id) ? 'selected' : ''; }}>{{$customer->customergroup_name}} - {{$customer->customer_name}}</option>
                         @endforeach
                     </select>
                     <small class="FormErrorMessage"></small>
@@ -32,14 +32,14 @@
                         <label class="FormLabel" for="StringorderStatus" >Trạng thái <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="stringorder_status" id="StringorderStatus">
                             @foreach( commomGetOrderstringStatus() as $key => $item )
-                                <option value="{{$key}}" {{ ($key == $stringorder->stringorder_status) ? 'selected' : ''; }}>{{$item}}</option>
+                                <option value="{{$key}}" {{ ($key == $stringorder->stringorder_status) ? 'selected' : ''; }}>{!!$item!!}</option>
                             @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderKG" >KG <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="StringorderKG" type="number" name="stringorder_kg" value="{{$stringorder->stringorder_kg}}">
+                        <input class="FormInput" id="StringorderKG" type="text" name="stringorder_kg" value="{{$stringorder->stringorder_kg}}">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="stringorder_ispayment" id="StringorderIspayment">
-                            @foreach( commomGetOrderstringIspayment() as $key => $item )
+                            @foreach( commomGetOrderIspayment() as $key => $item )
                                  <option value="{{$key}}" {{ ($key == $stringorder->stringorder_ispayment) ? 'selected' : ''; }}>{!!$item!!}</option>
                             @endforeach
                         </select>

@@ -33,6 +33,14 @@ Route::prefix('pos')->group(function () {
         Route::post('update/{productype_id}', ['as' => 'productype.update', 'uses' => 'POS\ProductypeController@update']);
         Route::get('delete/{productype_id}', ['as' => 'productype.delete', 'uses' => 'POS\ProductypeController@delete']);
     });
+    Route::prefix('productorder')->group(function () {
+        Route::get('index', ['as' => 'productorder.index', 'uses' => 'POS\ProductorderController@index']);
+        Route::get('add', ['as' => 'productorder.add', 'uses' => 'POS\ProductorderController@add']);
+        Route::post('insert', ['as' => 'productorder.insert', 'uses' => 'POS\ProductorderController@insert']);
+        Route::get('edit/{productorder_id}', ['as' => 'productorder.edit', 'uses' => 'POS\ProductorderController@edit']);
+        Route::post('update/{productorder_id}', ['as' => 'productorder.update', 'uses' => 'POS\ProductorderController@update']);
+        Route::get('delete/{productorder_id}', ['as' => 'productorder.delete', 'uses' => 'POS\ProductorderController@delete']);
+    });
     Route::prefix('stringorder')->group(function () {
         Route::get('index', ['as' => 'stringorder.index', 'uses' => 'POS\StringorderController@index']);
         Route::get('add', ['as' => 'stringorder.add', 'uses' => 'POS\StringorderController@add']);

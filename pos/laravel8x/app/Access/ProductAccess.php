@@ -53,7 +53,6 @@ class ProductAccess extends Access{
             'product_description' => $params['product_description'],
             'product_quantity' => $params['product_quantity'],
             'product_thumbnail' => $params->newPath,
-            'product_productype' => $params['product_productype'],
             'product_unit' => $params['product_unit'],
             'productype_id' => $params['productype_id']
         ]);
@@ -65,7 +64,6 @@ class ProductAccess extends Access{
         $update['product_price_output'] = $params['product_price_output'];
         $update['product_description'] = $params['product_description'];
         $update['product_quantity'] = $params['product_quantity'];
-        $update['product_productype'] = $params['product_productype'];
         $update['product_unit'] = $params['product_unit'];
         $update['productype_id'] = $params['productype_id'];
 

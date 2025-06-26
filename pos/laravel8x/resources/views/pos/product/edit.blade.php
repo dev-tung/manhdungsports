@@ -68,8 +68,8 @@
 
                 <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="Productproductype" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="productype_id" id="Productproductype">
+                        <label class="FormLabel" for="ProductType" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="productype_id" id="ProductType">
                             <option value="">-- Chọn danh mục --</option>
                             @foreach($productype as $item)
                                 <option value="{{$item->productype_id}}" {{ ($product->productype_id == $item->productype_id) ? 'selected' : ''; }}>{{$item->productype_name}}</option>

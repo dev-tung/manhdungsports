@@ -51,20 +51,20 @@ if( !function_exists('commomGetStringProfit') ){
 if( !function_exists('commomGetOrderstringStatus') ){
   function commomGetOrderstringStatus($key = null){
     $orderstringStatus = [
-        0 => 'Đã nhận vợt',
-        1 => 'Đã căng cước',
-        2 => 'Đã trả khách'
+        0 => '<span class="Text_Danger">Đã nhận vợt</span>',
+        1 => '<span class="Text_Danger">Đã căng cước</span>',
+        2 => '<span>Đã trả khách</span>'
     ];
 
     return $key !== null ? $orderstringStatus[$key] : $orderstringStatus;
   }
 }
 
-if( !function_exists('commomGetOrderstringIspayment') ){
-  function commomGetOrderstringIspayment($key = null){
+if( !function_exists('commomGetOrderIspayment') ){
+  function commomGetOrderIspayment($key = null){
     $orderstringIspayment = [
-        0 => '<span class="Text_Danger">Chưa thanh toán<span>',
-        1 => '<span class="Text_Success">Đã thanh toán<span>'
+        0 => '<span class="Text_Danger">Chưa thanh toán</span>',
+        1 => '<span>Đã thanh toán</span>'
     ];
 
     return $key !== null ? $orderstringIspayment[$key] : $orderstringIspayment;
