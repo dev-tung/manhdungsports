@@ -6,9 +6,17 @@
             <div class="ListSearch">
                 <form action="{{route('stringorder.index', ['screen'=>'pos'])}}" class="ListSearchForm">
                     <input class="ListSearchFormInput" type="text" name="stringorder_name" placeholder="Tìm kiếm ..." value="{{ request()->stringorder_name }}">
+                    <div class="Filter">
+                        <select class="ListSearchFormSelect" name="customer_id" id="customer_id">
+                            <option value="">-- Chọn khách hàng --</option>
+                            @foreach( $customers as $customer )
+                                <option value="{{$customer->customer_id}}">{{$customer->customergroup_name}} - {{$customer->customer_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <button class="ListSearchFormSubmit">
                         <svg class="ListSearchFormSubmitIcon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
                         </svg>
                     </button>
                 </form>

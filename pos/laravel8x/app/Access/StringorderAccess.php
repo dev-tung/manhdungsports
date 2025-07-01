@@ -9,17 +9,29 @@ class StringorderAccess extends Access{
     private $table = 'stringorder';
 
     public function searchParam($request){
-       if( empty($request->stringorder_name) ) return '';
-        $searchParams[] = ['stringorder_name', 'like', '%' . $request->stringorder_name . '%'];
+        $searchParams = [];
+
+        if( !empty($request->stringorder_name) ){
+            $searchParams[] = ["CONCAT_WS(customer_name, ' ', customergroup_name)", 'like', '%' . $request->stringorder_name . '%'];
+        }
+
+        if( !empty($request->stringorder_name) ){
+            $searchParams[] = ['customer.customer_id', 'like', '%' . $request->customer_id . '%'];
+        }
+
         return $searchParams;
     }
 
     public function get( $request){
+        $searchParam = $this->searchParam($request);
+        $WHERE = $this->conditionBuilder($searchParam);
+
         $query = "
             SELECT * FROM stringorder
             JOIN customer ON stringorder.customer_id = customer.customer_id
 			JOIN customergroup ON customergroup.customergroup_id = customer.customergroup_id
             JOIN string ON stringorder.string_id = string.string_id
+            $WHERE
             ORDER BY stringorder.created_at DESC
         ";
         return DB::select($query);

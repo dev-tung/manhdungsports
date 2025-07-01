@@ -19,7 +19,8 @@ class StringorderController extends Controller
 
     public function index(Request $request){
         $stringorders = $this->_access->get($request);
-        return view($request->screen.'.stringorder.index', ['stringorders' => $stringorders]);
+        $customers = $this->_customerAccess->get();
+        return view($request->screen.'.stringorder.index', ['customers' => $customers, 'stringorders' => $stringorders]);
     }
 
     public function add(Request $request){

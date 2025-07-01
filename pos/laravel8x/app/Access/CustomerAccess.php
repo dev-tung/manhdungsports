@@ -21,7 +21,7 @@ class CustomerAccess extends Access{
         return $searchParams;
     }
 
-    public function get( $request ){
+    public function get( $request = null ){
         $searchParam = $this->searchParam($request);
         $WHERE = $this->conditionBuilder($searchParam);
         
