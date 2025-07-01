@@ -30,8 +30,8 @@ if( !function_exists('stringGetColor') ){
   }
 }
 
-if( !function_exists('stringTypeDisplay') ){
-  function stringTypeDisplay($stringorder){
+if( !function_exists('stringType') ){
+  function stringType($stringorder){
     if( !empty( $stringorder ) ) {
       return "[".stringGetType($stringorder->string_type)."] ".$stringorder->string_name." - " . stringGetColor($stringorder->string_color);
     }
@@ -79,6 +79,11 @@ if( !function_exists('stringorderProfit') ){
   function stringorderProfit($stringorder, $format = true){
     if( !empty( $stringorder ) ){
       $profit = stringorderRevenue($stringorder, false) - stringPriceEach($stringorder, false);
+
+      if( !empty($stringorder->stringorder_welding) ){
+        $profit = $profit - 100000;
+      }
+
       return $format ? commonNumberToVND( $profit ) : $profit ;
     }
     dd('Data is empty');
@@ -97,11 +102,6 @@ if( !function_exists('stringorderStatus') ){
     return array_key_exists($key, $optionArray) ? $optionArray[$key] : $optionArray;
   }
 }
-
-
-
-
-
 
 
 

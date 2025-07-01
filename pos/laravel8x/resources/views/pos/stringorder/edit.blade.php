@@ -72,6 +72,8 @@
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
+                </div>
+                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderWelding" >Hàn <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="stringorder_welding" id="StringorderWelding">
@@ -81,8 +83,6 @@
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
-                </div>
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup">
                         <label class="FormLabel" for="StringorderDescription" >Ghi chú</label>
                         <input class="FormInput" id="StringorderDescription" type="text" name="stringorder_description" value="{{$stringorder->stringorder_description}}">

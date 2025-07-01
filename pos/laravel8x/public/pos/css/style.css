@@ -618,3 +618,25 @@ table, th, td {
 th, td {
   padding: 5px;
 }
+
+th{
+    font-weight: bold;
+}
+
+.TableData{
+    height: 30px;
+    vertical-align: middle;
+}
+
+.TableRow:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.TableData_Center{
+    text-align: center;
+}
+
+.TableAction_Link{
+    text-decoration: none;
+    color :rgba(0, 0, 255, 0.699);
+}

@@ -20,7 +20,7 @@
                     <select class="FormSelect" name="string_id" id="StringType">
                         <option value="">-- Chọn loại cước --</option>
                         @foreach( $strings as $string )
-                            <option value="{{$string->string_id}}">[{{ commomGetStringTypeName($string->string_type) }}] {{ $string->string_name }} - {{ commomGetColorName($string->string_color) }}</option>
+                            <option value="{{$string->string_id}}">[{{ stringGetType($string->string_type) }}] {{ $string->string_name }} - {{ stringGetColor($string->string_color) }}</option>
                         @endforeach
                     </select>
                     <small class="FormErrorMessage"></small>
@@ -32,7 +32,7 @@
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderStatus" >Trạng thái <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="stringorder_status" id="StringorderStatus">
-                            @foreach( commomGetOrderstringStatus() as $key => $item )
+                            @foreach( stringorderStatus() as $key => $item )
                                 <option value="{{$key}}">{!!$item!!}</option>
                             @endforeach
                         </select>
@@ -60,7 +60,7 @@
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="stringorder_ispayment" id="StringorderIspayment">
-                            @foreach( commomGetOrderIspayment() as $key => $item )
+                            @foreach( commomIspayment() as $key => $item )
                                 <option value="{{$key}}">{!!$item!!}</option>
                             @endforeach
                         </select>
@@ -75,6 +75,9 @@
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
+                </div>
+
+                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderWelding" >Hàn <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="stringorder_welding" id="StringorderWelding">
@@ -84,8 +87,6 @@
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
-                </div>
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup">
                         <label class="FormLabel" for="StringorderDescription" >Ghi chú</label>
                         <input class="FormInput" id="StringorderDescription" type="text" name="stringorder_description">
