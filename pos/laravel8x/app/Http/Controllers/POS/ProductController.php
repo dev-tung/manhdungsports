@@ -20,7 +20,7 @@ class ProductController extends Controller
         $product = $this->_productAccess->get($request);
         $priceTotalInput = $this->_productAccess->priceTotalInput();
         $productype = $this->_productypeAccess->get($request);
-        return view('POS.product.index', [
+        return view($request->screen.'.product.index', [
             'product' => $product, 
             'priceTotalInput' => $priceTotalInput, 
             'productype' => $productype
@@ -29,7 +29,7 @@ class ProductController extends Controller
 
     public function add(Request $request){
         $productype = $this->_productypeAccess->get($request);
-        return view('POS.product.add', ['productype' => $productype]);
+        return view($request->screen.'.product.add', ['productype' => $productype]);
     }
 
     public function insert(Request $request){
@@ -41,19 +41,19 @@ class ProductController extends Controller
     public function edit(Request $request){
         $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
         $productype = $this->_productypeAccess->get($request);
-        return view('POS.product.edit', ['product' => $product, 'productype' => $productype]);
+        return view($request->screen.'.product.edit', ['product' => $product, 'productype' => $productype]);
     }
 
     public function update(Request $request){
         $this->_productsevice->moveThumbnail($request);
         $this->_productAccess->update($request);
-        return redirect()->route('product.index');
+        return redirect()->route('product.index', ['screen'=>'pos']);
     }
 
     public function delete(Request $request){
         $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
         $this->_productsevice->deleteThumbnail($product);
         $this->_productAccess->delete(['product_id' => $request->product_id]);
-        return redirect()->route('product.index');
+        return redirect()->route('product.index', ['screen'=>'pos']);
     }
 }

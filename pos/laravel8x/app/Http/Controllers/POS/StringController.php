@@ -17,13 +17,13 @@ class StringController extends Controller
     public function index(Request $request){
         $string = $this->_stringAccess->get($request);
         $priceTotalInput = $this->_stringAccess->priceTotalInput();
-        return view('POS.string.index', ['string' => $string, 'priceTotalInput' => $priceTotalInput]);
+        return view($request->screen.'.string.index', ['string' => $string, 'priceTotalInput' => $priceTotalInput]);
     }
 
     public function add(Request $request){
         $string = $this->_stringAccess->get($request);
         
-        return view('POS.string.add', [
+        return view($request->screen.'.string.add', [
             'string' => $string, 'colors' => commomGetColorList(), 
             'stringtypes' => commomGetStringTypeList()
         ]);
@@ -31,21 +31,21 @@ class StringController extends Controller
 
     public function insert(Request $request){
         $this->_stringAccess->insert($request);
-        return redirect()->route('string.index');
+        return redirect()->route('string.index', ['screen'=>'pos']);
     }
 
     public function edit(Request $request){
         $string = $this->_stringAccess->getFirst(['string_id' => $request->string_id]);
-        return view('POS.string.edit', ['string' => $string, 'colors' => commomGetColorList(), 'stringtypes' => commomGetStringTypeList()]);
+        return view($request->screen.'.string.edit', ['string' => $string, 'colors' => commomGetColorList(), 'stringtypes' => commomGetStringTypeList()]);
     }
 
     public function update(Request $request){
         $this->_stringAccess->update($request);
-        return redirect()->route('string.index');
+        return redirect()->route('string.index', ['screen'=>'pos']);
     }
 
     public function delete(Request $request){
         $this->_stringAccess->delete(['string_id' => $request->string_id]);
-        return redirect()->route('string.index');
+        return redirect()->route('string.index', ['screen'=>'pos']);
     }
 }

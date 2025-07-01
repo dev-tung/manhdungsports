@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // POS
-Route::prefix('pos')->group(function () {
+Route::prefix('{screen}')->group(function () {
     Route::get('dashboard', ['as' => 'dashboard.index', 'uses' => 'POS\DashboardController@index']);
     Route::prefix('product')->group(function () {
         Route::get('index', ['as' => 'product.index', 'uses' => 'POS\ProductController@index']);
@@ -74,6 +74,8 @@ Route::prefix('pos')->group(function () {
         Route::get('delete/{customergroup_id}', ['as' => 'customergroup.delete', 'uses' => 'POS\CustomergroupController@delete']);
     });
 });
+
+
 
 
 

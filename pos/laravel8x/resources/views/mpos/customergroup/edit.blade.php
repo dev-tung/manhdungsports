@@ -1,20 +1,20 @@
 @extends('pos.layouts.cover')
 @section('title', 'THÊM SẢN PHẨM')
-@section('pagejs', asset('pos/js/customergroup/add.js'))
+@section('pagejs', asset('pos/js/customergroup/edit.js'))
 @section('main')
     <main class="Main">
-        <form action="{{route('customergroup.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormCustomergroupAdd" enctype="multipart/form-data">
+        <form action="{{route('customergroup.update', $customergroup->customergroup_id)}}" method="POST" class="Form" id="FormCustomergroupEdit" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
                 <div class="FormGrid FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="CustomergroupName" >Nhóm khách hàng <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="CustomergroupName" type="text" name="customergroup_name">
+                        <input class="FormInput" id="CustomergroupName" type="text" name="customergroup_name" value="{{$customergroup->customergroup_name}}">
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="customergroupDescription" >Mô tả</label>
-                        <input class="FormInput" id="customergroupDescription" type="text" name="customergroup_description">
+                        <input class="FormInput" id="customergroupDescription" type="text" name="customergroup_description" value="{{$customergroup->customergroup_description}}">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>

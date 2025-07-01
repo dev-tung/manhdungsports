@@ -20,35 +20,35 @@ class ProductorderController extends Controller
 
     public function index(Request $request){
         $productorders = $this->_productorderAccess->get($request);
-        return view('POS.productorder.index', ['productorders' => $productorders]);
+        return view($request->screen.'.productorder.index', ['productorders' => $productorders]);
     }
 
     public function add(Request $request){
         $customers = $this->_customerAccess->get($request);
         $products = $this->_productAccess->get($request);
-        return view('POS.productorder.add', ['customers' => $customers, 'products' => $products]);
+        return view($request->screen.'.productorder.add', ['customers' => $customers, 'products' => $products]);
     }
 
     public function insert(Request $request){
         $this->_productorderAccess->insert($request);
-        return redirect()->route('productorder.index');
+        return redirect()->route('productorder.index', ['screen'=>'pos']);
     }
 
     public function edit(Request $request){
         $customers = $this->_customerAccess->get($request);
         $products = $this->_productAccess->get($request);
         $productorder = $this->_productorderAccess->getFirst(['productorder_id' => $request->productorder_id]);
-        return view('POS.productorder.edit', ['productorder' => $productorder, 'customers' => $customers, 'products' => $products]);
+        return view($request->screen.'.productorder.edit', ['productorder' => $productorder, 'customers' => $customers, 'products' => $products]);
     }
 
     public function update(Request $request){
         $this->_productorderAccess->update($request);
-        return redirect()->route('productorder.index');
+        return redirect()->route('productorder.index', ['screen'=>'pos']);
     }
 
     public function delete(Request $request){
         $product = $this->_productorderAccess->getFirst(['productorder_id' => $request->productorder_id]);
         $this->_productorderAccess->delete(['productorder_id' => $request->productorder_id]);
-        return redirect()->route('productorder.index');
+        return redirect()->route('productorder.index', ['screen'=>'pos']);
     }
 }

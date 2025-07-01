@@ -10,16 +10,19 @@ Validator({
             selector: '#StringType'
         }),
         Validator.tbRequired({
-            selector: '#StringorderKG'
+            selector: '#StringorderStatus'
         }),
         Validator.tbRequired({
-            selector: '#StringOrderRevenue'
+            selector: '#StringorderKG'
         }),
         Validator.sbRequired({
             selector: '#StringorderIspayment'
         }),
         Validator.sbRequired({
             selector: '#StringorderStatus'
+        }),
+        Validator.sbRequired({
+            selector: '#StringorderGen'
         })
     ],
     onSubmit: (form) => {

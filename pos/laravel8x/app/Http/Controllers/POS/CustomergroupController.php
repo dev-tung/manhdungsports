@@ -16,30 +16,30 @@ class CustomergroupController extends Controller
 
     public function index(Request $request){
         $customergroup = $this->_customergroupAccess->get($request);
-        return view('POS.customergroup.index', ['customergroup' => $customergroup]);
+        return view($request->screen.'.customergroup.index', ['customergroup' => $customergroup]);
     }
 
     public function add(Request $request){
-        return view('POS.customergroup.add');
+        return view($request->screen.'.customergroup.add');
     }
 
     public function insert(Request $request){
         $this->_customergroupAccess->insert($request);
-        return redirect()->route('customergroup.index');
+        return redirect()->route('customergroup.index', ['screen'=>'pos']);
     }
 
     public function edit(Request $request){
         $customergroup = $this->_customergroupAccess->getFirst(['customergroup_id' => $request->customergroup_id]);
-        return view('POS.customergroup.edit', ['customergroup' => $customergroup]);
+        return view($request->screen.'.customergroup.edit', ['customergroup' => $customergroup]);
     }
 
     public function update(Request $request){
         $this->_customergroupAccess->update($request);
-        return redirect()->route('customergroup.index');
+        return redirect()->route('customergroup.index', ['screen'=>'pos']);
     }
 
     public function delete(Request $request){
         $this->_customergroupAccess->delete(['customergroup_id' => $request->customergroup_id]);
-        return redirect()->route('customergroup.index');
+        return redirect()->route('customergroup.index', ['screen'=>'pos']);
     }
 }

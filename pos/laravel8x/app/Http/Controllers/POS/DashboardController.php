@@ -8,6 +8,6 @@ use App\Http\Controllers\Controller;
 class DashboardController extends Controller
 {
     public function index(){
-        return view('pos.dashboard.index');
+        return view($request->screen.'.dashboard.index');
     }
 }

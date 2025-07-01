@@ -1,9 +1,9 @@
 @extends('pos.layouts.cover')
-@section('title', 'THÊM LOẠI CƯỚC')
+@section('title', 'SỬA LOẠI CƯỚC')
 @section('pagejs', asset('pos/js/stringorder/edit.js'))
 @section('main')
     <main class="Main">
-        <form action="{{route('stringorder.update', $stringorder->stringorder_id)}}" method="POST" class="Form" id="FormStringEdit" enctype="multipart/form-data">
+        <form action="{{route('stringorder.update', ['screen'=>'pos', 'stringorder_id' => $stringorder->stringorder_id])}}" method="POST" class="Form" id="FormStringorderEdit" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                 <div class="FormGroup FormValidate">
@@ -20,7 +20,7 @@
                     <select class="FormSelect" name="string_id" id="StringType">
                         <option value="">-- Chọn loại cước --</option>
                         @foreach( $strings as $string )
-                            <option value="{{$string->string_id}}" {{ ($string->string_id == $stringorder->string_id) ? 'selected' : ''; }}>[{{ commomGetStringTypeName($string->string_type) }}] {{ $string->string_name }} - {{ commomGetColorName($string->string_color) }}</option>
+                            <option value="{{$string->string_id}}" {{ ($string->string_id == $stringorder->string_id) ? 'selected' : ''; }}>[{{ stringGetType($string->string_type) }}] {{ $string->string_name }} - {{ stringGetColor($string->string_color) }}</option>
                         @endforeach
                     </select>
                     <small class="FormErrorMessage"></small>
@@ -31,7 +31,7 @@
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderStatus" >Trạng thái <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="stringorder_status" id="StringorderStatus">
-                            @foreach( commomGetOrderstringStatus() as $key => $item )
+                            @foreach( stringorderStatus() as $key => $item )
                                 <option value="{{$key}}" {{ ($key == $stringorder->stringorder_status) ? 'selected' : ''; }}>{!!$item!!}</option>
                             @endforeach
                         </select>
@@ -53,17 +53,36 @@
                         <input class="FormInput" id="StringorderTimereturn" type="text" name="stringorder_timereturn" value="{{$stringorder->stringorder_timereturn}}">
                     </div>
                 </div>
-
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="stringorder_ispayment" id="StringorderIspayment">
-                            @foreach( commomGetOrderIspayment() as $key => $item )
+                            @foreach( commomIspayment() as $key => $item )
                                  <option value="{{$key}}" {{ ($key == $stringorder->stringorder_ispayment) ? 'selected' : ''; }}>{!!$item!!}</option>
                             @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="StringorderGen" >Thay ghen <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="stringorder_gen" id="StringorderGen">
+                            @foreach( commomYesNoOption() as $key => $item )
+                                <option value="{{$key}}" {{ ($key == $stringorder->stringorder_gen) ? 'selected' : ''; }}>{!!$item!!}</option>
+                            @endforeach
+                        </select>
+                        <small class="FormErrorMessage"></small>
+                    </div>
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="StringorderWelding" >Hàn <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="stringorder_welding" id="StringorderWelding">
+                            @foreach( commomYesNoOption() as $key => $item )
+                                <option value="{{$key}}" {{ ($key == $stringorder->stringorder_welding) ? 'selected' : ''; }}>{!!$item!!}</option>
+                            @endforeach
+                        </select>
+                        <small class="FormErrorMessage"></small>
+                    </div>
+                </div>
+                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup">
                         <label class="FormLabel" for="StringorderDescription" >Ghi chú</label>
                         <input class="FormInput" id="StringorderDescription" type="text" name="stringorder_description" value="{{$stringorder->stringorder_description}}">
@@ -77,7 +96,7 @@
                     <button class="Btn Btn_Primary">Lưu</button>
                 </div>
                 <div class="FormBtnGroup">
-                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('stringorder.delete', $stringorder->stringorder_id)}}" >Xóa</a>
+                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('stringorder.delete', ['screen'=>'pos', 'stringorder_id' => $stringorder->stringorder_id])}}" >Xóa</a>
                 </div>
             </div>
         </form>
