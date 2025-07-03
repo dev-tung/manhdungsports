@@ -1,6 +1,6 @@
 @extends('pos.layouts.cover')
-@section('title', 'SỬA Các loại cước')
-@section('pagejs', asset('pos/js/stringorder/edit.js'))
+@section('Title', 'SỬA ĐƠN CĂNG CƯỚC')
+@section('PageJs', asset('pos/js/stringorder/edit.js'))
 @section('Main')
     <main class="Main">
         <form action="{{route('stringorder.update', ['screen'=>'pos', 'stringorder_id' => $stringorder->stringorder_id])}}" method="POST" class="Form" id="FormStringorderEdit" enctype="multipart/form-data">
