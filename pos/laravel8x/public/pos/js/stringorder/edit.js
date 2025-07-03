@@ -4,19 +4,25 @@ Validator({
     form: '#FormStringorderEdit',
     items: [
         Validator.tbRequired({
-            selector: '#StringName'
+            selector: '#CustomerId'
         }),
         Validator.tbRequired({
-            selector: '#StringPriceInput'
-        }),
-        Validator.tbRequired({
-            selector: '#StringPriceOutput'
-        }),
-        Validator.sbRequired({
             selector: '#StringType'
         }),
+        Validator.tbRequired({
+            selector: '#StringorderStatus'
+        }),
+        Validator.tbRequired({
+            selector: '#StringorderKG'
+        }),
         Validator.sbRequired({
-            selector: '#StringColor'
+            selector: '#StringorderIspayment'
+        }),
+        Validator.sbRequired({
+            selector: '#StringorderStatus'
+        }),
+        Validator.sbRequired({
+            selector: '#StringorderGen'
         })
     ],
     onSubmit: (form) => {
@@ -25,3 +31,13 @@ Validator({
     }
 });
 // END VALIDATOR
+
+document.getElementById('StringType').addEventListener("change", function (e) {
+    let stringType = document.getElementById('StringType');
+    let stringTypeSelected = stringType.options[stringType.selectedIndex].dataset;
+    document.getElementById('StringPriceInput').value  = stringTypeSelected.string_price_input;
+    document.getElementById('StringPriceOutput').value = stringTypeSelected.string_price_output;
+    document.getElementById('StringorderType').value = stringTypeSelected.string_type;
+});
+
+document.getElementById('StringType').dispatchEvent(new Event('change'));

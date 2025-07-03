@@ -1,7 +1,7 @@
 @extends('pos.layouts.cover')
-@section('title', 'THÊM LOẠI CƯỚC')
+@section('Title', 'THÊM Các loại cước')
 @section('pagejs', asset('pos/js/stringorder/edit.js'))
-@section('main')
+@section('Main')
     <main class="Main">
         <form action="{{route('stringorder.update', ['screen'=>'pos', 'stringorder_id' => $stringorder->stringorder_id])}}" method="POST" class="Form" id="FormStringEdit" enctype="multipart/form-data">
             @csrf
@@ -16,9 +16,9 @@
                     <small class="FormErrorMessage"></small>
                 </div>
                 <div class="FormGroup FormValidate">
-                    <label class="FormLabel" for="StringType" >Loại cước <span class="RequiredSymbol">*</span></label>
+                    <label class="FormLabel" for="StringType" >Các loại cước <span class="RequiredSymbol">*</span></label>
                     <select class="FormSelect" name="string_id" id="StringType">
-                        <option value="">-- Chọn loại cước --</option>
+                        <option value="">-- Chọn Các loại cước --</option>
                         @foreach( $strings as $string )
                             <option value="{{$string->string_id}}" {{ ($string->string_id == $stringorder->string_id) ? 'selected' : ''; }}>[{{ stringGetType($string->string_type) }}] {{ $string->string_name }} - {{ stringGetColor($string->string_color) }}</option>
                         @endforeach

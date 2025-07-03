@@ -1,7 +1,7 @@
 @extends('pos.layouts.cover')
 @section('title', 'THÊM CƯỚC')
 @section('pagejs', asset('pos/js/string/edit.js'))
-@section('main')
+@section('Main')
     <main class="Main">
         <form action="{{route('string.update', ['screen'=>'pos', 'string_id' => $string->string_id] )}}" method="POST" class="Form" id="FormStringEdit" enctype="multipart/form-data">
             @csrf
@@ -14,7 +14,7 @@
                     </div>
                     <div class="FormGrid FormGrid_DesktopTwo">
                         <div class="FormGroup FormValidate">
-                            <label class="FormLabel" for="StringType" >Loại cước <span class="RequiredSymbol">*</span></label>
+                            <label class="FormLabel" for="StringType" >Các loại cước <span class="RequiredSymbol">*</span></label>
                             <select class="FormSelect" name="string_type" id="StringType">
                                 @foreach($stringtypes as $key => $item)
                                     <option value="{{$key}}" {{ ($string->string_type == $key) ? 'selected' : ''; }}>{{$item}}</option>
@@ -56,6 +56,9 @@
                 <div class="FormBtnGroup">
                     <button class="Btn Btn_Default" type="button" onclick="history.back()">Quay lại</button>
                     <button class="Btn Btn_Primary">Lưu</button>
+                </div>
+                <div class="FormBtnGroup">
+                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('string.delete', ['screen'=>'pos', 'string_id' => $string->string_id])}}" >Xóa</a>
                 </div>
             </div>
         </form>

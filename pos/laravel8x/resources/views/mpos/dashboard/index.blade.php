@@ -1,6 +1,6 @@
 @extends('pos.layouts.cover')
 @section('title', 'MANH DUNG POS')
-@section('main')
+@section('Main')
         <main class="Main">
             Dashboard
         </main>

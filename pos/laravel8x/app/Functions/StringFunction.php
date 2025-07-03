@@ -40,8 +40,8 @@ if( !function_exists('stringType') ){
   }
 }
 
-if( !function_exists('stringPriceEach') ){
-  function stringPriceEach($string, $format = true){
+if( !function_exists('stringPriceInputEach') ){
+  function stringPriceInputEach($string, $format = true){
     if( !empty( $string ) ){
       $price = $string->string_type != 1 ? $string->string_price_input : $string->string_price_input / 22;
       return $format ? commonNumberToVND( $price ) : $price ;
@@ -75,10 +75,21 @@ if( !function_exists('stringorderRevenue') ){
   }
 }
 
+if( !function_exists('stringProfit') ){
+  function stringProfit($string, $format = true){
+    if( !empty( $string ) ){
+      $profit = $string->string_price_output - stringPriceInputEach($string, false);
+      return $format ? commonNumberToVND( $profit ) : $profit ;
+    }
+    dd('Data is empty');
+  }
+}
+
+
 if( !function_exists('stringorderProfit') ){
   function stringorderProfit($stringorder, $format = true){
     if( !empty( $stringorder ) ){
-      $profit = stringorderRevenue($stringorder, false) - stringPriceEach($stringorder, false);
+      $profit = stringorderRevenue($stringorder, false) - stringPriceInputEach($stringorder, false);
 
       if( !empty($stringorder->stringorder_welding) ){
         $profit = $profit - 100000;
@@ -100,6 +111,12 @@ if( !function_exists('stringorderStatus') ){
     ];
 
     return array_key_exists($key, $optionArray) ? $optionArray[$key] : $optionArray;
+  }
+}
+
+if( !function_exists('stringDisplayName') ){
+  function stringDisplayName($string){
+    return '['.stringGetType($string->string_type).'] '.$string->string_name .'-'. stringGetColor($string->string_color);
   }
 }
 

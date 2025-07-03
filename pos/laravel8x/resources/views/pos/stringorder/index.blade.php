@@ -1,20 +1,28 @@
 @extends('pos.layouts.cover')
-@section('title', 'KHÁCH CĂNG CƯỚC')
-@section('main')
+@section('Title', 'ĐƠN CĂNG CƯỚC')
+@section('TopbarNav_Left')
+    <nav class="TopbarNav_Left">
+        <a class="TopbarNavLink" href="{{route('string.index', ['screen'=>'pos'])}}">
+            <span class="TopbarNavText">Các loại cước</span> 
+        </a>
+    </nav>
+@endsection
+@section('Main')
     <main class="Main">
         <div class="MainContent">
             <div class="ListSearch">
                 <form action="{{route('stringorder.index', ['screen'=>'pos'])}}" class="ListSearchForm">
                     <input class="ListSearchFormInput" type="text" name="stringorder_name" placeholder="Tìm kiếm ..." value="{{ request()->stringorder_name }}">
-                    <div class="Filter">
-                        <select class="ListSearchFormSelect" name="customer_id" id="customer_id">
-                            <option value="">-- Chọn khách hàng --</option>
-                            @foreach( $customers as $customer )
-                                <option value="{{$customer->customer_id}}">{{$customer->customergroup_name}} - {{$customer->customer_name}}</option>
-                            @endforeach
-                        </select>
+                    <div class="ListSearchFormGroup ListSearchFormGroup_Date">
+                        <label class="ListSearchFormLabel" for="">Từ ngày</label>
+                        <input class="ListSearchFormInput ListSearchFormInput_Date" type="date" name="stringorder_created_at_from" value="{{ request()->stringorder_created_at_from }}">
                     </div>
-                    <button class="ListSearchFormSubmit">
+                    <div class="ListSearchFormGroup ListSearchFormGroup_Date">
+                        <label class="ListSearchFormLabel" for="">Đến ngày</label>
+                        <input class="ListSearchFormInput ListSearchFormInput_Date" type="date" name="stringorder_created_at_to" value="{{ request()->stringorder_created_at_to }}">
+                    </div>
+                    <button class="ListSearchFormBtn" type="reset"><a href="{{route('stringorder.index', ['screen'=>'pos'])}}">Xóa</a></button>
+                    <button class="ListSearchFormBtn ListSearchFormBtn_Submit">
                         <svg class="ListSearchFormSubmitIcon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
                         </svg>
@@ -24,6 +32,8 @@
             
             <div class="ListSearchTotal">
                 <span class="ListSearchTotalItem">{{ count($stringorders) }} lượt căng cước</span>
+                <span class="ListSearchTotalItem">-</span>
+                <span class="ListSearchTotalItem">Lợi nhuận {{ commonNumberToVND(array_sum(array_column($stringorders, 'stringorder_profit'))) }} </span>
             </div>
 
             <table>
@@ -32,7 +42,7 @@
                         <th class="TableData">Ngày</th>
                         <th class="TableData">Khách hàng</th>
                         <th class="TableData">Nhóm khách hàng</th>
-                        <th class="TableData">Loại cước</th>
+                        <th class="TableData">Các loại cước</th>
                         <th class="TableData">KG</th>
                         <th class="TableData">Thay gen</th>
                         <th class="TableData">Hàn</th>
@@ -48,16 +58,16 @@
                 <tbody> 
                     @foreach( $stringorders as $key => $stringorder )
                         <tr class="TableRow">
-                            <td class="TableData TableData_Center">{{ date('d-m-Y', strtotime($stringorder->updated_at)) }}</td>
+                            <td class="TableData TableData_Center">{{ date('d-m-Y', strtotime($stringorder->stringorder_created_at)) }}</td>
                             <td class="TableData">{{ $stringorder->customer_name }}</td>
                             <td class="TableData">{{ $stringorder->customergroup_name }}</td>
                             <td class="TableData">{{ stringType($stringorder)}}</td>
                             <td class="TableData TableData_Center">{{ $stringorder->stringorder_kg }}</td>
                             <td class="TableData TableData_Center">{!! commomYesNoOption($stringorder->stringorder_gen) !!}</td>
-                            <td class="TableData TableData_Center">{!! commomYesNoOption($stringorder->stringorder_welding) !!}</td>
+                            <td class="TableData TableData_Center">{!! commomYesNoOption($stringorder->stringorder_is_welding) !!}</td>
                             <td class="TableData">{{ commonNumberToVND($stringorder->stringorder_discount) }}</td>
-                            <td class="TableData TableData_Center">{{ stringorderRevenue($stringorder) }}</td>
-                            <td class="TableData TableData_Center">{{ stringorderProfit($stringorder) }}</td>
+                            <td class="TableData TableData_Center">{{ commonNumberToVND($stringorder->stringorder_revenue) }}</td>
+                            <td class="TableData TableData_Center">{{ commonNumberToVND($stringorder->stringorder_profit) }}</td>
                             <td class="TableData">{{ $stringorder->stringorder_timereturn }}</td>
                             <td class="TableData">{!! stringorderStatus($stringorder->stringorder_status) !!}</td>
                             <td class="TableData">{!! commomIspayment($stringorder->stringorder_ispayment) !!}</td>

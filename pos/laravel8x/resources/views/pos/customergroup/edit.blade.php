@@ -1,7 +1,7 @@
 @extends('pos.layouts.cover')
 @section('title', 'THÊM SẢN PHẨM')
 @section('pagejs', asset('pos/js/customergroup/edit.js'))
-@section('main')
+@section('Main')
     <main class="Main">
         <form action="{{route('customergroup.update', $customergroup->customergroup_id)}}" method="POST" class="Form" id="FormCustomergroupEdit" enctype="multipart/form-data">
             @csrf

@@ -18,15 +18,22 @@
                 <svg class="Icon_Border TopbarToggleIcon w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-width="3" d="M12 6h.01M12 12h.01M12 18h.01"/>
                 </svg>
-                <p class="TopbarPageTitle">@yield('title')</p>
+                <p class="TopbarPageTitle">@yield('Title')</p>
             </div>
+            <div class="TopbarNav">
+                @yield('TopbarNav_Left')
+                <div class="TopbarNav_right">
+                    
+                </div>
+            </div>
+            
         </div>
         <!-- End Topbar -->
          
         @include('pos.layouts.sidebar')
         <!-- End Sidebar -->
 
-        @yield('main')
+        @yield('Main')
     </div>
     <!-- End App -->
 
@@ -44,6 +51,6 @@
     <script src="{{asset('js/function.js')}}"></script>
     <script src="{{asset('js/validator.js')}}"></script>
     <script src="{{asset('pos/js/cover.js')}}"></script>
-    <script src="@yield('pagejs')"></script>
+    <script src="@yield('PageJs')"></script>
 </body>
 </html>

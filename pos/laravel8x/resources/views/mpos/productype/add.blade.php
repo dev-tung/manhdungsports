@@ -1,7 +1,7 @@
 @extends('pos.layouts.cover')
 @section('title', 'THÊM SẢN PHẨM')
 @section('pagejs', asset('pos/js/productype/add.js'))
-@section('main')
+@section('Main')
     <main class="Main">
         <form action="{{route('productype.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormproductypeAdd" enctype="multipart/form-data">
             @csrf

@@ -1,7 +1,7 @@
 @extends('pos.layouts.cover')
 @section('title', 'SỬA SẢN PHẨM')
 @section('pagejs', asset('pos/js/productype/edit.js'))
-@section('main')
+@section('Main')
     <main class="Main">
         <form action="{{route('productype.update', ['screen' => 'pos', 'productype_id' => $productype->productype_id])}}" method="POST" class="Form" id="FormproductypeEdit" enctype="multipart/form-data">
             @csrf

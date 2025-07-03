@@ -15,8 +15,12 @@ class StringorderAccess extends Access{
             $searchParams[] = ["CONCAT_WS(customer_name, ' ', customergroup_name)", 'like', '%' . $request->stringorder_name . '%'];
         }
 
-        if( !empty($request->stringorder_name) ){
-            $searchParams[] = ['customer.customer_id', 'like', '%' . $request->customer_id . '%'];
+        if( !empty($request->stringorder_created_at_from) ){
+            $searchParams[] = ['stringorder_created_at', '>=', $request->stringorder_created_at_from . ' 00:00:00'];
+        }
+
+        if( !empty($request->stringorder_created_at_to) ){
+            $searchParams[] = ['stringorder_created_at', '<=', $request->stringorder_created_at_to .' 12:00:00'];
         }
 
         return $searchParams;
@@ -32,7 +36,7 @@ class StringorderAccess extends Access{
 			JOIN customergroup ON customergroup.customergroup_id = customer.customergroup_id
             JOIN string ON stringorder.string_id = string.string_id
             $WHERE
-            ORDER BY stringorder.created_at DESC
+            ORDER BY stringorder.stringorder_created_at DESC
         ";
         return DB::select($query);
     }
@@ -56,9 +60,11 @@ class StringorderAccess extends Access{
         $param['stringorder_ispayment'] = $request['stringorder_ispayment'];
         $param['stringorder_discount'] = $request['stringorder_discount'];
         $param['stringorder_gen'] = $request['stringorder_gen'];
-        $param['stringorder_welding'] = $request['stringorder_welding'];
-        $param['created_at'] = Carbon::now();
-        $param['updated_at'] = Carbon::now();
+        $param['stringorder_is_welding'] = $request['stringorder_is_welding'];
+        $param['stringorder_revenue'] = stringorderRevenue($request, false);
+        $param['stringorder_profit'] = stringorderProfit($request, false);
+        $param['stringorder_created_at'] = Carbon::now();
+        $param['stringorder_updated_at'] = Carbon::now();
         DB::table($this->table)->insert( $param );
     }
 
@@ -72,8 +78,10 @@ class StringorderAccess extends Access{
         $param['stringorder_ispayment'] = $request['stringorder_ispayment'];
         $param['stringorder_discount'] = $request['stringorder_discount'];
         $param['stringorder_gen'] = $request['stringorder_gen'];
-        $param['stringorder_welding'] = $request['stringorder_welding'];
-        $param['updated_at'] = Carbon::now();
+        $param['stringorder_is_welding'] = $request['stringorder_is_welding'];
+        $param['stringorder_revenue'] = stringorderRevenue($request, false);
+        $param['stringorder_profit'] = stringorderProfit($request, false);
+        $param['stringorder_updated_at'] = Carbon::now();
 
         DB::table($this->table)
         ->where('stringorder_id', $request->stringorder_id)

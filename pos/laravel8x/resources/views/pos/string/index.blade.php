@@ -1,6 +1,6 @@
 @extends('pos.layouts.cover')
-@section('title', 'DANH SÁCH LOẠI CƯỚC')
-@section('main')
+@section('title', 'DANH SÁCH Các loại cước')
+@section('Main')
     <main class="Main">
         <div class="MainContent">
             <div class="ListSearch">
@@ -16,24 +16,24 @@
             </div>
             
             <div class="ListSearchTotal">
-                <span class="ListSearchTotalItem">{{ $string->count('string_id') }} loại cước</span>
+                <span class="ListSearchTotalItem">{{ $string->count('string_id') }} Các loại cước</span>
                 <span>-</span>
                 <span class="ListSearchTotalItem">Tổng giá nhập {{ number_format( $priceTotalInput ) }} đ</span>
             </div>
 
             <div class="List">
                 @foreach( $string as $string )
-                    <a class="ListItem" href="{{route('string.edit', ['screen' => 'pos'])}}">
+                    <a class="ListItem" href="{{route('string.edit', ['screen' => 'pos', 'string_id' => $string->string_id ])}}">
                         <div class="ListItemInfo">
-                            <h4 class="ListItemName">[{{ stringGetType($string->string_type) }}] {{ $string->string_name }} - {{ stringGetColor($string->string_color) }}</h4>
+                            <h4 class="ListItemName">{{stringDisplayName($string)}}</h4>
                             <div class="ListSpanGroup">
                                 <span class="ListItemSpan">Tồn kho {{ number_format($string->string_quantity) }}</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">Giá nhập {{ commomGetEachStringPriceInput($string->string_price_input, $string->string_type) }} đ</span>
+                                <span class="ListItemSpan">Giá nhập {{ stringPriceInputEach($string) }}</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">Giá căng {{ number_format($string->string_price_output) }} đ</span>
+                                <span class="ListItemSpan">Giá căng {{ commonNumberToVND($string->string_price_output) }}</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">Lãi {{ commomGetStringProfit($string->string_price_input, $string->string_price_output, $string->string_type) }} đ</span>
+                                <span class="ListItemSpan">Lãi {{ stringProfit($string) }}</span>
                             </div>
                         </div>
                     </a>

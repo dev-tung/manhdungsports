@@ -1,7 +1,7 @@
 @extends('pos.layouts.cover')
 @section('title', 'THÊM ĐƠN HÀNG')
 @section('pagejs', asset('pos/js/productorder/add.js'))
-@section('main')
+@section('Main')
     <main class="Main">
         <form action="{{route('productorder.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormProductorderAdd" enctype="multipart/form-data">
             @csrf

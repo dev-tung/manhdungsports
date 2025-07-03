@@ -31,3 +31,11 @@ Validator({
     }
 });
 // END VALIDATOR
+
+document.getElementById('StringType').addEventListener("change", function (e) {
+    let stringType = document.getElementById('StringType');
+    let stringTypeSelected = stringType.options[stringType.selectedIndex].dataset;
+    document.getElementById('StringPriceInput').value  = stringTypeSelected.string_price_input;
+    document.getElementById('StringPriceOutput').value = stringTypeSelected.string_price_output;
+    document.getElementById('StringorderType').value = stringTypeSelected.string_type;
+});

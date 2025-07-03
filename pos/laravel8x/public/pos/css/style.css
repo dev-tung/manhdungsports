@@ -17,6 +17,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+    text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -134,6 +135,16 @@ body {
     background-color: #222833;
 }
 
+.TopbarNav_Left{
+    padding: 0 10px;
+}
+
+.TopbarNavLink{
+    text-decoration: underline;
+    color: var(--color-primary);
+    font-size: 12px;
+}
+
 .Icon_Background{
     background-color: #222833;
 }
@@ -156,7 +167,6 @@ body {
         width: 250px;
     }
 }
-
 .App.Sidebar_Hide .Sidebar{
     display: none;
 }
@@ -187,6 +197,7 @@ body {
     padding : 10px;
     width: calc(100% - 250px);
     left: 250px;
+    padding-bottom: 100px; /* For float button display well */
 }
 
 /* @media only screen and (min-width: 768px) {
@@ -430,6 +441,18 @@ body {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.ListSearchFormGroup_Date{
+    display: flex;
+    align-items: center;
+    gap : 5px;
+    font-size: 12px;
+}
+
+.ListSearchFormLabel{
+    display: block;
+    width: 80px;
+}
+
 .ListSearchFormSelect{
     height: 35px;
     border: 1px solid #dadada;
@@ -448,12 +471,16 @@ body {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.ListSearchFormSubmit{
+.ListSearchFormBtn{
     height: 35px;
-    background-color: white;
     border-radius: 5px;
     border: 1px solid #dadada;
     width: 80px;
+    cursor: pointer;
+}
+
+.ListSearchFormBtn_Submit{
+    background-color: white;
 }
 
 .ListSearchFormSubmitIcon{
@@ -638,5 +665,5 @@ th{
 
 .TableAction_Link{
     text-decoration: none;
-    color :rgba(0, 0, 255, 0.699);
+    color :var(--color-primary);
 }

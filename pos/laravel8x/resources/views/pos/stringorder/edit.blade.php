@@ -1,10 +1,14 @@
 @extends('pos.layouts.cover')
-@section('title', 'SỬA LOẠI CƯỚC')
+@section('title', 'SỬA Các loại cước')
 @section('pagejs', asset('pos/js/stringorder/edit.js'))
-@section('main')
+@section('Main')
     <main class="Main">
         <form action="{{route('stringorder.update', ['screen'=>'pos', 'stringorder_id' => $stringorder->stringorder_id])}}" method="POST" class="Form" id="FormStringorderEdit" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" id="StringPriceInput"  name="string_price_input">
+            <input type="hidden" id="StringPriceOutput" name="string_price_output">
+            <input type="hidden" id="StringorderType" name="string_type">
+
             <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="CustomerId" >Khách hàng <span class="RequiredSymbol">*</span></label>
@@ -16,11 +20,19 @@
                     <small class="FormErrorMessage"></small>
                 </div>
                 <div class="FormGroup FormValidate">
-                    <label class="FormLabel" for="StringType" >Loại cước <span class="RequiredSymbol">*</span></label>
+                    <label class="FormLabel" for="StringType" >Các loại cước <span class="RequiredSymbol">*</span></label>
                     <select class="FormSelect" name="string_id" id="StringType">
-                        <option value="">-- Chọn loại cước --</option>
+                        <option value="">-- Chọn Các loại cước --</option>
                         @foreach( $strings as $string )
-                            <option value="{{$string->string_id}}" {{ ($string->string_id == $stringorder->string_id) ? 'selected' : ''; }}>[{{ stringGetType($string->string_type) }}] {{ $string->string_name }} - {{ stringGetColor($string->string_color) }}</option>
+                            <option 
+                                value="{{$string->string_id}}" 
+                                data-string_price_input="{{$string->string_price_input}}"
+                                data-string_price_output="{{$string->string_price_output}}"
+                                data-string_type="{{$string->string_type}}"
+                                {{ ($string->string_id == $stringorder->string_id) ? 'selected' : ''; }}
+                            >
+                                [{{ stringGetType($string->string_type) }}] {{ $string->string_name }} - {{ stringGetColor($string->string_color) }}
+                            </option>
                         @endforeach
                     </select>
                     <small class="FormErrorMessage"></small>
@@ -76,9 +88,9 @@
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderWelding" >Hàn <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="stringorder_welding" id="StringorderWelding">
+                        <select class="FormSelect" name="stringorder_is_welding" id="StringorderWelding">
                             @foreach( commomYesNoOption() as $key => $item )
-                                <option value="{{$key}}" {{ ($key == $stringorder->stringorder_welding) ? 'selected' : ''; }}>{!!$item!!}</option>
+                                <option value="{{$key}}" {{ ($key == $stringorder->stringorder_is_welding) ? 'selected' : ''; }}>{!!$item!!}</option>
                             @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>

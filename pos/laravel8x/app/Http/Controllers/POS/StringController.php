@@ -24,8 +24,8 @@ class StringController extends Controller
         $string = $this->_stringAccess->get($request);
         
         return view($request->screen.'.string.add', [
-            'string' => $string, 'colors' => commomGetColorList(), 
-            'stringtypes' => commomGetStringTypeList()
+            'string' => $string, 'colors' => stringGetColor(), 
+            'stringtypes' => stringGetType()
         ]);
     }
 
@@ -36,7 +36,7 @@ class StringController extends Controller
 
     public function edit(Request $request){
         $string = $this->_stringAccess->getFirst(['string_id' => $request->string_id]);
-        return view($request->screen.'.string.edit', ['string' => $string, 'colors' => commomGetColorList(), 'stringtypes' => commomGetStringTypeList()]);
+        return view($request->screen.'.string.edit', ['string' => $string, 'colors' => stringGetColor(), 'stringtypes' => stringGetType()]);
     }
 
     public function update(Request $request){

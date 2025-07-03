@@ -13,7 +13,7 @@
             <span class="SidebarNavText">Đơn hàng</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('string.index', ['screen'=>'pos'])}}">
-            <span class="SidebarNavText">Loại cước</span> 
+            <span class="SidebarNavText">Các loại cước</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('stringorder.index', ['screen'=>'pos'])}}">
             <span class="SidebarNavText">Đơn căng cước</span> 
