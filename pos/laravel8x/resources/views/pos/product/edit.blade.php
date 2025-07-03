@@ -1,6 +1,6 @@
 @extends('pos.layouts.cover')
-@section('title', 'SỬA SẢN PHẨM')
-@section('pagejs', asset('pos/js/product/edit.js'))
+@section('Title', 'SỬA SẢN PHẨM')
+@section('PageJs', asset('pos/js/product/edit.js'))
 @section('Main')
     <main class="Main">
         <form action="{{route('product.update', ['screen'=>'pos', 'product_id' => $product->product_id])}}" method="POST" class="Form" id="FormProductEdit" enctype="multipart/form-data">

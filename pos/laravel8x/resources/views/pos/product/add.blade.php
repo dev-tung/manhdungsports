@@ -1,6 +1,6 @@
 @extends('pos.layouts.cover')
-@section('title', 'THÊM SẢN PHẨM')
-@section('pagejs', asset('pos/js/product/add.js'))
+@section('Title', 'THÊM SẢN PHẨM')
+@section('PageJs', asset('pos/js/product/add.js'))
 @section('Main')
     <main class="Main">
         <form action="{{route('product.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormProductAdd" enctype="multipart/form-data">

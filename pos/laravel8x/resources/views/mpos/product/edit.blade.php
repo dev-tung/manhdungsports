@@ -1,5 +1,5 @@
 @extends('pos.layouts.cover')
-@section('title', 'SỬA SẢN PHẨM')
+@section('Title', 'SỬA SẢN PHẨM')
 @section('pagejs', asset('pos/js/product/edit.js'))
 @section('Main')
     <main class="Main">

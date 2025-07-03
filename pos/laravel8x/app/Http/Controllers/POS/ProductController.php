@@ -35,7 +35,7 @@ class ProductController extends Controller
     public function insert(Request $request){
         $this->_productsevice->moveThumbnail($request);
         $this->_productAccess->insert($request);
-        return redirect()->route('product.add');
+        return redirect()->route('product.add', ['screen'=>'pos']);
     }
 
     public function edit(Request $request){
@@ -52,7 +52,7 @@ class ProductController extends Controller
 
     public function delete(Request $request){
         $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
-        $this->_productsevice->deleteThumbnail($product);
+        $this->_productsevice->deleteThumbnail($request, $product);
         $this->_productAccess->delete(['product_id' => $request->product_id]);
         return redirect()->route('product.index', ['screen'=>'pos']);
     }

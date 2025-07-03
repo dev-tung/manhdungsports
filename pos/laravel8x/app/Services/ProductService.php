@@ -21,7 +21,7 @@ class Productservice extends Service{
         }
     }
 
-    public function deleteThumbnail($product){
+    public function deleteThumbnail($request, $product){
         if( $product->product_thumbnail ){
             $request->filePath = $product->product_thumbnail;
             $this->_fileController->delete($request);
