@@ -1,5 +1,12 @@
 @extends('pos.layouts.cover')
-@section('title', 'DANH SÁCH Các loại cước')
+@section('Title', 'CÁC LOẠI CƯỚC')
+@section('TopbarNav_Left')
+    <nav class="TopbarNav_Left">
+        <a class="TopbarNavLink" href="{{route('stringorder.index', ['screen'=>'pos'])}}">
+            <span class="TopbarNavText">ĐƠN CĂNG CƯỚC</span> 
+        </a>
+    </nav>
+@endsection
 @section('Main')
     <main class="Main">
         <div class="MainContent">

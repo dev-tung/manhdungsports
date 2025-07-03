@@ -3,9 +3,6 @@
         <a class="SidebarNavLink" href="{{route('dashboard.index', ['screen'=>'pos'])}}">
             <span class="SidebarNavText">Tổng quan</span> 
         </a>
-        <a class="SidebarNavLink" href="{{route('productype.index', ['screen'=>'pos'])}}">
-            <span class="SidebarNavText">Loại sản phẩm</span> 
-        </a>
         <a class="SidebarNavLink" href="{{route('product.index', ['screen'=>'pos'])}}">
             <span class="SidebarNavText">Sản phẩm</span> 
         </a>

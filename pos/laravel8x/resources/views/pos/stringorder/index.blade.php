@@ -1,5 +1,5 @@
 @extends('pos.layouts.cover')
-@section('Title', 'ĐƠN CĂNG CƯỚC')
+@section('Title', 'CĂNG CƯỚC')
 @section('TopbarNav_Left')
     <nav class="TopbarNav_Left">
         <a class="TopbarNavLink" href="{{route('string.index', ['screen'=>'pos'])}}">
@@ -42,7 +42,7 @@
                         <th class="TableData">Ngày</th>
                         <th class="TableData">Khách hàng</th>
                         <th class="TableData">Nhóm khách hàng</th>
-                        <th class="TableData">Các loại cước</th>
+                        <th class="TableData">Loại cước</th>
                         <th class="TableData">KG</th>
                         <th class="TableData">Thay gen</th>
                         <th class="TableData">Hàn</th>

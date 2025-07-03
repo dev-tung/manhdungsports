@@ -1,10 +1,13 @@
 @extends('pos.layouts.cover')
-@section('title', 'THÊM ĐƠN HÀNG')
-@section('pagejs', asset('pos/js/productorder/add.js'))
+@section('Title', 'THÊM ĐƠN HÀNG')
+@section('PageJs', asset('pos/js/productorder/add.js'))
 @section('Main')
     <main class="Main">
         <form action="{{route('productorder.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormProductorderAdd" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" id="ProductPriceInput"  name="product_price_input">
+            <input type="hidden" id="ProductPriceOutput" name="product_price_output">
+
             <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="CustomerId" >Khách hàng <span class="RequiredSymbol">*</span></label>
@@ -22,7 +25,11 @@
                         <select class="FormSelect" name="product_id" id="ProductType">
                             <option value="">-- Chọn mặt hàng --</option>
                             @foreach( $products as $product )
-                                <option value="{{$product->product_id}}">{{ $product->product_name }}</option>
+                                <option 
+                                    data-product_price_input="{{$product->product_price_input}}"
+                                    data-product_price_output="{{$product->product_price_output}}"
+                                    value="{{$product->product_id}}"
+                                >{{ $product->product_name }}</option>
                             @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
@@ -44,8 +51,12 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderTimereturn" >Thời gian giao hàng</label>
-                        <input class="FormInput" id="ProductorderTimereturn" type="text" name="productorder_timereturn">
+                        <label class="FormLabel" for="ProductorderStatus" >Trạng thái <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="productorder_status" id="ProductorderStatus">
+                            @foreach( productorderStatus() as $key => $item )
+                                <option value="{{$key}}">{!!$item!!}</option>
+                            @endforeach
+                        </select>
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
@@ -78,9 +89,6 @@
         
     </main>
     <!-- End Main -->
-     
-
-
 @endsection
 
 

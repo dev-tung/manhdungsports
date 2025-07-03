@@ -7,16 +7,16 @@ Validator({
             selector: '#CustomerId'
         }),
         Validator.tbRequired({
-            selector: '#ProductorderType'
+            selector: '#ProductType'
         }),
         Validator.tbRequired({
-            selector: '#ProductorderOrderRevenue'
+            selector: '#ProductorderQuantity'
         }),
         Validator.sbRequired({
-            selector: '#ProductorderorderIspayment'
+            selector: '#ProductorderIspayment'
         }),
         Validator.sbRequired({
-            selector: '#ProductorderorderStatus'
+            selector: '#ProductorderStatus'
         })
     ],
     onSubmit: (form) => {
@@ -25,3 +25,12 @@ Validator({
     }
 });
 // END VALIDATOR
+
+document.getElementById('ProductType').addEventListener("change", function (e) {
+    let productType = document.getElementById('ProductType');
+    let productTypeSelected = productType.options[productType.selectedIndex].dataset;
+    document.getElementById('ProductPriceInput').value  = productTypeSelected.product_price_input;
+    document.getElementById('ProductPriceOutput').value = productTypeSelected.product_price_output;
+});
+
+document.getElementById('ProductType').dispatchEvent(new Event('change'));

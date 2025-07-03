@@ -3,7 +3,7 @@
 @section('pagejs', asset('pos/js/product/edit.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('product.update', $product->product_id)}}" method="POST" class="Form" id="FormProductEdit" enctype="multipart/form-data">
+        <form action="{{route('product.update', ['screen'=>'pos', 'product_id' => $product->product_id])}}" method="POST" class="Form" id="FormProductEdit" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
                 <div class="FormValidate">
@@ -97,7 +97,7 @@
                     <button class="Btn Btn_Primary">Lưu</button>
                 </div>
                 <div class="FormBtnGroup">
-                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('product.delete', $product->product_id)}}" >Xóa sản phẩm</a>
+                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('product.delete', ['screen'=>'pos', 'product_id' => $product->product_id])}}" >Xóa sản phẩm</a>
                 </div>
             </div>
         </form>

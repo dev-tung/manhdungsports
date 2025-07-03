@@ -1,5 +1,12 @@
 @extends('pos.layouts.cover')
-@section('title', 'DANH SÁCH SẢN PHẨM')
+@section('Title', 'DANH SÁCH SẢN PHẨM')
+@section('TopbarNav_Left')
+    <nav class="TopbarNav_Left">
+        <a class="TopbarNavLink" href="{{route('productype.index', ['screen'=>'pos'])}}">
+            <span class="TopbarNavText">Loại sản phẩm</span> 
+        </a>
+    </nav>
+@endsection
 @section('Main')
     <main class="Main">
         <div class="MainContent">
@@ -14,9 +21,10 @@
                             @endforeach
                         </select>
                     </div>
-                    <button class="ListSearchFormSubmit">
+                    <button class="ListSearchFormBtn" type="reset"><a href="{{route('stringorder.index', ['screen'=>'pos'])}}">Xóa</a></button>
+                    <button class="ListSearchFormBtn ListSearchFormBtn_Submit">
                         <svg class="ListSearchFormSubmitIcon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
                         </svg>
                     </button>
                 </form>
@@ -25,12 +33,12 @@
             <div class="ListSearchTotal">
                 <span class="ListSearchTotalItem">{{ $product->sum('product_quantity') }} sản phẩm</span>
                 <span>-</span>
-                <span class="ListSearchTotalItem">Tổng giá nhập {{ number_format( $priceTotalInput ) }} đ</span>
+                <span class="ListSearchTotalItem">Tổng giá nhập {{ commonNumberToVND( $priceTotalInput ) }}</span>
             </div>
 
             <div class="List">
                 @foreach( $product as $product )
-                    <a class="ListItem" href="{{route('product.edit', $product->product_id)}}">
+                    <a class="ListItem" href="{{route('product.edit', ['screen'=>'pos', 'product_id' => $product->product_id])}}">
                         <div class="ListItemthumbnail">
                             @if( !empty( $product->product_thumbnail ) )
                                 <img class="ListItemthumbnail" src="{{ asset($product->product_thumbnail) }}">
@@ -52,9 +60,9 @@
                             <div class="ListSpanGroup">
                                 <span class="ListItemSpan">Tồn kho {{ $product->product_quantity }}</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">Giá nhập {{ number_format($product->product_price_input) }} đ</span>
+                                <span class="ListItemSpan">Giá nhập {{ commonNumberToVND($product->product_price_input) }}</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">Giá bán {{ number_format($product->product_price_output) }} đ</span>
+                                <span class="ListItemSpan">Giá bán {{ commonNumberToVND($product->product_price_output) }}</span>
                             </div>
                         </div>
                     </a>
@@ -65,7 +73,7 @@
     <!-- End Main -->
 
     <div class="Float Float_BottomRight">
-        <a class="Btn Btn_Success" href="{{route('product.add')}}">
+        <a class="Btn Btn_Success" href="{{route('product.add', ['screen'=>'pos'])}}">
             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
             </svg>

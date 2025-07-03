@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANH DUNG POS | Product</title>
+    <link href="font/font-roboto.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="App" id="App">
+        <div class="Topbar">
+            <div class="TopbarPage">
+                <svg id="TopbarToggleIcon" class="Icon_Border TopbarToggleIcon w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="3" d="M12 6h.01M12 12h.01M12 18h.01"/>
+                </svg>
+                <p class="TopbarPageTitle">SỬA SẢN PHẨM</p>
+            </div>
+        </div>
+        <!-- End Topbar -->
+         
+        <div class="Sidebar" id="Sidebar">
+            <nav class="SidebarNav">
+                <a class="SidebarNavLink" href="index.html">
+                    <span class="SidebarNavText">Tổng quan</span> 
+                </a>
+                <a class="SidebarNavLink" href="product-add.html">
+                    <span class="SidebarNavText">Sản phẩm thêm mới</span> 
+                </a>
+                <a class="SidebarNavLink" href="product-list.html">
+                    <span class="SidebarNavText">Sản phẩm danh sách</span> 
+                </a>
+            </nav>
+        </div>
+        <!-- End Sidebar -->
+
+        <main class="Main">
+            <form action="" class="Form" id="FormProductAdd">
+                <div class="FormGrid">
+                    <div class="FormGroupThumnail">
+                        <div class="FormFrame">
+                            <button class="FormAddImageBtn" id="FormAddImageBtn">
+                                <svg width="48" height="48" viewBox="-9 -4 49 50" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Khung hình ảnh -->
+                                    <rect x="0" y="8" width="30" height="28" rx="2" ry="2" fill="#e0e0e0" stroke="#555" stroke-width="1"/>
+
+                                    <!-- Mặt trời -->
+                                    <circle cx="10" cy="18" r="2.5" fill="#777" />
+
+                                    <!-- Núi -->
+                                    <polyline points="5,34 12,25 18,31 24,26 30,34" fill="none" stroke="#555" stroke-width="1" />
+
+                                    <!-- Dấu cộng (thêm mới) với nền trắng và nét mỏng -->
+                                    <circle cx="32" cy="36" r="6" fill="white" stroke="#555" stroke-width="1"/>
+                                    <line x1="32" y1="33" x2="32" y2="39" stroke="#555" stroke-width="1"/>
+                                    <line x1="29" y1="36" x2="35" y2="36" stroke="#555" stroke-width="1"/>
+                                </svg>
+                            </button>
+                            <input type="file" name="ProductThumnail" id="ProductThumnail" hidden>
+                        </div>
+                        <!-- <a class="FormFrame" href="sapo/dashboard.png">
+                            <img class="FormProductThumnail" src="sapo/table.png">
+                        </a> -->
+                    </div>
+                    <div class="FormGrid FormGridDesktop_Two ">
+                        <div class="FormGroup validate">
+                            <label class="FormLabel" for="ProductName" >Tên sản phẩm <span class="RequiredSymbol">*</span></label>
+                            <input class="FormInput" id="ProductName" type="text" name="ProductName">
+                            <small class="FormErrorMessage"></small>
+                        </div>
+                        <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
+                            <div class="FormGroup validate">
+                                <label class="FormLabel" for="ProductPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
+                                <input class="FormInput" id="ProductPriceInput" type="number" name="ProductPriceInput">
+                                <small class="FormErrorMessage"></small>
+                            </div>
+                            <div class="FormGroup validate">
+                                <label class="FormLabel" for="ProductPriceOutput" >Giá bán <span class="RequiredSymbol">*</span></label>
+                                <input class="FormInput" id="ProductPriceOutput" type="number" name="ProductPriceOutput">
+                                <small class="FormErrorMessage"></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="FormGrid FormGridDesktop_Two">
+                    <div class="FormGrid FormGridDesktop_Two FormGridMobile_Two">
+                        <div class="FormGroup validate">
+                            <label class="FormLabel" for="ProductQuantity" >Số lượng <span class="RequiredSymbol">*</span></label>
+                            <input class="FormInput" id="ProductQuantity" type="number" name="ProductQuantity">
+                            <small class="FormErrorMessage"></small>
+                        </div>
+                        <div class="FormGroup validate">
+                            <label class="FormLabel" for="ProductUnit" >Đơn vị tính <span class="RequiredSymbol">*</span></label>
+                            <input class="FormInput" id="ProductUnit" type="text" name="ProductUnit">
+                            <small class="FormErrorMessage"></small>
+                        </div>
+                    </div>
+
+                    <div class="FormGrid FormGridDesktop_Two FormGridMobile_Two">
+                        <div class="FormGroup validate">
+                            <label class="FormLabel" for="ProductCategory" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
+                            <select class="FormSelect" name="ProductCategory" id="ProductCategory">
+                                <option value="">-- Chọn --</option>
+                                <option value="1">Vợt cầu lông</option>
+                                <option value="2">Giày cầu lông</option>
+                                <option value="3">Quần cầu lông</option>
+                                <option value="4">Áo cầu lông</option>
+                                <option value="5">Túi ngang</option>
+                                <option value="6">Balo</option>
+                                <option value="7">Túi hở cán</option>
+                                <option value="8">Cầu</option>
+                                <option value="9">Phụ kiện</option>
+                            </select>
+                            <small class="FormErrorMessage"></small>
+                        </div>
+                        <div class="FormGroup validate">
+                            <label class="FormLabel" for="ProductSource" >Nhà cung cấp </label>
+                            <input class="FormInput" id="ProductSource" type="text" name="ProductSource">
+                            <small class="FormErrorMessage"></small>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="FormGroup">
+                    <label class="FormLabel" for="ProductPriceDescription" >Ghi chú</label>
+                    <textarea class="FormTexarea" rows="3" name="ProductPriceDescription" id="ProductPriceDescription"></textarea>
+                </div>
+
+                <div class="FormBtn">
+                    <div class="FormBtnGroup">
+                        <button class="Btn Btn_Default" type="button" onclick="history.back()">Quay lại</button>
+                        <button class="Btn Btn_Primary">Lưu</button>
+                    </div>
+                    <div class="FormBtnGroup">
+                        <a class="Btn Btn_Danger" href="#" >Xóa sản phẩm</a>
+                    </div>
+                </div>
+                
+            </form>
+        </main>
+        <!-- End Main -->
+
+    </div>
+    <!-- End App -->
+
+    <script src="js/function.js"></script>
+    <script>
+        // SIDEBAR
+        document.getElementById('TopbarToggleIcon').addEventListener("click", function (e) {
+            let sidebarClass = document.getElementById('App').classList;
+            if( sidebarClass.contains('Sidebar_Hide') ) sidebarClass.remove('Sidebar_Hide');
+            else sidebarClass.add('Sidebar_Hide');
+        });
+
+        // On mobile default Sidebar_Hide
+        if(window.innerWidth < 768){
+            document.getElementById('App').classList.add('Sidebar_Hide');
+        }
+        // END SIDEBAR
+
+
+        // PRODUCT
+        document.getElementById("FormAddImageBtn").addEventListener("click", function(event){
+            event.preventDefault();
+            document.getElementById("ProductThumnail").click();
+        });
+        // END PRODUCT
+        
+        // VALIDATOR
+        Validator({
+            form: '#FormProductAdd',
+            rules: [
+                Validator.tbRequired({
+                    selector: '#ProductName',
+                    submit: true
+                }),
+                Validator.tbRequired({
+                    selector: '#ProductPriceInput',
+                    submit: true
+                }),
+                Validator.isPInt({
+                    selector: '#ProductPriceInput',
+                    submit: true
+                }),
+                Validator.tbRequired({
+                    selector: '#ProductPriceOutput',
+                    submit: true
+                }),
+                Validator.isPInt({
+                    selector: '#ProductPriceOutput',
+                    submit: true
+                }),
+                Validator.slbRequired({
+                    selector: '#ProductCategory',
+                    submit: true
+                }),
+                Validator.tbRequired({
+                    selector: '#ProductQuantity',
+                    submit: true
+                }),
+                Validator.isPInt({
+                    selector: '#ProductQuantity',
+                    submit: true
+                }),
+                Validator.tbRequired({
+                    selector: '#ProductUnit',
+                    submit: true
+                })
+            ],
+            onSubmit: (data) => {
+                alert('Submit Form Success');
+            }
+        });
+        // END VALIDATOR
+    </script>
+</body>
+</html>
