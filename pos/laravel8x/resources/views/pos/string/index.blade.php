@@ -16,9 +16,9 @@
             </div>
             
             <div class="ListSearchTotal">
-                <span class="ListSearchTotalItem">{{ $string->count('string_id') }} Các loại cước</span>
+                <span class="ListSearchTotalItem">{{ $string->count('string_id') }} Loại cước</span>
                 <span>-</span>
-                <span class="ListSearchTotalItem">Tổng giá nhập {{ number_format( $priceTotalInput ) }} đ</span>
+                <span class="ListSearchTotalItem">Tổng giá nhập {{ commonNumberToVND( $priceTotalInput ) }}</span>
             </div>
 
             <div class="List">
