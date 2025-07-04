@@ -9,16 +9,37 @@ class ProductorderAccess extends Access{
     private $table = 'productorder';
 
     public function searchParam($request){
-       if( empty($request->productorder_name) ) return '';
-        $searchParams[] = ['productorder_name', 'like', '%' . $request->productorder_name . '%'];
+        $searchParams = [];
+
+        if( !empty($request->productorder_name) ) {
+            $searchParams[] = ["CONCAT_WS(customer_name, ' ', customergroup_name)", 'like', '%' . $request->productorder_name . '%'];
+        }
+
+        if( !empty($request->productype_id) ){
+            $searchParams[] = ['productype.productype_id', 'like', '%' . $request->productype_id . '%'];
+        }
+        
+        if( !empty($request->productorder_created_at_from) ){
+            $searchParams[] = ['productorder_created_at', '>=', $request->productorder_created_at_from . ' 00:00:00'];
+        }
+
+        if( !empty($request->productorder_created_at_to) ){
+            $searchParams[] = ['productorder_created_at', '<=', $request->productorder_created_at_to .' 12:00:00'];
+        }
+
         return $searchParams;
     }
 
     public function get( $request){
+        $searchParam = $this->searchParam($request);
+        $WHERE = $this->conditionBuilder($searchParam);
         $query = "
             SELECT * FROM productorder
             JOIN customer ON productorder.customer_id = customer.customer_id
+            JOIN customergroup ON customergroup.customergroup_id = customer.customergroup_id
             JOIN product ON productorder.product_id = product.product_id
+            JOIN productype ON productype.productype_id = product.productype_id
+            $WHERE
             ORDER BY productorder_created_at DESC
         ";
         return DB::select($query);

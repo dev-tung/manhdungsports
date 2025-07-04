@@ -6,6 +6,14 @@
             <div class="ListSearch">
                 <form action="{{route('productorder.index', ['screen'=>'pos'])}}" class="ListSearchForm">
                     <input class="ListSearchFormInput" type="text" name="productorder_name" placeholder="Tìm kiếm ..." value="{{ request()->productorder_name }}">
+                    <div class="Filter">
+                        <select class="ListSearchFormSelect" name="productype_id" id="ProductType">
+                            <option value="">-- Chọn danh mục --</option>
+                            @foreach($productypes as $item)
+                                <option value="{{$item->productype_id}}" {{ (request()->productype_id == $item->productype_id) ? 'selected' : ''; }}>{{$item->productype_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="ListSearchFormGroup ListSearchFormGroup_Date">
                         <label class="ListSearchFormLabel" for="">Từ ngày</label>
                         <input class="ListSearchFormInput ListSearchFormInput_Date" type="date" name="productorder_created_at_from" value="{{ request()->productorder_created_at_from }}">
@@ -24,7 +32,7 @@
             </div>
             
             <div class="ListSearchTotal">
-                <span class="ListSearchTotalItem">{{ count($productorders) }} lượt căng cước</span>
+                <span class="ListSearchTotalItem">{{ count($productorders) }} đơn hàng</span>
                 <span class="ListSearchTotalItem">-</span>
                 <span class="ListSearchTotalItem">Lợi nhuận {{ commonNumberToVND(array_sum(array_column($productorders, 'productorder_profit'))) }} </span>
             </div>
@@ -34,7 +42,9 @@
                     <tr class="TableRow">
                         <th class="TableData">Ngày</th>
                         <th class="TableData">Khách hàng</th>
+                        <th class="TableData">Nhóm khách hàng</th>
                         <th class="TableData">Sản phẩm</th>
+                        <th class="TableData">Danh mục</th>
                         <th class="TableData">Triết khấu</th>
                         <th class="TableData">Giá tiền</th>
                         <th class="TableData">Lợi nhuận</th>
@@ -48,7 +58,9 @@
                         <tr class="TableRow">
                             <td class="TableData TableData_Center">{{ date('d-m-Y', strtotime($productorder->productorder_created_at)) }}</td>
                             <td class="TableData">{{ $productorder->customer_name }}</td>
+                            <td class="TableData">{{ $productorder->customergroup_name }}</td>
                             <td class="TableData">{{ $productorder->product_name}}</td>
+                            <td class="TableData">{{ $productorder->productype_name}}</td>
                             <td class="TableData">{{ commonNumberToVND($productorder->productorder_discount) }}</td>
                             <td class="TableData TableData_Center">{{ commonNumberToVND($productorder->productorder_revenue) }}</td>
                             <td class="TableData TableData_Center">{{ commonNumberToVND($productorder->productorder_profit) }}</td>

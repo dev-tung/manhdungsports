@@ -14,10 +14,10 @@
                 <form action="{{route('product.index', ['screen'=>'pos'])}}" class="ListSearchForm">
                     <input class="ListSearchFormInput" type="text" name="product_name" placeholder="Tìm kiếm sản phẩm ..." value="{{ request()->product_name }}">
                     <div class="Filter">
-                        <select class="ListSearchFormSelect" name="product_type" id="ProductType">
+                        <select class="ListSearchFormSelect" name="productype_id" id="ProductType">
                             <option value="">-- Chọn danh mục --</option>
                             @foreach($productype as $item)
-                                <option value="{{$item->productype_id}}">{{$item->productype_name}}</option>
+                                <option value="{{$item->productype_id}}" {{ (request()->productype_id == $item->productype_id) ? 'selected' : ''; }}>{{$item->productype_name}}</option>
                             @endforeach
                         </select>
                     </div>

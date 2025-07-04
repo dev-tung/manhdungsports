@@ -36,7 +36,7 @@ class StringorderAccess extends Access{
 			JOIN customergroup ON customergroup.customergroup_id = customer.customergroup_id
             JOIN string ON stringorder.string_id = string.string_id
             $WHERE
-            ORDER BY stringorder.stringorder_created_at DESC
+            ORDER BY stringorder_created_at DESC
         ";
         return DB::select($query);
     }

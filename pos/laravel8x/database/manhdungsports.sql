@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 03/07/2025 16:00:58
+ Date: 04/07/2025 09:10:12
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `customer`  (
   `customer_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `customer_description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`customer_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 56 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of customer
@@ -82,6 +82,8 @@ INSERT INTO `customer` VALUES (50, 'A Nghị', 5, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (51, 'A Trung', 5, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (52, 'A Phú Dương', 5, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (53, 'Doanh Nguyen Mobile', 1, NULL, NULL, NULL);
+INSERT INTO `customer` VALUES (54, 'A Thuỳ', 5, NULL, NULL, NULL);
+INSERT INTO `customer` VALUES (55, 'Q Anh', 7, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for customergroup
@@ -130,7 +132,7 @@ CREATE TABLE `product`  (
   `product_source` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `productype_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`product_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 191 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 198 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
@@ -195,7 +197,8 @@ INSERT INTO `product` VALUES (186, 'Vợt Cầu Lông Lining Halbertec 2000', '7
 INSERT INTO `product` VALUES (187, 'Vợt Cầu Lông Lining Axforce 10 - Trắng', '559636', '850000', NULL, '2', NULL, 'Cái', NULL, NULL, NULL, '20');
 INSERT INTO `product` VALUES (188, 'Vợt Cầu Lông Lining Axforce Cannon Pro - Đỏ', '1336364', '1800000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20');
 INSERT INTO `product` VALUES (189, 'Vợt Cầu Lông Lining Halbertec Motor', '791000', '1000000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20');
-INSERT INTO `product` VALUES (190, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `product` VALUES (196, 'Giày Cầu Lông Lining AYTS020 - SIZE 41', '642291', '1000000', NULL, '1', 'upload/product/1751592943.png', 'Đôi', NULL, NULL, NULL, '21');
+INSERT INTO `product` VALUES (197, 'Hàn vợt', '100000', '150000', NULL, '1', NULL, 'Lần', NULL, NULL, NULL, '31');
 
 -- ----------------------------
 -- Table structure for productorder
@@ -216,7 +219,7 @@ CREATE TABLE `productorder`  (
   `productorder_created_at` datetime(0) NULL DEFAULT NULL,
   `productorder_updated_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`productorder_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of productorder
@@ -226,19 +229,14 @@ INSERT INTO `productorder` VALUES (18, 20, NULL, '25', 2, 'chiều 25/6', 0, NUL
 INSERT INTO `productorder` VALUES (19, 21, NULL, '21', 0, 'chiều 26/6', 1, NULL, 1, NULL, NULL, '2025-06-23 03:09:36', '2025-06-26 03:08:44');
 INSERT INTO `productorder` VALUES (20, 8, NULL, '13', 1, 'chiều 26/6', 0, '15000', 1, NULL, NULL, '2025-06-23 03:09:36', '2025-06-26 03:08:11');
 INSERT INTO `productorder` VALUES (21, 8, NULL, '4', 0, 'chờ xác nhận', 0, NULL, 1, NULL, NULL, '2025-06-26 03:09:36', '2025-06-26 03:10:14');
-INSERT INTO `productorder` VALUES (23, 1, NULL, '167', 0, NULL, 1, NULL, 2, '10000', '3000', '2025-06-26 03:48:32', '2025-07-03 08:54:54');
-INSERT INTO `productorder` VALUES (24, 20, NULL, '168', 0, 'trực tiếp', 1, NULL, 1, NULL, NULL, '2025-06-26 04:16:08', '2025-06-26 10:06:16');
-INSERT INTO `productorder` VALUES (25, 16, 'Nợ 1 triệu', '169', 0, NULL, 0, '90000', 1, '2160000', '550000', '2025-06-23 04:43:29', '2025-07-03 08:54:43');
-INSERT INTO `productorder` VALUES (26, 42, '10 hộp', '170', 0, 'trực tiếp', 1, '30000', 10, NULL, NULL, '2025-06-26 04:47:10', '2025-06-26 10:06:57');
-INSERT INTO `productorder` VALUES (27, 36, 'Cước rz65 + Tặng quấn yonex', '141', 0, 'trực tiếp', 1, '120000', 1, NULL, NULL, '2025-06-26 09:25:25', '2025-06-26 09:50:29');
-INSERT INTO `productorder` VALUES (28, 1, '1 quả cầu + 2 cước 65', '160', 0, NULL, 1, NULL, 2, '550000', '250000', '2025-06-26 09:27:05', '2025-07-03 08:54:35');
-INSERT INTO `productorder` VALUES (29, 1, NULL, '181', 0, NULL, 1, NULL, 1, NULL, '0', '2025-06-26 09:36:42', '2025-07-03 08:52:43');
 INSERT INTO `productorder` VALUES (31, 19, NULL, NULL, NULL, 'Trực tiếp', 0, NULL, NULL, NULL, NULL, '2025-07-03 08:26:57', '2025-07-03 08:26:57');
 INSERT INTO `productorder` VALUES (32, 29, NULL, NULL, NULL, 'Trực tiếp', 0, NULL, NULL, NULL, NULL, '2025-07-03 08:27:31', '2025-07-03 08:27:31');
 INSERT INTO `productorder` VALUES (33, 19, NULL, NULL, NULL, 'Trực tiếp', 0, NULL, NULL, NULL, NULL, '2025-07-03 08:28:36', '2025-07-03 08:28:36');
 INSERT INTO `productorder` VALUES (34, 19, NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, '2025-07-03 08:31:54', '2025-07-03 08:31:54');
 INSERT INTO `productorder` VALUES (35, 19, NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, '2025-07-03 08:32:17', '2025-07-03 08:32:17');
 INSERT INTO `productorder` VALUES (36, 19, NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, NULL, '2025-07-03 08:33:40', '2025-07-03 08:33:40');
+INSERT INTO `productorder` VALUES (38, 14, NULL, '196', 1, NULL, 0, NULL, 1, '1000000', '357709', '2025-07-04 01:42:07', '2025-07-04 01:42:07');
+INSERT INTO `productorder` VALUES (39, 55, 'Vợt Lining', '197', 0, NULL, 0, NULL, 1, '150000', '50000', '2025-07-04 01:54:04', '2025-07-04 01:54:31');
 
 -- ----------------------------
 -- Table structure for productype
@@ -249,7 +247,7 @@ CREATE TABLE `productype`  (
   `productype_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `productype_parent_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`productype_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of productype
@@ -265,6 +263,7 @@ INSERT INTO `productype` VALUES (27, 'Balo cầu lông', NULL);
 INSERT INTO `productype` VALUES (28, 'Bao vợt cầu lông', NULL);
 INSERT INTO `productype` VALUES (29, 'Phụ kiện cầu lông', NULL);
 INSERT INTO `productype` VALUES (30, 'Tất cầu lông', NULL);
+INSERT INTO `productype` VALUES (31, 'Hàn vợt', NULL);
 
 -- ----------------------------
 -- Table structure for string
@@ -334,7 +333,7 @@ CREATE TABLE `stringorder`  (
   `stringorder_revenue` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `stringorder_profit` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`stringorder_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 60 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of stringorder
@@ -367,14 +366,18 @@ INSERT INTO `stringorder` VALUES (00000000042, NULL, '10.5', 3, 'Trực tiếp',
 INSERT INTO `stringorder` VALUES (00000000043, NULL, '10.8', 3, 'Trực tiếp', 1, NULL, 00000000000, '2025-07-01 03:33:08', '2025-07-03 02:59:50', 0, 40, '11', NULL, '170000', '42727.272727273');
 INSERT INTO `stringorder` VALUES (00000000044, NULL, '11', 3, 'Trực tiếp', 1, '15000', 00000000000, '2025-07-01 09:08:37', '2025-07-03 03:02:13', 0, 8, '15', NULL, '165000', '46818.181818182');
 INSERT INTO `stringorder` VALUES (00000000045, NULL, '10', 3, 'Trực tiếp', 1, '15000', 00000000000, '2025-07-01 09:13:27', '2025-07-03 03:03:01', 0, 8, '16', NULL, '165000', '37727.272727273');
-INSERT INTO `stringorder` VALUES (00000000046, NULL, '11', 2, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-02 02:43:39', '2025-07-03 03:03:13', 0, 14, '9', NULL, '170000', '42727.272727273');
+INSERT INTO `stringorder` VALUES (00000000046, NULL, '11', 3, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-02 02:43:39', '2025-07-04 01:31:12', 0, 14, '9', NULL, '170000', '42727.272727273');
 INSERT INTO `stringorder` VALUES (00000000047, NULL, '11', 2, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-02 02:44:27', '2025-07-03 03:03:18', 0, 50, '9', NULL, '170000', '42727.272727273');
 INSERT INTO `stringorder` VALUES (00000000048, NULL, '10.4', 2, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-02 02:45:30', '2025-07-03 03:03:30', 0, 50, '14', NULL, '180000', '61818.181818182');
 INSERT INTO `stringorder` VALUES (00000000049, NULL, NULL, 0, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-02 04:45:10', '2025-07-02 04:45:10', 0, 19, NULL, NULL, NULL, NULL);
-INSERT INTO `stringorder` VALUES (00000000051, NULL, '11.5', 2, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-03 00:52:38', '2025-07-03 08:58:34', 0, 26, '11', NULL, NULL, '0');
-INSERT INTO `stringorder` VALUES (00000000052, NULL, '10.5', 2, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-03 00:54:03', '2025-07-03 03:17:56', 0, 52, '4', NULL, '140000', '28636.363636364');
-INSERT INTO `stringorder` VALUES (00000000057, 'Ngày 6/3', '11', 2, 'Trực tiếp', 1, '15000', 00000000000, '2025-07-03 03:07:49', '2025-07-03 03:08:17', 0, 8, '9', NULL, '155000', '27727.272727273');
-INSERT INTO `stringorder` VALUES (00000000058, NULL, '11.2', 0, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-03 03:09:56', '2025-07-03 03:09:56', 0, 53, '21', NULL, '150000', '54545.454545455');
+INSERT INTO `stringorder` VALUES (00000000051, NULL, '11.5', 3, 'Trực tiếp', 1, NULL, 00000000000, '2025-07-03 00:52:38', '2025-07-04 01:30:49', 0, 26, '11', NULL, '170000', '42727.272727273');
+INSERT INTO `stringorder` VALUES (00000000052, NULL, '10.5', 3, 'Trực tiếp', 1, NULL, 00000000000, '2025-07-03 00:54:03', '2025-07-04 01:31:00', 0, 52, '4', NULL, '140000', '28636.363636364');
+INSERT INTO `stringorder` VALUES (00000000057, 'Ngày 6/3', '11', 3, 'Trực tiếp', 1, '15000', 00000000000, '2025-07-03 03:07:49', '2025-07-04 01:31:28', 0, 8, '9', NULL, '155000', '27727.272727273');
+INSERT INTO `stringorder` VALUES (00000000058, NULL, '11.2', 3, 'Trực tiếp', 1, NULL, 00000000000, '2025-07-03 03:09:56', '2025-07-04 01:31:38', 0, 53, '21', NULL, '150000', '54545.454545455');
 INSERT INTO `stringorder` VALUES (00000000059, NULL, '10.6', 3, 'Trực tiếp', 1, NULL, 00000000000, '2025-07-03 08:57:45', '2025-07-03 08:57:45', 0, 20, '21', NULL, '150000', '54545.454545455');
+INSERT INTO `stringorder` VALUES (00000000060, NULL, '10.5', 3, 'Trực tiếp', 1, '15000', 00000000000, '2025-07-03 10:31:21', '2025-07-04 01:30:33', 0, 8, '4', NULL, '125000', '13636.363636364');
+INSERT INTO `stringorder` VALUES (00000000061, NULL, '11', 3, 'Trực tiếp', 1, '15000', 00000000000, '2025-07-03 10:31:38', '2025-07-04 01:30:28', 0, 8, '9', NULL, '155000', '27727.272727273');
+INSERT INTO `stringorder` VALUES (00000000062, NULL, '10.8', 0, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-04 01:32:28', '2025-07-04 01:32:28', 0, 13, '9', NULL, '170000', '42727.272727273');
+INSERT INTO `stringorder` VALUES (00000000063, NULL, '10.8', 0, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-04 01:33:26', '2025-07-04 01:33:26', 0, 54, '11', NULL, '170000', '42727.272727273');
 
 SET FOREIGN_KEY_CHECKS = 1;

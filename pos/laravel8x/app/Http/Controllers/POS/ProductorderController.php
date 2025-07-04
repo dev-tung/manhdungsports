@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Access\ProductorderAccess;
 use App\Access\ProductAccess;
 use App\Access\CustomerAccess;
+use App\Access\ProductypeAccess;
 use App\Services\ProductorderService;
 
 class ProductorderController extends Controller
@@ -16,11 +17,13 @@ class ProductorderController extends Controller
         $this->_productAccess = new ProductAccess();
         $this->_productorderService = new ProductorderService();
         $this->_customerAccess = new CustomerAccess();
+        $this->_productypeAccess = new ProductypeAccess();
     }
 
     public function index(Request $request){
         $productorders = $this->_productorderAccess->get($request);
-        return view($request->screen.'.productorder.index', ['productorders' => $productorders]);
+        $productypes = $this->_productypeAccess->get($request);
+        return view($request->screen.'.productorder.index', ['productorders' => $productorders,'productypes' => $productypes ]);
     }
 
     public function add(Request $request){
