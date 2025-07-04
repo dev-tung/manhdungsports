@@ -17,7 +17,7 @@ if( !function_exists('productorderRevenue') ){
   function productorderRevenue($productorder, $format = true){
     
     if( !empty( $productorder ) ){
-      $revenue = $productorder->product_price_output;
+      $revenue = $productorder->product_price_output * $productorder->productorder_quantity;
 
       if( !empty($productorder->productorder_discount) ){
         $revenue = $revenue - $productorder->productorder_discount;
@@ -33,7 +33,7 @@ if( !function_exists('productorderRevenue') ){
 if( !function_exists('productorderProfit') ){
   function productorderProfit($productorder, $format = true){
     if( !empty( $productorder ) ){
-      $revenue = $productorder->product_price_output - $productorder->product_price_input;
+      $revenue = ($productorder->product_price_output - $productorder->product_price_input ) * $productorder->productorder_quantity;
 
       if( !empty($productorder->productorder_discount) ){
         $revenue = $revenue - $productorder->productorder_discount;
