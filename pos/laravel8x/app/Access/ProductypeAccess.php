@@ -17,13 +17,17 @@ class ProductypeAccess extends Access{
         return $searchParams;
     }
 
-    public function get( $request ){
+    public function get( $request = null ){
         $query = DB::table($this->table);
-        $searchParams = $this->searchParam($request);
 
-        if( !empty( $searchParams ) ){
-            $query->where($searchParams);
+        if( !empty($request) ){
+            $searchParams = $this->searchParam($request);
+
+            if( !empty( $searchParams ) ){
+                $query->where($searchParams);
+            }
         }
+
         return $query->get();
     }
 

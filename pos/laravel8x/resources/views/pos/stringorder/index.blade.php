@@ -33,7 +33,9 @@
             <div class="ListSearchTotal">
                 <span class="ListSearchTotalItem">{{ count($stringorders) }} lượt căng cước</span>
                 <span class="ListSearchTotalItem">-</span>
-                <span class="ListSearchTotalItem">Lợi nhuận {{ commonNumberToVND(array_sum(array_column($stringorders, 'stringorder_profit'))) }} </span>
+                <span class="ListSearchTotalItem">Doanh thu hôm nay {{ commonNumberToVND(array_sum(array_column($todayMoney, 'stringorder_revenue'))) }} </span>
+                <span class="ListSearchTotalItem">-</span>
+                <span class="ListSearchTotalItem">Lợi nhuận hôm nay {{ commonNumberToVND(array_sum(array_column($todayMoney, 'stringorder_profit'))) }} </span>
             </div>
 
             <table>

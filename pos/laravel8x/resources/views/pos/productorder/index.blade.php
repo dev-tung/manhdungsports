@@ -34,7 +34,9 @@
             <div class="ListSearchTotal">
                 <span class="ListSearchTotalItem">{{ count($productorders) }} đơn hàng</span>
                 <span class="ListSearchTotalItem">-</span>
-                <span class="ListSearchTotalItem">Lợi nhuận {{ commonNumberToVND(array_sum(array_column($productorders, 'productorder_profit'))) }} </span>
+                <span class="ListSearchTotalItem">Doanh thu hôm nay {{ commonNumberToVND(array_sum(array_column($todayMoney, 'productorder_revenue'))) }} </span>
+                <span class="ListSearchTotalItem">-</span>
+                <span class="ListSearchTotalItem">Lợi nhuận hôm nay {{ commonNumberToVND(array_sum(array_column($todayMoney, 'productorder_profit'))) }} </span>
             </div>
 
             <table>
@@ -44,6 +46,7 @@
                         <th class="TableData">Khách hàng</th>
                         <th class="TableData">Nhóm khách hàng</th>
                         <th class="TableData">Sản phẩm</th>
+                        <th class="TableData">Số lượng</th>
                         <th class="TableData">Danh mục</th>
                         <th class="TableData">Triết khấu</th>
                         <th class="TableData">Giá tiền</th>
@@ -60,6 +63,7 @@
                             <td class="TableData">{{ $productorder->customer_name }}</td>
                             <td class="TableData">{{ $productorder->customergroup_name }}</td>
                             <td class="TableData">{{ $productorder->product_name}}</td>
+                            <td class="TableData TableData_Center">{{ $productorder->productorder_quantity}}</td>
                             <td class="TableData">{{ $productorder->productype_name}}</td>
                             <td class="TableData">{{ commonNumberToVND($productorder->productorder_discount) }}</td>
                             <td class="TableData TableData_Center">{{ commonNumberToVND($productorder->productorder_revenue) }}</td>

@@ -12,7 +12,7 @@ class ProductorderAccess extends Access{
         $searchParams = [];
 
         if( !empty($request->productorder_name) ) {
-            $searchParams[] = ["CONCAT_WS(customer_name, ' ', customergroup_name)", 'like', '%' . $request->productorder_name . '%'];
+            $searchParams[] = ["CONCAT_WS(customer_name, ' ', customergroup_name, ' ', product_name)", 'like', '%' . $request->productorder_name . '%'];
         }
 
         if( !empty($request->productype_id) ){
@@ -41,6 +41,17 @@ class ProductorderAccess extends Access{
             JOIN productype ON productype.productype_id = product.productype_id
             $WHERE
             ORDER BY productorder_created_at DESC
+        ";
+        return DB::select($query);
+    }
+
+    public function todayMoney(){
+        $query = "
+            SELECT 
+                 productorder_profit
+                ,productorder_revenue 
+            FROM productorder 
+            WHERE DATE(productorder_created_at) = CURDATE()
         ";
         return DB::select($query);
     }

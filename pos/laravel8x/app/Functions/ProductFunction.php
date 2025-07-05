@@ -3,9 +3,10 @@
 if( !function_exists('productorderStatus') ){
   function productorderStatus($key = null){
     $optionArray = [
-        0 => '<span class="Text_Danger">Đang đặt hàng</span>',
+        0 => '<span class="Text_Danger">Chờ đặt hàng</span>',
         1 => '<span class="Text_Danger">Đã sẵn giao</span>',
-        2 => '<span>Đã giao hàng</span>'
+        2 => '<span>Đã giao hàng</span>',
+        3 => '<span class="Text_Danger">Đang đặt hàng</span>'
     ];
 
     return array_key_exists($key, $optionArray) ? $optionArray[$key] : $optionArray;
@@ -45,6 +46,4 @@ if( !function_exists('productorderProfit') ){
     dd('Data is empty');
   }
 }
-
-
 

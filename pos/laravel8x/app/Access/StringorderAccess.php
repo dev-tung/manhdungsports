@@ -41,6 +41,17 @@ class StringorderAccess extends Access{
         return DB::select($query);
     }
 
+    public function todayMoney(){
+        $query = "
+            SELECT 
+                 stringorder_profit
+                ,stringorder_revenue 
+            FROM stringorder 
+            WHERE DATE(stringorder_created_at) = CURDATE()
+        ";
+        return DB::select($query);
+    }
+
 
     public function getFirst( $searchParams ){
         $query = DB::table($this->table);

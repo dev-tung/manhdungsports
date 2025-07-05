@@ -23,7 +23,8 @@ class ProductorderController extends Controller
     public function index(Request $request){
         $productorders = $this->_productorderAccess->get($request);
         $productypes = $this->_productypeAccess->get($request);
-        return view($request->screen.'.productorder.index', ['productorders' => $productorders,'productypes' => $productypes ]);
+        $todayMoney = $this->_productorderAccess->todayMoney();
+        return view($request->screen.'.productorder.index', ['productorders' => $productorders,'productypes' => $productypes, 'todayMoney' => $todayMoney]);
     }
 
     public function add(Request $request){

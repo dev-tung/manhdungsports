@@ -25,6 +25,10 @@
                             <a class="FormthumbnailItem" id="FormthumbnailDisplayLink" href="{{asset($product->product_thumbnail)}}">
                                 <img class="FormthumbnailDisplayImg" id="FormthumbnailDisplayImg" src="{{asset($product->product_thumbnail)}}">
                             </a>
+                        @else
+                            <a class="FormthumbnailItem" id="FormthumbnailDisplayLink" href="">
+                                <img class="FormthumbnailDisplayImg" id="FormthumbnailDisplayImg" src="">
+                            </a>
                         @endif
 
                         <input type="file" id="ProductThumbnail" hidden>

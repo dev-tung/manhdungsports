@@ -12,15 +12,16 @@ use View;
 class StringorderController extends Controller
 {
     function __construct() {
-        $this->_access = new StringorderAccess();
+        $this->_stringorderAccess = new StringorderAccess();
         $this->_stringAccess = new StringAccess();
         $this->_customerAccess = new CustomerAccess();
     }
 
     public function index(Request $request){
-        $stringorders = $this->_access->get($request);
+        $stringorders = $this->_stringorderAccess->get($request);
         $customers = $this->_customerAccess->get();
-        return view($request->screen.'.stringorder.index', ['customers' => $customers, 'stringorders' => $stringorders]);
+        $todayMoney = $this->_stringorderAccess->todayMoney();
+        return view($request->screen.'.stringorder.index', ['customers' => $customers, 'stringorders' => $stringorders, 'todayMoney' => $todayMoney]);
     }
 
     public function add(Request $request){
@@ -30,25 +31,25 @@ class StringorderController extends Controller
     }
 
     public function insert(Request $request){
-        $this->_access->insert($request);
+        $this->_stringorderAccess->insert($request);
         return redirect()->route('stringorder.index', ['screen'=>'pos']);
     }
 
     public function edit(Request $request){
         $customers = $this->_customerAccess->get($request);
         $strings = $this->_stringAccess->get($request);
-        $stringorder = $this->_access->getFirst(['stringorder_id' => $request->stringorder_id]);
+        $stringorder = $this->_stringorderAccess->getFirst(['stringorder_id' => $request->stringorder_id]);
         return view($request->screen.'.stringorder.edit', ['stringorder' => $stringorder, 'customers' => $customers, 'strings' => $strings]);
     }
 
     public function update(Request $request){
-        $this->_access->update($request);
+        $this->_stringorderAccess->update($request);
         return redirect()->route('stringorder.index', ['screen'=>'pos']);
     }
 
     public function delete(Request $request){
-        $string = $this->_access->getFirst(['stringorder_id' => $request->stringorder_id]);
-        $this->_access->delete(['stringorder_id' => $request->stringorder_id]);
+        $string = $this->_stringorderAccess->getFirst(['stringorder_id' => $request->stringorder_id]);
+        $this->_stringorderAccess->delete(['stringorder_id' => $request->stringorder_id]);
         return redirect()->route('stringorder.index', ['screen'=>'pos']);
     }
 }

@@ -31,7 +31,7 @@
                     <button class="Btn Btn_Primary">Lưu</button>
                 </div>
                 <div class="FormBtnGroup">
-                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('productype.delete', $productype->productype_id)}}" >Xóa sản phẩm</a>
+                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('productype.delete', ['screen' => 'pos', 'productype_id' => $productype->productype_id])}}" >Xóa sản phẩm</a>
                 </div>
             </div>
         </form>
