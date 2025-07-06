@@ -73,6 +73,14 @@ Route::prefix('{screen}')->group(function () {
         Route::post('update/{customergroup_id}', ['as' => 'customergroup.update', 'uses' => 'POS\CustomergroupController@update']);
         Route::get('delete/{customergroup_id}', ['as' => 'customergroup.delete', 'uses' => 'POS\CustomergroupController@delete']);
     });
+    Route::prefix('expense')->group(function () {
+        Route::get('index', ['as' => 'expense.index', 'uses' => 'POS\ExpenseController@index']);
+        Route::get('add', ['as' => 'expense.add', 'uses' => 'POS\ExpenseController@add']);
+        Route::post('insert', ['as' => 'expense.insert', 'uses' => 'POS\ExpenseController@insert']);
+        Route::get('edit/{expense_id}', ['as' => 'expense.edit', 'uses' => 'POS\ExpenseController@edit']);
+        Route::post('update/{expense_id}', ['as' => 'expense.update', 'uses' => 'POS\ExpenseController@update']);
+        Route::get('delete/{expense_id}', ['as' => 'expense.delete', 'uses' => 'POS\ExpenseController@delete']);
+    });
 });
 
 

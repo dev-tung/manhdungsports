@@ -1,0 +1,50 @@
+@extends('pos.layouts.cover')
+@section('Title', 'THÊM CHI PHÍ')
+@section('PageJs', asset('pos/js/expense/add.js'))
+@section('Main')
+    <main class="Main">
+        <form action="{{route('expense.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormExpenseAdd" enctype="multipart/form-data">
+            @csrf
+            <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                <div class="FormGroup FormValidate">
+                    <label class="FormLabel" for="ExpenseDescription">Chi phí <span class="RequiredSymbol">*</span></label>
+                    <input class="FormInput" id="ExpenseDescription" type="text" name="expense_description">
+                    <small class="FormErrorMessage"></small>
+                </div>
+                <div class="FormGroup FormValidate">
+                    <label class="FormLabel" for="ExpenseType">Loại chi phí <span class="RequiredSymbol">*</span></label>
+                    <input class="FormInput" id="ExpenseType" type="text" name="expensetype_id">
+                    <small class="FormErrorMessage"></small>
+                </div>
+            </div>
+
+            <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                <div class="FormGroup FormValidate">
+                    <label class="FormLabel" for="ExpenseMoney">Số tiền <span class="RequiredSymbol">*</span></label>
+                    <input class="FormInput" id="ExpenseMoney" type="number" name="expense_money">
+                    <small class="FormErrorMessage"></small>
+                </div>
+                <div class="FormGroup FormValidate">
+                    <label class="FormLabel" for="ExpenseIspayment" >Trạng thái <span class="RequiredSymbol">*</span></label>
+                    <select class="FormSelect" name="expense_ispayment" id="ExpenseIspayment">
+                        @foreach( commomIspayment() as $key => $item )
+                            <option value="{{$key}}">{!!$item!!}</option>
+                        @endforeach
+                    </select>
+                    <small class="FormErrorMessage"></small>
+                </div>
+            </div>
+
+            <div class="FormBtn">
+                <div class="FormBtnGroup">
+                    <button class="Btn Btn_Default" type="button" onclick="history.back()">Quay lại</button>
+                    <button class="Btn Btn_Primary">Lưu</button>
+                </div>
+            </div>
+        </form>
+        
+    </main>
+    <!-- End Main -->
+@endsection
+
+
