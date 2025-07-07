@@ -20,6 +20,11 @@ class StringController extends Controller
         return view($request->screen.'.string.index', ['string' => $string, 'priceTotalInput' => $priceTotalInput]);
     }
 
+    public function table(Request $request){
+        $string = $this->_stringAccess->getTable();
+        return view($request->screen.'.string.table', ['string' => $string]);
+    }
+
     public function add(Request $request){
         $string = $this->_stringAccess->get($request);
         

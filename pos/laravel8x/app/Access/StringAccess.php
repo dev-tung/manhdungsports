@@ -27,6 +27,10 @@ class StringAccess extends Access{
         return $query->orderBy('string_type')->orderBy('string_name')->get();
     }
 
+    public function getTable(){
+        return DB::table($this->table)->orderBy('string_type')->get();
+    }
+
     public function priceTotalInput(){
         $price = DB::select('SELECT SUM(string_price_input * string_quantity) as string_price_input_total FROM string ');
         return !empty( $price[0]->string_price_input_total ) ? $price[0]->string_price_input_total : 0;

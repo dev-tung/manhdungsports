@@ -1,18 +1,19 @@
 @extends('pos.layouts.cover')
 @section('Title', 'CĂNG CƯỚC')
-@section('TopbarNav_Left')
-    <nav class="TopbarNav_Left">
-        <a class="TopbarNavLink" href="{{route('string.index', ['screen'=>'pos'])}}">
-            <span class="TopbarNavText">Các loại cước</span> 
-        </a>
-    </nav>
-@endsection
 @section('Main')
     <main class="Main">
         <div class="MainContent">
             <div class="ListSearch">
                 <form action="{{route('stringorder.index', ['screen'=>'pos'])}}" class="ListSearchForm">
                     <input class="ListSearchFormInput" type="text" name="stringorder_name" placeholder="Tìm kiếm ..." value="{{ request()->stringorder_name }}">
+                    <div class="Filter">
+                        <select class="ListSearchFormSelect" name="stringorder_ispayment" id="StringorderIspayment">
+                            <option value="">-- Trạng thái thanh toán --</option>
+                            @foreach( commomIspayment() as $key => $item )
+                                 <option value="{{$key}}" {{ ( isset(request()->stringorder_ispayment) && $key == request()->stringorder_ispayment) ? 'selected' : ''; }}>{!!$item!!}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="ListSearchFormGroup ListSearchFormGroup_Date">
                         <label class="ListSearchFormLabel" for="">Từ ngày</label>
                         <input class="ListSearchFormInput ListSearchFormInput_Date" type="date" name="stringorder_created_at_from" value="{{ request()->stringorder_created_at_from }}">
@@ -48,7 +49,7 @@
                         <th class="TableData">KG</th>
                         <th class="TableData">Thay gen</th>
                         <th class="TableData">Hàn</th>
-                        <th class="TableData">Triết khấu</th>
+                        <th class="TableData">Chiết khấu</th>
                         <th class="TableData">Giá tiền</th>
                         <th class="TableData">Lợi nhuận</th>
                         <th class="TableData">Hẹn lấy</th>
@@ -84,6 +85,10 @@
                     @endforeach
                 </tbody>
             </table>
+
+            <div class="ListSearchTotal">
+                <span class="ListSearchTotalItem Text_Danger">Tổng tiền {{ commonNumberToVND(array_sum(array_column($stringorders, 'stringorder_revenue'))) }}</span>
+            </div>
         </div>
     </main>
     <!-- End Main -->

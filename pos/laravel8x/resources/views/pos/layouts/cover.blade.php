@@ -21,7 +21,18 @@
                 <p class="TopbarPageTitle">@yield('Title')</p>
             </div>
             <div class="TopbarNav">
-                @yield('TopbarNav_Left')
+                <nav class="TopbarNav_Left">
+                    <a class="TopbarNavLink" href="{{route('string.table', ['screen'=>'pos'])}}">
+                        <span class="TopbarNavText">Bảng giá cước</span> 
+                    </a>
+                    <a class="TopbarNavLink" href="{{route('stringorder.add', ['screen'=>'pos'])}}">
+                        <span class="TopbarNavText">Thêm đơn cước</span> 
+                    </a>
+                       <a class="TopbarNavLink" href="{{route('productorder.add', ['screen'=>'pos'])}}">
+                        <span class="TopbarNavText">Thêm đơn hàng</span> 
+                    </a>
+                    @yield('TopbarNavLink')
+                </nav>
                 <div class="TopbarNav_right">
                     
                 </div>
@@ -51,6 +62,7 @@
     <script src="{{asset('js/function.js')}}"></script>
     <script src="{{asset('js/validator.js')}}"></script>
     <script src="{{asset('pos/js/cover.js')}}"></script>
+    @yield('Script')
     <script src="@yield('PageJs')"></script>
 </body>
 </html>

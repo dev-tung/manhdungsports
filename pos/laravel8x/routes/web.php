@@ -51,6 +51,7 @@ Route::prefix('{screen}')->group(function () {
     });
     Route::prefix('string')->group(function () {
         Route::get('index', ['as' => 'string.index', 'uses' => 'POS\StringController@index']);
+        Route::get('table', ['as' => 'string.table', 'uses' => 'POS\StringController@table']);
         Route::get('add', ['as' => 'string.add', 'uses' => 'POS\StringController@add']);
         Route::post('insert', ['as' => 'string.insert', 'uses' => 'POS\StringController@insert']);
         Route::get('edit/{string_id}', ['as' => 'string.edit', 'uses' => 'POS\StringController@edit']);

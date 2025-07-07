@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 07/07/2025 11:53:51
+ Date: 07/07/2025 20:33:52
 */
 
 SET NAMES utf8mb4;
@@ -136,12 +136,13 @@ CREATE TABLE `expense`  (
   `expensetype_id` int(11) NULL DEFAULT NULL,
   `expense_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`expense_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of expense
 -- ----------------------------
 INSERT INTO `expense` VALUES (56, 'Bán Vợt cầu lông Lining Aeronaut 6000I', 1, '127273', '2025-07-07 03:22:08', '2025-07-07 03:32:24', 1, '[Cuộn] Yonex Nanogy 98 - Trắng');
+INSERT INTO `expense` VALUES (57, '2 slots ăn trưa', 1, '120000', '2025-07-07 07:26:03', '2025-07-07 07:26:15', 5, 'Ăn trưa cho nhân viên');
 
 -- ----------------------------
 -- Table structure for product
@@ -161,7 +162,7 @@ CREATE TABLE `product`  (
   `product_source` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `productype_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`product_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 208 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 210 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
@@ -233,11 +234,13 @@ INSERT INTO `product` VALUES (199, 'Giày Cầu Lông Lining AYTS020 - SIZE 42',
 INSERT INTO `product` VALUES (200, 'Vợt cầu lông IXE Godwar', '250000', '440000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20');
 INSERT INTO `product` VALUES (201, 'Quả cầu lông ba sao prox', '24000', '25000', NULL, '1', NULL, 'Quả', NULL, NULL, NULL, '25');
 INSERT INTO `product` VALUES (202, 'Vợt cầu lông Lining Aeronaut 6000I', '1490946', '1900000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20');
-INSERT INTO `product` VALUES (203, 'Quấn cán yonex 1 in 1', '28000', '40000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '22');
+INSERT INTO `product` VALUES (203, 'Quấn cán yonex 1 in 1', '28000', '40000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '23');
 INSERT INTO `product` VALUES (204, 'Vợt cầu lông yonex Fake loại 1', '250000', '500000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20');
 INSERT INTO `product` VALUES (205, 'Hộp cầu Lining', '0', '260000', 'Khuyến mại', '1', NULL, 'Hộp', NULL, NULL, NULL, '33');
 INSERT INTO `product` VALUES (206, 'Thùng cầu thành công 77', '14190000', '14650000', NULL, '1', NULL, 'Thùng', NULL, NULL, NULL, '34');
 INSERT INTO `product` VALUES (207, 'Giày cầu lông 65z4 size 44', '2500000', '2650000', NULL, '1', NULL, '1', NULL, NULL, NULL, '21');
+INSERT INTO `product` VALUES (208, 'Áo cầu lông Yonex Paris 2024 size XL', '75000', '120000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '26');
+INSERT INTO `product` VALUES (209, 'Áo cầu lông Kamito đỏ đô size XL', '112000', '150000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '26');
 
 -- ----------------------------
 -- Table structure for productorder
@@ -258,7 +261,7 @@ CREATE TABLE `productorder`  (
   `productorder_created_at` datetime(0) NULL DEFAULT NULL,
   `productorder_updated_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`productorder_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 59 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 62 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of productorder
@@ -292,6 +295,9 @@ INSERT INTO `productorder` VALUES (52, 60, NULL, '206', 1, NULL, 0, '150000', 1,
 INSERT INTO `productorder` VALUES (53, 13, NULL, '207', 2, NULL, 1, '-18686', 1, '2668686', '168686', '2025-07-06 09:48:31', '2025-07-07 04:42:54');
 INSERT INTO `productorder` VALUES (54, 61, NULL, '167', 2, NULL, 1, NULL, 2, '20000', '6000', '2025-07-06 10:28:32', '2025-07-06 10:28:32');
 INSERT INTO `productorder` VALUES (58, 8, NULL, '198', 3, NULL, 0, NULL, 1, '250000', '50000', '2025-07-07 04:44:46', '2025-07-07 04:44:46');
+INSERT INTO `productorder` VALUES (59, 1, NULL, '209', 2, NULL, 1, NULL, 1, '150000', '38000', '2025-07-07 13:21:09', '2025-07-07 13:21:09');
+INSERT INTO `productorder` VALUES (60, 1, NULL, '208', 2, NULL, 1, NULL, 1, '120000', '45000', '2025-07-07 13:21:28', '2025-07-07 13:21:39');
+INSERT INTO `productorder` VALUES (61, 48, NULL, '170', 1, NULL, 0, NULL, 20, '5860000', '200000', '2025-07-07 13:33:01', '2025-07-07 13:33:01');
 
 -- ----------------------------
 -- Table structure for productype
@@ -344,10 +350,10 @@ CREATE TABLE `string`  (
 -- ----------------------------
 INSERT INTO `string` VALUES (1, 'Yonex BG 5', NULL, '0', '130000', '2', '0', '3');
 INSERT INTO `string` VALUES (2, 'Yonex BG 65', NULL, '100000', '140000', '2', '0', '2');
-INSERT INTO `string` VALUES (3, 'Yonex BG 65', NULL, '1850000', '130000', '1', '6', '1');
-INSERT INTO `string` VALUES (4, 'Yonex BG 65 Ti', 'JP', '2450000', '140000', '1', '1', '2');
-INSERT INTO `string` VALUES (5, 'Yonex BG 65 Ti', '', '2450000', '140000', '1', '4', '1');
-INSERT INTO `string` VALUES (6, 'Yonex BG 65 Ti', '', '2450000', '140000', '1', '7', '1');
+INSERT INTO `string` VALUES (3, 'Yonex BG 65', NULL, '1850000', '140000', '1', '6', '1');
+INSERT INTO `string` VALUES (4, 'Yonex BG 65 Ti', 'JP', '2450000', '150000', '1', '1', '2');
+INSERT INTO `string` VALUES (5, 'Yonex BG 65 Ti', NULL, '2450000', '150000', '1', '4', '1');
+INSERT INTO `string` VALUES (6, 'Yonex BG 65 Ti', NULL, '2450000', '150000', '1', '7', '1');
 INSERT INTO `string` VALUES (7, 'Yonex BG 66 Force', NULL, '151200', '190000', '2', '0', '1');
 INSERT INTO `string` VALUES (8, 'Yonex BG 66 Ultimax', NULL, '133000', '180000', '2', '0', '1');
 INSERT INTO `string` VALUES (9, 'Yonex BG 66 Ultimax', '', '2800000', '170000', '1', '1', '1');
@@ -443,9 +449,9 @@ INSERT INTO `stringorder` VALUES (00000000065, 'Căng 4 nút', '11', 3, 'Trực 
 INSERT INTO `stringorder` VALUES (00000000066, NULL, '11', 3, 'Trực tiếp', 1, NULL, 00000000001, '2025-07-05 10:31:15', '2025-07-05 11:31:32', 0, 37, '14', NULL, '260000', '141818.18181818');
 INSERT INTO `stringorder` VALUES (00000000067, NULL, '10.5', 1, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-06 03:14:59', '2025-07-06 03:14:59', 0, 1, '21', NULL, '150000', '54545.454545455');
 INSERT INTO `stringorder` VALUES (00000000068, NULL, '11', 0, 'Trực tiếp', 1, '15000', 00000000000, '2025-07-06 03:29:19', '2025-07-06 03:29:19', 0, 8, '9', NULL, '155000', '27727.272727273');
-INSERT INTO `stringorder` VALUES (00000000069, NULL, '10.6', 0, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-06 10:25:17', '2025-07-06 10:25:17', 0, 1, '2770', NULL, '50000', '50000');
+INSERT INTO `stringorder` VALUES (00000000069, NULL, '10.6', 3, 'Trực tiếp', 1, NULL, 00000000000, '2025-07-06 10:25:17', '2025-07-07 07:54:28', 0, 1, '2770', NULL, '50000', '50000');
 INSERT INTO `stringorder` VALUES (00000000070, NULL, '10.6', 1, 'Trực tiếp', 0, NULL, 00000000000, '2025-07-06 10:26:27', '2025-07-06 10:26:27', 0, 7, '9', NULL, '170000', '42727.272727273');
-INSERT INTO `stringorder` VALUES (00000000071, NULL, '11', 0, 'Trực tiếp', 0, '15000', 00000000001, '2025-07-07 02:59:17', '2025-07-07 02:59:27', 0, 8, '12', NULL, '245000', '120000');
-INSERT INTO `stringorder` VALUES (00000000072, NULL, '11', 0, 'Trực tiếp', 0, '15000', 00000000000, '2025-07-07 02:59:59', '2025-07-07 02:59:59', 0, 8, '11', NULL, '155000', '27727.272727273');
+INSERT INTO `stringorder` VALUES (00000000071, NULL, '11', 3, 'Trực tiếp', 1, '15000', 00000000001, '2025-07-07 02:59:17', '2025-07-07 07:59:30', 0, 8, '12', NULL, '245000', '120000');
+INSERT INTO `stringorder` VALUES (00000000072, NULL, '11', 3, 'Trực tiếp', 1, '15000', 00000000000, '2025-07-07 02:59:59', '2025-07-07 07:59:38', 0, 8, '11', NULL, '155000', '27727.272727273');
 
 SET FOREIGN_KEY_CHECKS = 1;

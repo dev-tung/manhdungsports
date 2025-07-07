@@ -137,12 +137,14 @@ body {
 
 .TopbarNav_Left{
     padding: 0 10px;
+    display: flex;
+    gap: 20px;
 }
 
 .TopbarNavLink{
     text-decoration: underline;
     color: var(--color-primary);
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .Icon_Background{
@@ -690,7 +692,7 @@ th{
 .CardGrid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 30px;
 }
 
 .CardGridItem{
@@ -699,4 +701,46 @@ th{
     flex-direction: column;
     gap: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.TableStringTitle{
+    font-size: 16px;
+    font-style: italic;
+    font-family: Papyrus, fantasy;
+    color: rgba(255, 255, 255, 0.774);
+}
+
+.TableString{
+    margin-top: 10px;
+    font-size: 13px;
+    padding: 100px 50px;
+    background-image: linear-gradient(to right, #166307 , #A5CE1E);
+    color: white;
+}
+
+.TableStringHeader{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.TableStringGrid{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 30px;
+}
+
+.TableStringItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.096);
+    padding: 5px 10px;
+}
+.TableStringName{
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }

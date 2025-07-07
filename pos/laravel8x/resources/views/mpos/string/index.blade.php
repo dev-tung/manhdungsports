@@ -1,5 +1,12 @@
 @extends('pos.layouts.cover')
-@section('Title', 'DANH SÁCH Các loại cước')
+@section('Title', 'CÁC LOẠI CƯỚC')
+@section('TopbarNavLink')
+    <nav class="TopbarNav_Left">
+        <a class="TopbarNavLink" href="{{route('stringorder.index', ['screen'=>'pos'])}}">
+            <span class="TopbarNavText">ĐƠN CĂNG CƯỚC</span> 
+        </a>
+    </nav>
+@endsection
 @section('Main')
     <main class="Main">
         <div class="MainContent">
@@ -7,33 +14,33 @@
                 <form action="{{route('string.index', ['screen'=>'pos'])}}" class="ListSearchForm">
                     <input class="ListSearchFormInput" type="text" name="string_name" placeholder="Tìm kiếm ..." value="{{ request()->string_name }}">
 
-                    <button class="ListSearchFormSubmit">
+                    <button class="ListSearchFormBtn ListSearchFormBtn_Submit">
                         <svg class="ListSearchFormSubmitIcon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
                         </svg>
                     </button>
                 </form>
             </div>
             
             <div class="ListSearchTotal">
-                <span class="ListSearchTotalItem">{{ $string->count('string_id') }} Các loại cước</span>
+                <span class="ListSearchTotalItem">{{ $string->count('string_id') }} Loại cước</span>
                 <span>-</span>
-                <span class="ListSearchTotalItem">Tổng giá nhập {{ number_format( $priceTotalInput ) }} đ</span>
+                <span class="ListSearchTotalItem">Tổng giá nhập {{ commonNumberToVND( $priceTotalInput ) }}</span>
             </div>
 
             <div class="List">
                 @foreach( $string as $string )
-                    <a class="ListItem" href="{{route('string.edit', ['screen' => 'pos'])}}">
+                    <a class="ListItem" href="{{route('string.edit', ['screen' => 'pos', 'string_id' => $string->string_id ])}}">
                         <div class="ListItemInfo">
-                            <h4 class="ListItemName">[{{ stringGetType($string->string_type) }}] {{ $string->string_name }} - {{ stringGetColor($string->string_color) }}</h4>
+                            <h4 class="ListItemName">{{stringDisplayName($string)}}</h4>
                             <div class="ListSpanGroup">
                                 <span class="ListItemSpan">Tồn kho {{ number_format($string->string_quantity) }}</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">Giá nhập {{ commomGetEachStringPriceInput($string->string_price_input, $string->string_type) }} đ</span>
+                                <span class="ListItemSpan">Giá nhập {{ stringPriceInputEach($string) }}</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">Giá căng {{ number_format($string->string_price_output) }} đ</span>
+                                <span class="ListItemSpan">Giá căng {{ commonNumberToVND($string->string_price_output) }}</span>
                                 <span>-</span>
-                                <span class="ListItemSpan">Lãi {{ commomGetStringProfit($string->string_price_input, $string->string_price_output, $string->string_type) }} đ</span>
+                                <span class="ListItemSpan">Lãi {{ stringProfit($string) }}</span>
                             </div>
                         </div>
                     </a>

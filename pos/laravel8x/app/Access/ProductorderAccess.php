@@ -18,6 +18,10 @@ class ProductorderAccess extends Access{
         if( !empty($request->productype_id) ){
             $searchParams[] = ['productype.productype_id', 'like', '%' . $request->productype_id . '%'];
         }
+
+        if( isset($request->productorder_ispayment) && $request->productorder_ispayment != ''){
+            $searchParams[] = ['productorder_ispayment', '=', $request->productorder_ispayment];
+        }
         
         if( !empty($request->productorder_created_at_from) ){
             $searchParams[] = ['productorder_created_at', '>=', $request->productorder_created_at_from . ' 00:00:00'];

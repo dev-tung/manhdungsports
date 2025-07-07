@@ -15,6 +15,10 @@ class StringorderAccess extends Access{
             $searchParams[] = ["CONCAT_WS(customer_name, ' ', customergroup_name)", 'like', '%' . $request->stringorder_name . '%'];
         }
 
+        if( isset($request->stringorder_ispayment) && $request->stringorder_ispayment != ''){
+            $searchParams[] = ['stringorder_ispayment', '=', $request->stringorder_ispayment];
+        }
+
         if( !empty($request->stringorder_created_at_from) ){
             $searchParams[] = ['stringorder_created_at', '>=', $request->stringorder_created_at_from . ' 00:00:00'];
         }

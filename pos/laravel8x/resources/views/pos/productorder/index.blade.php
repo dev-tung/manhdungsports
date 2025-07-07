@@ -8,9 +8,17 @@
                     <input class="ListSearchFormInput" type="text" name="productorder_name" placeholder="Tìm kiếm ..." value="{{ request()->productorder_name }}">
                     <div class="Filter">
                         <select class="ListSearchFormSelect" name="productype_id" id="ProductType">
-                            <option value="">-- Chọn danh mục --</option>
+                            <option value="">-- Loại sản phẩm --</option>
                             @foreach($productypes as $item)
                                 <option value="{{$item->productype_id}}" {{ (request()->productype_id == $item->productype_id) ? 'selected' : ''; }}>{{$item->productype_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="Filter">
+                        <select class="ListSearchFormSelect" name="productorder_ispayment" id="ProductorderIspayment">
+                            <option value="">-- Trạng thái thanh toán --</option>
+                            @foreach( commomIspayment() as $key => $item )
+                                 <option value="{{$key}}" {{ isset(request()->productorder_ispayment) && ($key == request()->productorder_ispayment) ? 'selected' : ''; }}>{!!$item!!}</option>
                             @endforeach
                         </select>
                     </div>
@@ -48,7 +56,7 @@
                         <th class="TableData">Sản phẩm</th>
                         <th class="TableData">Số lượng</th>
                         <th class="TableData">Danh mục</th>
-                        <th class="TableData">Triết khấu</th>
+                        <th class="TableData">Chiết khấu</th>
                         <th class="TableData">Giá tiền</th>
                         <th class="TableData">Lợi nhuận</th>
                         <th class="TableData">Trạng thái</th>
@@ -81,6 +89,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="ListSearchTotal">
+                <span class="ListSearchTotalItem Text_Danger">Tổng tiền {{ commonNumberToVND(array_sum(array_column($productorders, 'productorder_revenue'))) }}</span>
+            </div>
         </div>
     </main>
     <!-- End Main -->
