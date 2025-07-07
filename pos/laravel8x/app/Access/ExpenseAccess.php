@@ -2,6 +2,7 @@
 
 namespace App\Access;
 use DB;
+use Carbon\Carbon;
 
 class ExpenseAccess extends Access{
 
@@ -10,11 +11,33 @@ class ExpenseAccess extends Access{
     public function searchParam($request){
         $searchParams = [];
 
-        if( !empty($request->expense_description) ){
-            $searchParams[] = ['expense_description', 'like', '%' . $request->expense_description . '%'];
+        if( !empty($request->expense_name) ){
+            $searchParams[] = ['expense_name', 'like', '%' . $request->expense_name . '%'];
+        }
+
+        if( !empty($request->expensetype_id) ){
+            $searchParams[] = ['expensetype_id', 'like', '%' . $request->expensetype_id . '%'];
+        }
+
+        if( !empty($request->expense_created_at_from) ){
+            $searchParams[] = ['expense_created_at', '>=', $request->expense_created_at_from . ' 00:00:00'];
+        }
+
+        if( !empty($request->expense_created_at_to) ){
+            $searchParams[] = ['expense_created_at', '<=', $request->expense_created_at_to .' 12:00:00'];
         }
 
         return $searchParams;
+    }
+
+    public function todayMoney(){
+        $query = "
+            SELECT 
+                 expense_money
+            FROM expense 
+            WHERE DATE(expense_created_at) = CURDATE()
+        ";
+        return DB::select($query);
     }
 
     public function get( $request = null ){
@@ -40,24 +63,29 @@ class ExpenseAccess extends Access{
         return $query->first();
     }
 
-    public function insert($params){
-        DB::table($this->table)->insert([
-            'expense_description' => $params['expense_description'],
-            'expensetype_id' => $params['expensetype_id'],
-            'expense_money' => $params['expense_money'],
-            'expense_ispayment' => $params['expense_ispayment'],
-        ]);
+    public function insert($request){
+        $param['expense_name'] = $request['expense_name'];
+        $param['expense_description'] = $request['expense_description'];
+        $param['expensetype_id'] = $request['expensetype_id'];
+        $param['expense_money'] = $request['expense_money'];
+        $param['expense_ispayment'] = $request['expense_ispayment'];
+        $param['expense_created_at'] = Carbon::now();
+        $param['expense_updated_at'] = Carbon::now();
 
-        
+        DB::table($this->table)->insert($param);
     }
 
-    public function update($params){
-        $update['expense_description'] = $params['expense_description'];
-        $update['expense_parent_id'] = $params['expense_parent_id'];
+    public function update($request){
+        $param['expense_name'] = $request['expense_name'];
+        $param['expense_description'] = $request['expense_description'];
+        $param['expensetype_id'] = $request['expensetype_id'];
+        $param['expense_money'] = $request['expense_money'];
+        $param['expense_ispayment'] = $request['expense_ispayment'];
+        $param['expense_updated_at'] = Carbon::now();
 
         DB::table($this->table)
-            ->where('expense_id', $params->expense_id)
-            ->update($update);
+            ->where('expense_id', $request->expense_id)
+            ->update($param);
     }
 
     public function delete( $searchParams ){

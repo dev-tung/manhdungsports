@@ -28,10 +28,8 @@ class ExpenseController extends Controller
     }
 
     public function edit(Request $request){
-        $customers = $this->_customerAccess->get($request);
-        $strings = $this->_stringAccess->get($request);
         $expense = $this->_expenseAccess->getFirst(['expense_id' => $request->expense_id]);
-        return view($request->screen.'.expense.edit', ['expense' => $expense, 'customers' => $customers, 'strings' => $strings]);
+        return view($request->screen.'.expense.edit', ['expense' => $expense]);
     }
 
     public function update(Request $request){

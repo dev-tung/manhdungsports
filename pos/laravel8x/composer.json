@@ -29,7 +29,8 @@
         "files" : [
             "app/Functions/CommonFunction.php",
             "app/Functions/StringFunction.php",
-            "app/Functions/ProductFunction.php"
+            "app/Functions/ProductFunction.php",
+            "app/Functions/ExpenseFunction.php"
         ]
     },
     "autoload-dev": {

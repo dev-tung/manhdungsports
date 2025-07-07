@@ -7,8 +7,11 @@
                 <form action="{{route('expense.index', ['screen'=>'pos'])}}" class="ListSearchForm">
                     <input class="ListSearchFormInput" type="text" name="expense_name" placeholder="Tìm kiếm ..." value="{{ request()->expense_name }}">
                     <div class="Filter">
-                        <select class="ListSearchFormSelect" name="productype_id" id="ProductType">
+                        <select class="ListSearchFormSelect" name="expensetype_id" id="ProductType">
                             <option value="">-- Chọn danh mục --</option>
+                            @foreach( expenseType() as $key => $item )
+                                <option value="{{$key}}" {{ ($key == request()->expensetype_id) ? 'selected' : ''; }}>{!!$item!!}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="ListSearchFormGroup ListSearchFormGroup_Date">
@@ -31,7 +34,7 @@
             <div class="ListSearchTotal">
                 <span class="ListSearchTotalItem">{{ count($expenses) }} lần chi tiêu</span>
                 <span class="ListSearchTotalItem">-</span>
-                <span class="ListSearchTotalItem">Chi hôm nay 1111 </span>
+                <span class="ListSearchTotalItem">Chi hôm nay {{ commonNumberToVND($expenses->sum('expense_money')) }} </span>
             </div>
 
             <table>
@@ -39,7 +42,9 @@
                     <tr class="TableRow">
                         <th class="TableData">Ngày</th>
                         <th class="TableData">Khoản chi</th>
+                        <th class="TableData">Loại chi phí</th>
                         <th class="TableData">Tiền</th>
+                        <th class="TableData">Mô tả</th>
                         <th class="TableData">Thanh toán</th>
                         <th class="TableData">Hành động</th>
                     </tr>
@@ -48,9 +53,11 @@
                     @foreach( $expenses as $key => $expense )
                         <tr class="TableRow">
                             <td class="TableData TableData_Center">{{ date('d-m-Y', strtotime($expense->expense_created_at)) }}</td>
+                            <td class="TableData">{{ $expense->expense_name }}</td>
+                            <td class="TableData">{{ expenseType($expense->expensetype_id) }}</td>
+                            <td class="TableData">{{ commonNumberToVND($expense->expense_money) }}</td>
                             <td class="TableData">{{ $expense->expense_description }}</td>
-                            <td class="TableData">{{ $expense->expense_money }}</td>
-                            <td class="TableData">{{ $expense->expense_ispayment}}</td>
+                            <td class="TableData">{!! commomIspayment($expense->expense_ispayment) !!}</td>
                             <td class="TableData TableData_Center">
                                 <a class="TableAction TableAction_Link" href="{{route('expense.edit', ['screen'=>'pos', 'expense_id' => $expense->expense_id])}}">
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">

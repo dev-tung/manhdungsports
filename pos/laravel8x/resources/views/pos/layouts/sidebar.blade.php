@@ -1,8 +1,8 @@
 <div class="Sidebar" id="Sidebar">
     <nav class="SidebarNav">
-        <!-- <a class="SidebarNavLink" href="{{route('dashboard.index', ['screen'=>'pos'])}}">
+        <a class="SidebarNavLink" href="{{route('dashboard.index', ['screen'=>'pos'])}}">
             <span class="SidebarNavText">Tổng quan</span> 
-        </a> -->
+        </a>
         <a class="SidebarNavLink" href="{{route('product.index', ['screen'=>'pos'])}}">
             <span class="SidebarNavText">Sản phẩm</span> 
         </a>

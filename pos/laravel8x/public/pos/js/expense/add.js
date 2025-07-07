@@ -4,7 +4,7 @@ Validator({
     form: '#FormExpenseAdd',
     items: [
         Validator.tbRequired({
-            selector: '#ExpenseDescription'
+            selector: '#ExpenseName'
         }),
         Validator.tbRequired({
             selector: '#ExpenseType'

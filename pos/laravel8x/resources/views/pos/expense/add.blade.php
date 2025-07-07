@@ -7,17 +7,20 @@
             @csrf
             <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                 <div class="FormGroup FormValidate">
-                    <label class="FormLabel" for="ExpenseDescription">Chi phí <span class="RequiredSymbol">*</span></label>
-                    <input class="FormInput" id="ExpenseDescription" type="text" name="expense_description">
+                    <label class="FormLabel" for="ExpenseName">Chi phí <span class="RequiredSymbol">*</span></label>
+                    <input class="FormInput" id="ExpenseName" type="text" name="expense_name">
                     <small class="FormErrorMessage"></small>
                 </div>
                 <div class="FormGroup FormValidate">
-                    <label class="FormLabel" for="ExpenseType">Loại chi phí <span class="RequiredSymbol">*</span></label>
-                    <input class="FormInput" id="ExpenseType" type="text" name="expensetype_id">
+                    <label class="FormLabel" for="ExpenseType" >Loại chi phí <span class="RequiredSymbol">*</span></label>
+                    <select class="FormSelect" name="expensetype_id" id="ExpenseType">
+                        @foreach( expenseType() as $key => $item )
+                            <option value="{{$key}}">{!!$item!!}</option>
+                        @endforeach
+                    </select>
                     <small class="FormErrorMessage"></small>
                 </div>
             </div>
-
             <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="ExpenseMoney">Số tiền <span class="RequiredSymbol">*</span></label>
@@ -32,6 +35,12 @@
                         @endforeach
                     </select>
                     <small class="FormErrorMessage"></small>
+                </div>
+            </div>
+            <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                <div class="FormGroup">
+                    <label class="FormLabel" for="ExpenseDescription">Ghi chú</label>
+                    <input class="FormInput" id="ExpenseDescription" type="text" name="expense_decription">
                 </div>
             </div>
 

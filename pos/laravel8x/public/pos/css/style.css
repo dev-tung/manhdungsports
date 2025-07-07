@@ -532,6 +532,25 @@ body {
     color: white;
 }
 
+.Bg_Primary{
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.Bg_Danger{
+    background-color: var(--color-danger);
+    color: white;
+}
+
+.Bg_Success{
+    background-color: var(--color-success);
+    color: white;
+}
+
+.Bg_Warning{
+    background-color: var(--color-warning);
+    color: white;
+}
 
 .Btn_Round{
     border-radius: 50%;
@@ -666,4 +685,18 @@ th{
 .TableAction_Link{
     text-decoration: none;
     color :var(--color-primary);
+}
+
+.CardGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.CardGridItem{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

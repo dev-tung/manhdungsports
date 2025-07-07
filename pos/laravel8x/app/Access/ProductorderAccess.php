@@ -51,6 +51,10 @@ class ProductorderAccess extends Access{
                  productorder_profit
                 ,productorder_revenue 
             FROM productorder 
+            JOIN customer ON productorder.customer_id = customer.customer_id
+            JOIN customergroup ON customergroup.customergroup_id = customer.customergroup_id
+            JOIN product ON productorder.product_id = product.product_id
+            JOIN productype ON productype.productype_id = product.productype_id
             WHERE DATE(productorder_created_at) = CURDATE()
         ";
         return DB::select($query);
