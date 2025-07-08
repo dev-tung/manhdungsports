@@ -22,14 +22,15 @@
             </div>
             <div class="TopbarNav">
                 <nav class="TopbarNav_Left">
-                    <a class="TopbarNavLink" href="{{route('string.table', ['screen'=>'pos'])}}">
-                        <span class="TopbarNavText">Bảng giá cước</span> 
-                    </a>
+
                     <a class="TopbarNavLink" href="{{route('stringorder.add', ['screen'=>'pos'])}}">
                         <span class="TopbarNavText">Thêm đơn cước</span> 
                     </a>
-                       <a class="TopbarNavLink" href="{{route('productorder.add', ['screen'=>'pos'])}}">
+                    <a class="TopbarNavLink" href="{{route('productorder.add', ['screen'=>'pos'])}}">
                         <span class="TopbarNavText">Thêm đơn hàng</span> 
+                    </a>
+                    <a class="TopbarNavLink" href="{{route('customer.add', ['screen'=>'pos'])}}">
+                        <span class="TopbarNavText">Thêm khách hàng</span> 
                     </a>
                     @yield('TopbarNavLink')
                 </nav>

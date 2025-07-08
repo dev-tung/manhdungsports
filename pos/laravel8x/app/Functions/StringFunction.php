@@ -116,7 +116,7 @@ if( !function_exists('stringorderStatus') ){
 
 if( !function_exists('stringDisplayName') ){
   function stringDisplayName($string){
-    return '['.stringGetType($string->string_type).'] '.$string->string_name .'-'. stringGetColor($string->string_color);
+    return '['.stringGetType($string->string_type).'] '.$string->string_name .' - '. stringGetColor($string->string_color);
   }
 }
 

@@ -1,13 +1,6 @@
 @extends('pos.layouts.cover')
 @section('Title', 'BẢNG GIÁ CĂNG CƯỚC')
 @section('PageJs', asset('pos/js/string/table.js'))
-@section('TopbarNavLink')
-    <nav class="TopbarNav_Left">
-        <a class="TopbarNavLink" href="{{route('stringorder.index', ['screen'=>'pos'])}}">
-            <span class="TopbarNavText">BẢNG GIÁ CĂNG CƯỚC</span> 
-        </a>
-    </nav>
-@endsection
 @section('Main')
     <main class="Main">
         <div class="MainContent">

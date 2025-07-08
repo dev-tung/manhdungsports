@@ -34,7 +34,7 @@
             <div class="ListSearchTotal">
                 <span class="ListSearchTotalItem">{{ count($expenses) }} lần chi tiêu</span>
                 <span class="ListSearchTotalItem">-</span>
-                <span class="ListSearchTotalItem">Chi hôm nay {{ commonNumberToVND($expenses->sum('expense_money')) }} </span>
+                <span class="ListSearchTotalItem">Tổng chi {{ commonNumberToVND($expenses->sum('expense_money')) }} </span>
             </div>
 
             <table>

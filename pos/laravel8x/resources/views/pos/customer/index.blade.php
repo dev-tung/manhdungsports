@@ -1,12 +1,5 @@
 @extends('pos.layouts.cover')
 @section('Title', 'DANH SÁCH KHÁCH HÀNG')
-@section('TopbarNavLink')
-    <nav class="TopbarNav_Left">
-        <a class="TopbarNavLink" href="{{route('customergroup.index', ['screen'=>'pos'])}}">
-            <span class="TopbarNavText">Nhóm khách hàng</span> 
-        </a>
-    </nav>
-@endsection
 @section('Main')
     <main class="Main">
         <div class="MainContent">

@@ -9,11 +9,20 @@
         <a class="SidebarNavLink" href="{{route('productorder.index', ['screen'=>'pos'])}}">
             <span class="SidebarNavText">Đơn hàng</span> 
         </a>
+        <a class="SidebarNavLink" href="{{route('string.table', ['screen'=>'pos'])}}">
+            <span class="SidebarNavText">Bảng giá cước</span> 
+        </a>
+        <a class="SidebarNavLink" href="{{route('string.index', ['screen'=>'pos'])}}">
+            <span class="SidebarNavText">Các loại cước</span> 
+        </a>
         <a class="SidebarNavLink" href="{{route('stringorder.index', ['screen'=>'pos'])}}">
             <span class="SidebarNavText">Đơn căng cước</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('expense.index', ['screen'=>'pos'])}}">
             <span class="SidebarNavText">Chi phí</span> 
+        </a>
+        <a class="SidebarNavLink" href="{{route('customergroup.index', ['screen'=>'pos'])}}">
+            <span class="SidebarNavText">Nhóm khách hàng</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('customer.index', ['screen'=>'pos'])}}">
             <span class="SidebarNavText">Khách hàng</span> 
