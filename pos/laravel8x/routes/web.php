@@ -41,6 +41,14 @@ Route::prefix('{screen}')->group(function () {
         Route::post('update/{productorder_id}', ['as' => 'productorder.update', 'uses' => 'POS\ProductorderController@update']);
         Route::get('delete/{productorder_id}', ['as' => 'productorder.delete', 'uses' => 'POS\ProductorderController@delete']);
     });
+    Route::prefix('invoice')->group(function () {
+        Route::get('index', ['as' => 'invoice.index', 'uses' => 'POS\InvoiceController@index']);
+        Route::get('add', ['as' => 'invoice.add', 'uses' => 'POS\InvoiceController@add']);
+        Route::post('insert', ['as' => 'invoice.insert', 'uses' => 'POS\InvoiceController@insert']);
+        Route::get('edit/{invoice_id}', ['as' => 'invoice.edit', 'uses' => 'POS\InvoiceController@edit']);
+        Route::post('update/{invoice_id}', ['as' => 'invoice.update', 'uses' => 'POS\InvoiceController@update']);
+        Route::get('delete/{invoice_id}', ['as' => 'invoice.delete', 'uses' => 'POS\InvoiceController@delete']);
+    });
     Route::prefix('stringorder')->group(function () {
         Route::get('index', ['as' => 'stringorder.index', 'uses' => 'POS\StringorderController@index']);
         Route::get('add', ['as' => 'stringorder.add', 'uses' => 'POS\StringorderController@add']);
