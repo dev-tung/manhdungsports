@@ -26,7 +26,7 @@
             <div class="ListSearchTotal">
                 <span class="ListSearchTotalItem">{{ $product->sum('product_quantity') }} sản phẩm</span>
                 <span>-</span>
-                <span class="ListSearchTotalItem">Tổng giá nhập {{ commonNumberToVND( $priceTotalInput ) }}</span>
+                <span class="ListSearchTotalItem">Tồn kho {{ commonNumberToVND( $priceTotalInput ) }}</span>
             </div>
 
             <div class="List">
