@@ -1,7 +1,7 @@
 
 // VALIDATOR
 Validator({
-    form: '#FormProductorderEdit',
+    form: '#FormInvoiceAdd',
     items: [
         Validator.tbRequired({
             selector: '#CustomerId'
@@ -10,13 +10,13 @@ Validator({
             selector: '#ProductType'
         }),
         Validator.tbRequired({
-            selector: '#ProductorderQuantity'
+            selector: '#InvoiceQuantity'
         }),
         Validator.sbRequired({
-            selector: '#ProductorderIspayment'
+            selector: '#InvoiceIspayment'
         }),
         Validator.sbRequired({
-            selector: '#ProductorderStatus'
+            selector: '#InvoiceStatus'
         })
     ],
     onSubmit: (form) => {
@@ -32,5 +32,3 @@ document.getElementById('ProductType').addEventListener("change", function (e) {
     document.getElementById('ProductPriceInput').value  = productTypeSelected.product_price_input;
     document.getElementById('ProductPriceOutput').value = productTypeSelected.product_price_output;
 });
-
-document.getElementById('ProductType').dispatchEvent(new Event('change'));

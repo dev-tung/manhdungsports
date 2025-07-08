@@ -9,7 +9,7 @@
         <a class="SidebarNavLink" href="{{route('product.index', ['screen'=>'pos'])}}">
             <span class="SidebarNavText">Sản phẩm</span> 
         </a>
-        <a class="SidebarNavLink" href="{{route('productorder.index', ['screen'=>'pos'])}}">
+        <a class="SidebarNavLink" href="{{route('invoice.index', ['screen'=>'pos'])}}">
             <span class="SidebarNavText">Đơn hàng</span> 
         </a>
         <a class="SidebarNavLink" href="{{route('string.index', ['screen'=>'pos'])}}">

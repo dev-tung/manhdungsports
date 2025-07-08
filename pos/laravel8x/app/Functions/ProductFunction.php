@@ -1,7 +1,7 @@
 <?php
 
-if( !function_exists('productorderStatus') ){
-  function productorderStatus($key = null){
+if( !function_exists('invoiceStatus') ){
+  function invoiceStatus($key = null){
     $optionArray = [
         0 => '<span class="Text_Danger">Chờ đặt hàng</span>',
         1 => '<span class="Text_Danger">Đã sẵn giao</span>',
@@ -14,14 +14,14 @@ if( !function_exists('productorderStatus') ){
 }
 
 
-if( !function_exists('productorderRevenue') ){
-  function productorderRevenue($productorder, $format = true){
+if( !function_exists('invoiceRevenue') ){
+  function invoiceRevenue($invoice, $format = true){
     
-    if( !empty( $productorder ) ){
-      $revenue = $productorder->product_price_output * $productorder->productorder_quantity;
+    if( !empty( $invoice ) ){
+      $revenue = $invoice->product_price_output * $invoice->invoice_quantity;
 
-      if( !empty($productorder->productorder_discount) ){
-        $revenue = $revenue - $productorder->productorder_discount;
+      if( !empty($invoice->invoice_discount) ){
+        $revenue = $revenue - $invoice->invoice_discount;
       }
 
       return $format ? commonNumberToVND( $revenue ) : $revenue ;
@@ -31,13 +31,13 @@ if( !function_exists('productorderRevenue') ){
   }
 }
 
-if( !function_exists('productorderProfit') ){
-  function productorderProfit($productorder, $format = true){
-    if( !empty( $productorder ) ){
-      $revenue = ($productorder->product_price_output - $productorder->product_price_input ) * $productorder->productorder_quantity;
+if( !function_exists('invoiceProfit') ){
+  function invoiceProfit($invoice, $format = true){
+    if( !empty( $invoice ) ){
+      $revenue = ($invoice->product_price_output - $invoice->product_price_input ) * $invoice->invoice_quantity;
 
-      if( !empty($productorder->productorder_discount) ){
-        $revenue = $revenue - $productorder->productorder_discount;
+      if( !empty($invoice->invoice_discount) ){
+        $revenue = $revenue - $invoice->invoice_discount;
       }
 
       return $format ? commonNumberToVND( $revenue ) : $revenue ;
@@ -47,3 +47,8 @@ if( !function_exists('productorderProfit') ){
   }
 }
 
+if( !function_exists('stringDisplayName') ){
+  function stringDisplayName($string){
+    return $string->productype_name .' '. $string->product_name;
+  }
+}

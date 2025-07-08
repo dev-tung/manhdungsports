@@ -1,9 +1,9 @@
 @extends('pos.layouts.cover')
 @section('Title', 'THÊM ĐƠN HÀNG')
-@section('PageJs', asset('pos/js/productorder/add.js'))
+@section('PageJs', asset('pos/js/invoice/add.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('productorder.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormProductorderAdd" enctype="multipart/form-data">
+        <form action="{{route('invoice.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormInvoiceAdd" enctype="multipart/form-data">
             @csrf
             <input type="hidden" id="ProductPriceInput"  name="product_price_input">
             <input type="hidden" id="ProductPriceOutput" name="product_price_output">
@@ -35,8 +35,8 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderQuantity">Số lượng <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="ProductorderQuantity" type="number" name="productorder_quantity">
+                        <label class="FormLabel" for="InvoiceQuantity">Số lượng <span class="RequiredSymbol">*</span></label>
+                        <input class="FormInput" id="InvoiceQuantity" type="number" name="invoice_quantity">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
@@ -46,14 +46,14 @@
 
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderDiscount">Chiết khấu (VNĐ)</label>
-                        <input class="FormInput" id="ProductorderDiscount" type="number" name="productorder_discount">
+                        <label class="FormLabel" for="InvoiceDiscount">Chiết khấu (VNĐ)</label>
+                        <input class="FormInput" id="InvoiceDiscount" type="number" name="invoice_discount">
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderStatus" >Trạng thái <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="productorder_status" id="ProductorderStatus">
-                            @foreach( productorderStatus() as $key => $item )
+                        <label class="FormLabel" for="InvoiceStatus" >Trạng thái <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="invoice_status" id="InvoiceStatus">
+                            @foreach( invoiceStatus() as $key => $item )
                                 <option value="{{$key}}">{!!$item!!}</option>
                             @endforeach
                         </select>
@@ -63,8 +63,8 @@
 
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="productorder_ispayment" id="ProductorderIspayment">
+                        <label class="FormLabel" for="InvoiceIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="invoice_ispayment" id="InvoiceIspayment">
                             @foreach( commomIspayment() as $key => $item )
                                 <option value="{{$key}}">{!!$item!!}</option>
                             @endforeach
@@ -72,8 +72,8 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderDescription" >Ghi chú</label>
-                        <input class="FormInput" id="ProductorderDescription" type="text" name="productorder_description">
+                        <label class="FormLabel" for="InvoiceDescription" >Ghi chú</label>
+                        <input class="FormInput" id="InvoiceDescription" type="text" name="invoice_description">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>

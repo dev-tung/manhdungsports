@@ -481,6 +481,10 @@ body {
     cursor: pointer;
 }
 
+.ListSearchFormBtn a{
+    color:black;
+}
+
 .ListSearchFormBtn_Submit{
     background-color: white;
 }

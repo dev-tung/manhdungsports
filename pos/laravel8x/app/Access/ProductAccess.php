@@ -80,4 +80,19 @@ class ProductAccess extends Access{
         return DB::table($this->table)->where($searchParams)->delete();
     }
 
+    public function stringPriceTable(){
+        $query = "
+            SELECT 
+                product_name
+                , product_price_input
+                , product_price_output
+                , productype_name 
+            FROM product 
+            JOIN productype ON product.productype_id = productype.productype_id
+            WHERE product.productype_id IN (35, 36)
+            ORDER BY product.productype_id
+        ";
+        return DB::select($query);
+    }
+
 }

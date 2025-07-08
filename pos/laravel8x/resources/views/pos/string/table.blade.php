@@ -18,7 +18,7 @@
                                 </svg>
                                 <h3>{{stringDisplayName($string)}}</h3>
                             </div>
-                            <div class="TableStringPrice">{{ commonNumberToVND($string->string_price_output) }}</div>
+                            <div class="TableStringPrice">{{ commonNumberToVND($string->product_price_output) }}</div>
                         </div>
                     @endforeach
                 </div>

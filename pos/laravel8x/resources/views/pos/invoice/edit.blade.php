@@ -1,9 +1,9 @@
 @extends('pos.layouts.cover')
 @section('Title', 'SỬA ĐƠN HÀNG')
-@section('PageJs', asset('pos/js/productorder/edit.js'))
+@section('PageJs', asset('pos/js/invoice/edit.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('productorder.update', ['screen'=>'pos', 'productorder_id' => $productorder->productorder_id])}}" method="POST" class="Form" id="FormProductorderEdit" enctype="multipart/form-data">
+        <form action="{{route('invoice.update', ['screen'=>'pos', 'invoice_id' => $invoice->invoice_id])}}" method="POST" class="Form" id="FormInvoiceEdit" enctype="multipart/form-data">
             @csrf
             <input type="hidden" id="ProductPriceInput"  name="product_price_input">
             <input type="hidden" id="ProductPriceOutput" name="product_price_output">
@@ -13,7 +13,7 @@
                     <label class="FormLabel" for="CustomerId" >Khách hàng <span class="RequiredSymbol">*</span></label>
                     <select class="FormSelect" name="customer_id" id="CustomerId">
                         @foreach( $customers as $customer )
-                            <option value="{{$customer->customer_id}}" {{ ($customer->customer_id == $productorder->customer_id) ? 'selected' : ''; }}>{{$customer->customergroup_name}} - {{$customer->customer_name}}</option>
+                            <option value="{{$customer->customer_id}}" {{ ($customer->customer_id == $invoice->customer_id) ? 'selected' : ''; }}>{{$customer->customergroup_name}} - {{$customer->customer_name}}</option>
                         @endforeach
                     </select>
                     <small class="FormErrorMessage"></small>
@@ -28,15 +28,15 @@
                                     value="{{$product->product_id}}" 
                                     data-product_price_input="{{$product->product_price_input}}"
                                     data-product_price_output="{{$product->product_price_output}}"
-                                    {{ ($product->product_id == $productorder->product_id) ? 'selected' : ''; }}
+                                    {{ ($product->product_id == $invoice->product_id) ? 'selected' : ''; }}
                                 >{{ $product->product_name }}</option>
                             @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderQuantity">Số lượng</label>
-                        <input class="FormInput" id="ProductorderQuantity" type="number" name="productorder_quantity" value="{{$productorder->productorder_quantity}}">
+                        <label class="FormLabel" for="InvoiceQuantity">Số lượng</label>
+                        <input class="FormInput" id="InvoiceQuantity" type="number" name="invoice_quantity" value="{{$invoice->invoice_quantity}}">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
@@ -44,14 +44,14 @@
             <div class="FormGrid FormGrid_DesktopTwo">
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup">
-                        <label class="FormLabel" for="ProductorderDiscount">Chiết khấu (VNĐ)</label>
-                        <input class="FormInput" id="ProductorderDiscount" type="number" name="productorder_discount" value="{{$productorder->productorder_discount}}">
+                        <label class="FormLabel" for="InvoiceDiscount">Chiết khấu (VNĐ)</label>
+                        <input class="FormInput" id="InvoiceDiscount" type="number" name="invoice_discount" value="{{$invoice->invoice_discount}}">
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderStatus" >Trạng thái <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="productorder_status" id="ProductorderStatus">
-                            @foreach( productorderStatus() as $key => $item )
-                                <option value="{{$key}}" {{ ($key == $productorder->productorder_status) ? 'selected' : ''; }}>{!!$item!!}</option>
+                        <label class="FormLabel" for="InvoiceStatus" >Trạng thái <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="invoice_status" id="InvoiceStatus">
+                            @foreach( invoiceStatus() as $key => $item )
+                                <option value="{{$key}}" {{ ($key == $invoice->invoice_status) ? 'selected' : ''; }}>{!!$item!!}</option>
                             @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
@@ -60,17 +60,17 @@
 
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="productorder_ispayment" id="ProductorderIspayment">
+                        <label class="FormLabel" for="InvoiceIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="invoice_ispayment" id="InvoiceIspayment">
                             @foreach( commomIspayment() as $key => $item )
-                                 <option value="{{$key}}" {{ ($key == $productorder->productorder_ispayment) ? 'selected' : ''; }}>{!!$item!!}</option>
+                                 <option value="{{$key}}" {{ ($key == $invoice->invoice_ispayment) ? 'selected' : ''; }}>{!!$item!!}</option>
                             @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup">
-                        <label class="FormLabel" for="ProductorderDescription" >Ghi chú</label>
-                        <input class="FormInput" id="ProductorderDescription" type="text" name="productorder_description" value="{{$productorder->productorder_description}}">
+                        <label class="FormLabel" for="InvoiceDescription" >Ghi chú</label>
+                        <input class="FormInput" id="InvoiceDescription" type="text" name="invoice_description" value="{{$invoice->invoice_description}}">
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                     <button class="Btn Btn_Primary">Lưu</button>
                 </div>
                 <div class="FormBtnGroup">
-                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('productorder.delete', ['screen'=>'pos', 'productorder_id' => $productorder->productorder_id])}}" >Xóa</a>
+                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('invoice.delete', ['screen'=>'pos', 'invoice_id' => $invoice->invoice_id])}}" >Xóa</a>
                 </div>
             </div>
         </form>

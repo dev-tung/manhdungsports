@@ -1,10 +1,5 @@
 @extends('pos.layouts.cover')
 @section('Title', 'DANH SÁCH SẢN PHẨM')
-@section('TopbarNavLink')
-        <a class="TopbarNavLink" href="{{route('productype.index', ['screen'=>'pos'])}}">
-            <span class="TopbarNavText">Loại sản phẩm</span> 
-        </a>
-@endsection
 @section('Main')
     <main class="Main">
         <div class="MainContent">

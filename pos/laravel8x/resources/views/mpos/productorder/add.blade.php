@@ -1,9 +1,9 @@
 @extends('pos.layouts.cover')
 @section('Title', 'THÊM ĐƠN HÀNG')
-@section('pagejs', asset('pos/js/productorder/add.js'))
+@section('pagejs', asset('pos/js/invoice/add.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('productorder.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormProductorderAdd" enctype="multipart/form-data">
+        <form action="{{route('invoice.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormInvoiceAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                 <div class="FormGroup FormValidate">
@@ -28,8 +28,8 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderQuantity">Số lượng <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="ProductorderQuantity" type="number" name="productorder_quantity">
+                        <label class="FormLabel" for="InvoiceQuantity">Số lượng <span class="RequiredSymbol">*</span></label>
+                        <input class="FormInput" id="InvoiceQuantity" type="number" name="invoice_quantity">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
@@ -39,21 +39,21 @@
 
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderDiscount">Chiết khấu (VNĐ)</label>
-                        <input class="FormInput" id="ProductorderDiscount" type="number" name="productorder_discount">
+                        <label class="FormLabel" for="InvoiceDiscount">Chiết khấu (VNĐ)</label>
+                        <input class="FormInput" id="InvoiceDiscount" type="number" name="invoice_discount">
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderTimereturn" >Thời gian giao hàng</label>
-                        <input class="FormInput" id="ProductorderTimereturn" type="text" name="productorder_timereturn">
+                        <label class="FormLabel" for="InvoiceTimereturn" >Thời gian giao hàng</label>
+                        <input class="FormInput" id="InvoiceTimereturn" type="text" name="invoice_timereturn">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
 
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
-                        <select class="FormSelect" name="productorder_ispayment" id="ProductorderIspayment">
+                        <label class="FormLabel" for="InvoiceIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
+                        <select class="FormSelect" name="invoice_ispayment" id="InvoiceIspayment">
                             @foreach( commomIspayment() as $key => $item )
                                 <option value="{{$key}}">{!!$item!!}</option>
                             @endforeach
@@ -61,8 +61,8 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="ProductorderDescription" >Ghi chú</label>
-                        <input class="FormInput" id="ProductorderDescription" type="text" name="productorder_description">
+                        <label class="FormLabel" for="InvoiceDescription" >Ghi chú</label>
+                        <input class="FormInput" id="InvoiceDescription" type="text" name="invoice_description">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
