@@ -56,6 +56,8 @@
                                 <span class="ListItemSpan">Giá nhập {{ commonNumberToVND($product->product_price_input) }}</span>
                                 <span>-</span>
                                 <span class="ListItemSpan">Giá bán {{ commonNumberToVND($product->product_price_output) }}</span>
+                                <span>-</span>
+                                <span class="ListItemSpan">Lợi nhuận {{ commonNumberToVND($product->product_price_output - $product->product_price_input) }}</span>
                             </div>
                         </div>
                     </a>

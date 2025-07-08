@@ -19,8 +19,9 @@ class DashboardController extends Controller
         $todayExpenseMoney = $this->_expenseAccess->todayMoney();
 
         $todayTotalRevenue = array_sum(array_column($todayInvoiceMoney, 'invoice_revenue'));
-        $todayTotalProfit = array_sum(array_column($todayInvoiceMoney, 'invoice_profit'));
         $todayExpenseMoney = array_sum(array_column($todayExpenseMoney, 'expense_money'));
+        $todayTotalProfit = array_sum(array_column($todayInvoiceMoney, 'invoice_profit')) - $todayExpenseMoney;
+        
 
         return view($request->screen.'.dashboard.index', [
             'todayTotalRevenue' => commonNumberToVND($todayTotalRevenue),

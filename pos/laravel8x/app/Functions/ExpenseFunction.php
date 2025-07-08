@@ -7,7 +7,8 @@ if( !function_exists('expenseType') ){
       3 => 'Nhập giày',
       4 => 'Nhập phụ kiện',
       5 => 'Tiền lương nhân viên',
-      6 => 'Chi phí vận hành'
+      6 => 'Chi phí vận hành',
+      7 => 'Lỗi cước'
     ];
 
     return array_key_exists($key, $expenseType) ? $expenseType[$key] : $expenseType;
