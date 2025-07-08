@@ -23,8 +23,7 @@ class InvoiceController extends Controller
     public function index(Request $request){
         $invoices = $this->_invoiceAccess->get($request);
         $productypes = $this->_productypeAccess->get($request);
-        $todayMoney = $this->_invoiceAccess->todayMoney();
-        return view($request->screen.'.invoice.index', ['invoices' => $invoices,'productypes' => $productypes, 'todayMoney' => $todayMoney]);
+        return view($request->screen.'.invoice.index', ['invoices' => $invoices,'productypes' => $productypes]);
     }
 
     public function add(Request $request){

@@ -42,9 +42,9 @@
             <div class="ListSearchTotal">
                 <span class="ListSearchTotalItem">{{ count($invoices) }} đơn hàng</span>
                 <span class="ListSearchTotalItem">-</span>
-                <span class="ListSearchTotalItem">Doanh thu hôm nay {{ commonNumberToVND(array_sum(array_column($todayMoney, 'invoice_revenue'))) }} </span>
+                <span class="ListSearchTotalItem">Doanh thu {{ commonNumberToVND(array_sum(array_column($invoices, 'invoice_revenue'))) }} </span>
                 <span class="ListSearchTotalItem">-</span>
-                <span class="ListSearchTotalItem">Lợi nhuận hôm nay {{ commonNumberToVND(array_sum(array_column($todayMoney, 'invoice_profit'))) }} </span>
+                <span class="ListSearchTotalItem">Lợi nhuận {{ commonNumberToVND(array_sum(array_column($invoices, 'invoice_profit'))) }} </span>
             </div>
 
             <table>
@@ -90,7 +90,7 @@
                 </tbody>
             </table>
             <div class="ListSearchTotal">
-                <span class="ListSearchTotalItem Text_Danger">Tổng tiền {{ commonNumberToVND(array_sum(array_column($invoices, 'invoice_revenue'))) }}</span>
+                <span class="ListSearchTotalItem Text_Danger">Thành tiền {{ commonNumberToVND(array_sum(array_column($invoices, 'invoice_revenue'))) }}</span>
             </div>
         </div>
     </main>
