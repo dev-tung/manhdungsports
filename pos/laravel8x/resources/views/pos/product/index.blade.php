@@ -24,45 +24,41 @@
             </div>
             
             <div class="ListSearchTotal">
-                <span class="ListSearchTotalItem">{{ $product->sum('product_quantity') }} sản phẩm</span>
-                <span>-</span>
                 <span class="ListSearchTotalItem">Tồn kho {{ commonNumberToVND( $priceTotalInput ) }}</span>
             </div>
 
-            <div class="List">
-                @foreach( $product as $product )
-                    <a class="ListItem" href="{{route('product.edit', ['screen'=>'pos', 'product_id' => $product->product_id])}}">
-                        <div class="ListItemthumbnail">
-                            @if( !empty( $product->product_thumbnail ) )
-                                <img class="ListItemthumbnail" src="{{ asset($product->product_thumbnail) }}">
-                            @else
-                                <svg class="ListItemthumbnail ListItemthumbnail_default" viewBox="-9 -4 49 50" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- Khung hình ảnh -->
-                                    <rect x="0" y="8" width="30" height="28" rx="2" ry="2" fill="#e0e0e0" stroke="#555" stroke-width="1"/>
-
-                                    <!-- Mặt trời -->
-                                    <circle cx="10" cy="18" r="2.5" fill="#777" />
-
-                                    <!-- Núi -->
-                                    <polyline points="5,34 12,25 18,31 24,26 30,34" fill="none" stroke="#555" stroke-width="1" />
-                                </svg>
-                            @endif
-                        </div>
-                        <div class="ListItemInfo">
-                            <h4 class="ListItemName">{{ $product->product_name }}</h4>
-                            <div class="ListSpanGroup">
-                                <span class="ListItemSpan">Tồn kho {{ $product->product_quantity }}</span>
-                                <span>-</span>
-                                <span class="ListItemSpan">Giá nhập {{ commonNumberToVND($product->product_price_input) }}</span>
-                                <span>-</span>
-                                <span class="ListItemSpan">Giá bán {{ commonNumberToVND($product->product_price_output) }}</span>
-                                <span>-</span>
-                                <span class="ListItemSpan">Lợi nhuận {{ commonNumberToVND($product->product_price_output - $product->product_price_input) }}</span>
-                            </div>
-                        </div>
-                    </a>
-                @endforeach
-            </div>
+            <table>
+                <thead>
+                    <tr class="TableRow">
+                        <th class="TableData">Tên sản phẩm</th>
+                        <th class="TableData">Loại sản phẩm</th>
+                        <th class="TableData">Tồn kho</th>
+                        <th class="TableData">Giá nhập</th>
+                        <th class="TableData">Giá bán</th>
+                        <th class="TableData">Lợi nhuận</th>
+                        <th class="TableData">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    @foreach( $products as $key => $product )
+                        <tr class="TableRow">
+                            <td class="TableData">{{ $product->product_name }}</td>
+                            <td class="TableData">{{ $product->productype_name }}</td>
+                            <td class="TableData">{{ $product->product_quantity }}</td>
+                            <td class="TableData">{{ commonNumberToVND($product->product_price_input) }}</td>
+                            <td class="TableData">{{ commonNumberToVND($product->product_price_output) }}</td>
+                            <td class="TableData">{{ commonNumberToVND($product->product_price_output - $product->product_price_input) }}</td>
+                            <td class="TableData TableData_Center">
+                                <a class="TableAction TableAction_Link" href="{{route('product.edit', ['screen'=>'pos', 'product_id' => $product->product_id])}}">
+                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
+                                    </svg>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </main>
     <!-- End Main -->

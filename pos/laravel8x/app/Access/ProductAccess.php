@@ -21,14 +21,16 @@ class ProductAccess extends Access{
         return $searchParams;
     }
 
-    public function get( $request ){
-        $query = DB::table($this->table);
-        $searchParams = $this->searchParam($request);
-
-        if( !empty( $searchParams ) ){
-            $query->where($searchParams);
-        }
-        return $query->orderBy('product_name')->get();
+    public function get( $request){
+        $searchParam = $this->searchParam($request);
+        $WHERE = $this->conditionBuilder($searchParam);
+        $query = "
+            SELECT * FROM product
+            JOIN productype ON product.productype_id = productype.productype_id
+            $WHERE
+            ORDER BY productype.productype_name
+        ";
+        return DB::select($query);
     }
 
     public function priceTotalInput(){

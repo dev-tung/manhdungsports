@@ -17,11 +17,11 @@ class ProductController extends Controller
     }
 
     public function index(Request $request){
-        $product = $this->_productAccess->get($request);
+        $products = $this->_productAccess->get($request);
         $priceTotalInput = $this->_productAccess->priceTotalInput();
         $productype = $this->_productypeAccess->get($request);
         return view($request->screen.'.product.index', [
-            'product' => $product, 
+            'products' => $products, 
             'priceTotalInput' => $priceTotalInput, 
             'productype' => $productype
         ]);
