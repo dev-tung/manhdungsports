@@ -24,6 +24,8 @@
             </div>
             
             <div class="ListSearchTotal">
+                <span class="ListSearchTotalItem">Tổng số lượng {{ $totalProduct }}</span>
+                <span class="ListSearchTotalItem">-</span>
                 <span class="ListSearchTotalItem">Tồn kho {{ commonNumberToVND( $priceTotalInput ) }}</span>
             </div>
 

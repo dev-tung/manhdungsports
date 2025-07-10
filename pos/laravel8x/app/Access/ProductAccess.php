@@ -15,7 +15,7 @@ class ProductAccess extends Access{
         }
 
         if( !empty($request->productype_id) ){
-            $searchParams[] = ['productype_id', 'like', '%' . $request->productype_id . '%'];
+            $searchParams[] = ['productype.productype_id', 'like', '%' . $request->productype_id . '%'];
         }
 
         return $searchParams;

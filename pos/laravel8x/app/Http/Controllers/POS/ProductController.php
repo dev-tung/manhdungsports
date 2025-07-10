@@ -20,10 +20,12 @@ class ProductController extends Controller
         $products = $this->_productAccess->get($request);
         $priceTotalInput = $this->_productAccess->priceTotalInput();
         $productype = $this->_productypeAccess->get($request);
+        $totalProduct = array_sum(array_column($products, 'product_quantity'));
         return view($request->screen.'.product.index', [
             'products' => $products, 
             'priceTotalInput' => $priceTotalInput, 
-            'productype' => $productype
+            'productype' => $productype,
+            'totalProduct' => $totalProduct
         ]);
     }
 
