@@ -7,10 +7,22 @@ Validator({
             selector: '#CustomerId'
         }),
         Validator.tbRequired({
-            selector: '#ProductType'
+            selector : '#InvoiceQuantity'
         }),
-        Validator.tbRequired({
-            selector: '#InvoiceQuantity'
+        Validator.sbRequired({
+            selector: '#ProductType',
+            valid : productType => {
+                let productTypeSelected = productType.options[productType.selectedIndex].dataset;
+                document.getElementById('ProductPriceInput').value  = productTypeSelected.product_price_input;
+                document.getElementById('ProductPriceOutput').value = productTypeSelected.product_price_output;
+                document.getElementById('ProductQuantity').value = productTypeSelected.product_quantity;
+                let invoiceQuantity = document.getElementById('InvoiceQuantity');
+                invoiceQuantity.value = 1;
+                invoiceQuantity.setAttribute("max", productTypeSelected.product_quantity);
+            }
+        }),
+        Validator.tbInt({
+            selector : '#InvoiceQuantity'
         }),
         Validator.sbRequired({
             selector: '#InvoiceIspayment'
@@ -25,10 +37,3 @@ Validator({
     }
 });
 // END VALIDATOR
-
-document.getElementById('ProductType').addEventListener("change", function (e) {
-    let productType = document.getElementById('ProductType');
-    let productTypeSelected = productType.options[productType.selectedIndex].dataset;
-    document.getElementById('ProductPriceInput').value  = productTypeSelected.product_price_input;
-    document.getElementById('ProductPriceOutput').value = productTypeSelected.product_price_output;
-});

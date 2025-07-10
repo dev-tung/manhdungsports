@@ -35,6 +35,7 @@ Route::prefix('{screen}')->group(function () {
     });
     Route::prefix('invoice')->group(function () {
         Route::get('index', ['as' => 'invoice.index', 'uses' => 'POS\InvoiceController@index']);
+        Route::get('order', ['as' => 'invoice.order', 'uses' => 'POS\InvoiceController@order']);
         Route::get('add', ['as' => 'invoice.add', 'uses' => 'POS\InvoiceController@add']);
         Route::post('insert', ['as' => 'invoice.insert', 'uses' => 'POS\InvoiceController@insert']);
         Route::get('edit/{invoice_id}', ['as' => 'invoice.edit', 'uses' => 'POS\InvoiceController@edit']);

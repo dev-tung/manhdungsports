@@ -28,12 +28,19 @@ class InvoiceController extends Controller
 
     public function add(Request $request){
         $customers = $this->_customerAccess->get($request);
-        $products = $this->_productAccess->get($request);
+        $products = $this->_productAccess->selling();
         return view($request->screen.'.invoice.add', ['customers' => $customers, 'products' => $products]);
+    }
+
+    public function order(Request $request){
+        $customers = $this->_customerAccess->get($request);
+        $products = $this->_productAccess->get($request);
+        return view($request->screen.'.invoice.order', ['customers' => $customers, 'products' => $products]);
     }
 
     public function insert(Request $request){
         $this->_invoiceAccess->insert($request);
+        $this->_productAccess->updateQuantity($request->product_quantity - $request->invoice_quantity, $request->product_id);
         return redirect()->route('invoice.index', ['screen'=>'pos']);
     }
 

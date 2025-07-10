@@ -1,25 +1,18 @@
 @extends('pos.layouts.cover')
 @section('Title', 'THÊM ĐƠN HÀNG')
-@section('PageJs', asset('pos/js/invoice/add.js'))
+@section('PageJs', asset('pos/js/invoice/order.js'))
 @section('Main')
     <main class="Main">
         <form action="{{route('invoice.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormInvoiceAdd" enctype="multipart/form-data">
             @csrf
             <input type="hidden" id="ProductPriceInput"  name="product_price_input">
             <input type="hidden" id="ProductPriceOutput" name="product_price_output">
-            <input type="hidden" id="ProductQuantity" name="product_quantity">
-
             <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                 <div class="FormGroup FormValidate">
-                    <label class="FormLabel" for="CustomerId" >Khách hàng <span class="RequiredSymbol">*</span></label>
-                    <select class="FormSelect" name="customer_id" id="CustomerId">
-                        @foreach( $customers as $customer )
-                            <option value="{{$customer->customer_id}}">{{$customer->customergroup_name}} - {{$customer->customer_name}}</option>
-                        @endforeach
-                    </select>
+                    <label class="FormLabel" for="InvoiceQuantity">Khách hàng <span class="RequiredSymbol">*</span></label>
+                    <input class="FormInput" id="InvoiceQuantity" type="text" name="invoice_quantity">
                     <small class="FormErrorMessage"></small>
                 </div>
-
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="ProductType" >Mặt hàng <span class="RequiredSymbol">*</span></label>
@@ -29,7 +22,6 @@
                                 <option 
                                     data-product_price_input="{{$product->product_price_input}}"
                                     data-product_price_output="{{$product->product_price_output}}"
-                                    data-product_quantity="{{$product->product_quantity}}"
                                     value="{{$product->product_id}}"
                                 >{{ $product->product_name }}</option>
                             @endforeach
@@ -43,9 +35,7 @@
                     </div>
                 </div>
             </div>
-
             <div class="FormGrid FormGrid_DesktopTwo">
-
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="InvoiceDiscount">Chiết khấu (VNĐ)</label>
@@ -62,7 +52,6 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
-
                 <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="InvoiceIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
@@ -80,7 +69,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="FormBtn">
                 <div class="FormBtnGroup">
                     <button class="Btn Btn_Default" type="button" onclick="history.back()">Quay lại</button>

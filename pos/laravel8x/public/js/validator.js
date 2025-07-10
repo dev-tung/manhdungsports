@@ -1,5 +1,6 @@
 Validator.message = {
-    required: "Vui lòng không để trống thông tin này!"
+    required: "Vui lòng không để trống thông tin này!",
+    int: "Vui lòng nhập vào số > 0!"
 };
 
 function Validator(params){
@@ -62,7 +63,7 @@ Validator.tbRequired = function(param){
             return element.value.trim() ? undefined : Validator.message.required;
         }
     }
- }
+}
 
 Validator.sbRequired = function(param){
     return {
@@ -70,6 +71,16 @@ Validator.sbRequired = function(param){
         param : param,
         check : function (element, param) {
             return element.value.trim() ? undefined : Validator.message.required;
+        }
+    }
+}
+
+Validator.tbInt = function(param){
+    return {
+        event : 'blur',
+        param : param,
+        check : function (element, param) {
+            return parseInt(element.value) > 0 ? undefined : Validator.message.int;
         }
     }
 }

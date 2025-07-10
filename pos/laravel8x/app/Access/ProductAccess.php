@@ -33,6 +33,14 @@ class ProductAccess extends Access{
         return DB::select($query);
     }
 
+    public function selling(){
+        $query = "
+            SELECT * FROM product
+            WHERE product_quantity > 0
+        ";
+        return DB::select($query);
+    }
+
     public function priceTotalInput(){
         $price = DB::select('SELECT SUM(product_price_input * product_quantity) as product_price_input_total FROM product ');
         return !empty( $price[0]->product_price_input_total ) ? $price[0]->product_price_input_total : 0;
@@ -75,6 +83,13 @@ class ProductAccess extends Access{
 
         DB::table($this->table)
             ->where('product_id', $params->product_id)
+            ->update($update);
+    }
+
+    public function updateQuantity($product_quantity, $product_id){
+        $update['product_quantity'] = $product_quantity;
+        DB::table($this->table)
+            ->where('product_id', $product_id)
             ->update($update);
     }
 
