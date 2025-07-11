@@ -17,19 +17,19 @@ class DashboardController extends Controller
     }
 
     public function index(Request $request){
-        $todayInvoiceMoney = $this->_invoiceAccess->todayMoney();
-        $todayExpenseMoney = $this->_expenseAccess->todayMoney();
-        $priceTotalInput = $this->_productAccess->priceTotalInput();
+        $todayInvoiceMoney  = $this->_invoiceAccess->todayMoney();
+        $todayExpenseMoney  = $this->_expenseAccess->todayMoney();
+        $priceTotalInput    = $this->_productAccess->priceTotalInput();
 
         $todayTotalRevenue = array_sum(array_column($todayInvoiceMoney, 'invoice_revenue'));
         $todayExpenseMoney = array_sum(array_column($todayExpenseMoney, 'expense_money'));
-        $todayTotalProfit = array_sum(array_column($todayInvoiceMoney, 'invoice_profit')) - $todayExpenseMoney;
+        $todayTotalProfit  = array_sum(array_column($todayInvoiceMoney, 'invoice_profit')) - $todayExpenseMoney;
 
         return view($request->screen.'.dashboard.index', [
             'todayTotalRevenue' => commonNumberToVND($todayTotalRevenue),
-            'todayTotalProfit' => commonNumberToVND($todayTotalProfit),
+            'todayTotalProfit'  => commonNumberToVND($todayTotalProfit),
             'todayExpenseMoney' => commonNumberToVND($todayExpenseMoney),
-            'priceTotalInput' => commonNumberToVND($priceTotalInput)
+            'priceTotalInput'   => commonNumberToVND($priceTotalInput)
         ]);
     }
 }

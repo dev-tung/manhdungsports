@@ -427,11 +427,11 @@ body {
 }
 
 .ListSearchFormInput{
-    height: 35px;
+    height: 30px;
     border-radius: 5px;
     border: 1px solid #dadada;
     width: 100%;
-    padding: 10px;
+    padding: 5px;
 }
 
 .ListSearchFormInput:hover{
@@ -456,11 +456,11 @@ body {
 }
 
 .ListSearchFormSelect{
-    height: 35px;
+    height: 30px;
     border: 1px solid #dadada;
     color: #3f3f3f;
     border-radius: 5px;
-    padding: 0 10px;
+    padding: 0 5px;
 }
 
 .ListSearchFormSelect:hover{
@@ -474,7 +474,7 @@ body {
 }
 
 .ListSearchFormBtn{
-    height: 35px;
+    height: 30px;
     border-radius: 5px;
     border: 1px solid #dadada;
     width: 80px;

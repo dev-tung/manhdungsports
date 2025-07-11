@@ -34,13 +34,25 @@ if( !function_exists('invoiceRevenue') ){
 if( !function_exists('invoiceProfit') ){
   function invoiceProfit($invoice, $format = true){
     if( !empty( $invoice ) ){
-      $revenue = ($invoice->product_price_output - $invoice->product_price_input ) * $invoice->invoice_quantity;
+      $profit = ($invoice->product_price_output - $invoice->product_price_input ) * $invoice->invoice_quantity;
 
       if( !empty($invoice->invoice_discount) ){
-        $revenue = $revenue - $invoice->invoice_discount;
+        $profit = $profit - $invoice->invoice_discount;
       }
 
-      return $format ? commonNumberToVND( $revenue ) : $revenue ;
+      return $format ? commonNumberToVND( $profit ) : $profit ;
+    }
+
+    dd('Data is empty');
+  }
+}
+
+if( !function_exists('productProfit') ){
+  function productProfit($product, $format = true){
+    if( !empty( $product ) ){
+      $profit = ($product->product_price_output - $product->product_price_input ) * $product->product_quantity;
+
+      return $format ? commonNumberToVND( $profit ) : $profit ;
     }
 
     dd('Data is empty');

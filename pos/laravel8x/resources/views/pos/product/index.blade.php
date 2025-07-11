@@ -49,7 +49,7 @@
                             <td class="TableData">{{ $product->product_quantity }}</td>
                             <td class="TableData">{{ commonNumberToVND($product->product_price_input) }}</td>
                             <td class="TableData">{{ commonNumberToVND($product->product_price_output) }}</td>
-                            <td class="TableData">{{ commonNumberToVND($product->product_price_output - $product->product_price_input) }}</td>
+                            <td class="TableData">{{ productProfit($product) }}</td>
                             <td class="TableData TableData_Center">
                                 <a class="TableAction TableAction_Link" href="{{route('product.edit', ['screen'=>'pos', 'product_id' => $product->product_id])}}">
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
