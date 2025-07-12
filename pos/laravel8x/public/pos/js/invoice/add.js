@@ -7,19 +7,10 @@ Validator({
             selector: '#CustomerName'
         }),
         Validator.tbRequired({
-            selector : '#InvoiceQuantity'
+            selector: '#ProductName'
         }),
-        Validator.sbRequired({
-            selector: '#ProductType',
-            valid : productType => {
-                let productTypeSelected = productType.options[productType.selectedIndex].dataset;
-                document.getElementById('ProductPriceInput').value  = productTypeSelected.product_price_input;
-                document.getElementById('ProductPriceOutput').value = productTypeSelected.product_price_output;
-                document.getElementById('ProductQuantity').value = productTypeSelected.product_quantity;
-                let invoiceQuantity = document.getElementById('InvoiceQuantity');
-                invoiceQuantity.value = 1;
-                invoiceQuantity.setAttribute("max", productTypeSelected.product_quantity);
-            }
+        Validator.tbRequired({
+            selector : '#InvoiceQuantity'
         }),
         Validator.tbInt({
             selector : '#InvoiceQuantity'
@@ -40,8 +31,8 @@ Validator({
 
 
 // CUSTOMER TOGGLE SEARCH
-let _customerToggleInput = document.querySelector('input[data-modal-action="toggle"]');
-let _customerSearchBox = document.querySelector(_customerToggleInput.getAttribute('data-modal-target'));
+let _customerToggleInput = document.querySelector('#CustomerName');
+let _customerSearchBox = document.querySelector("#CustomerSearchModal");
 
 let customerToggleSearchInit = new Promise((success, error) => {
     try {
@@ -136,6 +127,7 @@ let customerToggleSearchKeyup = function(object){
                         _customerSearchBox.classList.remove("Show");
                     });
                 })
+
             });
         }
         catch(err) {
@@ -153,4 +145,124 @@ customerToggleSearchInit
 })
 .catch( response => console.log(response) )
 
-// END CUSTOMER TOGGLE SEARCH
+// CUSTOMER TOGGLE SEARCH
+
+
+
+
+// PRODUCT TOGGLE SEARCH
+let _productToggleInput = document.querySelector('#ProductName');
+let _productSearchBox = document.querySelector("#ProductSearchModal");
+
+let productToggleSearchInit = new Promise((success, error) => {
+    try {
+        document.getElementById('ProductSearch').style.display = "none";
+        document.getElementById("ModalLoading").style.display = "block";
+
+        _productToggleInput.addEventListener("click", function(){
+            _productSearchBox.classList.add("Show");
+            document.getElementById('ProductSearchFormInput').focus();
+        });
+        
+        _productSearchBox.addEventListener('click', function(event){
+            if (_productSearchBox !== event.target) return;
+            _productSearchBox.classList.remove("Show");
+        }, false); 
+
+        document.getElementById("ProductSearchForm_Reset").addEventListener("click", function(){
+            document.getElementById("ProductSearchFormInput").value = "";
+            document.getElementById('ProductSearchResult').innerHTML = "";
+        });
+
+        document.onkeyup = function(press) {
+            if(press.key === "Escape") {
+                _productSearchBox.classList.remove("Show");
+            }
+        }
+        
+        success(true);
+    }
+    catch(err) {
+        error('productToggleSearchInit Fail!');
+    }
+    
+});
+
+let productToggleSearchFetch = new Promise((success, error) => {
+    try {
+        let apiProductGet = document.querySelector("#apiProductGet").content;
+        fetch(apiProductGet, {
+            method: 'GET', 
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                "X-CSRF-Token": document.querySelector('#CsrfToken').content
+            }
+        })
+        .then(response => {
+            document.getElementById('ProductSearch').style.display = "block";
+            document.getElementById("ModalLoading").style.display = "none";
+            success(response.json());
+        })
+    }
+    catch(err) {
+        error('productToggleSearchFetch Fail!');
+    }
+});
+
+let productToggleSearchKeyup = function(object){
+    return new Promise((success, error) => {
+        try {
+            const searchInput = document.getElementById('ProductSearchFormInput');
+            searchInput.addEventListener("keyup", () => {
+                let ProductSearchResult = document.getElementById('ProductSearchResult');
+                let SearchValue = searchInput.value;
+
+                if( SearchValue == '' ){
+                    ProductSearchResult.innerHTML = `<p class="ProductSearchResult_No">No recent searches</p>`;
+                    return;
+                }
+
+                ProductSearchResult.innerHTML = '';
+                object.products.forEach(Item => {
+                    let Content = Item.product_name + ' - ' + Item.productype_name;
+                    if( Content.toUpperCase().indexOf(SearchValue.toUpperCase()) != -1 ){
+                        Content = Content.replace(new RegExp(SearchValue, 'gi'), '<mark>$&</mark>');
+                        ProductSearchResult.innerHTML += 
+                        `<div class="ProductSearchItem" data-product_id="${Item.product_id}" data-product_name="${Item.product_name}">
+                            <div class="ProductSearchContent">
+                                <p class="ProductSearchContent-Desc">${Content}</p>
+                            </div>
+                        </div>`;
+                    }
+                });
+
+                document.querySelectorAll('.ProductSearchItem').forEach(item => {
+                    item.addEventListener("click", function(){
+                        document.getElementById('ProductId').value = item.getAttribute('data-product_id');
+                        let productName = document.getElementById('ProductName');
+                        productName.value = item.getAttribute('data-product_name');
+                        productName.focus();
+                        productName.blur();
+                        _productSearchBox.classList.remove("Show");
+                    });
+                })
+
+            });
+        }
+        catch(err) {
+            error('productToggleSearchKeyup Fail!');
+        }
+    });
+}
+
+productToggleSearchInit
+.then( response => {
+    return productToggleSearchFetch;
+})
+.then( response => {
+    productToggleSearchKeyup(response);
+})
+.catch( response => console.log(response) )
+
+// PRODUCT TOGGLE SEARCH

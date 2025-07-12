@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" id="CsrfToken"/>
     <meta name="csrf-token" content="{{ route('api.file.upload') }}" id="apiFileUpload"/>
     <meta name="csrf-token" content="{{ route('api.customer.get') }}" id="apiCustomerGet"/>
+    <meta name="csrf-token" content="{{ route('api.product.get') }}" id="apiProductGet"/>
     <meta name="csrf-token" content="{{ route('api.file.move') }}" id="apiFileMove"/>
 
     <title>MANH DUNG POS | Product</title>

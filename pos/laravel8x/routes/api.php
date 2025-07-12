@@ -28,3 +28,7 @@ Route::prefix('file')->group(function () {
 Route::prefix('customer')->group(function () {
     Route::get('get', ['as' => 'api.customer.get', 'uses' => 'API\CustomerController@get']);
 });
+
+Route::prefix('product')->group(function () {
+    Route::get('get', ['as' => 'api.product.get', 'uses' => 'API\ProductController@get']);
+});
