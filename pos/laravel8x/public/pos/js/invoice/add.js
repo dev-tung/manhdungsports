@@ -132,8 +132,7 @@ customerSearchModal.then(response => {
                         })
                     })
                 });
-
-                // keyup
+                // END KEYUP EVENT
 
             }
         });
