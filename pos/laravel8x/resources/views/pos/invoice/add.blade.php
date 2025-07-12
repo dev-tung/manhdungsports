@@ -13,7 +13,7 @@
             <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="CustomerName">Khách hàng <span class="RequiredSymbol">*</span></label>
-                    <input tabindex="0" class="FormInput" id="CustomerName" type="text" name="customer_name" data-modal-action="toggle" data-modal-target="#CustomerSearchModal">
+                    <input autocomplete="off" class="FormInput" id="CustomerName" type="text" name="customer_name" data-modal-action="toggle" data-modal-target="#CustomerSearchModal">
                     <small class="FormErrorMessage"></small>
                 </div>
 

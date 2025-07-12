@@ -3,7 +3,7 @@
 Validator({
     form: '#FormInvoiceAdd',
     items: [
-        Validator.sbRequired({
+        Validator.tbRequired({
             selector: '#CustomerName'
         }),
         Validator.tbRequired({
@@ -123,7 +123,10 @@ customerSearchModal.then(response => {
                         document.querySelectorAll('.CustomerSearchItem').forEach(item => {
                             item.addEventListener("click", function(){
                                 document.getElementById('CustomerId').value = item.getAttribute('data-customer_id');
-                                document.getElementById('CustomerName').value = item.getAttribute('data-customer_name');
+                                let customerName = document.getElementById('CustomerName');
+                                customerName.value = item.getAttribute('data-customer_name');
+                                customerName.focus();
+                                customerName.blur();
                                 _e.classList.remove("Show");
                             });
                         })
