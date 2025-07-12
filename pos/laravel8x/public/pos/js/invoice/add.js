@@ -124,7 +124,6 @@ customerSearchModal.then(response => {
                             item.addEventListener("click", function(){
                                 document.getElementById('CustomerId').value = item.getAttribute('data-customer_id');
                                 document.getElementById('CustomerName').value = item.getAttribute('data-customer_name');
-                                
                                 _e.classList.remove("Show");
                             });
                         })
