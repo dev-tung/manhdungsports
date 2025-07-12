@@ -24,3 +24,7 @@ Route::prefix('file')->group(function () {
     Route::post('move', ['as' => 'api.file.move', 'uses' => 'API\FileController@move']);
     Route::post('delete', ['as' => 'api.file.delete', 'uses' => 'API\FileController@delete']);
 });
+
+Route::prefix('customer')->group(function () {
+    Route::get('get', ['as' => 'api.customer.get', 'uses' => 'API\CustomerController@get']);
+});

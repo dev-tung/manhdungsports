@@ -8,15 +8,12 @@
             <input type="hidden" id="ProductPriceInput"  name="product_price_input">
             <input type="hidden" id="ProductPriceOutput" name="product_price_output">
             <input type="hidden" id="ProductQuantity" name="product_quantity">
+            <input type="hidden" id="CustomerId" name="customer_id">
 
             <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
                 <div class="FormGroup FormValidate">
-                    <label class="FormLabel" for="CustomerId" >Khách hàng <span class="RequiredSymbol">*</span></label>
-                    <select class="FormSelect" name="customer_id" id="CustomerId">
-                        @foreach( $customers as $customer )
-                            <option value="{{$customer->customer_id}}">{{$customer->customergroup_name}} - {{$customer->customer_name}}</option>
-                        @endforeach
-                    </select>
+                    <label class="FormLabel" for="CustomerName">Khách hàng <span class="RequiredSymbol">*</span></label>
+                    <input tabindex="0" class="FormInput" id="CustomerName" type="text" name="customer_name" data-modal-action="toggle" data-modal-target="#CustomerSearchModal">
                     <small class="FormErrorMessage"></small>
                 </div>
 
@@ -91,6 +88,24 @@
         
     </main>
     <!-- End Main -->
+
+    <!-- Customer Search Modal -->
+    <div class="CustomerSearch" id="CustomerSearch">
+        <div class="CustomerSearchModal" id="CustomerSearchModal">
+            <div class="CustomerSearchBox">
+                <div class="CustomerSearchForm">
+                    <svg class="CustomerSearchForm_Icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <input class="CustomerSearchForm_Input" id="CustomerSearchFormInput" type="text" placeholder="Tìm tên khách hàng">
+                    <button id="CustomerSearchForm_Reset" title="Clear the query" class="CustomerSearchForm_Reset" aria-label="Clear the query"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M10 10l5.09-5.09L10 10l5.09 5.09L10 10zm0 0L4.91 4.91 10 10l-5.09 5.09L10 10z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+                </div>
+                
+                <div class="CustomerSearchResult" id="CustomerSearchResult">
+                    <p class="CustomerSearchResult_No">Không có kết quả!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Customer Search Modal -->
 @endsection
 
 
