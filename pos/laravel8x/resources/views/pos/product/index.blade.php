@@ -33,8 +33,13 @@
                 <thead>
                     <tr class="TableRow">
                         <th class="TableData">Tên sản phẩm</th>
+                        <th class="TableData">Màu sắc</th>
+                        <th class="TableData">Kích thước</th>
                         <th class="TableData">Loại sản phẩm</th>
                         <th class="TableData">Tồn kho</th>
+                        <th class="TableData">Đơn vị</th>
+                        <th class="TableData">Giới tính</th>
+                        <th class="TableData">Nguồn</th>
                         <th class="TableData">Giá nhập</th>
                         <th class="TableData">Giá bán</th>
                         <th class="TableData">Lợi nhuận</th>
@@ -45,8 +50,13 @@
                     @foreach( $products as $key => $product )
                         <tr class="TableRow">
                             <td class="TableData">{{ $product->product_name }}</td>
+                            <td class="TableData">{{ productColor($product->product_color) }}</td>
+                            <td class="TableData">{{ productSize($product->product_size) }}</td>
                             <td class="TableData">{{ $product->productype_name }}</td>
                             <td class="TableData">{{ $product->product_quantity }}</td>
+                            <td class="TableData">{{ productUnit($product->product_unit) }}</td>
+                            <td class="TableData">{{ productGender($product->product_gender) }}</td>
+                            <td class="TableData">{{ productSource($product->product_source) }}</td>
                             <td class="TableData">{{ commonNumberToVND($product->product_price_input) }}</td>
                             <td class="TableData">{{ commonNumberToVND($product->product_price_output) }}</td>
                             <td class="TableData">{{ productProfit($product) }}</td>

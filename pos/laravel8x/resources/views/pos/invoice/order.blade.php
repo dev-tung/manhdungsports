@@ -7,13 +7,13 @@
             @csrf
             <input type="hidden" id="ProductPriceInput"  name="product_price_input">
             <input type="hidden" id="ProductPriceOutput" name="product_price_output">
-            <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+            <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="InvoiceQuantity">Khách hàng <span class="RequiredSymbol">*</span></label>
                     <input class="FormInput" id="InvoiceQuantity" type="text" name="invoice_quantity">
                     <small class="FormErrorMessage"></small>
                 </div>
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="ProductType" >Mặt hàng <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="product_id" id="ProductType">
@@ -35,8 +35,8 @@
                     </div>
                 </div>
             </div>
-            <div class="FormGrid FormGrid_DesktopTwo">
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+            <div class="FormGrid FormGridDesktop_Two">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="InvoiceDiscount">Chiết khấu (VNĐ)</label>
                         <input class="FormInput" id="InvoiceDiscount" type="number" name="invoice_discount">
@@ -52,7 +52,7 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="InvoiceIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="invoice_ispayment" id="InvoiceIspayment">

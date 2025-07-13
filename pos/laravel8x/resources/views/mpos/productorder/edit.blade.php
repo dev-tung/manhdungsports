@@ -5,7 +5,7 @@
     <main class="Main">
         <form action="{{route('invoice.update', $invoice->invoice_id)}}" method="POST" class="Form" id="FormInvoiceEdit" enctype="multipart/form-data">
             @csrf
-            <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+            <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="CustomerId" >Khách hàng <span class="RequiredSymbol">*</span></label>
                     <select class="FormSelect" name="customer_id" id="CustomerId">
@@ -15,7 +15,7 @@
                     </select>
                     <small class="FormErrorMessage"></small>
                 </div>
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="ProductType" >Mặt hàng <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="product_id" id="ProductType">
@@ -33,8 +33,8 @@
                     </div>
                 </div>
             </div>
-            <div class="FormGrid FormGrid_DesktopTwo">
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+            <div class="FormGrid FormGridDesktop_Two">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup">
                         <label class="FormLabel" for="InvoiceDiscount">Chiết khấu (VNĐ)</label>
                         <input class="FormInput" id="InvoiceDiscount" type="number" name="invoice_discount" value="{{$invoice->invoice_discount}}">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
 
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="InvoiceIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="invoice_ispayment" id="InvoiceIspayment">

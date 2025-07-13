@@ -6,13 +6,13 @@
         <form action="{{route('string.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormStringAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringName" >Tên cước <span class="RequiredSymbol">*</span></label>
                         <input class="FormInput" id="StringName" type="text" name="string_name">
                         <small class="FormErrorMessage"></small>
                     </div>
-                    <div class="FormGrid FormGrid_DesktopTwo">
+                    <div class="FormGrid FormGridDesktop_Two">
                         <div class="FormGroup FormValidate">
                             <label class="FormLabel" for="StringType" >Các loại cước <span class="RequiredSymbol">*</span></label>
                             <select class="FormSelect" name="string_type" id="StringType">
@@ -34,8 +34,8 @@
                     </div>
                 </div>
             </div>
-            <div class="FormGrid FormGrid_DesktopTwo">
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+            <div class="FormGrid FormGridDesktop_Two">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
                         <input class="FormInput" id="StringPriceInput" type="number" name="string_price_input">

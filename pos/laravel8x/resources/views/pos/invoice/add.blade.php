@@ -8,7 +8,7 @@
             <input type="hidden" id="CustomerId" name="customer_id">
             <input type="hidden" id="ProductId" name="product_id">
 
-            <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+            <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                 
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="CustomerName">Khách hàng <span class="RequiredSymbol">*</span></label>
@@ -34,8 +34,8 @@
                 </div>
             </div>
 
-            <div class="FormGrid FormGrid_DesktopTwo">
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+            <div class="FormGrid FormGridDesktop_Two">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="InvoiceStatus" >Trạng thái <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="invoice_status" id="InvoiceStatus">

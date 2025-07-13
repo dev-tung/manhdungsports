@@ -28,13 +28,13 @@
                     </div>
                     <small class="FormErrorMessage"></small>
                 </div>
-                <div class="FormGrid FormGrid_DesktopTwo">
+                <div class="FormGrid FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="ProductName" >Tên sản phẩm <span class="RequiredSymbol">*</span></label>
                         <input class="FormInput" id="ProductName" type="text" name="product_name">
                         <small class="FormErrorMessage"></small>
                     </div>
-                    <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                    <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                         <div class="FormGroup FormValidate">
                             <label class="FormLabel" for="ProductPriceInput" >Giá nhập <span class="RequiredSymbol">*</span></label>
                             <input class="FormInput" id="ProductPriceInput" type="number" name="product_price_input">
@@ -48,8 +48,8 @@
                     </div>
                 </div>
             </div>
-            <div class="FormGrid FormGrid_DesktopTwo">
-                <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
+            <div class="FormGrid FormGridDesktop_Two">
+                <div class="FormGrid FormGridDesktop_Two FormGridMobile_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="ProductQuantity" >Số lượng <span class="RequiredSymbol">*</span></label>
                         <input class="FormInput" id="ProductQuantity" type="number" name="product_quantity">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
 
-                <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
+                <div class="FormGrid FormGridDesktop_Two FormGridMobile_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="ProductType" >Loại sản phẩm <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="productype_id" id="ProductType">

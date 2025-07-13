@@ -6,7 +6,7 @@
         <form action="{{route('productype.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormproductypeAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
-                <div class="FormGrid FormGrid_DesktopTwo">
+                <div class="FormGrid FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="productypeName" >Tên danh mục <span class="RequiredSymbol">*</span></label>
                         <input class="FormInput" id="productypeName" type="text" name="productype_name">

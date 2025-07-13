@@ -55,35 +55,43 @@ class ProductAccess extends Access{
         return $query->first();
     }
 
-    public function insert($params){
-        DB::table($this->table)->insert([
-            'product_name' => $params['product_name'],
-            'product_price_input' => $params['product_price_input'],
-            'product_price_output' => $params['product_price_output'],
-            'product_description' => $params['product_description'],
-            'product_quantity' => $params['product_quantity'],
-            'product_thumbnail' => $params->newPath,
-            'product_unit' => $params['product_unit'],
-            'productype_id' => $params['productype_id']
-        ]);
+    public function insert($request){
+        $param['product_name'] = $request['product_name'];
+        $param['product_price_input'] = $request['product_price_input'];
+        $param['product_price_output'] = $request['product_price_output'];
+        $param['product_description'] = $request['product_description'];
+        $param['product_quantity'] = $request['product_quantity'];
+        $param['product_unit'] = $request['product_unit'];
+        $param['product_gender'] = $request['product_gender'];
+        $param['product_color'] = $request['product_color'];
+        $param['product_size'] = $request['product_size'];
+        $param['product_source'] = $request['product_source'];
+        $param['productype_id'] = $request['productype_id'];
+
+        DB::table($this->table)->insert($param);
     }
 
-    public function update($params){
-        $update['product_name'] = $params['product_name'];
-        $update['product_price_input'] = $params['product_price_input'];
-        $update['product_price_output'] = $params['product_price_output'];
-        $update['product_description'] = $params['product_description'];
-        $update['product_quantity'] = $params['product_quantity'];
-        $update['product_unit'] = $params['product_unit'];
-        $update['productype_id'] = $params['productype_id'];
+    public function update($request){
+        $param['product_name'] = $request['product_name'];
+        $param['product_price_input'] = $request['product_price_input'];
+        $param['product_price_output'] = $request['product_price_output'];
+        $param['product_description'] = $request['product_description'];
+        $param['product_quantity'] = $request['product_quantity'];
+        $param['product_unit'] = $request['product_unit'];
+        $param['product_gender'] = $request['product_gender'];
+        $param['product_color'] = $request['product_color'];
+        $param['product_size'] = $request['product_size'];
+        $param['product_source'] = $request['product_source'];
+        $param['productype_id'] = $request['productype_id'];
+        
 
-        if( !empty( $params->newPath ) ){
-            $update['product_thumbnail'] = $params->newPath;
+        if( !empty( $request->newPath ) ){
+            $param['product_thumbnail'] = $params->newPath;
         }
 
         DB::table($this->table)
-            ->where('product_id', $params->product_id)
-            ->update($update);
+            ->where('product_id', $request->product_id)
+            ->update($param);
     }
 
     public function updateQuantity($product_quantity, $product_id){

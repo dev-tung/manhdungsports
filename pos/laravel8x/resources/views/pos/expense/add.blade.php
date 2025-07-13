@@ -5,7 +5,7 @@
     <main class="Main">
         <form action="{{route('expense.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormExpenseAdd" enctype="multipart/form-data">
             @csrf
-            <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+            <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="ExpenseName">Chi phí <span class="RequiredSymbol">*</span></label>
                     <input class="FormInput" id="ExpenseName" type="text" name="expense_name">
@@ -21,7 +21,7 @@
                     <small class="FormErrorMessage"></small>
                 </div>
             </div>
-            <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+            <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="ExpenseMoney">Số tiền <span class="RequiredSymbol">*</span></label>
                     <input class="FormInput" id="ExpenseMoney" type="number" name="expense_money">
@@ -37,7 +37,7 @@
                     <small class="FormErrorMessage"></small>
                 </div>
             </div>
-            <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+            <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                 <div class="FormGroup">
                     <label class="FormLabel" for="ExpenseDescription">Ghi chú</label>
                     <input class="FormInput" id="ExpenseDescription" type="text" name="expense_decription">

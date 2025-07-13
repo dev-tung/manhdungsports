@@ -5,7 +5,7 @@
     <main class="Main">
         <form action="{{route('stringorder.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormStringorderAdd" enctype="multipart/form-data">
             @csrf
-            <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+            <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="CustomerId" >Khách hàng <span class="RequiredSymbol">*</span></label>
                     <select class="FormSelect" name="customer_id" id="CustomerId">
@@ -27,8 +27,8 @@
                 </div>
             </div>
 
-            <div class="FormGrid FormGrid_DesktopTwo">
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+            <div class="FormGrid FormGridDesktop_Two">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderStatus" >Trạng thái <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="stringorder_status" id="StringorderStatus">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
 
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup">
                         <label class="FormLabel" for="StringorderDiscount">Chiết khấu (VNĐ)</label>
                         <input class="FormInput" id="StringorderDiscount" type="number" name="stringorder_discount">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
 
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="StringorderIspayment" >Trạng thái thanh toán <span class="RequiredSymbol">*</span></label>
                         <select class="FormSelect" name="stringorder_ispayment" id="StringorderIspayment">
@@ -76,7 +76,7 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>
-                <div class="FormGrid FormGrid_MobileTwo FormGrid_DesktopTwo">
+                <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                     <div class="FormGroup">
                         <label class="FormLabel" for="StringorderDescription" >Ghi chú</label>
                         <input class="FormInput" id="StringorderDescription" type="text" name="stringorder_description">

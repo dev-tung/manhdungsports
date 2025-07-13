@@ -6,7 +6,7 @@
         <form action="{{route('customergroup.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormCustomergroupAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
-                <div class="FormGrid FormGrid_DesktopTwo">
+                <div class="FormGrid FormGridDesktop_Two">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="CustomergroupName" >Nhóm khách hàng <span class="RequiredSymbol">*</span></label>
                         <input class="FormInput" id="CustomergroupName" type="text" name="customergroup_name">

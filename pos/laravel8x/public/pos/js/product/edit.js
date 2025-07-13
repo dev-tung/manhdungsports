@@ -39,9 +39,6 @@ Validator({
         Validator.tbRequired({
             selector: '#ProductQuantity'
         }),
-        Validator.tbRequired({
-            selector: '#ProductUnit'
-        }),
         Validator.sbRequired({
             selector: '#ProductType'
         })

@@ -6,8 +6,8 @@
         <form action="{{route('customer.update', ['screen'=>'pos', 'customer_id' => $customer->customer_id] )}}" method="POST" class="Form" id="FormCustomerEdit" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
-                <div class="FormGrid FormGrid_DesktopTwo">
-                    <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
+                <div class="FormGrid FormGridDesktop_Two">
+                    <div class="FormGrid FormGridDesktop_Two FormGridMobile_Two">
                         <div class="FormGroup FormValidate">
                             <label class="FormLabel" for="CustomerName" >Tên khách hàng <span class="RequiredSymbol">*</span></label>
                             <input class="FormInput" id="CustomerName" type="text" name="customer_name" value="{{$customer->customer_name}}">
@@ -24,7 +24,7 @@
                             <small class="FormErrorMessage"></small>
                         </div>
                     </div>
-                    <div class="FormGrid FormGrid_DesktopTwo FormGrid_MobileTwo">
+                    <div class="FormGrid FormGridDesktop_Two FormGridMobile_Two">
                         <div class="FormGroup">
                             <label class="FormLabel" for="CustomerPhone" >Số điện thoại</label>
                             <input class="FormInput" id="CustomerPhone" type="text" name="customer_phone" value="{{$customer->customer_phone}}">

@@ -234,7 +234,7 @@ body {
 }
 
 @media only screen and (max-width: 767.9999px) {
-    .FormGrid_MobileTwo{
+    .FormGridMobile_Two{
         grid-template-columns: 1fr 1fr;
     }
 
@@ -254,7 +254,7 @@ body {
         gap: 15px;
     }
 
-    .FormGrid_DesktopTwo{
+    .FormGridDesktop_Two{
         grid-template-columns: 1fr 1fr;
     }
 
@@ -263,7 +263,7 @@ body {
     }
 
     .FormGridDesktop_Four{
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
 }
