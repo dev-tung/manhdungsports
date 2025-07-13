@@ -14,6 +14,20 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="Filter">
+                        <select class="ListSearchFormSelect" name="product_color" id="Color">
+                            @foreach(productColor() as $key => $item)
+                                <option value="{{$key}}" {{ (request()->product_color == $key) ? 'selected' : ''; }}>{{$item}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="Filter">
+                        <select class="ListSearchFormSelect" name="product_size" id="ProductSize">
+                            @foreach(productSize() as $key => $item)
+                                <option value="{{$key}}" {{ (request()->product_size == $key) ? 'selected' : ''; }}>{{$item}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <button class="ListSearchFormBtn" type="reset"><a href="{{route('product.index', ['screen'=>'pos'])}}">Xóa</a></button>
                     <button class="ListSearchFormBtn ListSearchFormBtn_Submit">
                         <svg class="ListSearchFormSubmitIcon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

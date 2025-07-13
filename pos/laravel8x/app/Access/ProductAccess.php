@@ -14,6 +14,14 @@ class ProductAccess extends Access{
             $searchParams[] = ['product_name', 'like', '%' . $request->product_name . '%'];
         }
 
+        if( !empty($request->product_size) ){
+            $searchParams[] = ['product_size', 'like', '%' . $request->product_size . '%'];
+        }
+
+        if( !empty($request->product_color) ){
+            $searchParams[] = ['product_color', 'like', '%' . $request->product_color . '%'];
+        }
+
         if( !empty($request->productype_id) ){
             $searchParams[] = ['productype.productype_id', 'like', '%' . $request->productype_id . '%'];
         }
