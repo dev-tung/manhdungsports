@@ -65,15 +65,22 @@ class InvoiceAccess extends Access{
     }
 
 
-    public function getFirst( $searchParams ){
-        $query = DB::table($this->table);
-        if( !empty( $searchParams ) ){
-            $query->where($searchParams);
+    public function getFirst( $invoice_id ){
+        $query = "
+            SELECT 
+                 *
+            FROM invoice 
+            JOIN customer ON invoice.customer_id = customer.customer_id
+            JOIN product ON invoice.product_id = product.product_id
+            WHERE invoice_id = $invoice_id
+        ";
+        $invoice = DB::select($query);
+        if( !empty( $invoice ) && isset( $invoice[0] ) ){
+            return $invoice[0];
         }
-        return $query->first();
     }
 
-    public function insert($request){
+    public function insert($request, $product){
         $param['customer_id'] = $request['customer_id'];
         $param['invoice_description'] = $request['invoice_description'];
         $param['product_id'] = $request['product_id'];
@@ -82,14 +89,14 @@ class InvoiceAccess extends Access{
         $param['invoice_ispayment'] = $request['invoice_ispayment'];
         $param['invoice_discount'] = $request['invoice_discount'];
         $param['invoice_quantity'] = $request['invoice_quantity'];
-        $param['invoice_revenue'] = invoiceRevenue($request, false);
-        $param['invoice_profit'] = invoiceProfit($request, false);
+        $param['invoice_revenue'] = invoiceRevenue($request, $product, false);
+        $param['invoice_profit'] = invoiceProfit($request, $product, false);
         $param['invoice_created_at'] = Carbon::now();
         $param['invoice_updated_at'] = Carbon::now();
         DB::table($this->table)->insert( $param );
     }
 
-    public function update($request){
+    public function update($request, $product){
         $param['customer_id'] = $request['customer_id'];
         $param['invoice_description'] = $request['invoice_description'];
         $param['product_id'] = $request['product_id'];
@@ -98,8 +105,8 @@ class InvoiceAccess extends Access{
         $param['invoice_ispayment'] = $request['invoice_ispayment'];
         $param['invoice_discount'] = $request['invoice_discount'];
         $param['invoice_quantity'] = $request['invoice_quantity'];
-        $param['invoice_revenue'] = invoiceRevenue($request, false);
-        $param['invoice_profit'] = invoiceProfit($request, false);
+        $param['invoice_revenue'] = invoiceRevenue($request, $product, false);
+        $param['invoice_profit'] = invoiceProfit($request, $product, false);
         $param['invoice_updated_at'] = Carbon::now();
 
         DB::table($this->table)

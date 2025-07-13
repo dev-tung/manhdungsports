@@ -100,7 +100,8 @@ if( !function_exists('invoiceStatus') ){
         0 => '<span class="Text_Danger">Chờ đặt hàng</span>',
         1 => '<span class="Text_Danger">Đã sẵn giao</span>',
         2 => '<span>Đã giao hàng</span>',
-        3 => '<span class="Text_Danger">Đang đặt hàng</span>'
+        3 => '<span class="Text_Danger">Đang đặt hàng</span>',
+        4 => '<span class="Text_Warning">Hủy đơn</span>'
     ];
 
     if( $key !== 'array' ) return array_key_exists($key, $optionArray) ? $optionArray[$key] : $optionArray[0];
@@ -110,13 +111,13 @@ if( !function_exists('invoiceStatus') ){
 
 
 if( !function_exists('invoiceRevenue') ){
-  function invoiceRevenue($invoice, $format = true){
+  function invoiceRevenue($request, $product, $format = true){
     
-    if( !empty( $invoice ) ){
-      $revenue = $invoice->product_price_output * $invoice->invoice_quantity;
+    if( !empty( $request ) ){
+      $revenue = $product->product_price_output * $request->invoice_quantity;
 
-      if( !empty($invoice->invoice_discount) ){
-        $revenue = $revenue - $invoice->invoice_discount;
+      if( !empty($request->invoice_discount) ){
+        $revenue = $revenue - $request->invoice_discount;
       }
 
       return $format ? commonNumberToVND( $revenue ) : $revenue ;
@@ -127,12 +128,12 @@ if( !function_exists('invoiceRevenue') ){
 }
 
 if( !function_exists('invoiceProfit') ){
-  function invoiceProfit($invoice, $format = true){
-    if( !empty( $invoice ) ){
-      $profit = ($invoice->product_price_output - $invoice->product_price_input ) * $invoice->invoice_quantity;
+  function invoiceProfit($request, $product, $format = true){
+    if( !empty( $request ) ){
+      $profit = ($product->product_price_output - $product->product_price_input ) * $request->invoice_quantity;
 
-      if( !empty($invoice->invoice_discount) ){
-        $profit = $profit - $invoice->invoice_discount;
+      if( !empty($request->invoice_discount) ){
+        $profit = $profit - $request->invoice_discount;
       }
 
       return $format ? commonNumberToVND( $profit ) : $profit ;

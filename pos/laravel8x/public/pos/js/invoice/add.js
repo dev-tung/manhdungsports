@@ -225,7 +225,7 @@ let productToggleSearchKeyup = function(object){
 
                 ProductSearchResult.innerHTML = '';
                 object.products.forEach(Item => {
-                    let Content = Item.product_name + ' - ' + Item.productype_name;
+                    let Content = Item.productype_name + ' - ' + Item.product_name;
                     if( Content.toUpperCase().indexOf(SearchValue.toUpperCase()) != -1 ){
                         Content = Content.replace(new RegExp(SearchValue, 'gi'), '<mark>$&</mark>');
                         ProductSearchResult.innerHTML += 

@@ -39,7 +39,8 @@ class InvoiceController extends Controller
     }
 
     public function insert(Request $request){
-        $this->_invoiceAccess->insert($request);
+        $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
+        $this->_invoiceAccess->insert($request, $product);
         $this->_productAccess->updateQuantity($request->product_quantity - $request->invoice_quantity, $request->product_id);
         return redirect()->route('invoice.index', ['screen'=>'pos']);
     }
@@ -47,17 +48,18 @@ class InvoiceController extends Controller
     public function edit(Request $request){
         $customers = $this->_customerAccess->get($request);
         $products = $this->_productAccess->get($request);
-        $invoice = $this->_invoiceAccess->getFirst(['invoice_id' => $request->invoice_id]);
+        $invoice = $this->_invoiceAccess->getFirst($request->invoice_id);
         return view($request->screen.'.invoice.edit', ['invoice' => $invoice, 'customers' => $customers, 'products' => $products]);
     }
 
     public function update(Request $request){
-        $this->_invoiceAccess->update($request);
+        $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
+        $this->_invoiceAccess->update($request, $product);
         return redirect()->route('invoice.index', ['screen'=>'pos']);
     }
 
     public function delete(Request $request){
-        $product = $this->_invoiceAccess->getFirst(['invoice_id' => $request->invoice_id]);
+        $product = $this->_invoiceAccess->getFirst($request->invoice_id);
         $this->_invoiceAccess->delete(['invoice_id' => $request->invoice_id]);
         return redirect()->route('invoice.index', ['screen'=>'pos']);
     }

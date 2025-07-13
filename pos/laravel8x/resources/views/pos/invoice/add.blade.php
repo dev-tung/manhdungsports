@@ -24,7 +24,7 @@
 
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="InvoiceQuantity">Số lượng <span class="RequiredSymbol">*</span></label>
-                    <input class="FormInput" id="InvoiceQuantity" type="number" name="invoice_quantity">
+                    <input class="FormInput" id="InvoiceQuantity" type="number" name="invoice_quantity" value="1">
                     <small class="FormErrorMessage"></small>
                 </div>
                 <div class="FormGroup FormValidate">
