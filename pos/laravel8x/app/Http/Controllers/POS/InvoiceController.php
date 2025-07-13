@@ -41,7 +41,7 @@ class InvoiceController extends Controller
     public function insert(Request $request){
         $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
         $this->_invoiceAccess->insert($request, $product);
-        $this->_productAccess->updateQuantity($request->product_quantity - $request->invoice_quantity, $request->product_id);
+        $this->_productAccess->updateQuantity($request, $product);
         return redirect()->route('invoice.index', ['screen'=>'pos']);
     }
 
@@ -55,6 +55,7 @@ class InvoiceController extends Controller
     public function update(Request $request){
         $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
         $this->_invoiceAccess->update($request, $product);
+        $this->_productAccess->updateQuantity($request, $product);
         return redirect()->route('invoice.index', ['screen'=>'pos']);
     }
 

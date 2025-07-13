@@ -24,7 +24,7 @@
 
                 <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="InvoiceQuantity">Số lượng <span class="RequiredSymbol">*</span></label>
-                    <input class="FormInput" id="InvoiceQuantity" type="number" name="invoice_quantity" value="{{$invoice->invoice_quantity}}">
+                    <input class="FormInput" id="InvoiceQuantity" type="number" name="invoice_quantity" value="{{$invoice->invoice_quantity}}" readonly>
                     <small class="FormErrorMessage"></small>
                 </div>
                 <div class="FormGroup FormValidate">

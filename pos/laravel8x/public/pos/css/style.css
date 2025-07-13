@@ -688,6 +688,13 @@ th{
     text-align: center;
 }
 
+.TableData_Flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
 .TableAction_Link{
     text-decoration: none;
     color :var(--color-primary);

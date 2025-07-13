@@ -229,7 +229,7 @@ let productToggleSearchKeyup = function(object){
                     if( Content.toUpperCase().indexOf(SearchValue.toUpperCase()) != -1 ){
                         Content = Content.replace(new RegExp(SearchValue, 'gi'), '<mark>$&</mark>');
                         ProductSearchResult.innerHTML += 
-                        `<div class="ProductSearchItem" data-product_id="${Item.product_id}" data-product_name="${Item.product_name}">
+                        `<div class="ProductSearchItem" data-product_id="${Item.product_id}" data-product_name="${Item.product_name}" data-product_quantity="${Item.product_quantity}">
                             <div class="ProductSearchContent">
                                 <p class="CustomerSearchTitle">${Item.product_name} - ${Item.product_price_output}</p>  
                                 <p class="ProductSearchContent-Desc">${Content}</p>
@@ -241,10 +241,11 @@ let productToggleSearchKeyup = function(object){
                 document.querySelectorAll('.ProductSearchItem').forEach(item => {
                     item.addEventListener("click", function(){
                         document.getElementById('ProductId').value = item.getAttribute('data-product_id');
-                        let productName = document.getElementById('ProductName');
-                        productName.value = item.getAttribute('data-product_name');
-                        productName.focus();
-                        productName.blur();
+                        document.getElementById('InvoiceQuantity').value = item.getAttribute('data-product_quantity');
+                        document.getElementById('InvoiceQuantity').setAttribute('max', item.getAttribute('data-product_quantity'));
+                        document.getElementById('ProductName').value = item.getAttribute('data-product_name');
+                        document.getElementById('ProductName').focus();
+                        document.getElementById('ProductName').blur();
                         _productSearchBox.classList.remove("Show");
                     });
                 })

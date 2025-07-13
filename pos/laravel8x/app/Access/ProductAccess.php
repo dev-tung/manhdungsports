@@ -95,11 +95,22 @@ class ProductAccess extends Access{
             ->update($param);
     }
 
-    public function updateQuantity($product_quantity, $product_id){
-        $update['product_quantity'] = $product_quantity;
-        DB::table($this->table)
-            ->where('product_id', $product_id)
-            ->update($update);
+    public function updateQuantity($request, $product){
+        if( !isset( $request->invoice_id ) ){
+            $update['product_quantity'] = $product->product_quantity - $request->invoice_quantity;
+            DB::table($this->table)
+                ->where('product_id', $product->product_id)
+                ->update($update);
+            return true;
+        }
+
+        if( $request->invoice_id && $request->invoice_status == 4 ){
+            $update['product_quantity'] = $product->product_quantity + $request->invoice_quantity;
+            DB::table($this->table)
+                ->where('product_id', $product->product_id)
+                ->update($update);
+            return true;
+        }
     }
 
     public function delete( $searchParams ){
