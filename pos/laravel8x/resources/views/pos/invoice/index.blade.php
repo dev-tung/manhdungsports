@@ -53,9 +53,9 @@
                         <th class="TableData">Ngày</th>
                         <th class="TableData">Khách hàng</th>
                         <th class="TableData">Nhóm khách hàng</th>
+                         <th class="TableData">Danh mục</th>
                         <th class="TableData">Sản phẩm</th>
                         <th class="TableData">Số lượng</th>
-                        <th class="TableData">Danh mục</th>
                         <th class="TableData">Chiết khấu</th>
                         <th class="TableData">Giá tiền</th>
                         <th class="TableData">Lợi nhuận</th>
@@ -70,9 +70,9 @@
                             <td class="TableData TableData_Center">{{ date('d-m-Y', strtotime($invoice->invoice_created_at)) }}</td>
                             <td class="TableData">{{ $invoice->customer_name }}</td>
                             <td class="TableData">{{ $invoice->customergroup_name }}</td>
+                            <td class="TableData">{{ $invoice->productype_name}}</td>
                             <td class="TableData">{{ $invoice->product_name}}</td>
                             <td class="TableData TableData_Center">{{ $invoice->invoice_quantity}}</td>
-                            <td class="TableData">{{ $invoice->productype_name}}</td>
                             <td class="TableData">{{ commonNumberToVND($invoice->invoice_discount) }}</td>
                             <td class="TableData">{{ commonNumberToVND($invoice->invoice_revenue) }}</td>
                             <td class="TableData">{{ commonNumberToVND($invoice->invoice_profit) }}</td>

@@ -16,7 +16,17 @@ class ProductController extends Controller
     }
 
     public function get(Request $request){
-        $products = $this->_productAccess->get($request);
+        $products = $this->_productAccess->selling();
+        foreach( $products as $key => $product ){
+            $products[$key]->product_color  = productColor($product->product_color);
+            $products[$key]->product_size   = productSize($product->product_size);
+            $products[$key]->product_unit   = productUnit($product->product_unit);
+            $products[$key]->product_gender = productGender($product->product_gender);
+            $products[$key]->product_source = productSource($product->product_source);
+            $products[$key]->product_price_input = commonNumberToVND($product->product_price_input);
+            $products[$key]->product_price_output = commonNumberToVND($product->product_price_output);
+        }
+        
         return response()->json([
             'success' => true,
             'products' => $products

@@ -51,7 +51,7 @@ table {
     --color-border : #dadada;
     --color-primary : rgb(0, 153, 255);
     --color-primary-hover : rgb(3, 122, 201);
-    --color-success : rgb(38, 184, 69);
+    --color-success : rgb(10 149 39);
     --color-success-hover : rgb(9, 141, 38);
     --color-danger : rgb(255, 51, 0);
     --color-danger-hover : rgb(201, 3, 3);
@@ -860,7 +860,7 @@ th{
 
 .CustomerSearchTitle{
     margin-bottom: 6px;
-    font-size: 14px;
+    font-size: 12px;
     color: var(--color-success);
     font-weight: 600;
 }
@@ -1026,6 +1026,14 @@ th{
     border-radius: 5px;
     background-color: white;
     color: rgba(33, 37, 41, 0.75);
+}
+
+.ProductSearchContent:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.ProductSearchContent-Desc{
+    font-size: 11px;
 }
 
 .ProductSearchResult_No{

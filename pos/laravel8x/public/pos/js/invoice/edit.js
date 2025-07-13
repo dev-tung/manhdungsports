@@ -225,12 +225,13 @@ let productToggleSearchKeyup = function(object){
 
                 ProductSearchResult.innerHTML = '';
                 object.products.forEach(Item => {
-                    let Content = Item.productype_name + ' - ' + Item.product_name;
+                    let Content = '[' +Item.productype_name + '] ' + Item.product_name + ' - ' + Item.product_color;
                     if( Content.toUpperCase().indexOf(SearchValue.toUpperCase()) != -1 ){
                         Content = Content.replace(new RegExp(SearchValue, 'gi'), '<mark>$&</mark>');
                         ProductSearchResult.innerHTML += 
                         `<div class="ProductSearchItem" data-product_id="${Item.product_id}" data-product_name="${Item.product_name}">
                             <div class="ProductSearchContent">
+                                <p class="CustomerSearchTitle">${Item.product_name} - ${Item.product_price_output}</p>  
                                 <p class="ProductSearchContent-Desc">${Content}</p>
                             </div>
                         </div>`;

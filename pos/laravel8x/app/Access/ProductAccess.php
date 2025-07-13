@@ -36,6 +36,7 @@ class ProductAccess extends Access{
     public function selling(){
         $query = "
             SELECT * FROM product
+            JOIN productype ON product.productype_id = productype.productype_id
             WHERE product_quantity > 0
         ";
         return DB::select($query);

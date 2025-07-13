@@ -4,7 +4,7 @@ if( !function_exists('productColor') ){
   function productColor($key = 'array'){
     
     $colorArray = [
-      0 => 'Khác',
+      0 => 'Trộn màu',
       1 => 'Trắng',
       2 => 'Đen',
       3 => 'Đỏ',
@@ -29,7 +29,16 @@ if( !function_exists('productSize') ){
       2 => 'M',
       3 => 'L',
       4 => 'XL',
-      5 => 'XXL'
+      5 => 'XXL',
+      6 => '36',
+      7 => '37',
+      8 => '38',
+      9 => '39',
+      10 => '40',
+      11 => '41',
+      12 => '42',
+      13 => '43',
+      14 => '44'
     ];
 
     if( $key !== 'array' ) return array_key_exists($key, $sizeArray) ? $sizeArray[$key] : $sizeArray[0];
