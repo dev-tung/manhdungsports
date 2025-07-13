@@ -53,7 +53,7 @@
                             <td class="TableData">{{ productColor($product->product_color) }}</td>
                             <td class="TableData">{{ productSize($product->product_size) }}</td>
                             <td class="TableData">{{ $product->productype_name }}</td>
-                            <td class="TableData">{{ $product->product_quantity }}</td>
+                            <td class="TableData TableData_Center">{{ $product->product_quantity }}</td>
                             <td class="TableData">{{ productUnit($product->product_unit) }}</td>
                             <td class="TableData">{{ productGender($product->product_gender) }}</td>
                             <td class="TableData">{{ productSource($product->product_source) }}</td>
