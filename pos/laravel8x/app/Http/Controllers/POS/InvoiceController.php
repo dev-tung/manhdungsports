@@ -5,6 +5,7 @@ namespace App\Http\Controllers\POS;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Access\InvoiceAccess;
+use App\Access\ExpenseAccess;
 use App\Access\ProductAccess;
 use App\Access\CustomerAccess;
 use App\Access\ProductypeAccess;
@@ -15,6 +16,7 @@ class InvoiceController extends Controller
     function __construct() {
         $this->_invoiceAccess = new InvoiceAccess();
         $this->_productAccess = new ProductAccess();
+        $this->_expenseAccess = new ExpenseAccess();
         $this->_invoiceService = new InvoiceService();
         $this->_customerAccess = new CustomerAccess();
         $this->_productypeAccess = new ProductypeAccess();

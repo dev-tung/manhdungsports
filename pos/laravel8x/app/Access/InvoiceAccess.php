@@ -81,6 +81,7 @@ class InvoiceAccess extends Access{
     }
 
     public function insert($request, $product){
+
         $param['customer_id'] = $request['customer_id'];
         $param['invoice_description'] = $request['invoice_description'];
         $param['product_id'] = $request['product_id'];
@@ -93,6 +94,13 @@ class InvoiceAccess extends Access{
         $param['invoice_profit'] = invoiceProfit($request, $product, false);
         $param['invoice_created_at'] = $request['invoice_created_at'];
         $param['invoice_updated_at'] = Carbon::now()->format('Y-m-d');
+
+        if( $param['invoice_status'] == 5 ){
+            $param['invoice_discount'] = invoiceRevenue($request, $product, false);
+            $param['invoice_profit'] = -($product->product_price_input * $request['invoice_quantity']);
+            $param['invoice_ispayment'] = 1;
+        }
+
         DB::table($this->table)->insert( $param );
     }
 
@@ -109,6 +117,13 @@ class InvoiceAccess extends Access{
         $param['invoice_profit'] = invoiceProfit($request, $product, false);
         $param['invoice_created_at'] = $request['invoice_created_at'];
         $param['invoice_updated_at'] = Carbon::now()->format('Y-m-d');
+
+        if( $param['invoice_status'] == 5 ){
+            $param['invoice_discount'] = invoiceRevenue($request, $product, false);
+            $param['invoice_profit'] = -($product->product_price_input * $request['invoice_quantity']);
+            $param['invoice_ispayment'] = 1;
+        }
+
 
         DB::table($this->table)
         ->where('invoice_id', $request->invoice_id)

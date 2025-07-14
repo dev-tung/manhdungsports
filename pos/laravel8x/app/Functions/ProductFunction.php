@@ -110,7 +110,8 @@ if( !function_exists('invoiceStatus') ){
         1 => '<span class="Text_Danger">Đã sẵn giao</span>',
         2 => '<span>Đã giao hàng</span>',
         3 => '<span class="Text_Danger">Đang đặt hàng</span>',
-        4 => '<span class="Text_Warning">Hủy đơn</span>'
+        4 => '<span class="Text_Warning">Hủy đơn</span>',
+        5 => '<span class="Text_Info">Tặng kèm</span>'
     ];
 
     if( $key !== 'array' ) return array_key_exists($key, $optionArray) ? $optionArray[$key] : $optionArray[0];
@@ -121,7 +122,6 @@ if( !function_exists('invoiceStatus') ){
 
 if( !function_exists('invoiceRevenue') ){
   function invoiceRevenue($request, $product, $format = true){
-    
     if( !empty( $request ) ){
       $revenue = $product->product_price_output * $request->invoice_quantity;
 
