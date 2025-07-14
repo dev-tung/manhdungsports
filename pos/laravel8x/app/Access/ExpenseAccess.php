@@ -93,19 +93,4 @@ class ExpenseAccess extends Access{
         return DB::table($this->table)->where($searchParams)->delete();
     }
 
-    public function productBonus($request, $product){
-        if( $request->invoice_status == 5 ){
-            $param['expense_name']  = $product->product_name;
-            $param['expense_description'] = $request->customer_name;
-            $param['expense_money'] = $product->product_price_input * $request->invoice_quantity;
-            $param['expensetype_id'] = 1;
-            $param['expense_ispayment']  = 1;
-            $param['expense_created_at'] = Carbon::now();
-            $param['expense_updated_at'] = Carbon::now();
-
-            DB::table($this->table)->insert($param);
-            return true;
-        }
-    }
-
 }

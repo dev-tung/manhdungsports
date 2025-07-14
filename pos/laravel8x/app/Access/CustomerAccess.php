@@ -22,8 +22,6 @@ class CustomerAccess extends Access{
     }
 
     public function get( $request = null ){
-        
-        
         $query = "
             SELECT * FROM `customer` customer 
             JOIN customergroup customergroup 
