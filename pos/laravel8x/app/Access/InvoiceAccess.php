@@ -88,18 +88,12 @@ class InvoiceAccess extends Access{
         $param['invoice_status'] = $request['invoice_status'];
         $param['invoice_timereturn'] = $request['invoice_timereturn'];
         $param['invoice_ispayment'] = $request['invoice_ispayment'];
-        $param['invoice_discount'] = $request['invoice_discount'];
         $param['invoice_quantity'] = $request['invoice_quantity'];
         $param['invoice_revenue'] = invoiceRevenue($request, $product, false);
         $param['invoice_profit'] = invoiceProfit($request, $product, false);
+        $param['invoice_discount'] = invoiceDiscount($request, $product, false);
         $param['invoice_created_at'] = $request['invoice_created_at'];
         $param['invoice_updated_at'] = Carbon::now()->format('Y-m-d');
-
-        if( $param['invoice_status'] == 5 ){
-            $param['invoice_discount'] = invoiceRevenue($request, $product, false);
-            $param['invoice_profit'] = -($product->product_price_input * $request['invoice_quantity']);
-            $param['invoice_ispayment'] = 1;
-        }
 
         DB::table($this->table)->insert( $param );
     }
@@ -111,19 +105,12 @@ class InvoiceAccess extends Access{
         $param['invoice_status'] = $request['invoice_status'];
         $param['invoice_timereturn'] = $request['invoice_timereturn'];
         $param['invoice_ispayment'] = $request['invoice_ispayment'];
-        $param['invoice_discount'] = $request['invoice_discount'];
         $param['invoice_quantity'] = $request['invoice_quantity'];
         $param['invoice_revenue'] = invoiceRevenue($request, $product, false);
         $param['invoice_profit'] = invoiceProfit($request, $product, false);
+        $param['invoice_discount'] = invoiceDiscount($request, $product, false);
         $param['invoice_created_at'] = $request['invoice_created_at'];
         $param['invoice_updated_at'] = Carbon::now()->format('Y-m-d');
-
-        if( $param['invoice_status'] == 5 ){
-            $param['invoice_discount'] = invoiceRevenue($request, $product, false);
-            $param['invoice_profit'] = -($product->product_price_input * $request['invoice_quantity']);
-            $param['invoice_ispayment'] = 1;
-        }
-
 
         DB::table($this->table)
         ->where('invoice_id', $request->invoice_id)

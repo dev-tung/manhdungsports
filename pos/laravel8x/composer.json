@@ -29,6 +29,7 @@
         "files" : [
             "app/Functions/CommonFunction.php",
             "app/Functions/ProductFunction.php",
+            "app/Functions/InvoiceFunction.php",
             "app/Functions/ExpenseFunction.php"
         ]
     },
