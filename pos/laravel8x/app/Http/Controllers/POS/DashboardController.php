@@ -23,13 +23,15 @@ class DashboardController extends Controller
 
         $todayTotalRevenue = array_sum(array_column($todayInvoiceMoney, 'invoice_revenue'));
         $todayExpenseMoney = array_sum(array_column($todayExpenseMoney, 'expense_money'));
-        $todayTotalProfit  = array_sum(array_column($todayInvoiceMoney, 'invoice_profit')) - $todayExpenseMoney;
+        $todayTotalProfit  = array_sum(array_column($todayInvoiceMoney, 'invoice_profit'));
+        $todayTotalActualProfit  = array_sum(array_column($todayInvoiceMoney, 'invoice_profit')) - $todayExpenseMoney;
 
         return view($request->screen.'.dashboard.index', [
             'todayTotalRevenue' => commonNumberToVND($todayTotalRevenue),
             'todayTotalProfit'  => commonNumberToVND($todayTotalProfit),
             'todayExpenseMoney' => commonNumberToVND($todayExpenseMoney),
-            'priceTotalInput'   => commonNumberToVND($priceTotalInput)
+            'priceTotalInput'   => commonNumberToVND($priceTotalInput),
+            'todayTotalActualProfit'   => commonNumberToVND($todayTotalActualProfit)
         ]);
     }
 }

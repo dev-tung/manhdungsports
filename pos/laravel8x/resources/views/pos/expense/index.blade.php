@@ -52,7 +52,7 @@
                 <tbody> 
                     @foreach( $expenses as $key => $expense )
                         <tr class="TableRow">
-                            <td class="TableData TableData_Center">{{ date('d-m-Y', strtotime($expense->expense_created_at)) }}</td>
+                            <td class="TableData TableData_Center">{{ date('Y-m-d', strtotime($expense->expense_created_at)) }}</td>
                             <td class="TableData">{{ $expense->expense_name }}</td>
                             <td class="TableData">{{ expenseType($expense->expensetype_id) }}</td>
                             <td class="TableData">{{ commonNumberToVND($expense->expense_money) }}</td>

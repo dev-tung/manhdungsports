@@ -15,9 +15,13 @@
                     <h3 class="CardTitle">Chi tiêu hôm nay</h3>
                     <p class="CardValue">{{ $todayExpenseMoney }}</p>
                 </div>
-                <div class="CardGridItem Bg_Danger">
+                <div class="CardGridItem Bg_Info">
                     <h3 class="CardTitle">Lợi nhuận hôm nay</h3>
                     <p class="CardValue">{{ $todayTotalProfit }}</p>
+                </div>
+                <div class="CardGridItem Bg_Danger">
+                    <h3 class="CardTitle">Lợi nhuận sau chi tiêu hôm nay</h3>
+                    <p class="CardValue">{{ $todayTotalActualProfit }}</p>
                 </div>
             </div>
         </main>

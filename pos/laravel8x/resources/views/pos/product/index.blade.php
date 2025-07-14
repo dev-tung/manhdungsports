@@ -49,7 +49,7 @@
                         <th class="TableData">Ảnh</th>
                         <th class="TableData">Tên sản phẩm</th>
                         <th class="TableData">Màu sắc</th>
-                        <th class="TableData">Kích thước</th>
+                        <th class="TableData">Size</th>
                         <th class="TableData">Loại sản phẩm</th>
                         <th class="TableData">Tồn kho</th>
                         <th class="TableData">Đơn vị</th>

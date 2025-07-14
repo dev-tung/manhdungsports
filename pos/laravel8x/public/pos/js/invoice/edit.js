@@ -241,7 +241,7 @@ let productToggleSearchKeyup = function(object){
                 document.querySelectorAll('.ProductSearchItem').forEach(item => {
                     item.addEventListener("click", function(){
                         document.getElementById('ProductId').value = item.getAttribute('data-product_id');
-                        document.getElementById('InvoiceQuantity').value = item.getAttribute('data-product_quantity');
+                        document.getElementById('InvoiceQuantity').value = 1;
                         document.getElementById('InvoiceQuantity').setAttribute('max', item.getAttribute('data-product_quantity'));
                         document.getElementById('ProductName').value = item.getAttribute('data-product_name');
                         document.getElementById('ProductName').focus();
