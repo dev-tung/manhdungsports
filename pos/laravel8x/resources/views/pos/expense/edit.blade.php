@@ -38,6 +38,11 @@
                 </div>
             </div>
             <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
+                <div class="FormGroup FormValidate">
+                    <label class="FormLabel" for="ExpenseCreatedAt">Ngày tạo</label>
+                    <input class="FormInput" id="ExpenseCreatedAt" type="date" name="expense_created_at" value="{{ date('Y-m-d', strtotime($expense->expense_created_at)) }}">
+                    <small class="FormErrorMessage"></small>
+                </div> 
                 <div class="FormGroup">
                     <label class="FormLabel" for="ExpenseDescription">Ghi chú</label>
                     <input class="FormInput" id="ExpenseDescription" type="text" name="expense_description"  value="{{$expense->expense_description}}">

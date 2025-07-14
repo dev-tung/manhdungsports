@@ -56,6 +56,11 @@
                     </div>
                 </div>
                 <div class="FormGroup FormValidate">
+                    <label class="FormLabel" for="InvoiceCreatedAt">Ngày tạo</label>
+                    <input class="FormInput" id="InvoiceCreatedAt" type="date" name="invoice_created_at" value="{{ date('Y-m-d', strtotime($invoice->invoice_created_at)) }}">
+                    <small class="FormErrorMessage"></small>
+                </div> 
+                <div class="FormGroup FormValidate">
                     <label class="FormLabel" for="InvoiceDescription" >Ghi chú</label>
                     <input class="FormInput" id="InvoiceDescription" type="text" name="invoice_description" value="{{$invoice->invoice_description}}">
                     <small class="FormErrorMessage"></small>

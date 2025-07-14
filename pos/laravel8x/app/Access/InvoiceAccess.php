@@ -91,7 +91,7 @@ class InvoiceAccess extends Access{
         $param['invoice_quantity'] = $request['invoice_quantity'];
         $param['invoice_revenue'] = invoiceRevenue($request, $product, false);
         $param['invoice_profit'] = invoiceProfit($request, $product, false);
-        $param['invoice_created_at'] = Carbon::now();
+        $param['invoice_created_at'] = $request['invoice_created_at'];
         $param['invoice_updated_at'] = Carbon::now();
         DB::table($this->table)->insert( $param );
     }
@@ -107,6 +107,7 @@ class InvoiceAccess extends Access{
         $param['invoice_quantity'] = $request['invoice_quantity'];
         $param['invoice_revenue'] = invoiceRevenue($request, $product, false);
         $param['invoice_profit'] = invoiceProfit($request, $product, false);
+        $param['invoice_created_at'] = $request['invoice_created_at'];
         $param['invoice_updated_at'] = Carbon::now();
 
         DB::table($this->table)

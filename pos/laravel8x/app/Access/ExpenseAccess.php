@@ -69,7 +69,7 @@ class ExpenseAccess extends Access{
         $param['expensetype_id'] = $request['expensetype_id'];
         $param['expense_money'] = $request['expense_money'];
         $param['expense_ispayment'] = $request['expense_ispayment'];
-        $param['expense_created_at'] = Carbon::now();
+        $param['expense_created_at'] = $request['expense_created_at'];
         $param['expense_updated_at'] = Carbon::now();
 
         DB::table($this->table)->insert($param);
@@ -81,6 +81,7 @@ class ExpenseAccess extends Access{
         $param['expensetype_id'] = $request['expensetype_id'];
         $param['expense_money'] = $request['expense_money'];
         $param['expense_ispayment'] = $request['expense_ispayment'];
+        $param['expense_created_at'] = $request['expense_created_at'];
         $param['expense_updated_at'] = Carbon::now();
 
         DB::table($this->table)
