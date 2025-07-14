@@ -7,21 +7,21 @@ class ProductypeAccess extends Access{
 
     private $table = 'productype';
 
-    public function searchParam($request){
+    public function search($request){
         $searchParams = [];
 
         if( !empty($request->productype_name) ){
             $searchParams[] = ['productype_name', 'like', '%' . $request->productype_name . '%'];
         }
 
-        return $searchParams;
+        return $this->buildCondition($searchParams);
     }
 
     public function get( $request = null ){
         $query = DB::table($this->table);
 
         if( !empty($request) ){
-            $searchParams = $this->searchParam($request);
+            $searchParams = $this->search($request);
 
             if( !empty( $searchParams ) ){
                 $query->where($searchParams);

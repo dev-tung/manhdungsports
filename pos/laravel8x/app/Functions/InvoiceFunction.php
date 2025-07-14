@@ -8,7 +8,7 @@ if( !function_exists('invoiceStatus') ){
         2 => '<span>Đã giao hàng</span>',
         3 => '<span class="Text_Danger">Đang đặt hàng</span>',
         4 => '<span class="Text_Warning">Hủy đơn</span>',
-        5 => '<span class="Text_Info">Tặng kèm</span>'
+        5 => '<span class="Text_Info">Tặng hoặc Lỗi</span>'
     ];
 
     if( $key !== 'array' ) return array_key_exists($key, $optionArray) ? $optionArray[$key] : $optionArray[0];

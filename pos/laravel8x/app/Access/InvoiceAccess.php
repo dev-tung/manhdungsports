@@ -8,7 +8,7 @@ class InvoiceAccess extends Access{
 
     private $table = 'invoice';
 
-    public function searchParam($request){
+    public function search($request){
         $searchParams = [];
 
         if( !empty($request->invoice_name) ) {
@@ -31,19 +31,17 @@ class InvoiceAccess extends Access{
             $searchParams[] = ['invoice_created_at', '<=', $request->invoice_created_at_to .' 12:00:00'];
         }
 
-        return $searchParams;
+        return $this->buildCondition($searchParams);
     }
 
     public function get( $request){
-        $searchParam = $this->searchParam($request);
-        $WHERE = $this->conditionBuilder($searchParam);
         $query = "
             SELECT * FROM invoice
             JOIN customer ON invoice.customer_id = customer.customer_id
             JOIN customergroup ON customergroup.customergroup_id = customer.customergroup_id
             JOIN product ON invoice.product_id = product.product_id
             JOIN productype ON productype.productype_id = product.productype_id
-            $WHERE
+            $this->search($request)
             ORDER BY invoice_created_at DESC, customer.customer_name
         ";
         return DB::select($query);

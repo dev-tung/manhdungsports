@@ -7,7 +7,7 @@ class CustomerAccess extends Access{
 
     private $table = 'customer';
 
-    public function searchParam($request){
+    public function search($request){
         $searchParams = [];
 
         if( !empty($request->customer_name) ){
@@ -18,18 +18,17 @@ class CustomerAccess extends Access{
             $searchParams[] = ['customergroup.customergroup_id', 'like', '%' . $request->customergroup_id . '%'];
         }
 
-        return $searchParams;
+        return $this->buildCondition($searchParams);
     }
 
     public function get( $request = null ){
-        $searchParam = $this->searchParam($request);
-        $WHERE = $this->conditionBuilder($searchParam);
+        
         
         $query = "
             SELECT * FROM `customer` customer 
             JOIN customergroup customergroup 
             ON customer.customergroup_id = customergroup.customergroup_id
-            $WHERE
+            $this->search($request)
             ORDER BY customergroup.customergroup_name
         ";
 

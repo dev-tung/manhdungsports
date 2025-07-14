@@ -7,7 +7,7 @@ class ProductAccess extends Access{
 
     private $table = 'product';
 
-    public function searchParam($request){
+    public function search($request){
         $searchParams = [];
 
         if( !empty($request->product_name) ){
@@ -26,16 +26,15 @@ class ProductAccess extends Access{
             $searchParams[] = ['productype.productype_id', 'like', '%' . $request->productype_id . '%'];
         }
 
-        return $searchParams;
+        return $this->buildCondition($searchParams);
     }
 
     public function get( $request){
-        $searchParam = $this->searchParam($request);
-        $WHERE = $this->conditionBuilder($searchParam);
+        
         $query = "
             SELECT * FROM product
             JOIN productype ON product.productype_id = productype.productype_id
-            $WHERE
+            $this->search($request)
             ORDER BY productype.productype_name
         ";
         return DB::select($query);

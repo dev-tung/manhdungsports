@@ -3,7 +3,7 @@
 namespace App\Access;
 
 class Access {
-    public function conditionBuilder($searchParams){
+    public function buildCondition($searchParams){
         if( empty($searchParams)) return '';
 
         $searchParamString = 'WHERE ';

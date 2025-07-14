@@ -8,7 +8,7 @@ class ExpenseAccess extends Access{
 
     private $table = 'expense';
 
-    public function searchParam($request){
+    public function search($request){
         $searchParams = [];
 
         if( !empty($request->expense_name) ){
@@ -27,7 +27,7 @@ class ExpenseAccess extends Access{
             $searchParams[] = ['expense_created_at', '<=', $request->expense_created_at_to .' 12:00:00'];
         }
 
-        return $searchParams;
+        return $this->buildCondition($searchParams);
     }
 
     public function todayMoney(){
@@ -44,7 +44,7 @@ class ExpenseAccess extends Access{
         $query = DB::table($this->table);
 
         if( !empty($request) ){
-            $searchParams = $this->searchParam($request);
+            $searchParams = $this->search($request);
 
             if( !empty( $searchParams ) ){
                 $query->where($searchParams);
