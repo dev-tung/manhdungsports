@@ -44,7 +44,7 @@ class InvoiceAccess extends Access{
             JOIN product ON invoice.product_id = product.product_id
             JOIN productype ON productype.productype_id = product.productype_id
             $WHERE
-            ORDER BY invoice_created_at DESC
+            ORDER BY invoice_created_at DESC, customer.customer_name
         ";
         return DB::select($query);
     }
