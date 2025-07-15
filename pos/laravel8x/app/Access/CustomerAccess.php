@@ -22,11 +22,12 @@ class CustomerAccess extends Access{
     }
 
     public function get( $request = null ){
+        $WHERE = $this->search($request);
         $query = "
             SELECT * FROM `customer` customer 
             JOIN customergroup customergroup 
             ON customer.customergroup_id = customergroup.customergroup_id
-            $this->search($request)
+            $WHERE
             ORDER BY customergroup.customergroup_name
         ";
 

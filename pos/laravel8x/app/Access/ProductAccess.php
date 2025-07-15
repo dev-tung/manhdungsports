@@ -30,11 +30,11 @@ class ProductAccess extends Access{
     }
 
     public function get( $request){
-        
+        $WHERE = $this->search($request);
         $query = "
             SELECT * FROM product
             JOIN productype ON product.productype_id = productype.productype_id
-            $this->search($request)
+            $WHERE
             ORDER BY productype.productype_name
         ";
         return DB::select($query);

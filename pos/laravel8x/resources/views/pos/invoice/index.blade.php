@@ -1,5 +1,6 @@
 @extends('pos.layouts.cover')
 @section('Title', 'CÁC ĐƠN HÀNG')
+@section('PageJs', asset('pos/js/invoice/index.js'))
 @section('Main')
     <main class="Main">
         <div class="MainContent">
@@ -76,8 +77,20 @@
                             <td class="TableData">{{ commonNumberToVND($invoice->invoice_discount) }}</td>
                             <td class="TableData">{{ commonNumberToVND($invoice->invoice_revenue) }}</td>
                             <td class="TableData">{{ commonNumberToVND($invoice->invoice_profit) }}</td>
-                            <td class="TableData">{!! invoiceStatus($invoice->invoice_status) !!}</td>
-                            <td class="TableData">{!! commomIspayment($invoice->invoice_ispayment) !!}</td>
+                            <td class="TableData">
+                                <select class="TableDataSelect InvoiceStatus" name="invoice_status" data-invoice_id="{{ $invoice->invoice_id }}">
+                                    @foreach( invoiceStatus() as $key => $item )
+                                        <option value="{{$key}}" {{ ($key == $invoice->invoice_status) ? 'selected' : ''; }}>{!!$item!!}</option>
+                                    @endforeach
+                                </select>
+                            </td>
+                            <td class="TableData">
+                                <select class="TableDataSelect InvoiceIspayment" name="invoice_ispayment" data-invoice_id="{{ $invoice->invoice_id }}">
+                                    @foreach( commomIspayment() as $key => $item )
+                                        <option value="{{$key}}" {{ ($key == $invoice->invoice_ispayment) ? 'selected' : ''; }}>{!!$item!!}</option>
+                                    @endforeach
+                                </select>
+                            </td>
                             <td class="TableData TableData_Center TableData_Flex">
                                 @if( $invoice->invoice_status !== 4 )
                                     <a class="TableAction TableAction_Link" href="{{route('invoice.edit', ['screen'=>'pos', 'invoice_id' => $invoice->invoice_id])}}">

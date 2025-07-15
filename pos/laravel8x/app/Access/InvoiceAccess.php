@@ -35,13 +35,14 @@ class InvoiceAccess extends Access{
     }
 
     public function get( $request){
+        $WHERE = $this->search($request);
         $query = "
             SELECT * FROM invoice
             JOIN customer ON invoice.customer_id = customer.customer_id
             JOIN customergroup ON customergroup.customergroup_id = customer.customergroup_id
             JOIN product ON invoice.product_id = product.product_id
             JOIN productype ON productype.productype_id = product.productype_id
-            $this->search($request)
+            $WHERE
             ORDER BY invoice_created_at DESC, customer.customer_name
         ";
         return DB::select($query);
@@ -108,6 +109,24 @@ class InvoiceAccess extends Access{
         $param['invoice_profit'] = invoiceProfit($request, $product, false);
         $param['invoice_discount'] = invoiceDiscount($request, $product, false);
         $param['invoice_created_at'] = $request['invoice_created_at'];
+        $param['invoice_updated_at'] = Carbon::now()->format('Y-m-d');
+
+        DB::table($this->table)
+        ->where('invoice_id', $request->invoice_id)
+        ->update($param);
+    }
+
+    public function status($request){
+        $param['invoice_status'] = $request['invoice_status'];
+        $param['invoice_updated_at'] = Carbon::now()->format('Y-m-d');
+
+        DB::table($this->table)
+        ->where('invoice_id', $request->invoice_id)
+        ->update($param);
+    }
+
+    public function ispayment($request){
+        $param['invoice_ispayment'] = $request['invoice_ispayment'];
         $param['invoice_updated_at'] = Carbon::now()->format('Y-m-d');
 
         DB::table($this->table)

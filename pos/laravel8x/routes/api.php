@@ -32,3 +32,8 @@ Route::prefix('customer')->group(function () {
 Route::prefix('product')->group(function () {
     Route::get('get', ['as' => 'api.product.get', 'uses' => 'API\ProductController@get']);
 });
+
+Route::prefix('invoice')->group(function () {
+    Route::post('status', ['as' => 'api.invoice.status', 'uses' => 'API\InvoiceController@status']);
+    Route::post('ispayment', ['as' => 'api.invoice.ispayment', 'uses' => 'API\InvoiceController@ispayment']);
+});
