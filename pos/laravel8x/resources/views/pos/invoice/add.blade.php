@@ -30,7 +30,7 @@
                     </div>
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="InvoiceDiscount">Chiết khấu (VNĐ)</label>
-                        <input class="FormInput" id="InvoiceDiscount" type="number" name="invoice_discount">
+                        <input class="FormInput" id="InvoiceDiscount" type="number" name="invoice_discount" autocomplete="on">
                         <small class="FormErrorMessage"></small>
                     </div>
                 </div>

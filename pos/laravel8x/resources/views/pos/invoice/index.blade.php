@@ -78,14 +78,14 @@
                             <td class="TableData">{{ commonNumberToVND($invoice->invoice_revenue) }}</td>
                             <td class="TableData">{{ commonNumberToVND($invoice->invoice_profit) }}</td>
                             <td class="TableData">
-                                <select class="TableDataSelect InvoiceStatus" name="invoice_status" data-invoice_id="{{ $invoice->invoice_id }}">
+                                <select class="TableDataSelect InvoiceSelect InvoiceStatus" name="invoice_status" data-invoice_id="{{ $invoice->invoice_id }}">
                                     @foreach( invoiceStatus() as $key => $item )
                                         <option value="{{$key}}" {{ ($key == $invoice->invoice_status) ? 'selected' : ''; }}>{!!$item!!}</option>
                                     @endforeach
                                 </select>
                             </td>
                             <td class="TableData">
-                                <select class="TableDataSelect InvoiceIspayment" name="invoice_ispayment" data-invoice_id="{{ $invoice->invoice_id }}">
+                                <select class="TableDataSelect InvoiceSelect InvoiceIspayment" name="invoice_ispayment" data-invoice_id="{{ $invoice->invoice_id }}">
                                     @foreach( commomIspayment() as $key => $item )
                                         <option value="{{$key}}" {{ ($key == $invoice->invoice_ispayment) ? 'selected' : ''; }}>{!!$item!!}</option>
                                     @endforeach

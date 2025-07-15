@@ -3,12 +3,12 @@
 if( !function_exists('invoiceStatus') ){
   function invoiceStatus($key = 'array'){
     $optionArray = [
-        0 => '<span class="Text_Danger">Chờ đặt hàng</span>',
-        1 => '<span class="Text_Danger">Đã sẵn giao</span>',
-        2 => '<span>Đã giao hàng</span>',
-        3 => '<span class="Text_Danger">Đang đặt hàng</span>',
-        4 => '<span class="Text_Warning">Hủy đơn</span>',
-        5 => '<span class="Text_Info">Tặng hoặc Lỗi</span>'
+        0 => 'Chờ đặt hàng',
+        1 => 'Đã sẵn giao',
+        2 => 'Đã giao hàng',
+        3 => 'Đang đặt hàng',
+        4 => 'Hủy đơn',
+        5 => 'Tặng kèm'
     ];
 
     if( $key !== 'array' ) return array_key_exists($key, $optionArray) ? $optionArray[$key] : $optionArray[0];

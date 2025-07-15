@@ -1089,3 +1089,12 @@ th{
 .ProductSearchItem:hover{
     cursor: pointer;
 }
+
+.InvoiceSelect{
+    border: 1px solid #dadada;
+    font-size: 12px;
+}
+
+.InvoiceSelect option{
+    color : black;
+}
