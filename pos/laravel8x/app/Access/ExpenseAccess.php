@@ -41,17 +41,14 @@ class ExpenseAccess extends Access{
     }
 
     public function get( $request = null ){
-        $query = DB::table($this->table);
-
-        if( !empty($request) ){
-            $searchParams = $this->search($request);
-
-            if( !empty( $searchParams ) ){
-                $query->where($searchParams);
-            }
-        }
-
-        return $query->get();
+        $WHERE = $this->search($request);
+        $query = "
+            SELECT 
+                 *
+            FROM expense 
+            $WHERE
+        ";
+        return DB::select($query);
     }
 
     public function getFirst( $searchParams ){
