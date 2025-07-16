@@ -76,6 +76,10 @@ class ProductAccess extends Access{
         $param['product_source'] = $request['product_source'];
         $param['productype_id'] = $request['productype_id'];
 
+        if( !empty( $request->newPath ) ){
+            $param['product_thumbnail'] = $request->newPath;
+        }
+
         DB::table($this->table)->insert($param);
     }
 
@@ -94,7 +98,7 @@ class ProductAccess extends Access{
         
 
         if( !empty( $request->newPath ) ){
-            $param['product_thumbnail'] = $params->newPath;
+            $param['product_thumbnail'] = $request->newPath;
         }
 
         DB::table($this->table)
@@ -131,10 +135,11 @@ class ProductAccess extends Access{
                 , product_price_input
                 , product_price_output
                 , productype_name 
+                , product_color
             FROM product 
             JOIN productype ON product.productype_id = productype.productype_id
             WHERE product.productype_id IN (35, 36)
-            ORDER BY product.productype_id
+            ORDER BY product.productype_id, product.product_price_output
         ";
         return DB::select($query);
     }

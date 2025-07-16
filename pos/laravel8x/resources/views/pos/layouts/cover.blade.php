@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}" id="CsrfToken"/>
-    <meta name="csrf-token" content="{{ route('api.file.upload') }}" id="apiFileUpload"/>
-    <meta name="csrf-token" content="{{ route('api.customer.get') }}" id="apiCustomerGet"/>
-    <meta name="csrf-token" content="{{ route('api.product.get') }}" id="apiProductGet"/>
-    <meta name="csrf-token" content="{{ route('api.file.move') }}" id="apiFileMove"/>
-    <meta name="csrf-token" content="{{ route('api.invoice.status') }}" id="apiInvoiceStatus"/>
-    <meta name="csrf-token" content="{{ route('api.invoice.ispayment') }}" id="apiInvoiceIspayment"/>
+    <meta name="description" content="{{ route('api.file.upload') }}" id="apiFileUpload"/>
+    <meta name="description" content="{{ route('api.customer.get') }}" id="apiCustomerGet"/>
+    <meta name="description" content="{{ route('api.product.get') }}" id="apiProductGet"/>
+    <meta name="description" content="{{ route('api.file.move') }}" id="apiFileMove"/>
+    <meta name="description" content="{{ route('api.invoice.status') }}" id="apiInvoiceStatus"/>
+    <meta name="description" content="{{ route('api.invoice.ispayment') }}" id="apiInvoiceIspayment"/>
 
     <title>MANH DUNG POS | Product</title>
     <link rel="stylesheet" href="{{asset('pos/font/font-roboto.css')}}" >

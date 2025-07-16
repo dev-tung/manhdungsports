@@ -1,6 +1,9 @@
 @extends('pos.layouts.cover')
 @section('Title', 'THÊM ĐƠN HÀNG')
 @section('PageJs', asset('pos/js/invoice/add.js'))
+@section('Script')
+    <script src="{{asset('pos/js/invoice/search.js')}}"></script>
+@endsection
 @section('Main')
     <main class="Main">
         <form action="{{route('invoice.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormInvoiceAdd" enctype="multipart/form-data">

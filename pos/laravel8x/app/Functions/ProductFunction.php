@@ -13,7 +13,12 @@ if( !function_exists('productColor') ){
       6 => 'Xanh lá',
       6 => 'Xanh nước biển',
       7 => 'Hồng',
-      9 => 'Vằn xanh xám'
+      9 => 'Vằn xanh xám',
+      10 => 'Tím',
+      11 => 'Xám',
+      12 => 'Xanh than',
+      13 => 'Màu da',
+      14 => 'Cam'
     ];
 
     if( $key !== 'array' ) return array_key_exists($key, $colorArray) ? $colorArray[$key] : $colorArray[0];
@@ -38,7 +43,8 @@ if( !function_exists('productSize') ){
       11 => '41',
       12 => '42',
       13 => '43',
-      14 => '44'
+      14 => '44',
+      15 => 'Free size'
     ];
 
     if( $key !== 'array' ) return array_key_exists($key, $sizeArray) ? $sizeArray[$key] : $sizeArray[0];
@@ -89,7 +95,8 @@ if( !function_exists('productSource') ){
       8 => 'Apavi',
       9 => 'Wsport',
       10 => 'Wingsport',
-      11 => 'Hợi Kamito'
+      11 => 'Hợi Kamito',
+      12 => 'Shopee'
     ];
 
     if( $key !== 'array' ) return array_key_exists($key, $sourceArray) ? $sourceArray[$key] : $sourceArray[0];
@@ -118,6 +125,6 @@ if( !function_exists('productProfit') ){
 
 if( !function_exists('stringDisplayName') ){
   function stringDisplayName($string){
-    return $string->productype_name .' '. $string->product_name;
+    return $string->productype_name .' '. $string->product_name .' - '. productColor($string->product_color);
   }
 }

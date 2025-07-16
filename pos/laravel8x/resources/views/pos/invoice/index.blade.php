@@ -44,8 +44,10 @@
                 <span class="ListSearchTotalItem">{{ count($invoices) }} đơn hàng</span>
                 <span class="ListSearchTotalItem">-</span>
                 <span class="ListSearchTotalItem">Doanh thu {{ commonNumberToVND(array_sum(array_column($invoices, 'invoice_revenue'))) }} </span>
-                <span class="ListSearchTotalItem">-</span>
-                <span class="ListSearchTotalItem">Lợi nhuận {{ commonNumberToVND(array_sum(array_column($invoices, 'invoice_profit'))) }} </span>
+                @if( !empty( request()->profit == 1 ) )
+                    <span class="ListSearchTotalItem">-</span>
+                    <span class="ListSearchTotalItem">Lợi nhuận {{ commonNumberToVND(array_sum(array_column($invoices, 'invoice_profit'))) }} </span>
+                @endif
             </div>
 
             <table>
@@ -56,10 +58,13 @@
                         <th class="TableData">Nhóm khách hàng</th>
                          <th class="TableData">Danh mục</th>
                         <th class="TableData">Sản phẩm</th>
+                        <th class="TableData">Đơn giá</th>
                         <th class="TableData">Số lượng</th>
-                        <th class="TableData">Chiết khấu</th>
                         <th class="TableData">Giá tiền</th>
-                        <th class="TableData">Lợi nhuận</th>
+                        <th class="TableData">Chiết khấu</th>
+                        @if( !empty( request()->profit == 1 ) )
+                            <th class="TableData">Lợi nhuận</th>
+                        @endif
                         <th class="TableData">Trạng thái</th>
                         <th class="TableData">Thanh toán</th>
                         <th class="TableData">Hành động</th>
@@ -73,10 +78,13 @@
                             <td class="TableData">{{ $invoice->customergroup_name }}</td>
                             <td class="TableData">{{ $invoice->productype_name}}</td>
                             <td class="TableData">{{ $invoice->product_name}}</td>
+                            <td class="TableData">{{ commonNumberToVND($invoice->product_price_output)}}</td>
                             <td class="TableData TableData_Center">{{ $invoice->invoice_quantity}}</td>
-                            <td class="TableData">{{ commonNumberToVND($invoice->invoice_discount) }}</td>
                             <td class="TableData">{{ commonNumberToVND($invoice->invoice_revenue) }}</td>
-                            <td class="TableData">{{ commonNumberToVND($invoice->invoice_profit) }}</td>
+                            <td class="TableData">{{ commonNumberToVND($invoice->invoice_discount) }}</td>
+                            @if( !empty( request()->profit == 1 ) )
+                                <td class="TableData">{{ commonNumberToVND($invoice->invoice_profit) }}</td>
+                            @endif
                             <td class="TableData">
                                 <select class="TableDataSelect InvoiceSelect InvoiceStatus" name="invoice_status" data-invoice_id="{{ $invoice->invoice_id }}">
                                     @foreach( invoiceStatus() as $key => $item )
@@ -114,7 +122,7 @@
                 </tbody>
             </table>
             <div class="ListSearchTotal">
-                <span class="ListSearchTotalItem Text_Danger">Thành tiền {{ commonNumberToVND(array_sum(array_column($invoices, 'invoice_revenue'))) }}</span>
+                <span class="ListSearchTotalItem Text_Danger">Thành tiền {{ commonNumberToVND(array_sum(array_column($invoices, 'invoice_revenue')) - array_sum(array_column($invoices, 'invoice_discount'))) }}</span>
             </div>
         </div>
     </main>
