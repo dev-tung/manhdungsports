@@ -19,11 +19,11 @@
             <div class="CardGroup">
                 <h3 class="CardGroupTitle">Hôm nay</h3>
                 <div class="CardGrid">
-                    <div class="CardGridItem Bg_Danger">
+                    <div class="CardGridItem Bg_Primary">
                         <h3 class="CardTitle">Doanh thu</h3>
                         <p class="CardValue">{{ $todayTotalRevenue }}</p>
                     </div>
-                    <div class="CardGridItem Bg_Primary">
+                    <div class="CardGridItem Bg_Danger">
                         <h3 class="CardTitle">Chi tiêu</h3>
                         <p class="CardValue">{{ $todayExpenseMoney }}</p>
                     </div>
@@ -41,11 +41,11 @@
             <div class="CardGroup">
                 <h3 class="CardGroupTitle">Tháng này</h3>
                 <div class="CardGrid">
-                    <div class="CardGridItem Bg_Danger">
+                    <div class="CardGridItem Bg_Primary">
                         <h3 class="CardTitle">Doanh thu</h3>
                         <p class="CardValue">{{ $thismonthTotalRevenue }}</p>
                     </div>
-                    <div class="CardGridItem Bg_Primary">
+                    <div class="CardGridItem Bg_Danger">
                         <h3 class="CardTitle">Chi tiêu</h3>
                         <p class="CardValue">{{ $thismonthExpenseMoney }}</p>
                     </div>
