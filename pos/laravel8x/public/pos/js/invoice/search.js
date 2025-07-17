@@ -90,11 +90,16 @@ let customerToggleSearchKeyup = function(object){
                         document.getElementById('CustomerId').value = item.getAttribute('data-customer_id');
                         let customerName = document.getElementById('CustomerName');
                         customerName.value = item.getAttribute('data-customer_name');
+                        discountAutoFill(customerName.value);
                         customerName.focus();
                         customerName.blur();
                         _customerSearchBox.classList.remove("Show");
                     });
                 })
+
+                function discountAutoFill(customerName){
+                    if( customerName == 'Khoa' ) document.getElementById('InvoiceDiscount').value = 15000;
+                }
 
             });
         }

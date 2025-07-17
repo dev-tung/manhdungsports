@@ -17,21 +17,41 @@ class DashboardController extends Controller
     }
 
     public function index(Request $request){
+        
+        $priceTotalInput    = $this->_productAccess->priceTotalInput();
+        $debtTotalInput    = $this->_invoiceAccess->debtTotalInput();
+
         $todayInvoiceMoney  = $this->_invoiceAccess->todayMoney();
         $todayExpenseMoney  = $this->_expenseAccess->todayMoney();
-        $priceTotalInput    = $this->_productAccess->priceTotalInput();
-
         $todayTotalRevenue = array_sum(array_column($todayInvoiceMoney, 'invoice_revenue'));
         $todayExpenseMoney = array_sum(array_column($todayExpenseMoney, 'expense_money'));
         $todayTotalProfit  = array_sum(array_column($todayInvoiceMoney, 'invoice_profit'));
         $todayTotalActualProfit  = array_sum(array_column($todayInvoiceMoney, 'invoice_profit')) - $todayExpenseMoney;
+        
+        $thismonthInvoiceMoney  = $this->_invoiceAccess->thismonthMoney();
+        $thismonthExpenseMoney  = $this->_expenseAccess->thismonthMoney();
+        $thismonthTotalRevenue = array_sum(array_column($thismonthInvoiceMoney, 'invoice_revenue'));
+        $thismonthExpenseMoney = array_sum(array_column($thismonthExpenseMoney, 'expense_money'));
+        $thismonthTotalProfit  = array_sum(array_column($thismonthInvoiceMoney, 'invoice_profit'));
+        $thismonthTotalActualProfit  = array_sum(array_column($thismonthInvoiceMoney, 'invoice_profit')) - $thismonthExpenseMoney;
+        
 
         return view($request->screen.'.dashboard.index', [
+            
+            'priceTotalInput'   => commonNumberToVND($priceTotalInput),
+            'debtTotalInput'   => commonNumberToVND($debtTotalInput->customerDebt),
+
             'todayTotalRevenue' => commonNumberToVND($todayTotalRevenue),
             'todayTotalProfit'  => commonNumberToVND($todayTotalProfit),
             'todayExpenseMoney' => commonNumberToVND($todayExpenseMoney),
-            'priceTotalInput'   => commonNumberToVND($priceTotalInput),
-            'todayTotalActualProfit'   => commonNumberToVND($todayTotalActualProfit)
+            'todayTotalActualProfit'   => commonNumberToVND($todayTotalActualProfit),
+            
+
+            'thismonthTotalRevenue' => commonNumberToVND($thismonthTotalRevenue),
+            'thismonthTotalProfit'  => commonNumberToVND($thismonthTotalProfit),
+            'thismonthExpenseMoney' => commonNumberToVND($thismonthExpenseMoney),
+            'thismonthTotalActualProfit'   => commonNumberToVND($thismonthTotalActualProfit)
+            
         ]);
     }
 }

@@ -40,6 +40,16 @@ class ExpenseAccess extends Access{
         return DB::select($query);
     }
 
+    public function thismonthMoney(){
+        $query = "
+            SELECT 
+                 expense_money
+            FROM expense 
+            WHERE MONTH(expense_created_at) = MONTH(CURRENT_DATE())
+        ";
+        return DB::select($query);
+    }
+
     public function get( $request = null ){
         $WHERE = $this->search($request);
         $query = "

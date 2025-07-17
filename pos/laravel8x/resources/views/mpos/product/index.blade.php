@@ -1,5 +1,5 @@
 @extends('pos.layouts.cover')
-@section('Title', 'DANH SÁCH SẢN PHẨM')
+@section('Title', 'SẢN PHẨM')
 @section('Main')
     <main class="Main">
         <div class="MainContent">

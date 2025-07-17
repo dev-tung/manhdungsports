@@ -138,7 +138,7 @@ class ProductAccess extends Access{
                 , product_color
             FROM product 
             JOIN productype ON product.productype_id = productype.productype_id
-            WHERE product.productype_id IN (35, 36)
+            WHERE product.productype_id IN (35, 36) AND product_quantity > 0
             ORDER BY product.productype_id, product.product_price_output
         ";
         return DB::select($query);

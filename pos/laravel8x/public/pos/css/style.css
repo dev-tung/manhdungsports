@@ -728,6 +728,18 @@ th{
     font-size: 12px;
 }
 
+.CardGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #1825371a;
+    padding: 15px;
+}
+
+.CardGroupTitle{
+    font-size: 14px;
+}
+
 .TableStringTitle{
     font-size: 16px;
     font-style: italic;
@@ -1097,4 +1109,10 @@ th{
 
 .InvoiceSelect option{
     color : black;
+}
+
+.MainDashboard{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
