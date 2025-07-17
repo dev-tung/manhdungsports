@@ -19,13 +19,19 @@ class ProductController extends Controller
     public function index(Request $request){
         $products = $this->_productAccess->get($request);
         $priceTotalInput = $this->_productAccess->priceTotalInput();
+        $priceTotalOutput = $this->_productAccess->priceTotalOutput();
+         
         $productype = $this->_productypeAccess->get($request);
         $totalProduct = array_sum(array_column($products, 'product_quantity'));
+        
+        $profitTotalEstimate = $priceTotalOutput - $priceTotalInput;
+
         return view($request->screen.'.product.index', [
             'products' => $products, 
             'priceTotalInput' => $priceTotalInput, 
             'productype' => $productype,
-            'totalProduct' => $totalProduct
+            'totalProduct' => $totalProduct,
+            'profitTotalEstimate' => $profitTotalEstimate
         ]);
     }
 

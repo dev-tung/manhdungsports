@@ -54,6 +54,11 @@ class ProductAccess extends Access{
         return !empty( $price[0]->product_price_input_total ) ? $price[0]->product_price_input_total : 0;
     }
 
+    public function priceTotalOutput(){
+        $price = DB::select('SELECT SUM(product_price_output * product_quantity) as product_price_output_total FROM product ');
+        return !empty( $price[0]->product_price_output_total ) ? $price[0]->product_price_output_total : 0;
+    }
+
     public function getFirst( $searchParams ){
         $query = DB::table($this->table);
 
