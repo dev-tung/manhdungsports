@@ -18,7 +18,7 @@ class DashboardController extends Controller
 
     public function index(Request $request){
         
-        $priceTotalInput    = $this->_productAccess->priceTotalInput();
+        $priceTotalInput    = $this->_productAccess->priceTotalInput($request);
         $debtTotalInput    = $this->_invoiceAccess->debtTotalInput();
 
         $todayInvoiceMoney  = $this->_invoiceAccess->todayMoney();
