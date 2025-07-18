@@ -23,7 +23,7 @@ class ProductAccess extends Access{
         }
 
         if( !empty($request->productype_id) ){
-            $searchParams[] = ['productype.productype_id', 'like', '%' . $request->productype_id . '%'];
+            $searchParams[] = ['product.productype_id', 'like', '%' . $request->productype_id . '%'];
         }
 
         return $this->buildCondition($searchParams);
@@ -49,13 +49,25 @@ class ProductAccess extends Access{
         return DB::select($query);
     }
 
-    public function priceTotalInput(){
-        $price = DB::select('SELECT SUM(product_price_input * product_quantity) as product_price_input_total FROM product ');
+    public function priceTotalInput($request){
+        $WHERE = $this->search($request);
+        $query = "
+            SELECT SUM(product_price_input * product_quantity) as product_price_input_total 
+            FROM product
+            $WHERE
+        ";
+        $price = DB::select($query);
         return !empty( $price[0]->product_price_input_total ) ? $price[0]->product_price_input_total : 0;
     }
 
-    public function priceTotalOutput(){
-        $price = DB::select('SELECT SUM(product_price_output * product_quantity) as product_price_output_total FROM product ');
+    public function priceTotalOutput($request){
+        $WHERE = $this->search($request);
+        $query = "
+            SELECT SUM(product_price_output * product_quantity) as product_price_output_total 
+            FROM product
+            $WHERE
+        ";
+        $price = DB::select($query);
         return !empty( $price[0]->product_price_output_total ) ? $price[0]->product_price_output_total : 0;
     }
 

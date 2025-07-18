@@ -18,8 +18,8 @@ class ProductController extends Controller
 
     public function index(Request $request){
         $products = $this->_productAccess->get($request);
-        $priceTotalInput = $this->_productAccess->priceTotalInput();
-        $priceTotalOutput = $this->_productAccess->priceTotalOutput();
+        $priceTotalInput = $this->_productAccess->priceTotalInput($request);
+        $priceTotalOutput = $this->_productAccess->priceTotalOutput($request);
          
         $productype = $this->_productypeAccess->get($request);
         $totalProduct = array_sum(array_column($products, 'product_quantity'));
