@@ -57,6 +57,7 @@ class ExpenseAccess extends Access{
                  *
             FROM expense 
             $WHERE
+            ORDER BY expense_created_at DESC
         ";
         return DB::select($query);
     }
