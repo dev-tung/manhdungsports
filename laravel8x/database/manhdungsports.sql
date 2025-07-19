@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 18/07/2025 07:41:34
+ Date: 19/07/2025 11:31:12
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `customer`  (
   `customer_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `customer_description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`customer_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 69 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 72 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of customer
@@ -74,12 +74,11 @@ INSERT INTO `customer` VALUES (42, 'Ngọc', 8, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (43, 'Trường Phương', 4, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (44, 'A Thanh', 6, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (45, 'A Nhân', 6, NULL, NULL, NULL);
-INSERT INTO `customer` VALUES (46, 'Vũ Hiếu', 3, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (47, 'Trung 77 đỏ', 9, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (48, 'A Thăng', 3, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (49, 'Long a Thăng', 3, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (50, 'A Nghị', 5, NULL, NULL, NULL);
-INSERT INTO `customer` VALUES (51, 'A Trung', 5, NULL, NULL, NULL);
+INSERT INTO `customer` VALUES (51, 'Mr Đình Trung', 5, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (52, 'A Phú Dương', 5, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (53, 'Doanh Nguyen Mobile', 1, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (54, 'A Thuỳ', 5, NULL, NULL, NULL);
@@ -91,12 +90,15 @@ INSERT INTO `customer` VALUES (59, 'Lê Văn Hào', 8, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (60, 'A Bảo Nam', 16, NULL, NULL, 'Chủ sân Nghĩa Trụ');
 INSERT INTO `customer` VALUES (61, 'A Công', 12, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (62, 'Chú Biên', 6, NULL, NULL, NULL);
-INSERT INTO `customer` VALUES (63, 'Vũ Hiếu', 5, NULL, NULL, NULL);
+INSERT INTO `customer` VALUES (63, 'Vũ Hiếu', 3, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (64, 'Tuấn Anh BĐS', 17, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (65, 'A Huấn', 5, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (66, 'A Tú', 18, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (67, 'A Minh Nhật', 16, NULL, NULL, NULL);
 INSERT INTO `customer` VALUES (68, 'Hiếu', 16, NULL, NULL, NULL);
+INSERT INTO `customer` VALUES (69, 'A Nguyễn Văn Thế', 4, NULL, NULL, NULL);
+INSERT INTO `customer` VALUES (70, 'Bảo bạn Vũ Hiếu', 3, NULL, NULL, NULL);
+INSERT INTO `customer` VALUES (71, 'A Dũng 84', 16, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for customergroup
@@ -145,7 +147,7 @@ CREATE TABLE `expense`  (
   `expensetype_id` int(11) NULL DEFAULT NULL,
   `expense_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`expense_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 98 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 103 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of expense
@@ -180,6 +182,11 @@ INSERT INTO `expense` VALUES (94, NULL, 1, '12000000', '2025-06-18 00:00:00', '2
 INSERT INTO `expense` VALUES (95, NULL, 1, '36000000', '2025-06-18 00:00:00', '2025-07-18 00:38:03', 5, 'Tiền ăn');
 INSERT INTO `expense` VALUES (96, NULL, 1, '7500000', '2025-06-18 00:00:00', '2025-07-18 00:38:13', 8, 'Đánh cầu');
 INSERT INTO `expense` VALUES (97, NULL, 1, '12000000', '2025-05-18 00:00:00', '2025-07-18 00:37:51', 6, 'Sửa dàn lạnh ô tô');
+INSERT INTO `expense` VALUES (98, NULL, 1, '30000', '2025-07-18 00:00:00', '2025-07-18 01:04:24', 1, 'Xôi + chuối');
+INSERT INTO `expense` VALUES (99, NULL, 1, '220000', '2025-07-17 00:00:00', '2025-07-18 02:58:54', 5, 'Ăn tối');
+INSERT INTO `expense` VALUES (100, NULL, 1, '80000', '2025-07-18 00:00:00', '2025-07-18 08:25:15', 5, 'ăn trưa cho nhân viên');
+INSERT INTO `expense` VALUES (101, NULL, 1, '80000', '2025-07-18 00:00:00', '2025-07-18 09:50:53', 6, 'Rửa ô tô');
+INSERT INTO `expense` VALUES (102, NULL, 1, '30000', '2025-07-19 00:00:00', '2025-07-19 02:53:07', 8, 'Ánh Sáng');
 
 -- ----------------------------
 -- Table structure for invoice
@@ -200,7 +207,7 @@ CREATE TABLE `invoice`  (
   `invoice_created_at` datetime(0) NULL DEFAULT NULL,
   `invoice_updated_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`invoice_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 170 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 191 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of invoice
@@ -210,7 +217,7 @@ INSERT INTO `invoice` VALUES (39, 55, 'Vợt Lining', '197', 2, NULL, 1, NULL, 1
 INSERT INTO `invoice` VALUES (40, 56, '1 Victor đỏ, 1 Arus cam', '198', 2, NULL, 1, NULL, 2, '500000', '100000', '2025-07-04 02:14:51', '2025-07-13 03:26:43');
 INSERT INTO `invoice` VALUES (41, 1, NULL, '181', 2, NULL, 1, NULL, 1, '225000', '10000', '2025-07-04 02:55:09', '2025-07-04 02:55:09');
 INSERT INTO `invoice` VALUES (42, 57, NULL, '200', 2, NULL, 1, NULL, 1, '440000', '190000', '2025-07-04 03:29:54', '2025-07-05 08:48:31');
-INSERT INTO `invoice` VALUES (43, 8, 'Arc 11 pro', '197', 0, NULL, 0, NULL, 1, '150000', '50000', '2025-07-04 04:16:38', '2025-07-04 04:16:38');
+INSERT INTO `invoice` VALUES (43, 8, 'Arc 11 pro', '197', 1, NULL, 0, NULL, 1, '150000', '50000', '2025-07-04 04:16:38', '2025-07-18 00:00:00');
 INSERT INTO `invoice` VALUES (44, 1, NULL, '201', 2, NULL, 1, NULL, 1, '25000', '1000', '2025-07-04 09:36:11', '2025-07-04 09:36:11');
 INSERT INTO `invoice` VALUES (45, 58, NULL, '202', 2, NULL, 1, NULL, 1, '1900000', '409054', '2025-07-07 04:44:46', '2025-07-08 13:48:14');
 INSERT INTO `invoice` VALUES (46, 14, NULL, '203', 2, NULL, 1, NULL, 5, '200000', '60000', '2025-07-05 08:55:09', '2025-07-08 01:53:22');
@@ -220,7 +227,6 @@ INSERT INTO `invoice` VALUES (49, 1, NULL, '181', 2, NULL, 1, NULL, 1, '225000',
 INSERT INTO `invoice` VALUES (50, 1, NULL, '167', 2, NULL, 1, NULL, 1, '10000', '3000', '2025-07-05 09:55:52', '2025-07-05 09:55:52');
 INSERT INTO `invoice` VALUES (51, 37, NULL, '170', 2, NULL, 1, NULL, 5, '1465000', '50000', '2025-07-05 09:57:01', '2025-07-08 01:43:11');
 INSERT INTO `invoice` VALUES (52, 60, NULL, '206', 2, NULL, 1, '150000', 1, '14500000', '310000', '2025-07-05 10:37:48', '2025-07-08 01:42:50');
-INSERT INTO `invoice` VALUES (53, 13, NULL, '207', 2, NULL, 1, '-18686', 1, '2668686', '168686', '2025-07-06 09:48:31', '2025-07-07 04:42:54');
 INSERT INTO `invoice` VALUES (54, 61, NULL, '167', 2, NULL, 1, NULL, 2, '20000', '6000', '2025-07-06 10:28:32', '2025-07-06 10:28:32');
 INSERT INTO `invoice` VALUES (58, 8, NULL, '198', 2, NULL, 1, NULL, 1, '250000', '50000', '2025-07-07 04:44:46', '2025-07-11 20:38:19');
 INSERT INTO `invoice` VALUES (59, 1, NULL, '209', 2, NULL, 1, NULL, 1, '150000', '38000', '2025-07-07 13:21:09', '2025-07-07 13:21:09');
@@ -232,13 +238,6 @@ INSERT INTO `invoice` VALUES (65, 8, 'Astrox 88D', '223', 2, NULL, 1, '15000', 1
 INSERT INTO `invoice` VALUES (66, 42, NULL, '170', 2, NULL, 1, '30000', 10, '2900000', '70000', '2025-07-08 08:20:29', '2025-07-11 20:37:43');
 INSERT INTO `invoice` VALUES (67, 1, '11.5 KG - Lining 4000C', '224', 2, NULL, 1, NULL, 1, '180000', '61818', '2025-07-08 09:01:04', '2025-07-11 20:37:33');
 INSERT INTO `invoice` VALUES (68, 63, 'Mizuno Trắng', '197', 1, NULL, 0, NULL, 1, '150000', '50000', '2025-07-08 09:03:52', '2025-07-17 00:00:00');
-INSERT INTO `invoice` VALUES (78, 57, NULL, '127', 0, NULL, 0, NULL, 1, '1800000', '455000', '2025-07-10 03:11:55', '2025-07-10 03:11:55');
-INSERT INTO `invoice` VALUES (79, 57, NULL, '127', 0, NULL, 0, NULL, 1, '1800000', '455000', '2025-07-10 03:13:30', '2025-07-10 03:13:30');
-INSERT INTO `invoice` VALUES (80, 57, NULL, '127', 0, NULL, 0, NULL, 1, '1800000', '455000', '2025-07-10 03:14:03', '2025-07-10 03:14:03');
-INSERT INTO `invoice` VALUES (81, 57, NULL, '127', 0, NULL, 0, NULL, 1, '1800000', '455000', '2025-07-10 03:14:57', '2025-07-10 03:14:57');
-INSERT INTO `invoice` VALUES (82, 57, NULL, '127', 0, NULL, 0, NULL, 1, '1800000', '455000', '2025-07-10 03:16:15', '2025-07-10 03:16:15');
-INSERT INTO `invoice` VALUES (83, 57, NULL, '127', 0, NULL, 0, NULL, 1, '1800000', '455000', '2025-07-10 03:16:46', '2025-07-10 03:16:46');
-INSERT INTO `invoice` VALUES (84, 57, NULL, '128', 0, NULL, 0, NULL, 1, '550000', '175000', '2025-07-10 03:17:22', '2025-07-10 03:17:22');
 INSERT INTO `invoice` VALUES (93, 55, NULL, '214', 2, NULL, 1, NULL, 1, '150000', '38636', '2025-07-11 20:39:53', '2025-07-17 00:00:00');
 INSERT INTO `invoice` VALUES (94, 64, NULL, '263', 2, NULL, 1, NULL, 1, '1800000', '230000', '2025-07-12 10:43:33', '2025-07-12 10:45:38');
 INSERT INTO `invoice` VALUES (95, 64, NULL, '246', 2, NULL, 1, NULL, 2, '530000', '10000', '2025-07-12 10:46:21', '2025-07-12 10:46:21');
@@ -284,12 +283,33 @@ INSERT INTO `invoice` VALUES (160, 67, NULL, '226', 2, NULL, 1, NULL, 2, '360000
 INSERT INTO `invoice` VALUES (161, 1, NULL, '399', 2, NULL, 1, NULL, 2, '240000', '56000', '2025-07-16 00:00:00', '2025-07-16 00:00:00');
 INSERT INTO `invoice` VALUES (162, 8, NULL, '223', 2, NULL, 1, '15000', 1, '165000', '37727', '2025-07-16 00:00:00', '2025-07-17 00:00:00');
 INSERT INTO `invoice` VALUES (163, 1, NULL, '246', 2, NULL, 1, NULL, 5, '1325000', '25000', '2025-07-16 00:00:00', '2025-07-16 00:00:00');
-INSERT INTO `invoice` VALUES (164, 8, NULL, '220', 2, NULL, 0, '15000', 1, '155000', '27727', '2025-07-17 00:00:00', '2025-07-17 00:00:00');
+INSERT INTO `invoice` VALUES (164, 8, NULL, '220', 2, NULL, 1, '15000', 1, '155000', '27727', '2025-07-17 00:00:00', '2025-07-19 00:00:00');
 INSERT INTO `invoice` VALUES (165, 68, NULL, '226', 2, NULL, 1, NULL, 1, '180000', '52727', '2025-07-17 00:00:00', '2025-07-17 00:00:00');
-INSERT INTO `invoice` VALUES (166, 8, NULL, '227', 2, NULL, 0, '15000', 1, '165000', '35455', '2025-07-17 00:00:00', '2025-07-17 00:00:00');
-INSERT INTO `invoice` VALUES (167, 39, '10.5kg', '214', 1, NULL, 0, NULL, 2, '300000', '77272', '2025-07-17 00:00:00', '2025-07-17 00:00:00');
-INSERT INTO `invoice` VALUES (168, 1, NULL, '226', 1, NULL, 0, NULL, 1, '180000', '52727', '2025-07-17 00:00:00', '2025-07-17 00:00:00');
-INSERT INTO `invoice` VALUES (169, 63, 'Căng cho vợt hàn', '222', 0, NULL, 0, NULL, 1, '180000', '55000', '2025-07-17 00:00:00', '2025-07-17 00:00:00');
+INSERT INTO `invoice` VALUES (166, 8, NULL, '227', 2, NULL, 1, '15000', 1, '165000', '35455', '2025-07-17 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (167, 39, '10.5kg', '214', 2, NULL, 1, NULL, 2, '300000', '77272', '2025-07-17 00:00:00', '2025-07-18 00:00:00');
+INSERT INTO `invoice` VALUES (168, 1, NULL, '226', 2, NULL, 1, NULL, 1, '180000', '52727', '2025-07-17 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (169, 63, 'Căng cho vợt hàn', '222', 2, NULL, 0, NULL, 1, '180000', '55000', '2025-07-18 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (170, 22, '4 nút - 11kg', '225', 2, NULL, 1, NULL, 1, '180000', '61818', '2025-07-18 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (171, 1, NULL, '167', 2, NULL, 1, NULL, 2, '20000', '6000', '2025-07-18 00:00:00', '2025-07-18 00:00:00');
+INSERT INTO `invoice` VALUES (172, 1, NULL, '203', 2, NULL, 1, NULL, 1, '40000', '12000', '2025-07-18 00:00:00', '2025-07-18 00:00:00');
+INSERT INTO `invoice` VALUES (173, 69, 'Yonex - 11KG, Tor800 - 10.8KG', '226', 2, NULL, 1, NULL, 2, '360000', '105454', '2025-07-18 00:00:00', '2025-07-18 00:00:00');
+INSERT INTO `invoice` VALUES (174, 8, NULL, '216', 2, NULL, 1, '15000', 1, '135000', '23636', '2025-07-18 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (175, 9, NULL, '220', 2, NULL, 0, NULL, 1, '170000', '42727', '2025-07-18 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (176, 69, NULL, '167', 5, NULL, 1, '20000', 2, '20000', '-14000', '2025-07-18 00:00:00', '2025-07-18 00:00:00');
+INSERT INTO `invoice` VALUES (177, 57, NULL, '155', 1, NULL, 1, '110000', 1, '540000', '170000', '2025-07-18 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (178, 57, NULL, '229', 5, NULL, 1, '140000', 1, '140000', '-81818', '2025-07-18 00:00:00', '2025-07-18 00:00:00');
+INSERT INTO `invoice` VALUES (179, 1, NULL, '237', 2, NULL, 1, NULL, 1, '50000', '50000', '2025-07-18 00:00:00', '2025-07-18 00:00:00');
+INSERT INTO `invoice` VALUES (180, 26, NULL, '406', 2, NULL, 1, NULL, 1, '10000', '3000', '2025-07-19 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (181, 8, NULL, '407', 0, NULL, 0, '15000', 1, '165000', '46818', '2025-07-19 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (182, 70, NULL, '214', 0, NULL, 0, NULL, 2, '300000', '77272', '2025-07-19 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (183, 66, NULL, '214', 5, NULL, 1, '150000', 1, '150000', '-111364', '2025-07-19 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (184, 11, NULL, '220', 2, NULL, 1, NULL, 1, '170000', '42727', '2025-07-19 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (185, 66, NULL, '214', 0, NULL, 0, NULL, 1, '150000', '38636', '2025-07-19 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (186, 66, NULL, '198', 0, NULL, 0, NULL, 1, '250000', '50000', '2025-07-19 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (187, 71, NULL, '214', 0, NULL, 0, NULL, 1, '150000', '38636', '2025-07-19 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (188, 39, NULL, '405', 1, NULL, 0, NULL, 1, '1950000', '260000', '2025-07-19 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (189, 39, NULL, '220', 5, NULL, 0, '170000', 1, '170000', '-127273', '2025-07-19 00:00:00', '2025-07-19 00:00:00');
+INSERT INTO `invoice` VALUES (190, 35, NULL, '224', 0, NULL, 0, NULL, 1, '180000', '61818', '2025-07-19 00:00:00', '2025-07-19 00:00:00');
 
 -- ----------------------------
 -- Table structure for product
@@ -312,7 +332,7 @@ CREATE TABLE `product`  (
   `product_size` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `product_gender` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`product_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 400 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 408 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
@@ -340,7 +360,7 @@ INSERT INTO `product` VALUES (151, 'Vợt cầu lông Yonex Arcsaber 11 Play', '
 INSERT INTO `product` VALUES (152, 'Vợt cầu lông Yonex Nanoflare 800 Play', '888300', '1200000', NULL, '2', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
 INSERT INTO `product` VALUES (153, 'Vợt cầu lông Yonex Astrox 99 Play', '1000000', '1450000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
 INSERT INTO `product` VALUES (154, 'Vợt cầu lông Yonex Nanoflare 700 Play', '937300', '1200000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
-INSERT INTO `product` VALUES (155, 'Vợt Cầu Lông VS Titan 6', '370000', '650000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
+INSERT INTO `product` VALUES (155, 'Vợt Cầu Lông VS Titan 6', '370000', '650000', NULL, '0', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
 INSERT INTO `product` VALUES (156, 'Vợt Cầu Lông VS Titan 7', '370000', '650000', NULL, '2', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
 INSERT INTO `product` VALUES (157, 'Vợt Cầu Lông VS Titan 8', '370000', '650000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
 INSERT INTO `product` VALUES (158, 'Vợt Cầu Lông VS Titan 9', '370000', '700000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
@@ -352,7 +372,7 @@ INSERT INTO `product` VALUES (163, 'Vợt Cầu Lông Victor Brave Sword 12', '2
 INSERT INTO `product` VALUES (164, 'Vợt Cầu Lông Victor TK-F Ultra', '3100000', '3400000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
 INSERT INTO `product` VALUES (165, 'Vợt cầu lông Lining Calibar 300B', '1099636', '1600000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
 INSERT INTO `product` VALUES (166, 'Vợt Cầu Lông Lining Calibar 600', '1885091', '2700000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
-INSERT INTO `product` VALUES (167, 'Quấn cán vợt cầu lông VS', '7000', '10000', NULL, '98', 'upload/product/1751601685.png', 'Cái', NULL, NULL, NULL, '23', '0', NULL, NULL);
+INSERT INTO `product` VALUES (167, 'Quấn cán vợt cầu lông VS', '7000', '10000', NULL, '94', 'upload/product/1751601685.png', 'Cái', NULL, NULL, NULL, '23', '0', NULL, NULL);
 INSERT INTO `product` VALUES (168, 'Tất cầu lông Yonex 22-25', '27000', '50000', NULL, '10', NULL, '0', NULL, NULL, '0', '30', '1', '0', '0');
 INSERT INTO `product` VALUES (169, 'Vợt cầu lông Yonex Arcsaber 7 Tour', '1610000', '2250000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
 INSERT INTO `product` VALUES (170, 'Hộp cầu Thành Công 77', '283000', '293000', NULL, '23', 'upload/product/1751601641.png', 'Hộp', NULL, NULL, NULL, '33', '0', NULL, NULL);
@@ -377,12 +397,12 @@ INSERT INTO `product` VALUES (188, 'Vợt Cầu Lông Lining Axforce Cannon Pro'
 INSERT INTO `product` VALUES (189, 'Vợt Cầu Lông Lining Halbertec Motor', '791000', '1000000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
 INSERT INTO `product` VALUES (196, 'Giày Cầu Lông Lining AYTS020', '642291', '1000000', NULL, '1', 'upload/product/1751595626.png', '0', NULL, NULL, '0', '21', '0', '11', '0');
 INSERT INTO `product` VALUES (197, 'Vợt hàn Cao Xuân Quang', '100000', '150000', NULL, '0', NULL, 'Lần', NULL, NULL, NULL, '31', '0', NULL, NULL);
-INSERT INTO `product` VALUES (198, 'Dán đế giày Cao Xuân Quang', '200000', '250000', NULL, '1', NULL, 'Đôi', NULL, NULL, NULL, '32', '0', NULL, NULL);
+INSERT INTO `product` VALUES (198, 'Dán đế giày Cao Xuân Quang', '200000', '250000', NULL, '0', NULL, 'Đôi', NULL, NULL, NULL, '32', '0', NULL, NULL);
 INSERT INTO `product` VALUES (199, 'Giày Cầu Lông Lining AYTS020', '642291', '1000000', NULL, '0', 'upload/product/1751595620.png', '0', NULL, NULL, '0', '21', '0', '12', '0');
 INSERT INTO `product` VALUES (200, 'Vợt cầu lông IXE Godwar', '250000', '440000', NULL, '0', NULL, '0', NULL, NULL, '0', '20', '0', '0', '0');
 INSERT INTO `product` VALUES (201, 'Quả cầu lông Basao prox', '24000', '30000', NULL, '3', NULL, '0', NULL, NULL, '0', '25', '0', '0', '0');
 INSERT INTO `product` VALUES (202, 'Vợt cầu lông Lining Aeronaut 6000I', '1490946', '1900000', NULL, '0', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
-INSERT INTO `product` VALUES (203, 'Quấn cán yonex 1 in 1', '28000', '40000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '23', '0', NULL, NULL);
+INSERT INTO `product` VALUES (203, 'Quấn cán yonex 1 in 1', '28000', '40000', NULL, '0', NULL, 'Cái', NULL, NULL, NULL, '23', '0', NULL, NULL);
 INSERT INTO `product` VALUES (204, 'Vợt cầu lông yonex Fake loại 1', '250000', '500000', NULL, '5', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
 INSERT INTO `product` VALUES (205, 'Hộp cầu Lining', '0', '260000', 'Khuyến mại', '3', NULL, 'Hộp', NULL, NULL, NULL, '33', '0', NULL, NULL);
 INSERT INTO `product` VALUES (206, 'Thùng cầu thành công 77', '14190000', '14650000', NULL, '1', NULL, 'Thùng', NULL, NULL, NULL, '34', '0', NULL, NULL);
@@ -391,22 +411,22 @@ INSERT INTO `product` VALUES (209, 'Áo cầu lông Kamito', '112000', '150000',
 INSERT INTO `product` VALUES (211, 'Yonex BG 5', '0', '130000', NULL, '2', NULL, '0', NULL, NULL, '0', '36', '0', '0', '0');
 INSERT INTO `product` VALUES (212, 'Yonex BG 65', '100000', '140000', NULL, '0', NULL, '0', NULL, NULL, '0', '36', '0', '0', '0');
 INSERT INTO `product` VALUES (213, 'Yonex BG 65', '84091', '130000', NULL, '14', NULL, '0', NULL, NULL, '0', '35', '6', '0', '0');
-INSERT INTO `product` VALUES (214, 'Yonex BG 65 Ti', '111364', '150000', NULL, '36', NULL, '0', NULL, NULL, '0', '35', '1', '0', '0');
+INSERT INTO `product` VALUES (214, 'Yonex BG 65 Ti', '111364', '150000', NULL, '31', NULL, '0', NULL, NULL, '0', '35', '1', '0', '0');
 INSERT INTO `product` VALUES (215, 'Yonex BG 65 Ti', '111364', '150000', NULL, '17', NULL, 'Sợi', NULL, NULL, NULL, '35', '4', NULL, NULL);
-INSERT INTO `product` VALUES (216, 'Yonex BG 65 Ti', '111364', '150000', NULL, '22', NULL, 'Sợi', NULL, NULL, NULL, '35', '7', NULL, NULL);
+INSERT INTO `product` VALUES (216, 'Yonex BG 65 Ti', '111364', '150000', NULL, '21', NULL, 'Sợi', NULL, NULL, NULL, '35', '7', NULL, NULL);
 INSERT INTO `product` VALUES (217, 'Yonex BG 66 Force', '151200', '190000', NULL, '1', NULL, 'Sợi', NULL, NULL, NULL, '36', '0', NULL, NULL);
 INSERT INTO `product` VALUES (218, 'Yonex BG 66 Ultimax', '133000', '180000', NULL, '1', NULL, '0', NULL, NULL, '0', '36', '0', '0', '0');
 INSERT INTO `product` VALUES (219, 'Yonex BG 66 Ultimax', '127273', '170000', NULL, '0', NULL, '0', NULL, NULL, '0', '35', '1', '0', '0');
-INSERT INTO `product` VALUES (220, 'Yonex BG 66 Ultimax', '127273', '170000', NULL, '21', NULL, 'Sợi', NULL, NULL, NULL, '35', '5', NULL, NULL);
+INSERT INTO `product` VALUES (220, 'Yonex BG 66 Ultimax', '127273', '170000', NULL, '18', NULL, 'Sợi', NULL, NULL, NULL, '35', '5', NULL, NULL);
 INSERT INTO `product` VALUES (221, 'Yonex BG 66 Ultimax', '127273', '170000', NULL, '22', NULL, 'Sợi', NULL, NULL, NULL, '35', '4', NULL, NULL);
 INSERT INTO `product` VALUES (222, 'Yonex BG Exbolt 63', '125000', '180000', NULL, '20', NULL, 'Sợi', NULL, NULL, NULL, '35', '1', NULL, NULL);
 INSERT INTO `product` VALUES (223, 'Yonex BG Exbolt 65', '127273', '180000', NULL, '17', NULL, '0', NULL, NULL, '0', '35', '6', '0', '0');
-INSERT INTO `product` VALUES (224, 'Yonex BG Exbolt 68', '118182', '180000', NULL, '43', NULL, '0', NULL, NULL, '0', '35', '5', '0', '0');
-INSERT INTO `product` VALUES (225, 'Yonex Nanogy 95', '118182', '180000', NULL, '21', NULL, 'Sợi', NULL, NULL, NULL, '35', '4', NULL, NULL);
-INSERT INTO `product` VALUES (226, 'Yonex Nanogy 98', '127273', '180000', NULL, '18', NULL, 'Sợi', NULL, NULL, NULL, '35', '1', NULL, NULL);
+INSERT INTO `product` VALUES (224, 'Yonex BG Exbolt 68', '118182', '180000', NULL, '41', NULL, '0', NULL, NULL, '0', '35', '5', '0', '0');
+INSERT INTO `product` VALUES (225, 'Yonex Nanogy 95', '118182', '180000', NULL, '20', NULL, 'Sợi', NULL, NULL, NULL, '35', '4', NULL, NULL);
+INSERT INTO `product` VALUES (226, 'Yonex Nanogy 98', '127273', '180000', NULL, '16', NULL, 'Sợi', NULL, NULL, NULL, '35', '1', NULL, NULL);
 INSERT INTO `product` VALUES (227, 'Yonex BG 80 Power', '129545', '180000', NULL, '21', NULL, 'Sợi', NULL, NULL, NULL, '35', '1', NULL, NULL);
 INSERT INTO `product` VALUES (228, 'Gosen Ryzonic 58', '90909', '140000', NULL, '22', NULL, 'Sợi', NULL, NULL, NULL, '35', '4', NULL, NULL);
-INSERT INTO `product` VALUES (229, 'Gosen Ryzonic 65', '81818', '140000', NULL, '22', NULL, 'Sợi', NULL, NULL, NULL, '35', '1', NULL, NULL);
+INSERT INTO `product` VALUES (229, 'Gosen Ryzonic 65', '81818', '140000', NULL, '21', NULL, 'Sợi', NULL, NULL, NULL, '35', '1', NULL, NULL);
 INSERT INTO `product` VALUES (230, 'Kizuna Z58', '155000', '190000', NULL, '1', NULL, 'Sợi', NULL, NULL, NULL, '36', '0', NULL, NULL);
 INSERT INTO `product` VALUES (231, 'Kizuna Z61S', '95455', '150000', NULL, '42', NULL, '0', NULL, NULL, '0', '35', '9', '0', '0');
 INSERT INTO `product` VALUES (232, 'Kizuna Z63', '155000', '190000', NULL, '1', NULL, 'Sợi', NULL, NULL, NULL, '36', '0', NULL, NULL);
@@ -414,7 +434,7 @@ INSERT INTO `product` VALUES (233, 'Kizuna Z66', '155000', '190000', NULL, '1', 
 INSERT INTO `product` VALUES (234, 'Kizuna Z69', '0', '130000', NULL, '1', NULL, 'Sợi', NULL, NULL, NULL, '36', '0', NULL, NULL);
 INSERT INTO `product` VALUES (235, 'Kizuna Z69 Ti', '83182', '140000', NULL, '35', NULL, '0', NULL, NULL, '0', '35', '4', '0', '0');
 INSERT INTO `product` VALUES (236, 'học sinh', '15000', '80000', NULL, '10', NULL, '0', NULL, NULL, '0', '36', '0', '0', '0');
-INSERT INTO `product` VALUES (237, 'của khách', '0', '50000', NULL, '1', NULL, 'Sợi', NULL, NULL, NULL, '36', '0', NULL, NULL);
+INSERT INTO `product` VALUES (237, 'của khách', '0', '50000', NULL, '0', NULL, 'Sợi', NULL, NULL, NULL, '36', '0', NULL, NULL);
 INSERT INTO `product` VALUES (239, 'Vợt Cầu Lông Lining Axforce 60', '1500000', '1600000', NULL, '0', NULL, '0', NULL, NULL, '0', '37', '0', '0', '0');
 INSERT INTO `product` VALUES (240, 'Vợt Cầu Lông Lining Bladex 200 (3u)', '859091', '1250000', NULL, '0', NULL, '0', NULL, NULL, '0', '20', '0', '0', '0');
 INSERT INTO `product` VALUES (241, 'Vợt cầu lông Yonex Arcsaber 0 Ability', '375000', '550000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
@@ -567,6 +587,14 @@ INSERT INTO `product` VALUES (395, 'Băng chặn mồ hôi - Đơn', '27000', '5
 INSERT INTO `product` VALUES (396, 'Băng chặn mồ hôi - Đôi', '80000', '110000', NULL, '2', NULL, '2', NULL, NULL, '0', '29', '14', '0', '0');
 INSERT INTO `product` VALUES (397, 'Yonex BG Aerobite', '146000', '200000', NULL, '22', NULL, '5', NULL, NULL, '0', '35', '0', '0', '0');
 INSERT INTO `product` VALUES (399, 'Quấn cán vợt cầu lông Yonex 3 in 1', '92000', '120000', NULL, '0', NULL, '1', NULL, NULL, '0', '23', '0', '0', '0');
+INSERT INTO `product` VALUES (400, 'Áo thể thao Yonex - cổ V', '75000', '120000', NULL, '2', NULL, '6', NULL, NULL, '10', '26', '1', '2', '1');
+INSERT INTO `product` VALUES (401, 'Áo thể thao Yonex - cổ V', '75000', '120000', NULL, '1', NULL, '6', NULL, NULL, '10', '26', '1', '3', '1');
+INSERT INTO `product` VALUES (402, 'Áo thể thao Yonex - cổ V', '75000', '120000', NULL, '1', NULL, '6', NULL, NULL, '10', '26', '1', '4', '1');
+INSERT INTO `product` VALUES (403, 'Áo thể thao Yonex - cổ V', '75000', '120000', NULL, '1', NULL, '6', NULL, NULL, '10', '26', '1', '3', '2');
+INSERT INTO `product` VALUES (404, 'Áo thể thao Yonex - cổ V', '75000', '120000', NULL, '1', NULL, '6', NULL, NULL, '10', '26', '1', '4', '2');
+INSERT INTO `product` VALUES (405, 'Vợt Cầu Lông FlyPower TORNADO 800 chính hãng', '1690000', '1950000', NULL, '2', NULL, '6', NULL, NULL, '0', '20', '3', '0', '0');
+INSERT INTO `product` VALUES (406, 'Quấn vải Apavi', '7000', '10000', NULL, '19', NULL, '0', NULL, NULL, '0', '23', '0', '0', '0');
+INSERT INTO `product` VALUES (407, 'Yonex BG Exbolt 68', '118182', '180000', NULL, '22', NULL, '5', NULL, NULL, '0', '35', '3', '0', '0');
 
 -- ----------------------------
 -- Table structure for productype
