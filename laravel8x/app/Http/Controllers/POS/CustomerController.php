@@ -13,7 +13,7 @@ class CustomerController extends Controller
     function __construct() {
         $this->_customerAccess = new CustomerAccess();
         $this->_customergroupAccess = new CustomergroupAccess();
-        $this->_customersevice = new CustomerService();
+        $this->_customerSevice = new CustomerService();
     }
 
     public function index(Request $request){
@@ -39,7 +39,7 @@ class CustomerController extends Controller
     }
 
     public function update(Request $request){
-        $this->_customersevice->moveThumbnail($request);
+        $this->_customerSevice->moveThumbnail($request);
         $this->_customerAccess->update($request);
         return redirect()->route('customer.index', ['screen'=>'pos']);
     }

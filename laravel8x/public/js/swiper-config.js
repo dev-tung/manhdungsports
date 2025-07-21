@@ -1,8 +1,8 @@
 // Main menu
-var swiper = new Swiper(".slider__main", {
+var swiper = new Swiper(".SlideMain", {
     grabCursor: true,
     pagination: {
-        el: ".slider__main .swiper-pagination",
+        el: ".SlideMain .swiper-pagination",
         clickable: true,
     },
     mousewheel: true,
@@ -13,7 +13,7 @@ var swiper = new Swiper(".slider__main", {
 });
 
 // Brand row
-var swiper = new Swiper(".brand__latest", {
+var swiper = new Swiper(".BrandLatest", {
     slidesPerView: 5,
     spaceBetween: 0,
     grabCursor: true,
@@ -49,13 +49,13 @@ var swiper = new Swiper(".brand__latest", {
 });
 
 // Product row
-var swiper = new Swiper(".product__latest", {
+var swiper = new Swiper(".ProductLatest", {
     slidesPerView: 5,
     spaceBetween: 5,
     grabCursor: true,
     navigation: {
-        nextEl: ".product-row-header__btn--prev",
-        prevEl: ".product-row-header__btn--next",
+        nextEl: ".ProductHeaderNavBtn_Prev",
+        prevEl: ".ProductHeaderNavBtn_Next",
     },
     breakpoints: {
         "@0.00": {
@@ -87,8 +87,8 @@ var swiper = new Swiper(".post__latest", {
     spaceBetween: 5,
     grabCursor: true,
     navigation: {
-        nextEl: ".post-row-header__btn--prev",
-        prevEl: ".post-row-header__btn--next",
+        nextEl: ".PostHeaderNavBtn_Prev",
+        prevEl: ".PostHeaderNavBtn_Next",
     },
     breakpoints: {
         "@0.00": {
