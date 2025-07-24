@@ -149,7 +149,8 @@ if( !function_exists('productClassification') ){
         case 27:
         case 28:
           $responses['badminton_raketpack'][] = $product;
-          break;  
+          break; 
+        case 24: 
         case 29:
         case 30:
         case 38:

@@ -365,29 +365,29 @@
                             </ul>
                         </div>
                         <div class="FooterColumn">
-                            <h3 class="FooterTitle">Thông tin</h3>
+                            <h3 class="FooterTitle">Danh mục sản phẩm</h3>
                             <ul class="FooterList">
-                                <li class="FooterListItem">Search</li>
-                                <li class="FooterListItem">Sitemap</li>
-                                <li class="FooterListItem">Privacy Policy</li>
-                                <li class="FooterListItem">FAQs</li>
-                                <li class="FooterListItem">Shipping</li>
+                                <li class="FooterListItem">Vợt cầu lông</li>
+                                <li class="FooterListItem">Giày cầu lông</li>
+                                <li class="FooterListItem">Quần cầu lông</li>
+                                <li class="FooterListItem">Áo cầu lông</li>
+                                <li class="FooterListItem">Phụ kiện cầu lông</li>
                             </ul>
                         </div>
                         <div class="FooterColumn">
                             <h3 class="FooterTitle">Giới thiệu</h3>
                             <ul class="FooterList">
-                                <li class="FooterListItem">Search</li>
-                                <li class="FooterListItem">Sitemap</li>
-                                <li class="FooterListItem">Privacy Policy</li>
-                                <li class="FooterListItem">FAQs</li>
-                                <li class="FooterListItem">Shipping</li>
+                                <li class="FooterListItem">Về chúng tôi</li>
+                                <li class="FooterListItem">Chính sách bảo hành</li>
+                                <li class="FooterListItem">Điều khoản</li>
+                                <li class="FooterListItem">Câu hỏi thường gặp</li>
+                                <li class="FooterListItem">Giao hàng</li>
                             </ul>
                         </div>
                         <div class="FooterColumn FooterColumn_Two">
                             <h3 class="FooterTitle">Gửi email cho chúng tôi</h3>
                             <ul class="FooterList">
-                                <li class="FooterListItem FooterListItem_Padding">Subscribe to our latest newsletter to get news about special discounts.</li>
+                                <li class="FooterListItem FooterListItem_Padding">Gửi email cho chúng tôi để nhận khuyến mãi đặc biệt</li>
                                 <li class="FooterListItem">
                                     <form class="FooterForm" action="">
                                         <input type="text" class="FooterFormInputEmail" placeholder="Nhập email ...">
