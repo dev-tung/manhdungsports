@@ -146,7 +146,13 @@ if( !function_exists('productClassification') ){
         case 26:
           $responses['badminton_shirts'][] = $product;
           break;
-        default:
+        case 27:
+        case 28:
+          $responses['badminton_raketpack'][] = $product;
+          break;  
+        case 29:
+        case 30:
+        case 38:
           $responses['badminton_accessory'][] = $product;
       } // End switch
       
