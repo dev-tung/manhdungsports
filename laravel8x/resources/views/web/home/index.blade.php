@@ -111,7 +111,7 @@
                         <div class="swiper-wrapper ProductGrid">
                             @foreach( $productClassification['badminton_rackets'] as $key => $product )
                                 <div class="swiper-slide ProductItem">
-                                    <span class="ProductSale">-16%</span>
+                                    <span class="ProductSale">-0%</span>
                                     <div class="ProductGroup">
                                         <div class="ProductThumnail">
                                             <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
@@ -150,7 +150,7 @@
                         <div class="swiper-wrapper ProductGrid">
                             @foreach( $productClassification['badminton_shoes'] as $key => $product )
                                 <div class="swiper-slide ProductItem">
-                                    <span class="ProductSale">-16%</span>
+                                    <span class="ProductSale">-0%</span>
                                     <div class="ProductGroup">
                                         <div class="ProductThumnail">
                                             <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
@@ -188,7 +188,7 @@
                         <div class="swiper-wrapper ProductGrid">
                             @foreach( $productClassification['badminton_pants'] as $key => $product )
                                 <div class="swiper-slide ProductItem">
-                                    <span class="ProductSale">-16%</span>
+                                    <span class="ProductSale">-0%</span>
                                     <div class="ProductGroup">
                                         <div class="ProductThumnail">
                                             <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
@@ -226,7 +226,7 @@
                         <div class="swiper-wrapper ProductGrid">
                             @foreach( $productClassification['badminton_shirts'] as $key => $product )
                                 <div class="swiper-slide ProductItem">
-                                    <span class="ProductSale">-16%</span>
+                                    <span class="ProductSale">-0%</span>
                                     <div class="ProductGroup">
                                         <div class="ProductThumnail">
                                             <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
@@ -265,7 +265,7 @@
                         <div class="swiper-wrapper ProductGrid">
                             @foreach( $productClassification['badminton_raketpack'] as $key => $product )
                                 <div class="swiper-slide ProductItem">
-                                    <span class="ProductSale">-16%</span>
+                                    <span class="ProductSale">-0%</span>
                                     <div class="ProductGroup">
                                         <div class="ProductThumnail">
                                             <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
@@ -304,7 +304,7 @@
                         <div class="swiper-wrapper ProductGrid">
                             @foreach( $productClassification['badminton_accessory'] as $key => $product )
                                 <div class="swiper-slide ProductItem">
-                                    <span class="ProductSale">-16%</span>
+                                    <span class="ProductSale">-0%</span>
                                     <div class="ProductGroup">
                                         <div class="ProductThumnail">
                                             <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
