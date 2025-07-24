@@ -122,7 +122,7 @@
                 </tbody>
             </table>
             <div class="ListSearchTotal">
-                <span class="ListSearchTotalItem Text_Danger">Thành tiền {{ commonNumberToVND(array_sum(array_column($invoices, 'invoice_revenue')) - array_sum(array_column($invoices, 'invoice_discount'))) }}</span>
+                <span class="ListSearchTotalItem Text_Danger">Thành tiền {{ commonNumberToVND(array_sum(array_column($invoices, 'invoice_revenue'))) }}</span>
             </div>
         </div>
     </main>
