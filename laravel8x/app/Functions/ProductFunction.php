@@ -128,3 +128,31 @@ if( !function_exists('stringDisplayName') ){
     return $string->productype_name .' '. $string->product_name .' - '. productColor($string->product_color);
   }
 }
+
+if( !function_exists('productClassification') ){
+  function productClassification($products){
+    $responses = [];
+    foreach($products as $key => $product){
+      switch ($product->productype_id) {
+        case 20:
+          $responses['badminton_rackets'][] = $product;
+          break;
+        case 21:
+          $responses['badminton_shoes'][] = $product;
+          break;
+        case 22:
+          $responses['badminton_pants'][] = $product;
+          break;
+        case 26:
+          $responses['badminton_shirts'][] = $product;
+          break;
+        default:
+          $responses['badminton_accessory'][] = $product;
+      } // End switch
+      
+    }// End Foreach
+
+    return $responses;
+
+  }
+}

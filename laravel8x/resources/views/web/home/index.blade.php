@@ -34,24 +34,6 @@
                         <button class="HeaderMiddleSearchFormSubmit">TÌM KIẾM</button>
                     </form>
                 </div>
-                <div class="HeaderMiddleRight">
-                    <div class="HeaderMiddleRightItem HeaderMiddleAccount HeaderMiddleRightItem_Xl">
-                        <a href="#" class="HeaderMiddleAccountLink">Tài khoản của tôi</a>
-                    </div>
-                    <div class="HeaderMiddleRightItem HeaderMiddleRightItem_Sm">
-                        <img class="HeaderMiddleRightIcon HeaderMiddleRightIcon_Search" src="{{ asset('web/img/icon/search.png')}}">
-                    </div>
-                    <div class="HeaderMiddleRightItem HeaderMiddleRightItem_NoXl">
-                        <img class="HeaderMiddleRightIcon" src="{{ asset('web/img/icon/user.png')}}">
-                    </div>
-                    <div class="HeaderMiddleRightItem HeaderMiddleRightItem_Cart">
-                        <img class="HeaderMiddleRightIcon HeaderMiddleRightIcon_Cart" src="{{ asset('web/img/icon/cart.png')}}">
-                        <span class="HeaderMiddle-right-cart__notification">3</span>
-                    </div>
-                    <div class="HeaderMiddleRightItem HeaderMiddleRightItem_Sm">
-                        <img class="HeaderMiddleRightIcon HeaderMiddleRightIcon--menu" src="{{ asset('web/img/icon/bar.png')}}">
-                    </div>
-                </div>
             </div>
 
             <nav class="HeaderNav">
@@ -89,24 +71,6 @@
                         <button class="HeaderMiddleSearchFormSubmit">TÌM KIẾM</button>
                     </form>
                 </div>
-                <div class="HeaderMiddleRight">
-                    <div class="HeaderMiddleRightItem HeaderMiddleAccount HeaderMiddleRightItem_Xl">
-                        <a href="#" class="HeaderMiddleAccountLink">Tài khoản của tôi</a>
-                    </div>
-                    <div class="HeaderMiddleRightItem HeaderMiddleRightItem_Sm">
-                        <img class="HeaderMiddleRightIcon HeaderMiddleRightIcon_Search" src="{{ asset('web/img/icon/search.png')}}">
-                    </div>
-                    <div class="HeaderMiddleRightItem HeaderMiddleRightItem_NoXl">
-                        <img class="HeaderMiddleRightIcon" src="{{ asset('web/img/icon/user.png')}}">
-                    </div>
-                    <div class="HeaderMiddleRightItem HeaderMiddleRightItem_Cart">
-                        <img class="HeaderMiddleRightIcon HeaderMiddleRightIcon_Cart" src="{{ asset('web/img/icon/cart.png')}}">
-                        <span class="HeaderMiddle-right-cart__notification">3</span>
-                    </div>
-                    <div class="HeaderMiddleRightItem HeaderMiddleRightItem_Sm">
-                        <img class="HeaderMiddleRightIcon HeaderMiddleRightIcon--menu" src="{{ asset('web/img/icon/bar.png')}}">
-                    </div>
-                </div>
             </div>
         </Header>
 
@@ -115,410 +79,60 @@
                 <div class="SlideMain swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide SlideMainItem">
-                            <img class="SlideMainImg" src="{{ asset('web/img/stringtable.png')}}">
-                            <!-- <div class="SlideMainGroup">
-                                <p class="SlideMainSale">Sale 50%</p>
-                                <h3 class="SlideMainTitle">
-                                    Chăm sóc da tự nhiên
-                                </h3>
-                                <p class="SlideMainDesc">Nguyên liệu nhập ngoại</p>
-                                <button class="SlideMainBtnView">
-                                    xem chi tiết
-                                </button>
-                            </div> -->
+                            <img class="SlideMainImg" src="{{ asset('web/img/slide/1.png')}}">
                         </div>
                         <div class="swiper-slide SlideMainItem">
-                            <img class="SlideMainImg" src="{{ asset('web/img/stringtable.png')}}">
-                            <!-- <div class="SlideMainGroup">
-                                <p class="SlideMainSale">Sale 50%</p>
-                                <h3 class="SlideMainTitle">
-                                    Chăm sóc da tự nhiên
-                                </h3>
-                                <p class="SlideMainDesc">Nguyên liệu nhập ngoại</p>
-                                <button class="SlideMainBtnView">
-                                    xem chi tiết
-                                </button>
-                            </div> -->
+                            <img class="SlideMainImg" src="{{ asset('web/img/slide/2.png')}}">
+                        </div>
+                        <div class="swiper-slide SlideMainItem">
+                            <img class="SlideMainImg" src="{{ asset('web/img/slide/3.png')}}">
                         </div>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
 
             </section> <!-- End slider -->
-
-            <section class="SectionBrand">
-                <div class="BrandLatest swiper">
-                    <div class="swiper-wrapper BrandGrid">
-                        <div class="swiper-slide BrandItem">
-                            <div class="BrandItemGroup">
-                                <div class="BrandItemThumnail">
-                                    <img class="BrandImg" src="{{ asset('web/img/slide/slide01.jpg')}}">
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="swiper-slide BrandItem">
-                            <div class="BrandItemGroup">
-                                <div class="BrandItemThumnail">
-                                    <img class="BrandImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide BrandItem">
-                            <div class="BrandItemGroup">
-                                <div class="BrandItemThumnail">
-                                    <img class="BrandImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide BrandItem">
-                            <div class="BrandItemGroup">
-                                <div class="BrandItemThumnail">
-                                    <img class="BrandImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide BrandItem">
-                            <div class="BrandItemGroup">
-                                <div class="BrandItemThumnail">
-                                    <img class="BrandImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide BrandItem">
-                            <div class="BrandItemGroup">
-                                <div class="BrandItemThumnail">
-                                    <img class="BrandImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide BrandItem">
-                            <div class="BrandItemGroup">
-                                <div class="BrandItemThumnail">
-                                    <img class="BrandImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide BrandItem">
-                            <div class="BrandItemGroup">
-                                <div class="BrandItemThumnail">
-                                    <img class="BrandImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
-            </section> <!-- End brand -->
         
-            <section class="SectionProduct">
-                <div class="ProductLatest swiper">
-                    <div class="ProductHeader">
-                        <h3 class="ProductHeaderTitle">
-                            Sản phẩm mới nhất
-                        </h3>  
-                        <div class="ProductHeaderNav">
-                            <img src="{{ asset('web/img/icon/previous.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Next">
-                            <img src="{{ asset('web/img/icon/next.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Prev">
-                        </div>
-                    </div>
-                
-                    <div class="swiper-wrapper ProductGrid">
-                        <div class="swiper-slide ProductItem">
-                            <span class="ProductSale">-16%</span>
-                            <div class="ProductGroup">
-                                <div class="ProductThumnail">
-                                    <img class="ProductImg" src="{{ asset('web/img/slide/slide01.jpg')}}">
-                                </div>
-                                <h3 class="ProductTitle">Lorem ipsum dolor sit amet.</h3>
-                                <div class="ProductPrice">
-                                    <del class="ProductPriceOrigin">120.000 đ</del>
-                                    <span class="ProductPriceSale">170.000 đ</span>
-                                </div>
-                                <button class="ProductBtnView">
-                                    xem chi tiết
-                                </button>
-                            </div>
-                            
-                        </div>
-                        <div class="swiper-slide ProductItem">
-                            <span class="ProductSale">-16%</span>
-                            <div class="ProductGroup">
-                                <div class="ProductThumnail">
-                                    <img class="ProductImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                                <h3 class="ProductTitle">Lorem ipsum dolor sit amet.</h3>
-                                <div class="ProductPrice">
-                                    <del class="ProductPriceOrigin">120.000 đ</del>
-                                    <span class="ProductPriceSale">170.000 đ</span>
-                                </div>
-                                <button class="ProductBtnView">
-                                    xem chi tiết
-                                </button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide ProductItem">
-                            <span class="ProductSale">-16%</span>
-                            <div class="ProductGroup">
-                                <div class="ProductThumnail">
-                                    <img class="ProductImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                                <h3 class="ProductTitle">Lorem ipsum dolor sit amet.</h3>
-                                <div class="ProductPrice">
-                                    <del class="ProductPriceOrigin">120.000 đ</del>
-                                    <span class="ProductPriceSale">170.000 đ</span>
-                                </div>
-                                <button class="ProductBtnView">
-                                    xem chi tiết
-                                </button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide ProductItem">
-                            <span class="ProductSale">-16%</span>
-                            <div class="ProductGroup">
-                                <div class="ProductThumnail">
-                                    <img class="ProductImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                                <h3 class="ProductTitle">Lorem ipsum dolor sit amet.</h3>
-                                <div class="ProductPrice">
-                                    <del class="ProductPriceOrigin">120.000 đ</del>
-                                    <span class="ProductPriceSale">170.000 đ</span>
-                                </div>
-                                <button class="ProductBtnView">
-                                    xem chi tiết
-                                </button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide ProductItem">
-                            <span class="ProductSale">-16%</span>
-                            <div class="ProductGroup">
-                                <div class="ProductThumnail">
-                                    <img class="ProductImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                                <h3 class="ProductTitle">Lorem ipsum dolor sit amet.</h3>
-                                <div class="ProductPrice">
-                                    <del class="ProductPriceOrigin">120.000 đ</del>
-                                    <span class="ProductPriceSale">170.000 đ</span>
-                                </div>
-                                <button class="ProductBtnView">
-                                    xem chi tiết
-                                </button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide ProductItem">
-                            <span class="ProductSale">-16%</span>
-                            <div class="ProductGroup">
-                                <div class="ProductThumnail">
-                                    <img class="ProductImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                                <h3 class="ProductTitle">Lorem ipsum dolor sit amet.</h3>
-                                <div class="ProductPrice">
-                                    <del class="ProductPriceOrigin">120.000 đ</del>
-                                    <span class="ProductPriceSale">170.000 đ</span>
-                                </div>
-                                <button class="ProductBtnView">
-                                    xem chi tiết
-                                </button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide ProductItem">
-                            <span class="ProductSale">-16%</span>
-                            <div class="ProductGroup">
-                                <div class="ProductThumnail">
-                                    <img class="ProductImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                                <h3 class="ProductTitle">Lorem ipsum dolor sit amet.</h3>
-                                <div class="ProductPrice">
-                                    <del class="ProductPriceOrigin">120.000 đ</del>
-                                    <span class="ProductPriceSale">170.000 đ</span>
-                                </div>
-                                <button class="ProductBtnView">
-                                    xem chi tiết
-                                </button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide ProductItem">
-                            <span class="ProductSale">-16%</span>
-                            <div class="ProductGroup">
-                                <div class="ProductThumnail">
-                                    <img class="ProductImg" src="{{ asset('web/img/product/product01.jpg')}}">
-                                </div>
-                                <h3 class="ProductTitle">Lorem ipsum dolor sit amet.</h3>
-                                <div class="ProductPrice">
-                                    <del class="ProductPriceOrigin">120.000 đ</del>
-                                    <span class="ProductPriceSale">170.000 đ</span>
-                                </div>
-                                <button class="ProductBtnView">
-                                    xem chi tiết
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
-            </section> <!-- End product -->
 
-            <section class="SectionBanner">
-                <div class="BannerItem">
-                    <img class="BannerImg" src="{{ asset('web/img/slide/slide01.jpg')}}">
-                    <div class="BannerGroup">
-                        <p class="BannerSale">Sale 50%</p>
-                        <h3 class="BannerTitle">
-                            Chăm sóc da tự nhiên
-                        </h3>
-                        <button class="BannerBtnView">
-                            xem chi tiết
-                        </button>
-                    </div>
-                </div>
-                <div class="BannerItem">
-                    <img class="BannerImg" src="{{ asset('web/img/slide/slide01.jpg')}}">
-                    <div class="BannerGroup">
-                        <p class="BannerSale">Sale 50%</p>
-                        <h3 class="BannerTitle">
-                            Chăm sóc da tự nhiên
-                        </h3>
-                        <button class="BannerBtnView">
-                            xem chi tiết
-                        </button>
-                    </div>
-                </div>
-                <div class="BannerItem">
-                    <img class="BannerImg" src="{{ asset('web/img/slide/slide01.jpg')}}">
-                    <div class="BannerGroup">
-                        <p class="BannerSale">Sale 50%</p>
-                        <h3 class="BannerTitle">
-                            Chăm sóc da tự nhiên
-                        </h3>
-                        <button class="BannerBtnView">
-                            xem chi tiết
-                        </button>
-                    </div>
-                </div>
-            </section><!-- Best product sale -->
 
-            <section class="SectionPost">
-                <div class="post__latest swiper">
-                    <div class="PostHeader">
-                        <h3 class="PostHeaderTitle">
-                            Bài viết mới nhất
-                        </h3>  
-                        <div class="PostHeaderNav">
-                            <img src="{{ asset('web/img/icon/previous.png') }}" class="PostHeaderNavBtn PostHeaderNavBtn_Next">
-                            <img src="{{ asset('web/img/icon/next.png') }}" class="PostHeaderNavBtn PostHeaderNavBtn_Prev">
+            @if( !empty($productClassification['badminton_rackets']) )
+                <section class="SectionProduct">
+                    <div class="ProductLatest swiper">
+                        <div class="ProductHeader">
+                            <h3 class="ProductHeaderTitle">
+                                Vợt cầu lông
+                            </h3>  
+                            <div class="ProductHeaderNav">
+                                <img src="{{ asset('web/img/icon/previous.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Next">
+                                <img src="{{ asset('web/img/icon/next.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Prev">
+                            </div>
                         </div>
+                    
+                        <div class="swiper-wrapper ProductGrid">
+                            @foreach( $productClassification['badminton_rackets'] as $key => $product )
+                                <div class="swiper-slide ProductItem">
+                                    <span class="ProductSale">-16%</span>
+                                    <div class="ProductGroup">
+                                        <div class="ProductThumnail">
+                                            <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
+                                        </div>
+                                        <h3 class="ProductTitle">{{$product->product_name}}</h3>
+                                        <div class="ProductPrice">
+                                            <del class="ProductPriceOrigin">{{commonNumberToVND($product->product_price_output)}}</del>
+                                            <span class="ProductPriceSale">{{commonNumberToVND($product->product_price_output)}}</span>
+                                        </div>
+                                        <button class="ProductBtnView">
+                                            xem chi tiết
+                                        </button>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    
                     </div>
-                
-                    <div class="swiper-wrapper PostGrid">
-                        <div class="swiper-slide PostItem">
-                            <div class="PostGroup">
-                                <div class="PostThumnail">
-                                    <img class="PostImg" src="{{ asset('web/img/slide/slide01.jpg')}}">
-                                </div>
-                                <p class="PostDate">30-12-2022</p>
-                                <h3 class="PostTitle">Lorem ipsum dolor sit amet.</h3>
-                                <p class="PostDesc">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                                <a href="#" class="PostBtnView">
-                                    xem chi tiết
-                                </a>
-                            </div>
-                            
-                        </div>
-                        <div class="swiper-slide PostItem">
-                            <div class="PostGroup">
-                                <div class="PostThumnail">
-                                    <img class="PostImg" src="{{ asset('web/img/post/post01.jpg')}}">
-                                </div>
-                                <p class="PostDate">30-12-2022</p>
-                                <h3 class="PostTitle">Lorem ipsum dolor sit amet.</h3>
-                                <p class="PostDesc">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                                <a href="#" class="PostBtnView">
-                                    xem chi tiết
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide PostItem">
-                            <div class="PostGroup">
-                                <div class="PostThumnail">
-                                    <img class="PostImg" src="{{ asset('web/img/post/post01.jpg')}}">
-                                </div>
-                                <p class="PostDate">30-12-2022</p>
-                                <h3 class="PostTitle">Lorem ipsum dolor sit amet.</h3>
-                                <p class="PostDesc">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                                <a href="#" class="PostBtnView">
-                                    xem chi tiết
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide PostItem">
-                            <div class="PostGroup">
-                                <div class="PostThumnail">
-                                    <img class="PostImg" src="{{ asset('web/img/post/post01.jpg')}}">
-                                </div>
-                                <p class="PostDate">30-12-2022</p>
-                                <h3 class="PostTitle">Lorem ipsum dolor sit amet.</h3>
-                                <p class="PostDesc">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                                <a href="#" class="PostBtnView">
-                                    xem chi tiết
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide PostItem">
-                            <div class="PostGroup">
-                                <div class="PostThumnail">
-                                    <img class="PostImg" src="{{ asset('web/img/post/post01.jpg')}}">
-                                </div>
-                                <p class="PostDate">30-12-2022</p>
-                                <h3 class="PostTitle">Lorem ipsum dolor sit amet.</h3>
-                                <p class="PostDesc">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                                <a href="#" class="PostBtnView">
-                                    xem chi tiết
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide PostItem">
-                            <div class="PostGroup">
-                                <div class="PostThumnail">
-                                    <img class="PostImg" src="{{ asset('web/img/post/post01.jpg')}}">
-                                </div>
-                                <p class="PostDate">30-12-2022</p>
-                                <h3 class="PostTitle">Lorem ipsum dolor sit amet.</h3>
-                                <p class="PostDesc">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                                <a href="#" class="PostBtnView">
-                                    xem chi tiết
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide PostItem">
-                            <div class="PostGroup">
-                                <div class="PostThumnail">
-                                    <img class="PostImg" src="{{ asset('web/img/post/post01.jpg')}}">
-                                </div>
-                                <p class="PostDate">30-12-2022</p>
-                                <h3 class="PostTitle">Lorem ipsum dolor sit amet.</h3>
-                                <p class="PostDesc">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                                <a href="#" class="PostBtnView">
-                                    xem chi tiết
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide PostItem">
-                            <div class="PostGroup">
-                                <div class="PostThumnail">
-                                    <img class="PostImg" src="{{ asset('web/img/post/post01.jpg')}}">
-                                </div>
-                                <p class="PostDate">30-12-2022</p>
-                                <h3 class="PostTitle">Lorem ipsum dolor sit amet.</h3>
-                                <p class="PostDesc">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                                <a href="#" class="PostBtnView">
-                                    xem chi tiết
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
-            </section> <!-- End post -->
+                </section> <!-- End product -->
+            @endif
+
         </div> <!-- End PageWidth -->
 
         <Footer class="Footer">
@@ -526,19 +140,19 @@
                 <div class="SectionGrid">
                     <div class="ServiceItem ServiceItem_Separate">
                         <img src="{{ asset('web/img/icon/fast-delivery.png')}}" alt="" class="ServiceIcon">
-                        <h3 class="ServiceText">Miễn phí vận chuyển</h3>
+                        <h3 class="ServiceText">Ship cod toàn quốc</h3>
                     </div>
                     <div class="ServiceItem ServiceItem_Separate">
                         <img src="{{ asset('web/img/icon/percent.png')}}" alt="" class="ServiceIcon">
-                        <h3 class="ServiceText">khuyến mại lên đến 50%</h3>
+                        <h3 class="ServiceText">Giá rẻ hơn khi mua theo combo</h3>
                     </div>
                     <div class="ServiceItem ServiceItem_Separate">
                         <img src="{{ asset('web/img/icon/save-money.png')}}" alt="" class="ServiceIcon">
-                        <h3 class="ServiceText">Voucher 10%</h3>
+                        <h3 class="ServiceText">Giảm giá lên đến 50%</h3>
                     </div>
                     <div class="ServiceItem">
                         <img src="{{ asset('web/img/icon/gift.png')}}" alt="" class="ServiceIcon">
-                        <h3 class="ServiceText">Tích điểm nhận quà</h3>
+                        <h3 class="ServiceText">Tích điểm thành viên</h3>
                     </div>
                 </div>
             </section> <!-- End service -->

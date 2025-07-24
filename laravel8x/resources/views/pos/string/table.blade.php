@@ -7,7 +7,7 @@
             <button class="Btn Btn_Warning" id="DownloadStringTable">Download Bảng Giá</button>
             <div class="TableString" id="TableString">
                 <div class="TableStringHeader">
-                    <img src="{{asset('pos/img/logo.png')}}" width="150">
+                    <img src="{{asset('pos/img/stringtitle.png')}}" width="350">
                 </div>
                 <div class="TableStringGrid">
                     @foreach( $string as $string )
