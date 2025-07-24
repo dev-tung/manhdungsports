@@ -448,11 +448,11 @@
                 <div class="ModalBody">
                     <div class="ModalWidth">
                         <ul class="ModalList">
-                            <li class="ModalListItem"><a href="" class="ModalItemLink">Thực phẩm dành cho người già</a></li>
-                            <li class="ModalListItem"><a href="" class="ModalItemLink">Thực phẩm dành cho người trung tuổi</a></li>
-                            <li class="ModalListItem"><a href="" class="ModalItemLink">Thực phẩm dành cho trẻ em</a></li>
-                            <li class="ModalListItem"><a href="" class="ModalItemLink">Thực phẩm chăm sóc sắc đẹp</a></li>
-                            <li class="ModalListItem"><a href="" class="ModalItemLink">Thực phẩm tăng cường sinh lý</a></li>
+                            <li class="ModalListItem"><a href="" class="ModalItemLink">Vợt cầu lông</a></li>
+                            <li class="ModalListItem"><a href="" class="ModalItemLink">Giày cầu lông</a></li>
+                            <li class="ModalListItem"><a href="" class="ModalItemLink">Quần cầu lông</a></li>
+                            <li class="ModalListItem"><a href="" class="ModalItemLink">Áo cầu lông</a></li>
+                            <li class="ModalListItem"><a href="" class="ModalItemLink">Phụ kiện cầu lông</a></li>
                         </ul>
                     </div>
                 </div>
@@ -557,7 +557,7 @@
 
     <script src="{{asset('js/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('js/swiper-config.js')}}"></script>
-    <script src="{{asset('js/Modal.js')}}"></script>
+    <script src="{{asset('js/modal.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
 </body>
 </html>
