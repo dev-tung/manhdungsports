@@ -1,0 +1,9 @@
+Quy tắc số lượng:
+
+Hàm không nên quá 30 dòng
+Lớp không nên vượt quá 500 dòng
+Một hàm không được vượt quá 5 tham số, nên giữ <=3
+Một hàm chỉ nên làm duy nhất 1 việc
+Khi khai báo biến, một dòng chỉ chứa một biến
+Một dòng không nên dài quá 80 ký tự
+Các câu lệnh lồng nhau tối đa 4 cấp

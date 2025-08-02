@@ -84,16 +84,16 @@ if( !function_exists('productUnit') ){
 if( !function_exists('productSource') ){
   function productSource($key = 'array'){
     $sourceArray = [
-      0 => 'Khác',
-      1 => 'Lining',
-      2 => 'Cao Xuân Quang',
-      3 => 'Tiến Dinh Sport',
-      4 => 'Đức An Sport',
-      5 => 'K-sport',
-      6 => 'Nam Trường Badminton',
-      7 => 'Linksports',
-      8 => 'Apavi',
-      9 => 'Wsport',
+      0  => 'Khác',
+      1  => 'Lining',
+      2  => 'Cao Xuân Quang',
+      3  => 'Tiến Dinh Sport',
+      4  => 'Đức An Sport',
+      5  => 'K-sport',
+      6  => 'Nam Trường Badminton',
+      7  => 'Linksports',
+      8  => 'Apavi',
+      9  => 'Wsport',
       10 => 'Wingsport',
       11 => 'Hợi Kamito',
       12 => 'Shopee'
@@ -131,35 +131,19 @@ if( !function_exists('stringDisplayName') ){
 
 if( !function_exists('productClassification') ){
   function productClassification($products){
-    $responses = [];
+    $productClassification = []; $productypeClassification = [];
     foreach($products as $key => $product){
-      switch ($product->productype_id) {
-        case 20:
-          $responses['badminton_rackets'][] = $product;
-          break;
-        case 21:
-          $responses['badminton_shoes'][] = $product;
-          break;
-        case 22:
-          $responses['badminton_pants'][] = $product;
-          break;
-        case 26:
-          $responses['badminton_shirts'][] = $product;
-          break;
-        case 27:
-        case 28:
-          $responses['badminton_raketpack'][] = $product;
-          break; 
-        case 24: 
-        case 29:
-        case 30:
-        case 38:
-          $responses['badminton_accessory'][] = $product;
-      } // End switch
-      
+      if( !empty( $product->productype_code ) ){
+        $productClassification[$product->productype_code][] = $product;
+        $productypeClassification[$product->productype_code] = $product->productype_name;
+      }
     }// End Foreach
 
+    $responses = [
+      'products' => $productClassification,
+      'productypes' => $productypeClassification
+    ];
+    
     return $responses;
-
   }
 }

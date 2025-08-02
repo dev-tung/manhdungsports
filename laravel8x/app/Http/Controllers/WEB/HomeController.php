@@ -17,8 +17,8 @@ class HomeController extends Controller
     }
 
     public function index(Request $request){
-        $products = $this->_productAccess->get($request);
+        $products = $this->_productAccess->homepage($request);
         $productClassification = productClassification($products);
-        return view('web.home.index', ['productClassification' => $productClassification]);
+        return view('web.home.index', ['products' => $productClassification['products'], 'productypes' => $productClassification['productypes']]);
     }
 }

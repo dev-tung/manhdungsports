@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>MẠNH DŨNG SPORTS CO., LTD</title>
-    <link rel="stylesheet" href="{{asset('css/swiper-bundle.min.css')}}" >
-    <link rel="stylesheet" href="{{asset('web/css/style.css')}}" >
+    <link rel="stylesheet" href="{{asset('css/swiper-bundle.min.css')}}">
+    <link rel="stylesheet" href="{{asset('web/css/style.css')}}">
 </head>
 
 <body>
@@ -92,238 +91,47 @@
                 </div>
 
             </section> <!-- End slider -->
-        
 
-
-            @if( !empty($productClassification['badminton_rackets']) )
-                <section class="SectionProduct">
-                    <div class="ProductLatest swiper">
-                        <div class="ProductHeader">
-                            <h3 class="ProductHeaderTitle">
-                                Vợt cầu lông
-                            </h3>  
-                            <div class="ProductHeaderNav">
-                                <img src="{{ asset('web/img/icon/previous.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Next">
-                                <img src="{{ asset('web/img/icon/next.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Prev">
-                            </div>
-                        </div>
-                    
-                        <div class="swiper-wrapper ProductGrid">
-                            @foreach( $productClassification['badminton_rackets'] as $key => $product )
-                                <div class="swiper-slide ProductItem">
-                                    <span class="ProductSale">-0%</span>
-                                    <div class="ProductGroup">
-                                        <div class="ProductThumnail">
-                                            <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
-                                        </div>
-                                        <h3 class="ProductTitle">{{$product->product_name}}</h3>
-                                        <div class="ProductPrice">
-                                            <del class="ProductPriceOrigin">{{commonNumberToVND($product->product_price_output)}}</del>
-                                            <span class="ProductPriceSale">{{commonNumberToVND($product->product_price_output)}}</span>
-                                        </div>
-                                        <button class="ProductBtnView">
-                                            xem chi tiết
-                                        </button>
+            @if( !empty($products) )
+                @foreach( $products as $product_code => $product )
+                    @if( !empty( $product_code ) )
+                        <section class="SectionProduct">
+                            <div class="ProductLatest swiper">
+                                <div class="ProductHeader">
+                                    <h3 class="ProductHeaderTitle">
+                                        {{ $productypes[$product_code] }}
+                                    </h3>  
+                                    <div class="ProductHeaderNav">
+                                        <img src="{{ asset('web/img/icon/previous.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Next">
+                                        <img src="{{ asset('web/img/icon/next.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Prev">
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
-                    
-                    </div>
-                </section> <!-- End product -->
-            @endif
-
-
-            @if( !empty($productClassification['badminton_shoes']) )
-                <section class="SectionProduct">
-                    <div class="ProductLatest swiper">
-                        <div class="ProductHeader">
-                            <h3 class="ProductHeaderTitle">
-                                Giày cầu lông
-                            </h3>  
-                            <div class="ProductHeaderNav">
-                                <img src="{{ asset('web/img/icon/previous.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Next">
-                                <img src="{{ asset('web/img/icon/next.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Prev">
-                            </div>
-                        </div>
-                    
-                        <div class="swiper-wrapper ProductGrid">
-                            @foreach( $productClassification['badminton_shoes'] as $key => $product )
-                                <div class="swiper-slide ProductItem">
-                                    <span class="ProductSale">-0%</span>
-                                    <div class="ProductGroup">
-                                        <div class="ProductThumnail">
-                                            <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
+                            
+                                <div class="swiper-wrapper ProductGrid">
+                                    @foreach( $products[$product_code] as $key => $product )
+                                        <div class="swiper-slide ProductItem">
+                                            <span class="ProductSale">-0%</span>
+                                            <div class="ProductGroup">
+                                                <div class="ProductThumnail">
+                                                    <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
+                                                </div>
+                                                <h3 class="ProductTitle">{{$product->product_name}}</h3>
+                                                <div class="ProductPrice">
+                                                    <del class="ProductPriceOrigin">{{commonNumberToVND($product->product_price_output)}}</del>
+                                                    <span class="ProductPriceSale">{{commonNumberToVND($product->product_price_output)}}</span>
+                                                </div>
+                                                <button class="ProductBtnView">
+                                                    xem chi tiết
+                                                </button>
+                                            </div>
                                         </div>
-                                        <h3 class="ProductTitle">{{$product->product_name}}</h3>
-                                        <div class="ProductPrice">
-                                            <del class="ProductPriceOrigin">{{commonNumberToVND($product->product_price_output)}}</del>
-                                            <span class="ProductPriceSale">{{commonNumberToVND($product->product_price_output)}}</span>
-                                        </div>
-                                        <button class="ProductBtnView">
-                                            xem chi tiết
-                                        </button>
-                                    </div>
+                                    @endforeach
                                 </div>
-                            @endforeach
-                        </div>
-                    
-                    </div>
-                </section> <!-- End product -->
-            @endif
-
-            @if( !empty($productClassification['badminton_pants']) )
-                <section class="SectionProduct">
-                    <div class="ProductLatest swiper">
-                        <div class="ProductHeader">
-                            <h3 class="ProductHeaderTitle">
-                                Quần cầu lông
-                            </h3>  
-                            <div class="ProductHeaderNav">
-                                <img src="{{ asset('web/img/icon/previous.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Next">
-                                <img src="{{ asset('web/img/icon/next.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Prev">
+                            
                             </div>
-                        </div>
-                    
-                        <div class="swiper-wrapper ProductGrid">
-                            @foreach( $productClassification['badminton_pants'] as $key => $product )
-                                <div class="swiper-slide ProductItem">
-                                    <span class="ProductSale">-0%</span>
-                                    <div class="ProductGroup">
-                                        <div class="ProductThumnail">
-                                            <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
-                                        </div>
-                                        <h3 class="ProductTitle">{{$product->product_name}}</h3>
-                                        <div class="ProductPrice">
-                                            <del class="ProductPriceOrigin">{{commonNumberToVND($product->product_price_output)}}</del>
-                                            <span class="ProductPriceSale">{{commonNumberToVND($product->product_price_output)}}</span>
-                                        </div>
-                                        <button class="ProductBtnView">
-                                            xem chi tiết
-                                        </button>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    
-                    </div>
-                </section> <!-- End product -->
-            @endif
-
-            @if( !empty($productClassification['badminton_shirts']) )
-                <section class="SectionProduct">
-                    <div class="ProductLatest swiper">
-                        <div class="ProductHeader">
-                            <h3 class="ProductHeaderTitle">
-                                Áo cầu lông
-                            </h3>  
-                            <div class="ProductHeaderNav">
-                                <img src="{{ asset('web/img/icon/previous.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Next">
-                                <img src="{{ asset('web/img/icon/next.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Prev">
-                            </div>
-                        </div>
-                    
-                        <div class="swiper-wrapper ProductGrid">
-                            @foreach( $productClassification['badminton_shirts'] as $key => $product )
-                                <div class="swiper-slide ProductItem">
-                                    <span class="ProductSale">-0%</span>
-                                    <div class="ProductGroup">
-                                        <div class="ProductThumnail">
-                                            <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
-                                        </div>
-                                        <h3 class="ProductTitle">{{$product->product_name}}</h3>
-                                        <div class="ProductPrice">
-                                            <del class="ProductPriceOrigin">{{commonNumberToVND($product->product_price_output)}}</del>
-                                            <span class="ProductPriceSale">{{commonNumberToVND($product->product_price_output)}}</span>
-                                        </div>
-                                        <button class="ProductBtnView">
-                                            xem chi tiết
-                                        </button>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    
-                    </div>
-                </section> <!-- End product -->
-            @endif
-
-
-            @if( !empty($productClassification['badminton_raketpack']) )
-                <section class="SectionProduct">
-                    <div class="ProductLatest swiper">
-                        <div class="ProductHeader">
-                            <h3 class="ProductHeaderTitle">
-                                Bao đựng vợt cầu lông
-                            </h3>  
-                            <div class="ProductHeaderNav">
-                                <img src="{{ asset('web/img/icon/previous.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Next">
-                                <img src="{{ asset('web/img/icon/next.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Prev">
-                            </div>
-                        </div>
-                    
-                        <div class="swiper-wrapper ProductGrid">
-                            @foreach( $productClassification['badminton_raketpack'] as $key => $product )
-                                <div class="swiper-slide ProductItem">
-                                    <span class="ProductSale">-0%</span>
-                                    <div class="ProductGroup">
-                                        <div class="ProductThumnail">
-                                            <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
-                                        </div>
-                                        <h3 class="ProductTitle">{{$product->product_name}}</h3>
-                                        <div class="ProductPrice">
-                                            <del class="ProductPriceOrigin">{{commonNumberToVND($product->product_price_output)}}</del>
-                                            <span class="ProductPriceSale">{{commonNumberToVND($product->product_price_output)}}</span>
-                                        </div>
-                                        <button class="ProductBtnView">
-                                            xem chi tiết
-                                        </button>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    
-                    </div>
-                </section> <!-- End product -->
-            @endif
-
-
-            @if( !empty($productClassification['badminton_accessory']) )
-                <section class="SectionProduct">
-                    <div class="ProductLatest swiper">
-                        <div class="ProductHeader">
-                            <h3 class="ProductHeaderTitle">
-                                Phụ kiện cầu lông
-                            </h3>  
-                            <div class="ProductHeaderNav">
-                                <img src="{{ asset('web/img/icon/previous.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Next">
-                                <img src="{{ asset('web/img/icon/next.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Prev">
-                            </div>
-                        </div>
-                    
-                        <div class="swiper-wrapper ProductGrid">
-                            @foreach( $productClassification['badminton_accessory'] as $key => $product )
-                                <div class="swiper-slide ProductItem">
-                                    <span class="ProductSale">-0%</span>
-                                    <div class="ProductGroup">
-                                        <div class="ProductThumnail">
-                                            <img class="ProductImg" src="{{ asset($product->product_thumbnail)}}">
-                                        </div>
-                                        <h3 class="ProductTitle">{{$product->product_name}}</h3>
-                                        <div class="ProductPrice">
-                                            <del class="ProductPriceOrigin">{{commonNumberToVND($product->product_price_output)}}</del>
-                                            <span class="ProductPriceSale">{{commonNumberToVND($product->product_price_output)}}</span>
-                                        </div>
-                                        <button class="ProductBtnView">
-                                            xem chi tiết
-                                        </button>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    
-                    </div>
-                </section> <!-- End product -->
+                        </section> <!-- End product -->
+                    @endif
+                @endforeach
             @endif
 
         </div> <!-- End PageWidth -->
