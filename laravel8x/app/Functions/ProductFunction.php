@@ -137,7 +137,7 @@ if( !function_exists('productClassification') ){
         $productClassification[$product->productype_code][] = $product;
         $productypeClassification[$product->productype_code] = $product->productype_name;
       }
-    }// End Foreach
+    }
 
     $responses = [
       'products' => $productClassification,

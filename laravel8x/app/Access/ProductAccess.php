@@ -45,6 +45,7 @@ class ProductAccess extends Access{
             SELECT * FROM product
             JOIN productype ON product.productype_id = productype.productype_id
             WHERE productype_code != '' AND productype_sort > 0
+            AND product_quantity > 0
             ORDER BY productype_sort ASC
         ";
         return DB::select($query);

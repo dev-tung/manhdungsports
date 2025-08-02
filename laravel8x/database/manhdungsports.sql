@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : DB
+ Source Server         : Localhost
  Source Server Type    : MySQL
- Source Server Version : 100422
+ Source Server Version : 100411
  Source Host           : localhost:3306
  Source Schema         : manhdungsports
 
  Target Server Type    : MySQL
- Target Server Version : 100422
+ Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 02/08/2025 15:46:01
+ Date: 02/08/2025 16:17:27
 */
 
 SET NAMES utf8mb4;
@@ -687,30 +687,32 @@ CREATE TABLE `productype`  (
   `productype_id` int(11) NOT NULL AUTO_INCREMENT,
   `productype_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `productype_parent_id` int(11) NULL DEFAULT NULL,
+  `productype_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `productype_sort` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`productype_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of productype
 -- ----------------------------
-INSERT INTO `productype` VALUES (20, 'Vợt cầu lông', NULL);
-INSERT INTO `productype` VALUES (21, 'Giày cầu lông', NULL);
-INSERT INTO `productype` VALUES (22, 'Quần cầu lông', NULL);
-INSERT INTO `productype` VALUES (23, 'Quấn cán vợt cầu lông', NULL);
-INSERT INTO `productype` VALUES (24, 'Quấn cốt vợt cầu lông', NULL);
-INSERT INTO `productype` VALUES (25, 'Quả cầu lông', NULL);
-INSERT INTO `productype` VALUES (26, 'Áo cầu lông', NULL);
-INSERT INTO `productype` VALUES (27, 'Balo vợt cầu lông', NULL);
-INSERT INTO `productype` VALUES (28, 'Bao vợt cầu lông', NULL);
-INSERT INTO `productype` VALUES (29, 'Phụ kiện cầu lông', NULL);
-INSERT INTO `productype` VALUES (30, 'Tất cầu lông', 30);
-INSERT INTO `productype` VALUES (31, 'Vợt hàn', NULL);
-INSERT INTO `productype` VALUES (32, 'Dán đế giày', NULL);
-INSERT INTO `productype` VALUES (33, 'Hộp cầu lông', NULL);
-INSERT INTO `productype` VALUES (34, 'Thùng cầu', NULL);
-INSERT INTO `productype` VALUES (35, 'Cước cuộn', NULL);
-INSERT INTO `productype` VALUES (36, 'Cước vỉ', NULL);
-INSERT INTO `productype` VALUES (37, 'Vợt cầu lông cũ', NULL);
-INSERT INTO `productype` VALUES (38, 'Lưới cầu lông', NULL);
+INSERT INTO `productype` VALUES (20, 'Vợt cầu lông', NULL, 'votcaulong', 1);
+INSERT INTO `productype` VALUES (21, 'Giày cầu lông', NULL, 'giaycaulong', 3);
+INSERT INTO `productype` VALUES (22, 'Quần cầu lông', NULL, 'quancaulong', 5);
+INSERT INTO `productype` VALUES (23, 'Quấn cán vợt cầu lông', NULL, 'quancanvotcaulong', 8);
+INSERT INTO `productype` VALUES (24, 'Quấn cốt vợt cầu lông', NULL, 'quancotvotcaulong', 6);
+INSERT INTO `productype` VALUES (25, 'Quả cầu lông', NULL, 'quacaulong', 7);
+INSERT INTO `productype` VALUES (26, 'Áo cầu lông', NULL, 'aocaulong', 4);
+INSERT INTO `productype` VALUES (27, 'Balo vợt cầu lông', NULL, 'balovotcaulong', 9);
+INSERT INTO `productype` VALUES (28, 'Bao vợt cầu lông', NULL, 'baovotcaulong', 10);
+INSERT INTO `productype` VALUES (29, 'Phụ kiện cầu lông', NULL, 'phukienvotcaulong', 11);
+INSERT INTO `productype` VALUES (30, 'Tất cầu lông', 30, 'tatcaulong', 12);
+INSERT INTO `productype` VALUES (31, 'Vợt hàn', NULL, '0', 0);
+INSERT INTO `productype` VALUES (32, 'Dán đế giày', NULL, '0', 0);
+INSERT INTO `productype` VALUES (33, 'Hộp cầu lông', NULL, '0', 13);
+INSERT INTO `productype` VALUES (34, 'Thùng cầu', NULL, 'thungcau', 0);
+INSERT INTO `productype` VALUES (35, 'Cước cuộn', NULL, '0', 0);
+INSERT INTO `productype` VALUES (36, 'Cước vỉ', NULL, NULL, 0);
+INSERT INTO `productype` VALUES (37, 'Vợt cầu lông cũ', NULL, 'votcaulongcu', 2);
+INSERT INTO `productype` VALUES (38, 'Lưới cầu lông', NULL, NULL, 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
