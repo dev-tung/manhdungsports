@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : Localhost
+ Source Server         : DB
  Source Server Type    : MySQL
- Source Server Version : 100411
+ Source Server Version : 100422
  Source Host           : localhost:3306
  Source Schema         : manhdungsports
 
  Target Server Type    : MySQL
- Target Server Version : 100411
+ Target Server Version : 100422
  File Encoding         : 65001
 
- Date: 02/08/2025 16:17:27
+ Date: 03/08/2025 12:28:34
 */
 
 SET NAMES utf8mb4;
@@ -149,7 +149,7 @@ CREATE TABLE `expense`  (
   `expensetype_id` int(11) NULL DEFAULT NULL,
   `expense_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`expense_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 112 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 115 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of expense
@@ -198,6 +198,25 @@ INSERT INTO `expense` VALUES (108, NULL, 1, '25000', '2025-07-26 00:00:00', '202
 INSERT INTO `expense` VALUES (109, NULL, 1, '30000', '2025-07-26 00:00:00', '2025-07-26 08:10:11', 6, 'Ship cầu');
 INSERT INTO `expense` VALUES (110, NULL, 1, '215000', '2025-07-29 00:00:00', '2025-07-29 07:56:24', 5, 'Ăn trưa');
 INSERT INTO `expense` VALUES (111, NULL, 1, '212000', '2025-08-02 00:00:00', '2025-08-02 02:28:03', 5, 'Ăn tối');
+INSERT INTO `expense` VALUES (112, NULL, 1, '40000', '2025-08-02 00:00:00', '2025-08-02 10:06:54', 5, 'Xôi+ ăn trưa');
+INSERT INTO `expense` VALUES (113, NULL, 1, '70000', '2025-08-03 00:00:00', '2025-08-03 02:53:00', 5, 'Rau quấn nem + bia, nước ngọt ăn tối 2/8');
+INSERT INTO `expense` VALUES (114, NULL, 1, '20000', '2025-08-03 00:00:00', '2025-08-03 02:53:23', 5, 'Xôi + Nước');
+
+-- ----------------------------
+-- Table structure for failed_jobs
+-- ----------------------------
+DROP TABLE IF EXISTS `failed_jobs`;
+CREATE TABLE `failed_jobs`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp(0) NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `failed_jobs_uuid_unique`(`uuid`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for invoice
@@ -218,7 +237,7 @@ CREATE TABLE `invoice`  (
   `invoice_created_at` datetime(0) NULL DEFAULT NULL,
   `invoice_updated_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`invoice_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 263 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 270 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of invoice
@@ -387,8 +406,68 @@ INSERT INTO `invoice` VALUES (257, 64, NULL, '246', 2, NULL, 1, NULL, 2, '530000
 INSERT INTO `invoice` VALUES (258, 1, NULL, '409', 2, NULL, 1, NULL, 2, '20000', '9200', '2025-08-01 00:00:00', '2025-08-01 00:00:00');
 INSERT INTO `invoice` VALUES (259, 8, NULL, '220', 2, NULL, 1, '15000', 1, '165000', '37727', '2025-08-01 00:00:00', '2025-08-02 00:00:00');
 INSERT INTO `invoice` VALUES (260, 6, NULL, '220', 1, NULL, 0, NULL, 2, '360000', '105454', '2025-08-01 00:00:00', '2025-08-01 00:00:00');
-INSERT INTO `invoice` VALUES (261, 8, NULL, '227', 2, NULL, 0, '15000', 1, '175000', '45455', '2025-08-02 00:00:00', '2025-08-02 00:00:00');
-INSERT INTO `invoice` VALUES (262, 8, NULL, '214', 2, NULL, 0, '15000', 1, '135000', '23636', '2025-08-02 00:00:00', '2025-08-02 00:00:00');
+INSERT INTO `invoice` VALUES (261, 8, NULL, '227', 2, NULL, 1, '15000', 1, '175000', '45455', '2025-08-02 00:00:00', '2025-08-03 00:00:00');
+INSERT INTO `invoice` VALUES (262, 8, NULL, '214', 2, NULL, 1, '15000', 1, '135000', '23636', '2025-08-02 00:00:00', '2025-08-03 00:00:00');
+INSERT INTO `invoice` VALUES (263, 9, NULL, '223', 2, NULL, 1, NULL, 1, '190000', '62727', '2025-08-02 00:00:00', '2025-08-03 00:00:00');
+INSERT INTO `invoice` VALUES (264, 1, NULL, '229', 2, NULL, 1, NULL, 1, '140000', '58182', '2025-08-02 00:00:00', '2025-08-02 00:00:00');
+INSERT INTO `invoice` VALUES (265, 1, NULL, '414', 2, NULL, 1, NULL, 1, '80000', '80000', '2025-08-02 00:00:00', '2025-08-02 00:00:00');
+INSERT INTO `invoice` VALUES (267, 48, NULL, '170', 1, NULL, 0, NULL, 22, '6446000', '220000', '2025-08-03 00:00:00', '2025-08-03 00:00:00');
+INSERT INTO `invoice` VALUES (268, 1, NULL, '221', 2, NULL, 1, NULL, 1, '180000', '52727', '2025-08-03 00:00:00', '2025-08-03 00:00:00');
+INSERT INTO `invoice` VALUES (269, 8, NULL, '214', 1, NULL, 1, '15000', 1, '135000', '23636', '2025-08-03 00:00:00', '2025-08-03 00:00:00');
+
+-- ----------------------------
+-- Table structure for migrations
+-- ----------------------------
+DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE `migrations`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of migrations
+-- ----------------------------
+INSERT INTO `migrations` VALUES (1, '2014_10_12_000000_create_users_table', 1);
+INSERT INTO `migrations` VALUES (2, '2014_10_12_100000_create_password_resets_table', 1);
+INSERT INTO `migrations` VALUES (3, '2019_08_19_000000_create_failed_jobs_table', 1);
+INSERT INTO `migrations` VALUES (4, '2019_12_14_000001_create_personal_access_tokens_table', 1);
+
+-- ----------------------------
+-- Table structure for password_resets
+-- ----------------------------
+DROP TABLE IF EXISTS `password_resets`;
+CREATE TABLE `password_resets`  (
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  INDEX `password_resets_email_index`(`email`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of password_resets
+-- ----------------------------
+INSERT INTO `password_resets` VALUES ('tungbinhthaison@gmail.com', '$2y$10$mbOB4rFN6lu4aAldzdMCRONr2CRZbKZcBCVckKf1.oMSfu06P6iDm', '2025-08-03 03:06:04');
+
+-- ----------------------------
+-- Table structure for personal_access_tokens
+-- ----------------------------
+DROP TABLE IF EXISTS `personal_access_tokens`;
+CREATE TABLE `personal_access_tokens`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `last_used_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `personal_access_tokens_token_unique`(`token`) USING BTREE,
+  INDEX `personal_access_tokens_tokenable_type_tokenable_id_index`(`tokenable_type`, `tokenable_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for product
@@ -411,7 +490,7 @@ CREATE TABLE `product`  (
   `product_size` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `product_gender` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`product_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 414 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 415 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
@@ -454,7 +533,7 @@ INSERT INTO `product` VALUES (166, 'Vợt Cầu Lông Lining Calibar 600B', '188
 INSERT INTO `product` VALUES (167, 'Quấn cán vợt cầu lông VS', '7000', '10000', NULL, '92', 'upload/product/1751601685.png', 'Cái', NULL, NULL, NULL, '23', '0', NULL, NULL);
 INSERT INTO `product` VALUES (168, 'Tất cầu lông Yonex 22-25', '27000', '50000', NULL, '10', 'upload/product/1753418561.jpg', '0', NULL, NULL, '0', '30', '1', '0', '0');
 INSERT INTO `product` VALUES (169, 'Vợt cầu lông Yonex Arcsaber 7 Tour', '1610000', '2250000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
-INSERT INTO `product` VALUES (170, 'Hộp cầu Thành Công 77', '283000', '293000', NULL, '57', 'upload/product/1751601641.png', '0', NULL, NULL, '0', '33', '0', '0', '0');
+INSERT INTO `product` VALUES (170, 'Hộp cầu Thành Công 77', '283000', '293000', NULL, '35', 'upload/product/1751601641.png', '0', NULL, NULL, '0', '33', '0', '0', '0');
 INSERT INTO `product` VALUES (171, 'Vợt Cầu Lông Lining Calibar 600B', '1885091', '2550000', NULL, '1', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
 INSERT INTO `product` VALUES (172, 'Vợt cầu lông Lining Windstorm 79S', '913091', '1450000', NULL, '4', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
 INSERT INTO `product` VALUES (173, 'Vợt cầu lông Lining Windstorm 79H', '913091', '1450000', NULL, '2', NULL, 'Cái', NULL, NULL, NULL, '20', '0', NULL, NULL);
@@ -490,22 +569,22 @@ INSERT INTO `product` VALUES (209, 'Áo cầu lông Kamito', '112000', '150000',
 INSERT INTO `product` VALUES (211, 'Yonex BG 5', '0', '130000', NULL, '2', NULL, '0', NULL, NULL, '0', '36', '0', '0', '0');
 INSERT INTO `product` VALUES (212, 'Yonex BG 65', '100000', '140000', NULL, '0', NULL, '0', NULL, NULL, '0', '36', '0', '0', '0');
 INSERT INTO `product` VALUES (213, 'Yonex BG 65', '84091', '140000', NULL, '14', NULL, '0', NULL, NULL, '0', '35', '6', '0', '0');
-INSERT INTO `product` VALUES (214, 'Yonex BG 65 Ti', '111364', '150000', NULL, '24', NULL, '0', NULL, NULL, '0', '35', '1', '0', '0');
+INSERT INTO `product` VALUES (214, 'Yonex BG 65 Ti', '111364', '150000', NULL, '23', NULL, '0', NULL, NULL, '0', '35', '1', '0', '0');
 INSERT INTO `product` VALUES (215, 'Yonex BG 65 Ti', '111364', '150000', NULL, '17', NULL, 'Sợi', NULL, NULL, NULL, '35', '4', NULL, NULL);
 INSERT INTO `product` VALUES (216, 'Yonex BG 65 Ti', '111364', '150000', NULL, '20', NULL, 'Sợi', NULL, NULL, NULL, '35', '7', NULL, NULL);
 INSERT INTO `product` VALUES (217, 'Yonex BG 66 Force', '151200', '190000', NULL, '1', NULL, 'Sợi', NULL, NULL, NULL, '36', '0', NULL, NULL);
 INSERT INTO `product` VALUES (218, 'Yonex BG 66 Ultimax', '133000', '190000', NULL, '1', NULL, '0', NULL, NULL, '0', '36', '0', '0', '0');
 INSERT INTO `product` VALUES (219, 'Yonex BG 66 Ultimax', '127273', '180000', NULL, '0', NULL, '0', NULL, NULL, '0', '35', '1', '0', '0');
 INSERT INTO `product` VALUES (220, 'Yonex BG 66 Ultimax', '127273', '180000', NULL, '14', NULL, '0', NULL, NULL, '0', '35', '5', '0', '0');
-INSERT INTO `product` VALUES (221, 'Yonex BG 66 Ultimax', '127273', '180000', NULL, '18', NULL, '0', NULL, NULL, '0', '35', '4', '0', '0');
+INSERT INTO `product` VALUES (221, 'Yonex BG 66 Ultimax', '127273', '180000', NULL, '17', NULL, '0', NULL, NULL, '0', '35', '4', '0', '0');
 INSERT INTO `product` VALUES (222, 'Yonex BG Exbolt 63', '125000', '190000', NULL, '17', NULL, '0', NULL, NULL, '0', '35', '1', '0', '0');
-INSERT INTO `product` VALUES (223, 'Yonex BG Exbolt 65', '127273', '190000', NULL, '15', NULL, '0', NULL, NULL, '0', '35', '6', '0', '0');
+INSERT INTO `product` VALUES (223, 'Yonex BG Exbolt 65', '127273', '190000', NULL, '14', NULL, '0', NULL, NULL, '0', '35', '6', '0', '0');
 INSERT INTO `product` VALUES (224, 'Yonex BG Exbolt 68', '118182', '190000', NULL, '40', NULL, '0', NULL, NULL, '0', '35', '4', '0', '0');
 INSERT INTO `product` VALUES (225, 'Yonex Nanogy 95', '118182', '190000', NULL, '19', NULL, '0', NULL, NULL, '0', '35', '4', '0', '0');
 INSERT INTO `product` VALUES (226, 'Yonex Nanogy 98', '127273', '190000', NULL, '15', NULL, '0', NULL, NULL, '0', '35', '1', '0', '0');
 INSERT INTO `product` VALUES (227, 'Yonex BG 80 Power', '129545', '190000', NULL, '16', NULL, '0', NULL, NULL, '0', '35', '1', '0', '0');
 INSERT INTO `product` VALUES (228, 'Gosen Ryzonic 58', '90909', '140000', NULL, '22', NULL, 'Sợi', NULL, NULL, NULL, '35', '4', NULL, NULL);
-INSERT INTO `product` VALUES (229, 'Gosen Ryzonic 65', '81818', '140000', NULL, '21', NULL, 'Sợi', NULL, NULL, NULL, '35', '1', NULL, NULL);
+INSERT INTO `product` VALUES (229, 'Gosen Ryzonic 65', '81818', '140000', NULL, '20', NULL, 'Sợi', NULL, NULL, NULL, '35', '1', NULL, NULL);
 INSERT INTO `product` VALUES (230, 'Kizuna Z58', '155000', '190000', NULL, '1', NULL, 'Sợi', NULL, NULL, NULL, '36', '0', NULL, NULL);
 INSERT INTO `product` VALUES (231, 'Kizuna Z61S', '95455', '160000', NULL, '38', NULL, '0', NULL, NULL, '0', '35', '9', '0', '0');
 INSERT INTO `product` VALUES (232, 'Kizuna Z63', '155000', '190000', NULL, '1', NULL, 'Sợi', NULL, NULL, NULL, '36', '0', NULL, NULL);
@@ -678,6 +757,7 @@ INSERT INTO `product` VALUES (410, 'Áo bóng chuyền', '92000', '123000', NULL
 INSERT INTO `product` VALUES (411, 'Quần thể thao Proning kẻ vạt', '125300', '165000', NULL, '0', NULL, '0', NULL, NULL, '0', '22', '0', '0', '0');
 INSERT INTO `product` VALUES (412, 'Quần thể thao Proning kẻ vạt', '125300', '165000', NULL, '10', NULL, '6', NULL, NULL, '11', '22', '2', '3', '1');
 INSERT INTO `product` VALUES (413, 'Vợt lướt 300B', '700000', '1000000', 'vợt cũ của Trọng', '0', NULL, '6', NULL, NULL, '0', '20', '0', '0', '0');
+INSERT INTO `product` VALUES (414, 'Bộ gen vợt', '0', '80000', NULL, '0', NULL, '0', NULL, NULL, '0', '29', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for productype
@@ -714,5 +794,27 @@ INSERT INTO `productype` VALUES (35, 'Cước cuộn', NULL, '0', 0);
 INSERT INTO `productype` VALUES (36, 'Cước vỉ', NULL, NULL, 0);
 INSERT INTO `productype` VALUES (37, 'Vợt cầu lông cũ', NULL, 'votcaulongcu', 2);
 INSERT INTO `productype` VALUES (38, 'Lưới cầu lông', NULL, NULL, 0);
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp(0) NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+INSERT INTO `users` VALUES (1, 'Admin', 'tungbinhthaison@gmail.com', NULL, '$2y$10$8XHWDmmNFd40mOvXL.zM6.3jeS.yH12vVIwYzS6KV3Mk0iPxiWpFC', NULL, '2025-08-03 02:20:02', '2025-08-03 02:20:02');
 
 SET FOREIGN_KEY_CHECKS = 1;
