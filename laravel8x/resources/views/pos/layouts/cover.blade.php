@@ -38,10 +38,24 @@
                     <a class="TopbarNavLink" href="{{route('invoice.add', ['screen'=>'pos'])}}">
                         <span class="TopbarNavText">Thêm đơn hàng</span> 
                     </a>
+
                 </nav>
-                <div class="TopbarNav_right">
-                    
-                </div>
+                <nav class="TopbarNav_right">
+                    <a class="TopbarNavLink" href="{{route('web.home.index')}}">
+                        <span class="TopbarNavText">WEB</span> 
+                    </a>
+                    <a 
+                        class="TopbarNavLink Text_Danger" 
+                        href="{{ route('logout') }}" 
+                        onclick="event.preventDefault(); if(confirm('Bạn có muốn đăng xuất không?')) document.getElementById('logout-form').submit();"
+                    >
+                        <span class="TopbarNavText">{{ __('Logout') }}</span> 
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </nav>
             </div>
             
         </div>

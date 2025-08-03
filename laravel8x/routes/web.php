@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // POS
-Route::prefix('{screen}')->group(function () {
+Route::prefix('{screen}')->middleware('auth')->group(function () {
     Route::get('dashboard', ['as' => 'dashboard.index', 'uses' => 'POS\DashboardController@index']);
     Route::prefix('product')->group(function () {
         Route::get('index', ['as' => 'product.index', 'uses' => 'POS\ProductController@index']);
@@ -73,11 +73,9 @@ Route::prefix('{screen}')->group(function () {
 
 // WEB
 Route::prefix('/')->group(function () {
-    Route::get('/', ['as' => 'home.index', 'uses' => 'WEB\HomeController@index']);
+    Route::get('/', ['as' => 'web.home.index', 'uses' => 'WEB\HomeController@index']);
 });
 
+Auth::routes();
 
-
-
-
-
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
