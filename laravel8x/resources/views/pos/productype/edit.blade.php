@@ -6,7 +6,7 @@
         <form action="{{route('productype.update', ['screen' => 'pos', 'productype_id' => $productype->productype_id])}}" method="POST" class="Form" id="FormproductypeEdit" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
-                <div class="FormGrid FormGridDesktop_Two">
+                <div class="FormGrid FormGridDesktop_Three">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="productypeName" >Tên danh mục <span class="RequiredSymbol">*</span></label>
                         <input class="FormInput" id="productypeName" type="text" name="productype_name" value="{{$productype->productype_name}}">
@@ -21,6 +21,10 @@
                             @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
+                    </div>
+                    <div class="FormGroup">
+                        <label class="FormLabel" for="productypeCode" >CODE <span class="RequiredSymbol">*</span></label>
+                        <input class="FormInput" id="productypeCode" type="text" name="productype_code" value="{{$productype->productype_code}}">
                     </div>
                 </div>
             </div>

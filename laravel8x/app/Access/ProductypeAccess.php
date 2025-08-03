@@ -41,19 +41,21 @@ class ProductypeAccess extends Access{
     }
 
     public function insert($params){
-        DB::table($this->table)->insert([
-            'productype_name' => $params['productype_name'],
-            'productype_parent_id'   => $params['productype_parent_id']
-        ]);
+        $param['productype_name'] = $request['productype_name'];
+        $param['productype_parent_id'] = $request['productype_parent_id'];
+        $param['productype_code'] = $request['productype_code'];
+
+        DB::table($this->table)->insert($param);
     }
 
-    public function update($params){
-        $update['productype_name'] = $params['productype_name'];
-        $update['productype_parent_id'] = $params['productype_parent_id'];
+    public function update($request){
+        $param['productype_name'] = $request['productype_name'];
+        $param['productype_parent_id'] = $request['productype_parent_id'];
+        $param['productype_code'] = $request['productype_code'];
 
         DB::table($this->table)
-            ->where('productype_id', $params->productype_id)
-            ->update($update);
+            ->where('productype_id', $request->productype_id)
+            ->update($param);
     }
 
     public function delete( $searchParams ){

@@ -6,21 +6,25 @@
         <form action="{{route('productype.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormproductypeAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
-                <div class="FormGrid FormGridDesktop_Two">
+                <div class="FormGrid FormGridDesktop_Three">
                     <div class="FormGroup FormValidate">
                         <label class="FormLabel" for="productypeName" >Tên danh mục <span class="RequiredSymbol">*</span></label>
                         <input class="FormInput" id="productypeName" type="text" name="productype_name">
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="productypeproductype" >Danh mục cha</label>
-                        <select class="FormSelect" name="productype_parent_id" id="productypeproductype">
+                        <label class="FormLabel" for="productypeParentId" >Danh mục cha</label>
+                        <select class="FormSelect" name="productype_parent_id" id="productypeParentId">
                             <option value="">-- Chọn danh mục --</option>
                             @foreach($productype as $item)
                                 <option value="{{$item->productype_id}}">{{$item->productype_name}}</option>
                             @endforeach
                         </select>
                         <small class="FormErrorMessage"></small>
+                    </div>
+                    <div class="FormGroup">
+                        <label class="FormLabel" for="productypeCode" >CODE <span class="RequiredSymbol">*</span></label>
+                        <input class="FormInput" id="productypeCode" type="text" name="productype_code">
                     </div>
                 </div>
             </div>
