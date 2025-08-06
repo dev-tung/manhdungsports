@@ -40,7 +40,7 @@ class ProductypeAccess extends Access{
         return $query->first();
     }
 
-    public function insert($params){
+    public function insert($request){
         $param['productype_name'] = $request['productype_name'];
         $param['productype_parent_id'] = $request['productype_parent_id'];
         $param['productype_code'] = $request['productype_code'];

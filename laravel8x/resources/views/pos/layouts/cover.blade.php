@@ -41,7 +41,7 @@
 
                 </nav>
                 <nav class="TopbarNav_right">
-                    <a class="TopbarNavLink" href="{{route('web.home.index')}}">
+                    <a class="TopbarNavLink" href="{{route('web.home.index')}}" target="_blank">
                         <span class="TopbarNavText">WEB</span> 
                     </a>
                     <a 

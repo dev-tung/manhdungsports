@@ -74,11 +74,14 @@ Route::prefix('{screen}')->middleware('auth')->group(function () {
 // WEB
 Route::prefix('/')->group(function () {
     Route::get('/', ['as' => 'web.home.index', 'uses' => 'WEB\HomeController@index']);
+
+    Route::prefix('product')->group(function () {
+        Route::get('index', ['as' => 'web.product.index', 'uses' => 'WEB\ProductController@index']);
+        Route::get('detail', ['as' => 'web.product.detail', 'uses' => 'WEB\ProductController@detail']);
+    });
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::get('/optimize', function() {

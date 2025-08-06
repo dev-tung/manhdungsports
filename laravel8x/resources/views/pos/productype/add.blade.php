@@ -23,7 +23,7 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup">
-                        <label class="FormLabel" for="productypeCode" >CODE <span class="RequiredSymbol">*</span></label>
+                        <label class="FormLabel" for="productypeCode" >CODE</label>
                         <input class="FormInput" id="productypeCode" type="text" name="productype_code">
                     </div>
                 </div>
