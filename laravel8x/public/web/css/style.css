@@ -662,6 +662,7 @@
 /* Nav */
 .HeaderNav{
     background-color: var(--primary-color);
+    padding: 7px 0;
 }
 
 .HeaderNav .PageWidth{
@@ -1584,19 +1585,19 @@ Footer{
 
 @media (min-width: 576px) {
     .ProductGrid{
-        grid-template-columns: auto auto;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (min-width: 768px) {
     .ProductGrid{
-        grid-template-columns: auto auto auto;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
 @media (min-width: 1100px) {
     .ProductGrid{
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
 
@@ -1629,10 +1630,11 @@ Footer{
     align-items: center;
     overflow: hidden;
     cursor: pointer;
+    justify-content: center;
 }
 
 .ProductImg{
-    width: 100%;
+    width: 60%;
 }
 
 .ProductTitle{
@@ -1642,11 +1644,12 @@ Footer{
     font-weight: 100;
     line-height: 20px;
     overflow: hidden;
+    text-align: center;
 }
 
 .ProductPrice{
     margin: 15px 0 0 0;
-    
+    text-align: center;
 }
 
 .ProductPriceOrigin{
@@ -1656,7 +1659,6 @@ Footer{
 
 .ProductPriceSale{
     color: var(--price-color);
-    margin-left: 10px;
     font-size: 16px;
     font-weight: bold;
 }
@@ -1690,7 +1692,7 @@ Footer{
 }
 
 .BreadCrumbTitle{
-    font-size: 18px;
+    font-size: 15px;
     color: var(--title-color);
     text-transform: uppercase;
 }
@@ -2078,7 +2080,6 @@ Footer{
     font-size: 19px;
     color: var(--price-color);
     font-weight: bold;
-    margin-left: 5px;
 }
 
 .ProductDetailRightBottom{
@@ -2119,6 +2120,8 @@ Footer{
     margin-top: 15px;
     background-color: var(--background-color);
     padding: 1px 15px;
+    font-size: 14px;
+    line-height: 23px;
 }
 
 .ProductDescriptionTitle{

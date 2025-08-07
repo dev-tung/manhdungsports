@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
+// WEB
+Route::prefix('/')->group(function () {
+    Route::get('/', ['as' => 'web.home.index', 'uses' => 'WEB\HomeController@index']);
+    Route::prefix('product')->group(function () {
+        Route::get('index', ['as' => 'web.product.index', 'uses' => 'WEB\ProductController@index']);
+        Route::get('detail/{product_id}', ['as' => 'web.product.detail', 'uses' => 'WEB\ProductController@detail']);
+    });
+});
 
 // POS
 Route::prefix('{screen}')->middleware('auth')->group(function () {
@@ -71,21 +81,8 @@ Route::prefix('{screen}')->middleware('auth')->group(function () {
     });
 });
 
-// WEB
-Route::prefix('/')->group(function () {
-    Route::get('/', ['as' => 'web.home.index', 'uses' => 'WEB\HomeController@index']);
-
-    Route::prefix('product')->group(function () {
-        Route::get('index', ['as' => 'web.product.index', 'uses' => 'WEB\ProductController@index']);
-        Route::get('detail', ['as' => 'web.product.detail', 'uses' => 'WEB\ProductController@detail']);
-    });
-});
-
-Auth::routes();
-
-
+// OPTIMZING
 Route::get('/optimize', function() {
     Artisan::call('optimize');
-  
     dd("Cache Clear All");
 });
