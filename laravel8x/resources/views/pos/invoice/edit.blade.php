@@ -1,9 +1,6 @@
 @extends('pos.layouts.cover')
 @section('Title', 'SỬA ĐƠN HÀNG')
 @section('PageJs', asset('pos/js/invoice/edit.js'))
-@section('Script')
-    <script src="{{asset('pos/js/invoice/search.js')}}"></script>
-@endsection
 @section('Main')
     <main class="Main">
          <form action="{{route('invoice.update', ['screen'=>'pos', 'invoice_id' => $invoice->invoice_id])}}" method="POST" class="Form" id="FormInvoiceEdit" enctype="multipart/form-data">

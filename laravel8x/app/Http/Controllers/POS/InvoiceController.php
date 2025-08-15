@@ -41,9 +41,16 @@ class InvoiceController extends Controller
     }
 
     public function insert(Request $request){
-        $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
-        $this->_invoiceAccess->insert($request, $product);
-        $this->_productAccess->updateQuantity($request, $product);
+        
+        $productRequests = json_decode($request->product_id);
+        foreach( $productRequests as $key => $productRequest ){
+            $product = $this->_productAccess->getFirst(['product_id' => $productRequest->code]);
+            $request['invoice_status'] = $productRequest->isGift == true ? 5 : $request['invoice_status'];
+            $request['invoice_quantity'] = $productRequest->quantity;
+            $this->_invoiceAccess->insert($request, $product);
+            $this->_productAccess->updateQuantity($request, $product);
+        }
+
         return redirect()->route('invoice.index', ['screen'=>'pos']);
     }
 

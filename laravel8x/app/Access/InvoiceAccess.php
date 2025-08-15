@@ -111,7 +111,7 @@ class InvoiceAccess extends Access{
 
         $param['customer_id'] = $request['customer_id'];
         $param['invoice_description'] = $request['invoice_description'];
-        $param['product_id'] = $request['product_id'];
+        $param['product_id'] = $product->product_id;
         $param['invoice_status'] = $request['invoice_status'];
         $param['invoice_timereturn'] = $request['invoice_timereturn'];
         $param['invoice_ispayment'] = $request['invoice_ispayment'];

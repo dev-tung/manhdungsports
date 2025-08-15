@@ -1,6 +1,7 @@
 @extends('pos.layouts.cover')
 @section('Title', 'THÊM ĐƠN HÀNG')
 @section('PageJs', asset('pos/js/invoice/add.js'))
+@section('PageCss', asset('pos/css/invoice/add.css'))
 @section('Script')
     <script src="{{asset('pos/js/invoice/search.js')}}"></script>
 @endsection
@@ -12,30 +13,29 @@
             <input type="hidden" id="ProductId" name="product_id">
 
             <div class="FormGrid FormGridDesktop_Three">
-                
-                <div class="FormGroup FormValidate">
-                    <label class="FormLabel" for="CustomerName">Khách hàng <span class="RequiredSymbol">*</span></label>
-                    <input autocomplete="off" class="FormInput" id="CustomerName" type="text" name="customer_name" data-modal-action="toggle" data-modal-target="#CustomerSearchModal">
-                    <small class="FormErrorMessage"></small>
+
+                <!-- Khách hàng -->
+                <div class="FormGroup">
+                    <label for="customer" class="FormLabel">Khách hàng <span class="RequiredSymbol">*</span></label>
+                    <input type="text" id="customer" class="FormInput" placeholder="Nhập tên khách hàng..." autocomplete="off">
+                    <div class="Suggestions" id="customerList"></div>
+                </div>
+
+                <!-- Sản phẩm -->
+                <div class="FormGroup" style="z-index: 1001;">
+                    <label class="FormLabel" for="productSearchInput">Sản phẩm</label>
+                    <div tabindex="0" class="ProductSelectorBtn" id="productSelectorBtn">Chọn sản phẩm</div>
+                    <div class="Dropdown" id="productDropdown">
+                        <input type="text" class="DropdownSearchInput" id="productSearchInput" placeholder="Nhập tên sản phẩm để tìm...">
+                        <div class="SuggestionsTagsContainer" id="selectedTags"></div>
+                        <div id="productItems"></div>
+                    </div>
                 </div>
 
                 <div class="FormGroup FormValidate">
-                    <label class="FormLabel" for="ProductName">Sản phẩm <span class="RequiredSymbol">*</span></label>
-                    <input autocomplete="off" class="FormInput" id="ProductName" type="text" name="product_name" data-modal-action="toggle" data-modal-target="#ProductSearchModal">
+                    <label class="FormLabel" for="InvoiceDiscount">Chiết khấu (VNĐ)</label>
+                    <input class="FormInput" id="InvoiceDiscount" type="number" name="invoice_discount" autocomplete="on">
                     <small class="FormErrorMessage"></small>
-                </div>
-
-                <div class="FormGrid FormGridDesktop_Two">
-                    <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="InvoiceQuantity">Số lượng <span class="RequiredSymbol">*</span></label>
-                        <input class="FormInput" id="InvoiceQuantity" type="number" name="invoice_quantity" value="1">
-                        <small class="FormErrorMessage"></small>
-                    </div>
-                    <div class="FormGroup FormValidate">
-                        <label class="FormLabel" for="InvoiceDiscount">Chiết khấu (VNĐ)</label>
-                        <input class="FormInput" id="InvoiceDiscount" type="number" name="invoice_discount" autocomplete="on">
-                        <small class="FormErrorMessage"></small>
-                    </div>
                 </div>
 
                 <div class="FormGroup FormValidate">
@@ -72,7 +72,7 @@
             <div class="FormBtn">
                 <div class="FormBtnGroup">
                     <button class="Btn Btn_Default" type="button" onclick="history.back()">Quay lại</button>
-                    <button class="Btn Btn_Primary">Lưu</button>
+                    <button class="Btn Btn_Primary" id="createInvoice">Lưu</button>
                 </div>
             </div>
         </form>

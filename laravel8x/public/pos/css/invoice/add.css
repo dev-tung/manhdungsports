@@ -1,0 +1,222 @@
+.FormContainer {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+  }
+  .FormContainerTitle {
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #333;
+  }
+  .FormRow {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .FormGroup {
+    position: relative;
+  }
+  .FormGroupLabel {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 7px;
+    color: #444;
+  }
+  /* Nút chọn sản phẩm (giống input nhưng là div) */
+.ProductSelectorBtn {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+}
+
+  .ProductSelectorBtn:focus {
+    outline: none;
+    border-color: #1e88e5;
+    box-shadow: 0 0 4px #1e88e5;
+  }
+  /* Dropdown */
+  .Dropdown {
+    position: absolute;
+    top: calc(100% );
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    max-height: 350px;
+    overflow-y: auto;
+    z-index: 1000;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+  }
+  .DropdownActive {
+    display: flex;
+  }
+  /* Input tìm kiếm trong dropdown */
+  .DropdownSearchInput {
+    padding: 8px 10px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+  }
+
+  .SuggestionsTagsContainer:has(div.Tag){
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    border-bottom: 1px solid #eee;
+    background: #f0f7ff;
+    padding: 5px;
+  }
+
+  .Tag {
+    display: flex;
+    align-items: center;
+    background: #e3f2fd;
+    color: #0277bd;
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 13px;
+  }
+  .Tag_Gift {
+    background: #bbdefb;
+    color: #0d47a1;
+    border: 1px solid #0d47a1;
+  }
+  .TagClose {
+    margin-left: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #01579b;
+  }
+  .SuggestionsItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .SuggestionsItem:last-child {
+    border-bottom: none;
+  }
+  .SuggestionsItem:hover {
+    background: #f8f9fa;
+  }
+  .Checkbox {
+    flex: 0 0 20px;
+    height: 18px;
+  }
+  .ProductInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .ProductInfoName {
+    font-weight: bold;
+    font-size: 11px;
+  }
+  .ProductInfoPrice {
+    font-size: 10px;
+    font-style: italic;
+  }
+  .GiftCheckboxContainer {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .Switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+  }
+  .Switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .Slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 22px;
+  }
+  .Slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  .Switch input:checked + .Slider {
+    background-color: #1e88e5;
+  }
+  .Switch input:checked + .Slider:before {
+    transform: translateX(18px);
+  }
+  .GiftLabelText {
+    font-size: 10px;
+    user-select: none;
+  }
+  .SubmitBtn {
+    padding: 14px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+  }
+  .SubmitBtn:hover {
+    background: #218838;
+  }
+  @media(min-width: 768px) {
+    .FormRow {
+      flex-direction: row;
+      gap: 20px;
+    }
+    .FormGroup {
+      flex: 1;
+    }
+  }
+
+  #customerList:has(div) {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 2000; /* tăng z-index để nổi trên */
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
