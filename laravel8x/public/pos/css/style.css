@@ -49,7 +49,7 @@ table {
 
 :root {
     --color-border : #dadada;
-    --color-primary : #1e88e5;
+    --color-primary : rgb(0, 153, 255);
     --color-primary-hover : rgb(3, 122, 201);
     --color-info : rgb(187, 0, 255);
     --color-info-hover : rgb(125, 1, 171);

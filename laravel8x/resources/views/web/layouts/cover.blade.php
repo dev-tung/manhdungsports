@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>MẠNH DŨNG SPORTS CO., LTD</title>
     <link rel="stylesheet" href="{{asset('css/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{asset('web/css/style.css')}}">
@@ -47,6 +48,7 @@
                             <span class="HeaderNavCategoryText">Danh mục sản phẩm</span>
                         </button>
                     </div>
+                    
                     <ul class="HeaderNavList HeaderNavList_Menu HeaderNavList_Lg">
                         <li class="HeaderNavListItem"><a class="HeaderNavLinkItem" href="/">Trang chủ</a></li>
                         <li class="HeaderNavListItem"><a class="HeaderNavLinkItem" href="{{ route('web.product.index') }}">Sản phẩm</a></li>
@@ -54,6 +56,10 @@
                         <li class="HeaderNavListItem"><a class="HeaderNavLinkItem" href="">Giới thiệu</a></li>
                         <li class="HeaderNavListItem"><a class="HeaderNavLinkItem" href="">Liên hệ</a></li>
                     </ul>
+
+                    <!-- <ul class="HeaderNavList HeaderNavList_Freeship">
+                        <li class="HeaderNavListItem">Free ship với đơn từ <span class="HeaderNavListItemValue">100.000 đ +</span></li>
+                    </ul> -->
                 </div>
             </nav>
         </Header>
@@ -64,8 +70,8 @@
                     <img src="{{asset('web/img/logo.png')}}" class="HeaderMiddleLogoImg" alt="logo">
                 </div>
                 <div class="HeaderMiddleSearch">
-                    <form action="{{ route('web.product.index') }}" class="HeaderMiddleSearchForm">
-                        <input type="text" class="HeaderMiddleSearchFormInput" name="product_name" placeholder="Tìm kiếm các sản phẩm ..." value="{{request()->product_name}}">
+                    <form action="" class="HeaderMiddleSearchForm">
+                        <input type="text" class="HeaderMiddleSearchFormInput" placeholder="Tìm kiếm các sản phẩm ...">
                         <button class="HeaderMiddleSearchFormSubmit">TÌM KIẾM</button>
                     </form>
                 </div>

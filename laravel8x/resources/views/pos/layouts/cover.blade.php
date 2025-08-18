@@ -14,7 +14,6 @@
     <title>MANH DUNG POS | Product</title>
     <link rel="stylesheet" href="{{asset('pos/font/font-roboto.css')}}" >
     <link rel="stylesheet" href="{{asset('pos/css/style.css')}}" >
-    <link rel="stylesheet" href="@yield('PageCss')" >
 </head>
 <body>
     <div class="App" id="App">

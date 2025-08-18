@@ -14,6 +14,7 @@
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
+
         </section> <!-- End slider -->
 
         @if( !empty($products) )
@@ -30,6 +31,7 @@
                                     <img src="{{ asset('web/img/icon/next.png') }}" class="ProductHeaderNavBtn ProductHeaderNavBtn_Prev">
                                 </div>
                             </div>
+                        
                             <div class="swiper-wrapper ProductGrid">
                                 @foreach( $products[$product_code] as $key => $product )
                                     <div class="swiper-slide ProductItem">
