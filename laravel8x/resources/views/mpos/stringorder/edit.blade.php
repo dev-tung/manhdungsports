@@ -3,7 +3,7 @@
 @section('pagejs', asset('pos/js/stringorder/edit.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('stringorder.update', ['screen'=>'pos', 'stringorder_id' => $stringorder->stringorder_id])}}" method="POST" class="Form" id="FormStringEdit" enctype="multipart/form-data">
+        <form action="{{route('stringorder.update', ['stringorder_id' => $stringorder->stringorder_id])}}" method="POST" class="Form" id="FormStringEdit" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                 <div class="FormGroup FormValidate">
@@ -87,7 +87,7 @@
                     <button class="Btn Btn_Primary">Lưu</button>
                 </div>
                 <div class="FormBtnGroup">
-                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('stringorder.delete', ['screen'=>'pos', 'stringorder_id' => $stringorder->stringorder_id])}}" >Xóa</a>
+                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('stringorder.delete', ['stringorder_id' => $stringorder->stringorder_id])}}" >Xóa</a>
                 </div>
             </div>
         </form>

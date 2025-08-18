@@ -6,7 +6,7 @@
 @endsection
 @section('Main')
     <main class="Main">
-        <form action="{{route('invoice.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormInvoiceAdd" enctype="multipart/form-data">
+        <form action="{{route('invoice.insert')}}" method="POST" class="Form" id="FormInvoiceAdd" enctype="multipart/form-data">
             @csrf
             <input type="hidden" id="CustomerId" name="customer_id">
             <input type="hidden" id="ProductId" name="product_id">

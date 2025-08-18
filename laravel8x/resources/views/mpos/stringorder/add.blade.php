@@ -3,7 +3,7 @@
 @section('PageJs', asset('pos/js/stringorder/add.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('stringorder.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormStringorderAdd" enctype="multipart/form-data">
+        <form action="{{route('stringorder.insert')}}" method="POST" class="Form" id="FormStringorderAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                 <div class="FormGroup FormValidate">

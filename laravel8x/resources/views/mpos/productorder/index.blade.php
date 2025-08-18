@@ -4,7 +4,7 @@
     <main class="Main">
         <div class="MainContent">
             <div class="ListSearch">
-                <form action="{{route('invoice.index', ['screen'=>'pos'])}}" class="ListSearchForm">
+                <form action="{{route('invoice.index')}}" class="ListSearchForm">
                     <input class="ListSearchFormInput" type="text" name="invoice_name" placeholder="Tìm kiếm ..." value="{{ request()->invoice_name }}">
                     <button class="ListSearchFormSubmit">
                         <svg class="ListSearchFormSubmitIcon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

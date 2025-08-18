@@ -3,7 +3,7 @@
 @section('PageJs', asset('pos/js/product/add.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('product.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormProductAdd" enctype="multipart/form-data">
+        <form action="{{route('product.insert')}}" method="POST" class="Form" id="FormProductAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
                 <div class="FormValidate">

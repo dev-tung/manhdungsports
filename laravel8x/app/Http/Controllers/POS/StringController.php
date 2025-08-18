@@ -16,6 +16,6 @@ class StringController extends Controller
 
     public function table(Request $request){
         $string = $this->_productAccess->stringPriceTable();
-        return view($request->screen.'.string.table', ['string' => $string]);
+        return view('pos.string.table', ['string' => $string]);
     }
 }

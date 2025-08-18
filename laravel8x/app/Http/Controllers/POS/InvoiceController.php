@@ -25,45 +25,45 @@ class InvoiceController extends Controller
     public function index(Request $request){
         $invoices = $this->_invoiceAccess->get($request);
         $productypes = $this->_productypeAccess->get($request);
-        return view($request->screen.'.invoice.index', ['invoices' => $invoices,'productypes' => $productypes]);
+        return view('pos.invoice.index', ['invoices' => $invoices,'productypes' => $productypes]);
     }
 
     public function add(Request $request){
         $customers = $this->_customerAccess->get($request);
         $products = $this->_productAccess->selling();
-        return view($request->screen.'.invoice.add', ['customers' => $customers, 'products' => $products]);
+        return view('pos.invoice.add', ['customers' => $customers, 'products' => $products]);
     }
 
     public function order(Request $request){
         $customers = $this->_customerAccess->get($request);
         $products = $this->_productAccess->get($request);
-        return view($request->screen.'.invoice.order', ['customers' => $customers, 'products' => $products]);
+        return view('pos.invoice.order', ['customers' => $customers, 'products' => $products]);
     }
 
     public function insert(Request $request){
         $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
         $this->_invoiceAccess->insert($request, $product);
         $this->_productAccess->updateQuantity($request, $product);
-        return redirect()->route('invoice.index', ['screen'=>'pos']);
+        return redirect()->route('invoice.index');
     }
 
     public function edit(Request $request){
         $customers = $this->_customerAccess->get($request);
         $products = $this->_productAccess->get($request);
         $invoice = $this->_invoiceAccess->getFirst($request->invoice_id);
-        return view($request->screen.'.invoice.edit', ['invoice' => $invoice, 'customers' => $customers, 'products' => $products]);
+        return view('pos.invoice.edit', ['invoice' => $invoice, 'customers' => $customers, 'products' => $products]);
     }
 
     public function update(Request $request){
         $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
         $this->_invoiceAccess->update($request, $product);
         $this->_productAccess->updateQuantity($request, $product);
-        return redirect()->route('invoice.index', ['screen'=>'pos']);
+        return redirect()->route('invoice.index');
     }
 
     public function delete(Request $request){
         $product = $this->_invoiceAccess->getFirst($request->invoice_id);
         $this->_invoiceAccess->delete(['invoice_id' => $request->invoice_id]);
-        return redirect()->route('invoice.index', ['screen'=>'pos']);
+        return redirect()->route('invoice.index');
     }
 }

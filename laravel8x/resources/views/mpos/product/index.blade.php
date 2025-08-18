@@ -4,7 +4,7 @@
     <main class="Main">
         <div class="MainContent">
             <div class="ListSearch">
-                <form action="{{route('product.index', ['screen'=>'pos'])}}" class="ListSearchForm">
+                <form action="{{route('product.index')}}" class="ListSearchForm">
                     <input class="ListSearchFormInput" type="text" name="product_name" placeholder="Tìm kiếm sản phẩm ..." value="{{ request()->product_name }}">
                     <div class="Filter">
                         <select class="ListSearchFormSelect" name="product_type" id="ProductType">

@@ -4,7 +4,7 @@ namespace App\Services;
 use DB;
 use App\Http\Controllers\API\FileController;
 
-class Productservice extends Service{
+class MediaService extends Service{
     function __construct() {
         $this->_fileController = new FileController();
     }

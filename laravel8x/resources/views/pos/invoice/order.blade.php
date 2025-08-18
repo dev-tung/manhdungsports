@@ -3,7 +3,7 @@
 @section('PageJs', asset('pos/js/invoice/order.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('invoice.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormInvoiceAdd" enctype="multipart/form-data">
+        <form action="{{route('invoice.insert')}}" method="POST" class="Form" id="FormInvoiceAdd" enctype="multipart/form-data">
             @csrf
             <input type="hidden" id="ProductPriceInput"  name="product_price_input">
             <input type="hidden" id="ProductPriceOutput" name="product_price_output">

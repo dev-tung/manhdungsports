@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Access\ProductAccess;
 use App\Access\ProductgroupAccess;
-use App\Services\ProductService;
+use App\Services\MediaService;
 
 class ProductController extends Controller
 {

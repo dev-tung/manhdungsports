@@ -3,7 +3,7 @@
 @section('pagejs', asset('pos/js/string/edit.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('string.update', ['screen'=>'pos', 'string_id' => $string->string_id] )}}" method="POST" class="Form" id="FormStringEdit" enctype="multipart/form-data">
+        <form action="{{route('string.update', ['string_id' => $string->string_id] )}}" method="POST" class="Form" id="FormStringEdit" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
                 <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
@@ -58,7 +58,7 @@
                     <button class="Btn Btn_Primary">Lưu</button>
                 </div>
                 <div class="FormBtnGroup">
-                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('string.delete', ['screen'=>'pos', 'string_id' => $string->string_id])}}" >Xóa</a>
+                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('string.delete', ['string_id' => $string->string_id])}}" >Xóa</a>
                 </div>
             </div>
         </form>

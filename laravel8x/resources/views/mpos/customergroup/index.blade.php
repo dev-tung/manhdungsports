@@ -4,7 +4,7 @@
     <main class="Main">
         <div class="MainContent">
             <div class="ListSearch">
-                <form action="{{route('customergroup.index', ['screen'=>'pos'])}}" class="ListSearchForm">
+                <form action="{{route('customergroup.index')}}" class="ListSearchForm">
                     <input class="ListSearchFormInput" type="text" name="customergroup_name" placeholder="Tìm kiếm danh mục sản phẩm ..." value="{{ request()->customergroup_name }}">
                     <button class="ListSearchFormSubmit">
                         <svg class="ListSearchFormSubmitIcon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

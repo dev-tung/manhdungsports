@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // POS
-Route::prefix('{screen}')->middleware('auth')->group(function () {
+Route::prefix('pos')->middleware('auth')->group(function () {
     Route::get('dashboard', ['as' => 'dashboard.index', 'uses' => 'POS\DashboardController@index']);
     Route::prefix('product')->group(function () {
         Route::get('index', ['as' => 'product.index', 'uses' => 'POS\ProductController@index']);

@@ -26,16 +26,16 @@
             </div>
             <div class="TopbarNav">
                 <nav class="TopbarNav_Left">
-                    <a class="TopbarNavLink" href="{{route('product.add', ['screen'=>'pos'])}}">
+                    <a class="TopbarNavLink" href="{{route('product.add')}}">
                         <span class="TopbarNavText">Thêm sản phẩm</span> 
                     </a>
-                    <a class="TopbarNavLink" href="{{route('customer.add', ['screen'=>'pos'])}}">
+                    <a class="TopbarNavLink" href="{{route('customer.add')}}">
                         <span class="TopbarNavText">Thêm khách hàng</span> 
                     </a>
-                    <a class="TopbarNavLink" href="{{route('expense.add', ['screen'=>'pos'])}}">
+                    <a class="TopbarNavLink" href="{{route('expense.add')}}">
                         <span class="TopbarNavText">Thêm chi phí</span> 
                     </a>
-                    <a class="TopbarNavLink" href="{{route('invoice.add', ['screen'=>'pos'])}}">
+                    <a class="TopbarNavLink" href="{{route('invoice.add')}}">
                         <span class="TopbarNavText">Thêm đơn hàng</span> 
                     </a>
 

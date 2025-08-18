@@ -3,7 +3,7 @@
 @section('pagejs', asset('pos/js/productype/add.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('productype.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormproductypeAdd" enctype="multipart/form-data">
+        <form action="{{route('productype.insert')}}" method="POST" class="Form" id="FormproductypeAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
                 <div class="FormGrid FormGridDesktop_Two">

@@ -6,7 +6,7 @@ use App\Http\Controllers\WEB\Controller;
 use Illuminate\Http\Request;
 use App\Access\ProductAccess;
 use App\Access\ProductypeAccess;
-use App\Services\ProductService;
+use App\Services\MediaService;
 
 class ProductController extends Controller
 {
@@ -14,7 +14,7 @@ class ProductController extends Controller
         parent::__construct();
         $this->_productAccess = new ProductAccess();
         $this->_productypeAccess = new ProductypeAccess();
-        $this->_productSevice = new ProductService();
+        $this->_mediaService = new MediaService();
     }
 
     public function index(Request $request){

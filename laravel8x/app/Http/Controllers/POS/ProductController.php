@@ -6,14 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Access\ProductAccess;
 use App\Access\ProductypeAccess;
-use App\Services\ProductService;
+use App\Services\MediaService;
 
 class ProductController extends Controller
 {
     function __construct() {
         $this->_productAccess = new ProductAccess();
         $this->_productypeAccess = new ProductypeAccess();
-        $this->_productSevice = new ProductService();
+        $this->_mediaService = new MediaService();
     }
 
     public function index(Request $request){
@@ -26,7 +26,7 @@ class ProductController extends Controller
         
         $profitTotalEstimate = $priceTotalOutput - $priceTotalInput;
 
-        return view($request->screen.'.product.index', [
+        return view('pos.product.index', [
             'products' => $products, 
             'priceTotalInput' => $priceTotalInput, 
             'productype' => $productype,
@@ -37,31 +37,31 @@ class ProductController extends Controller
 
     public function add(Request $request){
         $productype = $this->_productypeAccess->get($request);
-        return view($request->screen.'.product.add', ['productype' => $productype]);
+        return view('pos.product.add', ['productype' => $productype]);
     }
 
     public function insert(Request $request){
-        $this->_productSevice->moveThumbnail($request);
+        $this->_mediaService->moveThumbnail($request);
         $this->_productAccess->insert($request);
-        return redirect()->route('product.add', ['screen'=>'pos']);
+        return redirect()->route('product.add');
     }
 
     public function edit(Request $request){
         $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
         $productype = $this->_productypeAccess->get($request);
-        return view($request->screen.'.product.edit', ['product' => $product, 'productype' => $productype]);
+        return view('pos.product.edit', ['product' => $product, 'productype' => $productype]);
     }
 
     public function update(Request $request){
-        $this->_productSevice->moveThumbnail($request);
+        $this->_mediaService->moveThumbnail($request);
         $this->_productAccess->update($request);
-        return redirect()->route('product.index', ['screen'=>'pos']);
+        return redirect()->route('product.index');
     }
 
     public function delete(Request $request){
         $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
-        $this->_productSevice->deleteThumbnail($request, $product);
+        $this->_mediaService->deleteThumbnail($request, $product);
         $this->_productAccess->delete(['product_id' => $request->product_id]);
-        return redirect()->route('product.index', ['screen'=>'pos']);
+        return redirect()->route('product.index');
     }
 }

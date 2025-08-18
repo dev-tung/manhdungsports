@@ -6,7 +6,7 @@
 @endsection
 @section('Main')
     <main class="Main">
-         <form action="{{route('invoice.update', ['screen'=>'pos', 'invoice_id' => $invoice->invoice_id])}}" method="POST" class="Form" id="FormInvoiceEdit" enctype="multipart/form-data">
+         <form action="{{route('invoice.update', ['invoice_id' => $invoice->invoice_id])}}" method="POST" class="Form" id="FormInvoiceEdit" enctype="multipart/form-data">
             @csrf
             <input type="hidden" id="CustomerId" name="customer_id" value="{{$invoice->customer_id}}">
             <input type="hidden" id="ProductId" name="product_id" value="{{$invoice->product_id}}">
@@ -76,7 +76,7 @@
                     <button class="Btn Btn_Primary">Lưu</button>
                 </div>
                 <div class="FormBtnGroup">
-                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('invoice.delete', ['screen'=>'pos', 'invoice_id' => $invoice->invoice_id])}}" >Xóa</a>
+                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('invoice.delete', ['invoice_id' => $invoice->invoice_id])}}" >Xóa</a>
                 </div>
             </div>
         </form>

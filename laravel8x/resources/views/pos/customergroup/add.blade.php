@@ -3,7 +3,7 @@
 @section('pagejs', asset('pos/js/customergroup/add.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('customergroup.insert', ['screen' => 'pos'])}}" method="POST" class="Form" id="FormCustomergroupAdd" enctype="multipart/form-data">
+        <form action="{{route('customergroup.insert')}}" method="POST" class="Form" id="FormCustomergroupAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
                 <div class="FormGrid FormGridDesktop_Two">

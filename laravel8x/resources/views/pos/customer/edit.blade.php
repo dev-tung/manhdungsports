@@ -3,7 +3,7 @@
 @section('pagejs', asset('pos/js/customer/edit.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('customer.update', ['screen'=>'pos', 'customer_id' => $customer->customer_id] )}}" method="POST" class="Form" id="FormCustomerEdit" enctype="multipart/form-data">
+        <form action="{{route('customer.update', ['customer_id' => $customer->customer_id] )}}" method="POST" class="Form" id="FormCustomerEdit" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid">
                 <div class="FormGrid FormGridDesktop_Two">
@@ -47,7 +47,7 @@
                     <button class="Btn Btn_Primary">Lưu</button>
                 </div>
                 <div class="FormBtnGroup">
-                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('customer.delete', ['screen'=>'pos', 'customer_id' => $customer->customer_id])}}" >Xóa khách hàng</a>
+                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('customer.delete', ['customer_id' => $customer->customer_id])}}" >Xóa khách hàng</a>
                 </div>
             </div>
         </form>

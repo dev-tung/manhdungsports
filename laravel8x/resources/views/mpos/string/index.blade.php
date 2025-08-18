@@ -2,7 +2,7 @@
 @section('Title', 'CÁC LOẠI CƯỚC')
 @section('TopbarNavLink')
     <nav class="TopbarNav_Left">
-        <a class="TopbarNavLink" href="{{route('stringorder.index', ['screen'=>'pos'])}}">
+        <a class="TopbarNavLink" href="{{route('stringorder.index')}}">
             <span class="TopbarNavText">ĐƠN CĂNG CƯỚC</span> 
         </a>
     </nav>
@@ -11,7 +11,7 @@
     <main class="Main">
         <div class="MainContent">
             <div class="ListSearch">
-                <form action="{{route('string.index', ['screen'=>'pos'])}}" class="ListSearchForm">
+                <form action="{{route('string.index')}}" class="ListSearchForm">
                     <input class="ListSearchFormInput" type="text" name="string_name" placeholder="Tìm kiếm ..." value="{{ request()->string_name }}">
 
                     <button class="ListSearchFormBtn ListSearchFormBtn_Submit">
@@ -51,7 +51,7 @@
     <!-- End Main -->
 
     <div class="Float Float_BottomRight">
-        <a class="Btn Btn_Success" href="{{route('string.add', ['screen'=>'pos'])}}">
+        <a class="Btn Btn_Success" href="{{route('string.add')}}">
             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
             </svg>

@@ -3,7 +3,7 @@
 @section('PageJs', asset('pos/js/expense/add.js'))
 @section('Main')
     <main class="Main">
-        <form action="{{route('expense.update', ['screen'=>'pos', 'expense_id' => $expense->expense_id])}}" method="POST" class="Form" id="FormExpenseAdd" enctype="multipart/form-data">
+        <form action="{{route('expense.update', ['expense_id' => $expense->expense_id])}}" method="POST" class="Form" id="FormExpenseAdd" enctype="multipart/form-data">
             @csrf
             <div class="FormGrid FormGridMobile_Two FormGridDesktop_Two">
                 <div class="FormGroup FormValidate">
@@ -55,7 +55,7 @@
                     <button class="Btn Btn_Primary">Lưu</button>
                 </div>
                 <div class="FormBtnGroup">
-                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('expense.delete', ['screen'=>'pos', 'expense_id' => $expense->expense_id])}}" >Xóa</a>
+                    <a class="Btn Btn_Danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  href="{{route('expense.delete', ['expense_id' => $expense->expense_id])}}" >Xóa</a>
                 </div>
             </div>
         </form>

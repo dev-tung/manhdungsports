@@ -36,7 +36,7 @@ class DashboardController extends Controller
         $thismonthTotalActualProfit  = array_sum(array_column($thismonthInvoiceMoney, 'invoice_profit')) - $thismonthExpenseMoney;
         
 
-        return view($request->screen.'.dashboard.index', [
+        return view('pos.dashboard.index', [
             
             'priceTotalInput'   => commonNumberToVND($priceTotalInput),
             'debtTotalInput'   => commonNumberToVND($debtTotalInput->customerDebt),
