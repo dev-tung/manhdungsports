@@ -160,7 +160,7 @@ class ProductAccess extends Access{
         return DB::table($this->table)->where($searchParams)->delete();
     }
 
-    public function stringPriceTable(){
+    public function stringTable(){
         $query = "
             SELECT 
                 product_name
