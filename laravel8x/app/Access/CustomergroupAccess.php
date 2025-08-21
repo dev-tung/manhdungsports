@@ -27,7 +27,7 @@ class CustomergroupAccess extends Access{
         return $query->orderBy('customergroup_name')->get();
     }
 
-    public function getFirst( $searchParams ){
+    public function first( $searchParams ){
         $query = DB::table($this->table);
 
         if( !empty( $searchParams ) ){

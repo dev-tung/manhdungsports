@@ -33,7 +33,7 @@ class CustomerController extends Controller
     }
 
     public function edit(Request $request){
-        $customer = $this->_customerAccess->getFirst(['customer_id' => $request->customer_id]);
+        $customer = $this->_customerAccess->first(['customer_id' => $request->customer_id]);
         $customergroup = $this->_customergroupAccess->get($request);
         return view('pos.customer.edit', ['customer' => $customer, 'customergroup' => $customergroup]);
     }

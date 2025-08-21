@@ -86,7 +86,7 @@ class ProductAccess extends Access{
         return !empty( $price[0]->product_price_output_total ) ? $price[0]->product_price_output_total : 0;
     }
 
-    public function getFirst( $searchParams ){
+    public function first( $searchParams ){
         $query = DB::table($this->table);
 
         if( !empty( $searchParams ) ){

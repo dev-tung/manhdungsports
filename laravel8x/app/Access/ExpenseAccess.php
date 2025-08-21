@@ -62,7 +62,7 @@ class ExpenseAccess extends Access{
         return DB::select($query);
     }
 
-    public function getFirst( $searchParams ){
+    public function first( $searchParams ){
         $query = DB::table($this->table);
 
         if( !empty( $searchParams ) ){

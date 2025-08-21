@@ -8,7 +8,7 @@ let Functions = {
         formData.append("folder", folder);
 
         try {
-            const response = await fetch( document.querySelector("#apiFileUpload").content,
+            const response = await fetch( document.querySelector("#api_file_upload").content,
                 {
                     method: "POST",
                     body: formData,
@@ -29,7 +29,7 @@ let Functions = {
         formData.append("newPath", newPath);
 
         try {
-            const response = await fetch( document.querySelector("#apiFileMove").content,
+            const response = await fetch( document.querySelector("#api_file_move").content,
                 {
                     method: "POST",
                     body: formData,

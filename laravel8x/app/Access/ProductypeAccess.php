@@ -31,7 +31,7 @@ class ProductypeAccess extends Access{
         return $query->get();
     }
 
-    public function getFirst( $searchParams ){
+    public function first( $searchParams ){
         $query = DB::table($this->table);
 
         if( !empty( $searchParams ) ){

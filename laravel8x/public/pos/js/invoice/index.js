@@ -3,8 +3,8 @@ invoiceStatuses.forEach( invoiceStatus => {
     updateColor(invoiceStatus, [0, 1, 3]);
     invoiceStatus.addEventListener("change", function(){
         document.getElementById("ModalLoading").style.display = "block";
-        let apiInvoiceStatus = document.querySelector("#apiInvoiceStatus").content;
-        fetch(apiInvoiceStatus, {
+        let api_invoice_status = document.querySelector("#api_invoice_status").content;
+        fetch(api_invoice_status, {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',
@@ -31,8 +31,8 @@ invoiceIspayments.forEach(invoiceIspayment => {
     updateColor(invoiceIspayment, [0]);
     invoiceIspayment.addEventListener("change", function(){
         document.getElementById("ModalLoading").style.display = "block";
-        let apiInvoiceIspayment = document.querySelector("#apiInvoiceIspayment").content;
-        fetch(apiInvoiceIspayment, {
+        let api_invoice_ispayment = document.querySelector("#api_invoice_ispayment").content;
+        fetch(api_invoice_ispayment, {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',

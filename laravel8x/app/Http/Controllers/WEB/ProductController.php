@@ -26,7 +26,7 @@ class ProductController extends Controller
     }
 
     public function detail(Request $request){
-        $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
+        $product = $this->_productAccess->first(['product_id' => $request->product_id]);
         return view('web.product.detail', [
             'product' => $product
         ]);

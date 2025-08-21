@@ -28,7 +28,7 @@ class ExpenseController extends Controller
     }
 
     public function edit(Request $request){
-        $expense = $this->_expenseAccess->getFirst(['expense_id' => $request->expense_id]);
+        $expense = $this->_expenseAccess->first(['expense_id' => $request->expense_id]);
         return view('pos.expense.edit', ['expense' => $expense]);
     }
 
@@ -38,7 +38,7 @@ class ExpenseController extends Controller
     }
 
     public function delete(Request $request){
-        $string = $this->_expenseAccess->getFirst(['expense_id' => $request->expense_id]);
+        $string = $this->_expenseAccess->first(['expense_id' => $request->expense_id]);
         $this->_expenseAccess->delete(['expense_id' => $request->expense_id]);
         return redirect()->route('expense.index');
     }

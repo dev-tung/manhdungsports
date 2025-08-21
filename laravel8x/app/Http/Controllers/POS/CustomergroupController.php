@@ -29,7 +29,7 @@ class CustomergroupController extends Controller
     }
 
     public function edit(Request $request){
-        $customergroup = $this->_customergroupAccess->getFirst(['customergroup_id' => $request->customergroup_id]);
+        $customergroup = $this->_customergroupAccess->first(['customergroup_id' => $request->customergroup_id]);
         return view('pos.customergroup.edit', ['customergroup' => $customergroup]);
     }
 

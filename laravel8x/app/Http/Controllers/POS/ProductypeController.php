@@ -30,7 +30,7 @@ class ProductypeController extends Controller
     }
 
     public function edit(Request $request){
-        $productype = $this->productypeAccess->getFirst(['productype_id' => $request->productype_id]);
+        $productype = $this->productypeAccess->first(['productype_id' => $request->productype_id]);
         $productypes = $this->productypeAccess->get();
         return view('pos.productype.edit', ['productypes' => $productypes, 'productype' => $productype]);
     }

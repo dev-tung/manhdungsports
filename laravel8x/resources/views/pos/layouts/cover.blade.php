@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}" id="CsrfToken"/>
-    <meta name="description" content="{{ route('api.file.upload') }}" id="apiFileUpload"/>
-    <meta name="description" content="{{ route('api.customer.get') }}" id="apiCustomerGet"/>
-    <meta name="description" content="{{ route('api.product.get') }}" id="apiProductGet"/>
-    <meta name="description" content="{{ route('api.file.move') }}" id="apiFileMove"/>
-    <meta name="description" content="{{ route('api.invoice.status') }}" id="apiInvoiceStatus"/>
-    <meta name="description" content="{{ route('api.invoice.ispayment') }}" id="apiInvoiceIspayment"/>
+    <meta name="description" content="{{ route('api.file.upload') }}" id="api_file_upload"/>
+    <meta name="description" content="{{ route('api.customer.get') }}" id="api_customer_get"/>
+    <meta name="description" content="{{ route('api.product.get') }}" id="api_product_get"/>
+    <meta name="description" content="{{ route('api.file.move') }}" id="api_file_move"/>
+    <meta name="description" content="{{ route('api.invoice.status') }}" id="api_invoice_status"/>
+    <meta name="description" content="{{ route('api.invoice.ispayment') }}" id="api_invoice_ispayment"/>
 
     <title>MANH DUNG POS | Product</title>
     <link rel="stylesheet" href="{{asset('pos/font/font-roboto.css')}}" >

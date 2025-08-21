@@ -47,7 +47,7 @@ class ProductController extends Controller
     }
 
     public function edit(Request $request){
-        $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
+        $product = $this->_productAccess->first(['product_id' => $request->product_id]);
         $productype = $this->_productypeAccess->get($request);
         return view('pos.product.edit', ['product' => $product, 'productype' => $productype]);
     }
@@ -59,7 +59,7 @@ class ProductController extends Controller
     }
 
     public function delete(Request $request){
-        $product = $this->_productAccess->getFirst(['product_id' => $request->product_id]);
+        $product = $this->_productAccess->first(['product_id' => $request->product_id]);
         $this->_mediaService->deleteThumbnail($request, $product);
         $this->_productAccess->delete(['product_id' => $request->product_id]);
         return redirect()->route('product.index');

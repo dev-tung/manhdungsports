@@ -92,7 +92,7 @@ class InvoiceAccess extends Access{
     }
 
 
-    public function getFirst( $invoice_id ){
+    public function first( $invoice_id ){
         $query = "
             SELECT 
                  *

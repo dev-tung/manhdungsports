@@ -38,8 +38,8 @@ let customerToggleSearchInit = new Promise((success, error) => {
 
 let customerToggleSearchFetch = new Promise((success, error) => {
     try {
-        let apiCustomerGet = document.querySelector("#apiCustomerGet").content;
-        fetch(apiCustomerGet, {
+        let api_customer_get = document.querySelector("#api_customer_get").content;
+        fetch(api_customer_get, {
             method: 'GET', 
             headers: {
                 'Content-Type': 'application/json',
@@ -163,8 +163,8 @@ let productToggleSearchInit = new Promise((success, error) => {
 
 let productToggleSearchFetch = new Promise((success, error) => {
     try {
-        let apiProductGet = document.querySelector("#apiProductGet").content;
-        fetch(apiProductGet, {
+        let api_product_get = document.querySelector("#api_product_get").content;
+        fetch(api_product_get, {
             method: 'GET', 
             headers: {
                 'Content-Type': 'application/json',
