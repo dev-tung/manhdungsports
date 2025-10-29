@@ -50,7 +50,7 @@
                     <tr class="TableRow">
                         <th class="TableData">Ảnh</th>
                         <th class="TableData">Tên sản phẩm</th>
-                        <th class="TableData">Is Drop</th>
+                        <th class="TableData">Drop</th>
                         <th class="TableData">Màu sắc</th>
                         <th class="TableData">Size</th>
                         <th class="TableData">Loại sản phẩm</th>
