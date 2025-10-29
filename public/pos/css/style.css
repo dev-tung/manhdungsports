@@ -1,0 +1,1128 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+:root {
+    --color-border : #dadada;
+    --color-primary : rgb(0, 153, 255);
+    --color-primary-hover : rgb(3, 122, 201);
+    --color-info : rgb(187, 0, 255);
+    --color-info-hover : rgb(125, 1, 171);
+    --color-success : rgb(10 149 39);
+    --color-success-hover : rgb(9, 141, 38);
+    --color-danger : rgb(255, 51, 0);
+    --color-danger-hover : rgb(201, 3, 3);
+    --color-warning : rgb(255, 174, 0);
+    --color-warning-hover : rgb(201, 115, 3);
+    --color-default : rgb(255, 255, 255);
+    --color-default-hover : rgb(172, 172, 172);
+}
+
+body {
+    font-family: 'Roboto';
+}
+
+.D_None{
+    display: none;
+}
+
+.Topbar{
+    height: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
+    display: grid;
+    align-items: center;
+    font-size: 13px;
+    text-transform: uppercase;
+    position: fixed;
+    z-index: 2;
+}
+
+@media only screen and (min-width: 768px) {
+    .Topbar{
+        grid-template-columns: 200px auto;
+    }
+}
+
+.TopbarPage{
+    background-color: #101824;
+    color: rgba(255, 255, 255, 0.87);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    height: 50px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.TopbarPage:hover{
+    background-color: #031330;
+    color: rgb(255, 255, 255);
+}
+
+@media only screen and (min-width: 768px) {
+    .TopbarPage{
+        padding: 0 10px;
+    }
+}
+
+.TopbarPage:hover{
+    color : white;
+}
+
+.TopbarUser{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.TopbarUsername{
+    text-transform: uppercase;
+}
+
+.TopbarPageTitle{
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.TopbarToggleIcon:hover{
+    cursor: pointer;
+    background-color: #222833;
+}
+
+.TopbarNav{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.TopbarNav_Left{
+    display: flex;
+    gap: 20px;
+}
+
+.TopbarNav_right{
+    display: flex;
+    gap: 20px;
+}
+
+.TopbarNavLink{
+    color: var(--color-primary);
+    font-size: 10px;
+}
+
+.Icon_Background{
+    background-color: #222833;
+}
+
+.Icon_Border{
+    border: 1px solid #2d3a52;
+}
+
+.Sidebar{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: #182537;
+    z-index: 2;
+    top:50px;
+}
+
+@media only screen and (min-width: 768px) {
+    .Sidebar{
+        width: 200px;
+    }
+}
+.App.Sidebar_Hide .Sidebar{
+    display: none;
+}
+
+.SidebarNav{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 10px;
+}
+
+.SidebarNavLink{
+    color: rgba(255, 255, 255, 0.616);
+    text-decoration: none;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.SidebarNavLink:hover{
+    color : white;
+}
+
+.Main{
+    position: absolute;
+    top:50px;
+    padding : 10px;
+    width: calc(100% - 200px);
+    left: 200px;
+    padding-bottom: 100px; /* For float button display well */
+}
+
+/* @media only screen and (min-width: 768px) {
+    .Main{
+        position: absolute;
+    }
+} */
+
+.App.Sidebar_Hide .Main{
+    width: 100%;
+    left: 0;
+}
+
+.Form{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding : 10px;
+    display: grid;
+    gap: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+    .Form{
+        /* grid-template-columns: 1fr 1fr; */
+        padding : 15px;
+        gap: 15px;
+    }
+}
+
+.FormGrid{
+    display: grid;
+    gap: 15px;
+}
+
+@media only screen and (max-width: 767.9999px) {
+    .FormGridMobile_Two{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .FormGridMobile_Three{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .FormGridMobile_Four{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .Form{
+        /* grid-template-columns: 1fr 1fr; */
+        padding : 15px;
+        gap: 15px;
+    }
+
+    .FormGridDesktop_Two{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .FormGridDesktop_Three{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .FormGridDesktop_Four{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+}
+
+.FormGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.FormLabel{
+    font-size: 12px;
+}
+
+.RequiredSymbol{
+    color: red;
+}
+
+.FormInput{
+    height: 30px;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+}
+
+.FormSelect{
+    height: 30px;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+}
+
+.FormTexarea{
+    border: 1px solid #dadada;
+    border-radius: 5px;
+}
+
+.FormSaveBtn{
+    height: 34px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: max-content;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 12px;
+}
+
+.FormSaveBtn:hover{
+    background-color: var(--color-primary-hover);
+}
+
+.FormInvalid .FormInput,
+.FormInvalid .FormSelect{
+    background-color: #f5dfdf!important;
+    border: 1px solid #f08c8c!important;
+}
+
+.FormValid .FormInput,
+.FormValid .FormSelect{
+    background-color: #eaf8e9!important;
+    border: 1px solid #91f08c!important;
+}
+
+.FormErrorMessage{
+    color: #d71f27;
+    font-size: 10px;
+}
+
+.FormthumbnailGroup{
+    display: flex;
+    height: 50px;
+    gap: 10px;
+    align-items: center;
+}
+
+.FormthumbnailItem{
+    border: none;
+    height: 50px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.FormThumbnailIcon,
+.FormthumbnailDisplayImg{
+    height: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.FormthumbnailItem_DisplayImg{
+    display: none;
+}
+
+.FormInvalid .FormthumbnailItem_AddBtn{
+    background-color: #f5dfdf!important;
+    border: 1px solid #f08c8c!important;
+}
+
+.FormValid .FormthumbnailItem_AddBtn{
+    background-color: #eaf8e9!important;
+    border: 1px solid #91f08c!important;
+}
+
+.ListSearchTotal{
+    margin: 10px 0;
+    display: flex;
+    gap: 10px;
+    font-size: 10px;
+    color: #636363;
+}
+
+.List{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ListItem{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding : 10px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border-radius: 5px;
+    text-decoration: none;
+    color:rgb(32, 32, 32);
+}
+
+.ListItem:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ListItemthumbnail{
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+    
+}
+
+.ListItemthumbnail_default{
+    border: 1px solid #dadada;
+}
+
+.ListItemName{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.ListSpanGroup{
+    font-size: 10px;
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.ListSearchForm{
+    display: flex;
+    gap: 15px;
+}
+
+.ListSearchFormInput{
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #dadada;
+    width: 100%;
+    padding: 5px;
+}
+
+.ListSearchFormInput:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ListSearchFormInput:focus{
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ListSearchFormGroup_Date{
+    display: flex;
+    align-items: center;
+    gap : 5px;
+    font-size: 12px;
+}
+
+.ListSearchFormLabel{
+    display: block;
+    width: 80px;
+}
+
+.ListSearchFormSelect{
+    height: 30px;
+    border: 1px solid #dadada;
+    color: #3f3f3f;
+    border-radius: 5px;
+    padding: 0 5px;
+}
+
+.ListSearchFormSelect:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ListSearchFormSelect:focus{
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ListSearchFormBtn{
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #dadada;
+    width: 80px;
+    cursor: pointer;
+}
+
+.ListSearchFormBtn a{
+    color:black;
+}
+
+.ListSearchFormBtn_Submit{
+    background-color: white;
+}
+
+.ListSearchFormSubmitIcon{
+    width: 20px;
+    height: 20px;
+}
+
+.ListSearchFormSubmit:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+}
+
+.Btn{
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    outline: none;
+    background-color: white;
+    color: black;
+    width: max-content;
+    font-size: 12px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1em;
+    text-decoration: none;
+    padding : 8px 10px;
+    opacity: 0.8;
+}
+
+.Btn:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+
+.Btn_Primary{
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.Btn_Success{
+    background-color: var(--color-success);
+    color: white;
+}
+
+.Btn_Danger{
+    background-color: var(--color-danger);
+    color: white;
+}
+
+.Bg_Primary{
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.Bg_Danger{
+    background-color: var(--color-danger);
+    color: white;
+}
+
+.Bg_Success{
+    background-color: var(--color-success);
+    color: white;
+}
+
+.Bg_Warning{
+    background-color: var(--color-warning);
+    color: white;
+}
+
+.Bg_Info{
+    background-color: var(--color-info);
+    color: white;
+}
+
+.Btn_Round{
+    border-radius: 50%;
+}
+
+.FormBtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.FormBtnGroup{
+    display: flex;
+    gap: 10px;
+}
+
+.Float{
+    position: fixed;
+}
+
+.Float_BottomRight{
+    right: 20px;
+    bottom: 30px;
+}
+
+.Text_Danger{
+    color: var(--color-danger);
+}
+
+.Text_Success{
+    color: var(--color-success);
+}
+
+.Text_Warning{
+    color: var(--color-warning);
+}
+
+.Text_Info{
+    color: var(--color-info);
+}
+
+/* Modal */
+.Modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    overflow-y: auto;
+    display: none;
+}
+
+.ModalOverlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.774);
+}
+
+.ModalContent{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ModalLoading{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+}
+
+.ModalLoadingIcon{
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #2b2929;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+.ModalLoadingText {
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+table{
+    width: 100%;
+}
+
+table, th, td {
+  border: 1px solid #dadada;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+th, td {
+  padding: 5px;
+}
+
+th{
+    font-weight: bold;
+}
+
+.TableData{
+    height: 30px;
+    vertical-align: middle;
+}
+
+.TableRow:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.TableData_Center{
+    text-align: center;
+}
+
+.TableData_Flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.TableAction_Link{
+    text-decoration: none;
+    color :var(--color-primary);
+}
+
+.CardGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.CardGridItem{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.CardTitle{
+    font-size: 12px;
+}
+
+.CardGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding: 15px;
+}
+
+.CardGroupTitle{
+    font-size: 14px;
+}
+
+.TableStringTitle{
+    font-size: 16px;
+    font-style: italic;
+    font-family: Papyrus, fantasy;
+    color: rgba(255, 255, 255, 0.774);
+}
+
+.TableString{
+    margin-top: 10px;
+    font-size: 13px;
+    padding: 100px;
+    background-image: linear-gradient(to right, #166307 , #A5CE1E);
+    color: white;
+   
+}
+
+.TableStringHeader{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.TableStringGrid{
+    margin-top: 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-flow: column;
+    row-gap: 20px;
+    column-gap: 30px;
+}
+
+.TableStringItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.096);
+    padding: 5px 10px;
+}
+.TableStringName{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.CustomerSearch{
+    display: none;
+}
+
+.CustomerSearchBtn{
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 7px;
+    background-color: #428c22;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.CustomerSearchBtn:hover{
+    border-color: #ffe484;
+    background: rgba(0,0,0,0.25);
+    box-shadow: 0 0 0 0.25rem rgba(255,228,132,0.4);
+    color: #fff;
+    outline: none;
+}
+
+.CustomerSearchGroup{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.CustomerSearchBtn_Icon{
+    color: white;
+}
+
+.CustomerSearchBtn_Text{
+    color: rgb(212, 209, 209);
+}
+
+.CustomerSearchBtn_Key{
+    background-color: #275514;
+    color: rgb(212, 209, 209);
+    padding: 4px;
+    font-size: 0.8rem;
+}
+
+.CustomerSearchModal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+
+.CustomerSearchModal.Show{
+    display: flex;
+}
+
+.CustomerSearchModal::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(101,108,133,0.8);
+}
+
+.CustomerSearchBox{
+    margin-top: 120px;
+    position: absolute;
+    background-color: #f5f6f7;
+    width: 560px;
+    max-height: 400px;
+    z-index: 2;
+    border-radius: 5px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.CustomerSearchForm{
+    border: 1px solid var(--color-success);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px;
+    margin: 15px;
+}
+
+.CustomerSearchResult{
+    margin: 15px;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.3px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.CustomerSearchTitle{
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: var(--color-success);
+    font-weight: 600;
+}
+
+.CustomerSearchContent{
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: rgba(33, 37, 41, 0.75);
+}
+
+.CustomerSearchResult_No{
+    margin: 45px auto;
+    width: fit-content;
+    font-size: .9em;
+    color: rgba(33, 37, 41, 0.75);
+}
+
+.CustomerSearchForm_Icon{
+    color: var(--color-success);
+    width: 25px;
+    height: 25px;
+    display: block;
+}
+
+.CustomerSearchForm_Input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: #f5f6f7;
+    letter-spacing: 0.1px;
+}
+
+.CustomerSearchForm_Reset{
+    background: none;
+    border: none;
+}
+
+.CustomerSearchForm_Reset:hover{
+    cursor: pointer;
+    color: var(--color-success);
+}
+
+.CustomerSearchItem:hover{
+    cursor: pointer;
+}
+
+
+.ProductSearch{
+    display: none;
+}
+
+.ProductSearchBtn{
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 7px;
+    background-color: #428c22;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.ProductSearchBtn:hover{
+    border-color: #ffe484;
+    background: rgba(0,0,0,0.25);
+    box-shadow: 0 0 0 0.25rem rgba(255,228,132,0.4);
+    color: #fff;
+    outline: none;
+}
+
+.ProductSearchGroup{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ProductSearchBtn_Icon{
+    color: white;
+}
+
+.ProductSearchBtn_Text{
+    color: rgb(212, 209, 209);
+}
+
+.ProductSearchBtn_Key{
+    background-color: #275514;
+    color: rgb(212, 209, 209);
+    padding: 4px;
+    font-size: 0.8rem;
+}
+
+.ProductSearchModal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+
+.ProductSearchModal.Show{
+    display: flex;
+}
+
+.ProductSearchModal::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(101,108,133,0.8);
+}
+
+.ProductSearchBox{
+    margin-top: 120px;
+    position: absolute;
+    background-color: #f5f6f7;
+    width: 560px;
+    max-height: 400px;
+    z-index: 2;
+    border-radius: 5px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.ProductSearchForm{
+    border: 1px solid var(--color-success);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px;
+    margin: 15px;
+}
+
+.ProductSearchResult{
+    margin: 15px;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.3px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.ProductSearchTitle{
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--color-success);
+    font-weight: 600;
+}
+
+.ProductSearchContent{
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: rgba(33, 37, 41, 0.75);
+}
+
+.ProductSearchContent:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.ProductSearchContent-Desc{
+    font-size: 11px;
+}
+
+.ProductSearchResult_No{
+    margin: 45px auto;
+    width: fit-content;
+    font-size: .9em;
+    color: rgba(33, 37, 41, 0.75);
+}
+
+.ProductSearchForm_Icon{
+    color: var(--color-success);
+    width: 25px;
+    height: 25px;
+    display: block;
+}
+
+.ProductSearchForm_Input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: #f5f6f7;
+    letter-spacing: 0.1px;
+}
+
+.ProductSearchForm_Reset{
+    background: none;
+    border: none;
+}
+
+.ProductSearchForm_Reset:hover{
+    cursor: pointer;
+    color: var(--color-success);
+}
+
+.ProductSearchItem:hover{
+    cursor: pointer;
+}
+
+.InvoiceSelect{
+    border: 1px solid #dadada;
+    font-size: 12px;
+}
+
+.InvoiceSelect option{
+    color : black;
+}
+
+.MainDashboard{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
