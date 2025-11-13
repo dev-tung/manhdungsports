@@ -41,7 +41,10 @@ Validator({
         }),
         Validator.sbRequired({
             selector: '#ProductType'
-        })
+        }),
+        Validator.tbRequired({
+            selector: '#ProductImportAt'
+        }),
     ],
     onSubmit: (form) => {
         document.getElementById("ModalLoading").style.display = "block";

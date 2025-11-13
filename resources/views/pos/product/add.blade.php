@@ -108,6 +108,11 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="ProductImportAt">Ngày nhập hàng</label>
+                        <input class="FormInput" id="ProductImportAt" type="date" name="product_created_at" value="{{ date('Y-m-d') }}">
+                        <small class="FormErrorMessage"></small>
+                    </div>
                 </div>
             </div>
 
@@ -125,9 +130,6 @@
         
     </main>
     <!-- End Main -->
-     
-
-
 @endsection
 
 

@@ -39,6 +39,9 @@ Validator({
         Validator.tbRequired({
             selector: '#ProductQuantity'
         }),
+        Validator.tbRequired({
+            selector: '#ProductImportAt'
+        }),
         Validator.sbRequired({
             selector: '#ProductType'
         })

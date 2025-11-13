@@ -28,6 +28,9 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="Filter">
+                        <input class="ListSearchFormInput ListSearchFormInput_Date" type="date" name="product_created_at" value="{{ request()->product_created_at }}">
+                    </div>
                     <button class="ListSearchFormBtn" type="reset"><a href="{{route('product.index')}}">Xóa</a></button>
                     <button class="ListSearchFormBtn ListSearchFormBtn_Submit">
                         <svg class="ListSearchFormSubmitIcon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -58,6 +61,7 @@
                         <th class="TableData">Đơn vị</th>
                         <th class="TableData">Giới tính</th>
                         <th class="TableData">Nguồn</th>
+                        <th class="TableData">Ngày nhập</th>
                         <th class="TableData">Giá nhập</th>
                         <th class="TableData">Giá bán</th>
                         <th class="TableData">Lợi nhuận</th>
@@ -96,6 +100,7 @@
                             <td class="TableData">{{ productUnit($product->product_unit) }}</td>
                             <td class="TableData">{{ productGender($product->product_gender) }}</td>
                             <td class="TableData">{{ productSource($product->product_source) }}</td>
+                            <td class="TableData TableData_Center">{{ date('Y-m-d', strtotime($product->product_import_at)) }}</td>
                             <td class="TableData">{{ commonNumberToVND($product->product_price_input) }}</td>
                             <td class="TableData">{{ commonNumberToVND($product->product_price_output) }}</td>
                             <td class="TableData">{{ productProfit($product) }}</td>

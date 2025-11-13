@@ -30,6 +30,10 @@ class ProductAccess extends Access{
             $searchParams[] = ['productype.productype_code', '=', $request->productype_code];
         }
 
+        if( !empty($request->product_import_at) ){
+            $searchParams[] = ['product.product_import_at', 'like', '%' . $request->product_import_at . '%'];
+        }
+
         return $this->buildCondition($searchParams);
     }
 
@@ -118,6 +122,7 @@ class ProductAccess extends Access{
         $param['product_source'] = $request['product_source'];
         $param['productype_id'] = $request['productype_id'];
         $param['product_isdrop'] = $request['product_isdrop'];
+        $param['product_import_at'] = $request['product_import_at'];
 
         if( !empty( $request->newPath ) ){
             $param['product_thumbnail'] = $request->newPath;
@@ -139,6 +144,7 @@ class ProductAccess extends Access{
         $param['product_source'] = $request['product_source'];
         $param['productype_id'] = $request['productype_id'];
         $param['product_isdrop'] = $request['product_isdrop'];
+        $param['product_import_at'] = $request['product_import_at'];
         
         if( !empty( $request->newPath ) ){
             $param['product_thumbnail'] = $request->newPath;

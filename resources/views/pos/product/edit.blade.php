@@ -77,7 +77,7 @@
                         <small class="FormErrorMessage"></small>
                     </div>
                     <div class="FormGroup">
-                        <label class="FormLabel" for="ProductUnit" >Đơn vị</label>
+                        <label class="FormLabel" for="ProductUnit">Đơn vị</label>
                         <select class="FormSelect" name="product_unit" id="ProductUnit">
                             @foreach(productUnit() as $key => $item)
                                 <option value="{{$key}}"  {{ ($product->product_unit == $key) ? 'selected' : ''; }}>{{$item}}</option>
@@ -115,6 +115,11 @@
                                 <option value="{{$key}}" {{ ($product->product_source == $key) ? 'selected' : ''; }}>{{$item}}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="FormGroup FormValidate">
+                        <label class="FormLabel" for="ProductImportAt">Ngày nhập hàng</label>
+                        <input class="FormInput" id="ProductImportAt" type="date" name="product_import_at" value="{{ date('Y-m-d', strtotime($product->product_import_at)) }}">
+                        <small class="FormErrorMessage"></small>
                     </div>
                 </div>
             </div>
