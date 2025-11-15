@@ -19,7 +19,6 @@ class ProductController extends Controller
 
     public function index(Request $request){
         $products = $this->_productAccess->get($request);
-
         return view('web.product.index', [
             'products' => $products
         ]);
